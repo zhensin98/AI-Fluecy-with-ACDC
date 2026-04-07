@@ -6,12 +6,23 @@ A multi-company training platform for Microsoft 365 Copilot adoption workshops. 
 
 ## Getting Started
 
-No installation or server required. All files are plain HTML — just open them in a browser.
+### 1. Start the local server (required)
 
-**To launch the platform:**
-1. Open `index.html` in your browser — this is the login page
-2. Enter the company password set in the admin panel
-3. You'll be taken to the company's branded **Main Page**
+The platform uses a local Node.js server for features like extracting brand colors from a company website and saving profile data.
+
+> **Node.js must be installed.** Download it from [nodejs.org](https://nodejs.org) if you don't have it.
+
+Open a terminal in the project folder and run:
+
+```bash
+node color-server.js
+```
+
+Leave this terminal running in the background. The server runs on port `3001` and requires no `npm install` — it uses only built-in Node.js modules.
+
+### 2. Open the platform
+
+Open `index.html` in your browser — this is the login page. Enter the company password set in the admin panel and you'll be taken to the company's branded **Main Page**.
 
 ---
 
