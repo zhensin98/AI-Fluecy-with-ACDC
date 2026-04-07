@@ -1,0 +1,1454 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Fluency Toolkit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- BRAND-CSS: Uncomment and set customer stylesheet to rebrand -->
+    <link rel="stylesheet" href="customer-brand.css">
+    <script src="brand-apply.js"></script>
+    <style>
+
+/* Authentication overlay, to be removed before pushing to production */
+        /* ============================================================
+           AUTHENTICATION OVERLAY
+           ============================================================ */
+        #auth-overlay {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: background 0.4s ease;
+        }
+
+        #auth-overlay .auth-box {
+            background: white;
+            padding: 40px 36px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 420px;
+            width: 90%;
+        }
+
+        #auth-overlay .auth-logo {
+            max-width: 140px;
+            max-height: 70px;
+            object-fit: contain;
+            margin-bottom: 18px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Logo placeholder when no image uploaded */
+        #auth-overlay .auth-logo-placeholder {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-primary-dark));
+            border-radius: 14px;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #auth-overlay .auth-logo-placeholder svg {
+            width: 28px;
+            height: 28px;
+            stroke: white;
+            fill: none;
+        }
+
+        #auth-overlay h2 {
+            color: var(--color-text-primary, #2D3748);
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.4rem;
+        }
+
+        #auth-overlay .auth-subtitle {
+            color: var(--color-text-secondary, #718096);
+            font-size: 0.9rem;
+            margin-bottom: 1.4rem;
+        }
+
+        /* Company selector cards */
+        #company-select-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 4px;
+            max-height: 280px;
+            overflow-y: auto;
+        }
+        .company-select-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border: 2px solid #E2E8F0;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #2D3748;
+            text-align: left;
+            transition: all 0.15s;
+        }
+        .company-select-btn:hover {
+            border-color: var(--brand-primary, #4299E1);
+            background: #F8FAFC;
+        }
+        .company-select-thumb {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+        .company-select-dot {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        /* Password step */
+        #auth-overlay input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        #auth-overlay input:focus {
+            outline: none;
+            border-color: var(--brand-primary);
+            box-shadow: 0 0 0 3px var(--color-primary-focus, rgba(0, 0, 0, 0.10));
+        }
+
+        #auth-submit-btn {
+            width: 100%;
+            padding: 0.875rem 1.5rem;
+            font-size: 1rem;
+            background: var(--brand-primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            transition: background 0.2s ease;
+        }
+        #auth-submit-btn:hover { background: var(--brand-primary-dark); }
+        #auth-submit-btn:disabled { background: #ccc; cursor: not-allowed; }
+
+        #auth-back-btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 0.6rem 1rem;
+            font-size: 0.88rem;
+            background: transparent;
+            color: #718096;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.15s;
+        }
+        #auth-back-btn:hover { background: #F7FAFC; color: #4A5568; }
+
+        #auth-overlay .error-msg {
+            color: var(--color-error, #D13438);
+            margin-top: 0.75rem;
+            font-size: 0.88rem;
+            display: none;
+        }
+
+        /* ============================================================
+           INDEX PAGE STYLES
+           Brand colors come from styles.css / customer-brand.css.
+           Page-specific tokens and layout below.
+           ============================================================ */
+        :root {
+            /* Text Colors (index-specific aliases) */
+            --color-text: #1e293b;
+            --color-text-muted: #64748b;
+            --color-text-light: #94a3b8;
+
+            /* Background Colors */
+            --color-bg: #f8fafc;
+            --color-surface: #ffffff;
+            --color-border: #e2e8f0;
+
+            /* Typography */
+            --font-display: 'Manrope', sans-serif;
+            --font-body: 'Inter', sans-serif;
+
+            /* Spacing */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
+
+            /* Border Radius */
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.7;
+            color: var(--color-text);
+            background: var(--color-bg);
+            min-height: 100vh;
+        }
+
+        /* ============================================================
+           HEADER - Multi-layered diagonal gradient
+           Inspired by rich overlapping color sweeps.
+           Layers: base gradient + 3 diagonal sweeps + dot texture
+           ============================================================ */
+        .header {
+            background: var(--color-primary-dark);
+            padding: 60px 40px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Layer 1: Base diagonal gradient */
+        .header-gradient-base {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                var(--color-primary-dark) 0%,
+                var(--color-primary) 35%,
+                var(--color-primary-dark) 65%,
+                var(--color-primary) 100%
+            );
+        }
+
+        /* Layer 2: Bright diagonal sweep from top-right */
+        .header-gradient-sweep-1 {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                115deg,
+                transparent 0%,
+                transparent 25%,
+                rgba(255, 255, 255, 0.07) 35%,
+                rgba(255, 255, 255, 0.12) 45%,
+                rgba(255, 255, 255, 0.07) 55%,
+                transparent 65%,
+                transparent 100%
+            );
+        }
+
+        /* Layer 3: Warm accent sweep from left */
+        .header-gradient-sweep-2 {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                155deg,
+                rgba(255, 255, 255, 0.08) 0%,
+                rgba(255, 255, 255, 0.04) 20%,
+                transparent 40%,
+                transparent 100%
+            );
+        }
+
+        /* Layer 4: Deep shadow sweep bottom-left */
+        .header-gradient-sweep-3 {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                -45deg,
+                transparent 0%,
+                transparent 50%,
+                rgba(0, 0, 0, 0.12) 75%,
+                rgba(0, 0, 0, 0.2) 100%
+            );
+        }
+
+        /* Floating orbs for depth */
+        .header-orb {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .header-orb--1 {
+            width: 350px;
+            height: 350px;
+            top: -120px;
+            right: -60px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            animation: orbFloat1 18s ease-in-out infinite;
+        }
+
+        .header-orb--2 {
+            width: 250px;
+            height: 250px;
+            bottom: -80px;
+            left: 5%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 70%);
+            animation: orbFloat2 22s ease-in-out infinite;
+        }
+
+        .header-orb--3 {
+            width: 180px;
+            height: 180px;
+            top: 20%;
+            left: 55%;
+            background: radial-gradient(circle, rgba(180, 142, 86, 0.08) 0%, transparent 70%);
+            animation: orbFloat3 15s ease-in-out infinite;
+        }
+
+        @keyframes orbFloat1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-15px, 20px) scale(1.05); }
+            66% { transform: translate(10px, -10px) scale(0.97); }
+        }
+
+        @keyframes orbFloat2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, -15px) scale(1.08); }
+        }
+
+        @keyframes orbFloat3 {
+            0%, 100% { transform: translate(0, 0); }
+            40% { transform: translate(-12px, 12px); }
+            80% { transform: translate(8px, -8px); }
+        }
+
+        /* Dot texture overlay */
+        .header-dots {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 28px 28px;
+            pointer-events: none;
+        }
+
+        /* Animated shimmer sweep */
+        .header-shimmer {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                105deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.04) 45%,
+                rgba(255, 255, 255, 0.07) 50%,
+                rgba(255, 255, 255, 0.04) 55%,
+                transparent 70%
+            );
+            animation: headerShimmer 10s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes headerShimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Wave bottom edge */
+        .header-wave {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .header-wave svg {
+            display: block;
+            width: 100%;
+            height: 60px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 3;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: rgba(255, 255, 255, 0.92);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 8px 22px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            letter-spacing: 0.02em;
+        }
+
+        .header h1 {
+            font-family: var(--font-display);
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 16px;
+            letter-spacing: -0.025em;
+            line-height: 1.15;
+            text-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-subtitle {
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 1.1rem;
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ============================================================
+           MAIN CONTENT
+           ============================================================ */
+        .main-content {
+            max-width: 1400px;
+            margin: -20px auto 0;
+            padding: 0 16px var(--spacing-2xl);
+            position: relative;
+            z-index: 3;
+        }
+
+        /* ============================================================
+           SECTION HEADERS
+           ============================================================ */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+            margin-top: var(--spacing-2xl);
+        }
+
+        .section-header:first-child {
+            margin-top: var(--spacing-lg);
+        }
+
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--color-primary-light);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .section-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--color-primary);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .section-label {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--color-text);
+        }
+
+        .section-line {
+            flex-grow: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--color-border), transparent);
+        }
+
+        /* ============================================================
+           CARDS GRID
+           ============================================================ */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .cards-grid--2col {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .card {
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            padding: 32px 28px 28px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-border);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Top accent bar - gradient reveal on hover */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(35, 84, 91, 0.2);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        /* ---- Card Icon ---- */
+        .card-icon {
+            width: 52px;
+            height: 52px;
+            background: var(--color-primary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-lg);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(35, 84, 91, 0.25);
+        }
+
+        .card-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Explorer cards - accent colored icon */
+        .card--explorer .card-icon {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark, #8A6D42) 100%);
+        }
+
+        .card:hover.card--explorer .card-icon {
+            box-shadow: 0 4px 12px rgba(180, 142, 86, 0.3);
+        }
+
+        .card--explorer::before {
+            background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-primary) 100%);
+        }
+
+        /* ---- Card Content ---- */
+        .card-module {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .card--explorer .card-module {
+            color: var(--color-primary);
+        }
+
+        .card h2 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.35;
+        }
+
+        .card p {
+            color: var(--color-text-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-bottom: var(--spacing-lg);
+            flex-grow: 1;
+        }
+
+        /* ---- Card Footer with dual links ---- */
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding-top: 4px;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.92rem;
+            padding: 6px 0;
+            transition: gap 0.25s ease, color 0.2s ease;
+        }
+
+        .card-link svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: transform 0.25s ease;
+        }
+
+        .card-link:hover {
+            gap: 12px;
+        }
+
+        .card-link:hover svg {
+            transform: translateX(3px);
+        }
+
+        /* Secondary link style (hands-on) */
+        .card-link--secondary {
+            color: var(--color-accent);
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .card--explorer .card-link {
+            color: var(--color-primary);
+        }
+
+        /* ============================================================
+           NOTICE SECTION
+           ============================================================ */
+        .notice-section {
+            background: var(--color-accent-light);
+            border: 1px solid var(--color-accent-border);
+            border-radius: var(--radius-md);
+            padding: 24px 28px;
+            margin-top: var(--spacing-2xl);
+        }
+
+        .notice-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .notice-icon {
+            width: 22px;
+            height: 22px;
+            stroke: var(--color-accent);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .notice-header h3 {
+            color: var(--color-primary);
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .notice-section p {
+            color: var(--color-text);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .notice-section strong {
+            font-weight: 600;
+        }
+
+        /* ============================================================
+           BACK TO TOP BUTTON
+           ============================================================ */
+        .back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .back-to-top svg {
+            width: 20px;
+            height: 20px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        .footer {
+            text-align: center;
+            padding: 32px 40px 40px;
+            border-top: 1px solid var(--color-border);
+            background: var(--color-surface);
+        }
+
+        .footer-brand {
+            font-weight: 600;
+            color: var(--color-text);
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+        }
+
+        .footer-brand a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .footer-brand a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-tagline {
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ============================================================
+           SCROLL-REVEAL ANIMATIONS
+           ============================================================ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Elements start hidden, revealed by IntersectionObserver */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger delays for cards within a grid */
+        .reveal-delay-1 { transition-delay: 0.08s; }
+        .reveal-delay-2 { transition-delay: 0.16s; }
+        .reveal-delay-3 { transition-delay: 0.24s; }
+
+        /* Header content entrance animation (plays immediately) */
+        .header-content {
+            animation: fadeInUp 0.7s ease forwards;
+        }
+
+        /* ============================================================
+           RESPONSIVE DESIGN
+           ============================================================ */
+        @media (max-width: 1100px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            .cards-grid--2col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 50px 24px 90px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header-subtitle {
+                font-size: 1rem;
+            }
+
+            .main-content {
+                padding: 0 20px var(--spacing-xl);
+            }
+
+            .card {
+                padding: 28px 24px 24px;
+            }
+
+            .notice-section {
+                padding: 20px 22px;
+            }
+
+            .section-header {
+                margin-top: var(--spacing-xl);
+            }
+
+            .card-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.65rem;
+            }
+
+            .card h2 {
+                font-size: 1.1rem;
+            }
+
+            .header-wave svg {
+                height: 35px;
+            }
+        }
+
+        /* ============================================================
+           PRINT STYLES
+           ============================================================ */
+        @media print {
+            .header {
+                background: var(--color-primary) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .card, .section-header, .notice-section {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid var(--color-border);
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            .header-wave,
+            .header-orb,
+            .header-shimmer,
+            .header-dots,
+            .back-to-top {
+                display: none;
+            }
+
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+        /* ============================================================
+           REDUCED MOTION
+           ============================================================ */
+        @media (prefers-reduced-motion: reduce) {
+            .header-shimmer,
+            .header-orb {
+                animation: none;
+            }
+
+            .reveal {
+                transition-duration: 0.01s;
+            }
+
+            .header-content {
+                animation-duration: 0.01s;
+            }
+
+            .card {
+                transition-duration: 0.15s;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<!-- Authentication Overlay remove before pushing to production -->
+    <div id="auth-overlay" style="display: flex;">
+        <div class="auth-box">
+
+            <!-- Step 1: Company selector (shown when multiple companies exist) -->
+            <div id="auth-step-select" style="display:none;">
+                <h2>Select Your Company</h2>
+                <p class="auth-subtitle">Choose your organization to continue</p>
+                <div id="company-select-list"></div>
+            </div>
+
+            <!-- Step 2: Password entry (shown after company is selected, or immediately if only one company) -->
+            <div id="auth-step-password" style="display:none;">
+                <img id="auth-logo-img" src="" alt="Logo" class="auth-logo" style="display:none;">
+                <div id="auth-logo-placeholder" class="auth-logo-placeholder" style="display:none;">
+                    <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <h2 id="auth-company-name">Workshop Access</h2>
+                <p class="auth-subtitle">Enter your access code to continue</p>
+                <input type="password" id="pwd-input" placeholder="Access code">
+                <button id="auth-submit-btn" onclick="checkPassword()">Enter</button>
+                <p id="error-msg" class="error-msg">Incorrect access code</p>
+                <button id="auth-back-btn" onclick="showCompanySelect()" style="display:none;">← Back to companies</button>
+            </div>
+
+        </div>
+    </div>
+    <!-- ============================================================
+         HEADER
+         ============================================================ -->
+    <header class="header">
+        <!-- Gradient layers -->
+        <div class="header-gradient-base"></div>
+        <div class="header-gradient-sweep-1"></div>
+        <div class="header-gradient-sweep-2"></div>
+        <div class="header-gradient-sweep-3"></div>
+
+        <!-- Floating orbs -->
+        <div class="header-orb header-orb--1"></div>
+        <div class="header-orb header-orb--2"></div>
+        <div class="header-orb header-orb--3"></div>
+
+        <!-- Dot texture -->
+        <div class="header-dots"></div>
+
+        <!-- Shimmer -->
+        <div class="header-shimmer"></div>
+
+        <!-- Content -->
+        <div class="header-content">
+            <!-- CUSTOMIZE: Update badge with customer name or event -->
+            <!-- CUSTOMIZE: Update title for customer context -->
+            <h1>Your AI Fluency Toolkit</h1>
+            <!-- CUSTOMIZE: Update subtitle for customer audience -->
+            <p class="header-subtitle">Interactive guides to help you master Claude, build practical AI habits, and transform your daily work</p>
+        </div>
+
+        <!-- Wave bottom edge -->
+        <div class="header-wave">
+            <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,0 C360,56 720,56 1080,28 C1260,14 1380,8 1440,0 L1440,60 L0,60 Z" fill="var(--color-bg)"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- ============================================================
+         MAIN CONTENT
+         ============================================================ -->
+    <main class="main-content">
+
+        <!-- ---- Section: Workshop Modules ---- -->
+        <div class="section-header reveal revealed">
+            <div class="section-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+            </div>
+            <span class="section-label">Workshop Modules</span>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="cards-grid">
+            <!-- Programme 1: Discover -->
+            <article class="card reveal reveal-delay-1 revealed">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </div>
+                <span class="card-module">Programme 1 · Discover</span>
+                <h2>AI-Augmented Engineering</h2>
+                <p>Discover the AI tools landscape, map the 7 New Habits to your role, and make your first Claude Code interaction.</p>
+                <div class="card-footer">
+                    <a href="Module%201.html" class="card-link">
+                        Open Guide
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Programme 2: Think -->
+            <article class="card reveal reveal-delay-2 revealed">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                </div>
+                <span class="card-module">Programme 2 · Think</span>
+                <h2>Thinking Like an Agent Orchestrator</h2>
+                <p>Build spec-first thinking with the TAEO framework and Claude Code Plan Mode. The bottleneck is the specification, not the code.</p>
+                <div class="card-footer">
+                    <a href="Module%202.html" class="card-link">
+                        Open Guide
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Programme 3: Build -->
+            <article class="card reveal reveal-delay-3 revealed">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                </div>
+                <span class="card-module">Programme 3 · Build</span>
+                <h2>The Agentic SDLC with Claude Code</h2>
+                <p>Two days of hands-on building across role tracks. Parallel workspaces, self-healing QA agents, and the full ACDC Lifecycle.</p>
+                <div class="card-footer">
+                    <a href="Module%203.html" class="card-link">
+                        Open Guide
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Programme 4: Orchestrate -->
+            <article class="card reveal reveal-delay-4 revealed">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path>
+                    </svg>
+                </div>
+                <span class="card-module">Programme 4 · Orchestrate</span>
+                <h2>Engineering at Agent Scale</h2>
+                <p>Design team governance, AI Night Shift operations, and a 30-60-90 day transformation roadmap for your engineering organisation.</p>
+                <div class="card-footer">
+                    <a href="Module%204.html" class="card-link">
+                        Open Guide
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <!-- ---- Section: Explorers ---- -->
+        <div class="section-header reveal revealed">
+            <div class="section-icon">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                </svg>
+            </div>
+            <span class="section-label">Explorers</span>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="cards-grid cards-grid--2col">
+            <!-- Profile Explorer -->
+            <article class="card card--explorer reveal reveal-delay-1 revealed">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <!-- CUSTOMIZE: Update label for customer context -->
+                <span class="card-module">Workshop Resource</span>
+                <h2>Profile Explorer</h2>
+                <!-- CUSTOMIZE: Update description for customer context -->
+                <p>Explore the operational profile for your organization. Understand team structures, key functions, and how AI can support your specific workflows.</p>
+                <div class="card-footer">
+                    <a href="profile%20explorer.html" class="card-link">
+                        Explore Profile
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Copilot Explorer -->
+            <article class="card card--explorer reveal reveal-delay-2 revealed">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                    </svg>
+                </div>
+                <span class="card-module">Workshop Resource</span>
+                <h2>Claude Value Explorer</h2>
+                <!-- CUSTOMIZE: Update description for customer context -->
+                <p>Discover 42 Claude Code use cases mapped to the 7 New Habits of AI-Native Software Engineering — across 6 engineering role families.</p>
+                <div class="card-footer">
+                    <a href="Copilot Value.html" class="card-link">
+                        Explore Values
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+            </article>
+        </div>
+
+    </main>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="footer">
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"></path></svg>
+    </button>
+
+    <!-- ============================================================
+         SCRIPTS
+         ============================================================ -->
+    <script>
+        // ---- Scroll-reveal with IntersectionObserver ----
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.reveal');
+
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('revealed');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.15,
+                    rootMargin: '0px 0px -40px 0px'
+                });
+
+                revealElements.forEach(el => observer.observe(el));
+            } else {
+                // Fallback: show everything immediately
+                revealElements.forEach(el => el.classList.add('revealed'));
+            }
+
+            // ---- Back to Top button ----
+            const backToTop = document.getElementById('backToTop');
+            let ticking = false;
+
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        if (window.scrollY > 300) {
+                            backToTop.classList.add('visible');
+                        } else {
+                            backToTop.classList.remove('visible');
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+
+<!-- Authentication Script -->
+    <script>
+        // Companies are loaded from color-server.js profiles, with localStorage as fallback
+        var _companiesCache = null;
+
+        function getCompanies() {
+            if (_companiesCache !== null) return _companiesCache;
+            try { return JSON.parse(localStorage.getItem('training_companies') || '[]'); } catch (e) { return []; }
+        }
+
+        var _selectedCompany = null;
+
+        // ── Init: already authenticated this session? ─────────────────
+        (function () {
+            var stored = sessionStorage.getItem('active_company');
+            if (stored && sessionStorage.getItem('authenticated') === 'true') {
+                document.getElementById('auth-overlay').style.display = 'none';
+            } else {
+                // Load companies from server first, then start auth
+                fetch('http://localhost:3001/list-profiles')
+                    .then(function(r) { return r.json(); })
+                    .then(function(data) {
+                        if (data.profiles) {
+                            var list = data.profiles
+                                .filter(function(p) { return p.config && p.config.password; })
+                                .map(function(p) {
+                                    return {
+                                        id:          p.id,
+                                        name:        p.name,
+                                        website:     p.url  || '',
+                                        password:    p.config.password,
+                                        colors:      p.config.colors      || {},
+                                        logoDataUrl: p.config.logoDataUrl || ''
+                                    };
+                                });
+                            _companiesCache = list;
+                            try {
+                                var slim = list.map(function(c) { var x = Object.assign({},c); delete x.logoDataUrl; return x; });
+                                localStorage.setItem('training_companies', JSON.stringify(slim));
+                            } catch(e) {}
+                        }
+                        initAuth();
+                    })
+                    .catch(function() {
+                        // Server not running — fall back to localStorage cache
+                        initAuth();
+                    });
+            }
+        })();
+
+        function initAuth() {
+            var companies = getCompanies();
+            if (companies.length === 0) {
+                // No companies configured — show plain password step
+                showPasswordStep(null);
+                return;
+            }
+            if (companies.length === 1) {
+                // Single company — skip selector, go straight to branded password screen
+                selectCompany(companies[0].id);
+            } else {
+                // Multiple companies — show selector first
+                showCompanySelect();
+            }
+        }
+
+        // ── Step 1: Company selector ──────────────────────────────────
+        function showCompanySelect() {
+            var companies = getCompanies();
+            var listEl = document.getElementById('company-select-list');
+            listEl.innerHTML = companies.map(function(c) {
+                var thumb = c.logoDataUrl
+                    ? '<img src="' + c.logoDataUrl + '" class="company-select-thumb" />'
+                    : '<div class="company-select-dot" style="background:' + c.colors.primary + ';"></div>';
+                return '<button class="company-select-btn" onclick="selectCompany(\'' + c.id + '\')">'
+                    + thumb
+                    + '<span>' + escHtml(c.name) + '</span>'
+                    + '</button>';
+            }).join('');
+            document.getElementById('auth-step-select').style.display = '';
+            document.getElementById('auth-step-password').style.display = 'none';
+            // Reset overlay to neutral while on selector
+            document.documentElement.style.setProperty('--brand-primary',      '#4A5568');
+            document.documentElement.style.setProperty('--brand-primary-dark', '#2D3748');
+        }
+
+        // ── Step 2: Select a company → apply brand → show password ────
+        function selectCompany(id) {
+            var companies = getCompanies();
+            var company = companies.find(function(c) { return c.id === id; });
+            if (!company) return;
+            _selectedCompany = company;
+
+            // Apply brand colors to overlay immediately
+            applyBrand(company.colors);
+
+            // Show/hide logo
+            var logoImg  = document.getElementById('auth-logo-img');
+            var logoPh   = document.getElementById('auth-logo-placeholder');
+            if (company.logoDataUrl) {
+                logoImg.src = company.logoDataUrl;
+                logoImg.style.display = '';
+                logoPh.style.display  = 'none';
+            } else {
+                logoImg.style.display = 'none';
+                logoPh.style.display  = '';
+            }
+
+            document.getElementById('auth-company-name').textContent = company.name + ' Workshop';
+            document.getElementById('auth-back-btn').style.display = companies.length > 1 ? '' : 'none';
+
+            document.getElementById('auth-step-select').style.display  = 'none';
+            document.getElementById('auth-step-password').style.display = '';
+            document.getElementById('pwd-input').value = '';
+            document.getElementById('error-msg').style.display = 'none';
+            setTimeout(function() { document.getElementById('pwd-input').focus(); }, 50);
+        }
+
+        function showPasswordStep(company) {
+            document.getElementById('auth-step-select').style.display  = 'none';
+            document.getElementById('auth-step-password').style.display = '';
+            document.getElementById('auth-logo-img').style.display     = 'none';
+            document.getElementById('auth-logo-placeholder').style.display = 'none';
+            document.getElementById('auth-company-name').textContent   = 'Workshop Access';
+            document.getElementById('auth-back-btn').style.display     = 'none';
+        }
+
+        // ── Enter key ─────────────────────────────────────────────────
+        document.getElementById('pwd-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') checkPassword();
+        });
+
+        // ── Password check ────────────────────────────────────────────
+        function checkPassword() {
+            var code     = document.getElementById('pwd-input').value.trim();
+            var errorMsg = document.getElementById('error-msg');
+            errorMsg.style.display = 'none';
+
+            if (!code) {
+                errorMsg.textContent   = 'Please enter the access code';
+                errorMsg.style.display = 'block';
+                return;
+            }
+
+            var match = null;
+            if (_selectedCompany) {
+                // Verify against the already-selected company
+                match = _selectedCompany.password === code ? _selectedCompany : null;
+            } else {
+                // Fallback: search all companies (no company pre-selected)
+                var companies = getCompanies();
+                match = companies.find(function(c) { return c.password === code; }) || null;
+            }
+
+            if (match) {
+                sessionStorage.setItem('authenticated', 'true');
+                sessionStorage.setItem('active_company', JSON.stringify(match));
+                document.getElementById('auth-overlay').style.display = 'none';
+                applyBrand(match.colors);
+            } else {
+                errorMsg.textContent   = 'Incorrect access code';
+                errorMsg.style.display = 'block';
+                document.getElementById('pwd-input').select();
+            }
+        }
+
+        // ── Apply all brand CSS variables ─────────────────────────────
+        function applyBrand(c) {
+            if (!c) return;
+            var root = document.documentElement;
+            function hexToRgb(hex) {
+                var res = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+                return res ? { r: parseInt(res[1],16), g: parseInt(res[2],16), b: parseInt(res[3],16) } : null;
+            }
+            var rgb  = hexToRgb(c.primary) || { r:35, g:84, b:91 };
+            var rgba = hexToRgb(c.accent)  || { r:26, g:115, b:232 };
+            var r=rgb.r, g=rgb.g, b=rgb.b, ra=rgba.r, ga=rgba.g, ba=rgba.b;
+
+            root.style.setProperty('--brand-primary',       c.primary);
+            root.style.setProperty('--brand-primary-dark',  c.primaryDark);
+            root.style.setProperty('--brand-primary-light', c.primaryLight);
+            root.style.setProperty('--brand-secondary',     c.primaryDark);
+            root.style.setProperty('--brand-accent',        c.accent);
+            root.style.setProperty('--brand-sidebar-bg',    c.sidebarBg);
+            root.style.setProperty('--color-primary',       c.primary);
+            root.style.setProperty('--color-primary-dark',  c.primaryDark);
+            root.style.setProperty('--color-primary-light', 'rgba('+r+','+g+','+b+',0.08)');
+            root.style.setProperty('--color-primary-muted', 'rgba('+r+','+g+','+b+',0.06)');
+            root.style.setProperty('--color-primary-focus', 'rgba('+r+','+g+','+b+',0.20)');
+            root.style.setProperty('--color-primary-pale',  'rgba('+r+','+g+','+b+',0.08)');
+            root.style.setProperty('--color-accent',        c.accent);
+            root.style.setProperty('--color-accent-light',  'rgba('+ra+','+ga+','+ba+',0.10)');
+            root.style.setProperty('--color-accent-border', 'rgba('+ra+','+ga+','+ba+',0.30)');
+            root.style.setProperty('--color-nav-hover',     'rgba('+r+','+g+','+b+',0.12)');
+            root.style.setProperty('--color-sidebar-bg',    c.sidebarBg);
+            root.style.setProperty('--gradient-start',      c.primary);
+            root.style.setProperty('--gradient-end',        c.primaryDark);
+            root.style.setProperty('--color-info',          c.primary);
+            root.style.setProperty('--color-info-bg',       'rgba('+r+','+g+','+b+',0.08)');
+            root.style.setProperty('--color-bg-highlight',  'rgba('+r+','+g+','+b+',0.06)');
+            root.style.setProperty('--primary-color',       c.primary);
+            root.style.setProperty('--secondary-color',     c.primaryDark);
+            root.style.setProperty('--accent-color',        c.accent);
+            root.style.setProperty('--info-box-bg',         'rgba('+r+','+g+','+b+',0.08)');
+        }
+
+        function escHtml(s) {
+            return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        }
+    </script>
+
+
+
+</body></html>

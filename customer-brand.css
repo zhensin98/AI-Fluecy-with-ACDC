@@ -1,0 +1,112 @@
+/* ================================================================
+   NATIONAL TRADES UNION CONGRESS (NTUC) - BRAND OVERRIDE
+   Design System v2.0
+
+   Customer:  National Trades Union Congress
+   Generated: February 2026
+
+   Brand Reference:
+   - NTUC Red (#E91627): Primary brand color, logo, headings, CTAs
+   - NTUC Crimson (#B8111F): Dark primary, hero gradients, footer backgrounds
+   - NTUC Coral (#F04B58): Light primary, hover highlights, secondary accents
+   - Action Blue (#1A73E8): Interactive accent, links, buttons, information callouts
+   - Slate Grey (#718096): Secondary neutral, captions, badges, muted text
+   - Near Black (#121212): Primary text, dark backgrounds
+   - Cloud White (#F7F8FA): Light page backgrounds, section alternates
+   - Silver (#E2E8F0): Borders, dividers, input outlines
+   ================================================================ */
+
+:root {
+    /* ================================================================
+       TIER 1: Base Brand Colors (6 variables)
+       Foundation inputs - everything else derives from these
+       ================================================================ */
+    --brand-primary: #E91627;
+    --brand-primary-dark: #B8111F;
+    --brand-primary-light: #F04B58;
+    --brand-secondary: #B8111F;
+    --brand-accent: #1A73E8;
+    --brand-sidebar-bg: #B8111F;
+
+    /* ================================================================
+       TIER 2: Derived Brand Colors (~20 variables)
+       Computed from Tier 1 using rgba opacity and shade adjustments
+       ================================================================ */
+
+    /* Primary-derived variables */
+    /* NTUC Red #E91627 = rgb(233, 22, 39) */
+    --color-primary: #E91627;
+    --color-primary-dark: #B8111F;
+    --color-primary-light: rgba(233, 22, 39, 0.08);
+    --color-primary-muted: rgba(233, 22, 39, 0.06);
+    --color-primary-focus: rgba(233, 22, 39, 0.20);
+    --color-primary-pale: rgba(233, 22, 39, 0.08);
+
+    /* Accent-derived variables */
+    /* Action Blue #1A73E8 = rgb(26, 115, 232) */
+    --color-accent: #1A73E8;
+    --color-accent-dark: #1259B8;
+    --color-accent-light: rgba(26, 115, 232, 0.10);
+    --color-accent-muted: rgba(26, 115, 232, 0.05);
+    --color-accent-border: rgba(26, 115, 232, 0.30);
+
+    /* Structural brand variables */
+    --color-subsection-bg: #FEF2F2;
+    --color-nav-hover: rgba(233, 22, 39, 0.12);
+    --color-sidebar-bg: #B8111F;
+    --gradient-start: #E91627;
+    --gradient-end: #B8111F;
+
+    /* Secondary (supporting neutral) variables */
+    --color-secondary: #718096;
+    --color-secondary-dark: #4A5568;
+    --color-secondary-light: #A0AEC0;
+
+    /* ================================================================
+       TIER 3: Neutral and Structural Colors (~18 variables)
+       Status, text, background, and border colors
+       ================================================================ */
+
+    /* Status colors */
+    --color-success: #00875A;
+    --color-success-bg: rgba(0, 135, 90, 0.08);
+    --color-warning: #F59E0B;
+    --color-warning-bg: rgba(245, 158, 11, 0.10);
+    --color-info: #E91627;
+    --color-info-bg: rgba(233, 22, 39, 0.08);
+    --color-error: #D13438;
+    --color-error-bg: rgba(209, 52, 56, 0.08);
+
+    /* Text colors */
+    --color-text-primary: #121212;
+    --color-text-secondary: #4A5568;
+    --color-text-muted: #718096;
+    --color-text-inverse: #FFFFFF;
+
+    /* Background colors */
+    --color-bg-page: #F7F8FA;
+    --color-bg-card: #FFFFFF;
+    --color-bg-section: #F0F2F5;
+    --color-bg-highlight: rgba(233, 22, 39, 0.06);
+    --color-bg-dark: #121212;
+    --color-bg-dark-elevated: #1E1E1E;
+
+    /* Border colors */
+    --color-border: #E2E8F0;
+    --color-border-light: #EDF2F7;
+
+    /* ================================================================
+       LEGACY ALIASES (10 variables)
+       Backward compatibility for older HTML templates
+       ================================================================ */
+    --primary-color: #E91627;
+    --secondary-color: #B8111F;
+    --accent-color: #1A73E8;
+    --dark-text: #121212;
+    --gray-text: #4A5568;
+    --light-bg: #F0F2F5;
+    --info-box-bg: rgba(233, 22, 39, 0.08);
+    --success-green: #00875A;
+    --success-box-bg: rgba(0, 135, 90, 0.10);
+    --warning-box-bg: rgba(26, 115, 232, 0.10);
+}

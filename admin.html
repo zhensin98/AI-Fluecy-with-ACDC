@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training Platform — Company Setup</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #F0F2F5; color: #1a1a1a; min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* ── Header ── */
+    .header { background: #1A1A2E; color: white; padding: 14px 28px; display: flex; align-items: center; gap: 12px; }
+    .header-logo { width: 28px; height: 28px; }
+    .header h1 { font-size: 1.05rem; font-weight: 600; flex: 1; }
+    .btn-goto-main { padding: 7px 16px; border-radius: 7px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: white; cursor: pointer; font-size: 0.82rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: background 0.15s; }
+    .btn-goto-main:hover { background: rgba(255,255,255,0.2); }
+
+    /* ── Layout ── */
+    .main { display: flex; flex: 1; overflow: hidden; height: calc(100vh - 52px); }
+
+    /* ── Sidebar ── */
+    .sidebar { width: 250px; flex-shrink: 0; background: white; border-right: 1px solid #E2E8F0; display: flex; flex-direction: column; }
+    .sidebar-top { padding: 14px 14px 10px; border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; justify-content: space-between; }
+    .sidebar-top span { font-size: 0.72rem; font-weight: 700; color: #718096; text-transform: uppercase; letter-spacing: 0.07em; }
+    .btn-new { padding: 5px 12px; border-radius: 6px; border: none; background: #4299E1; color: white; cursor: pointer; font-size: 0.78rem; font-weight: 600; }
+    .btn-new:hover { background: #3182CE; }
+    .company-list { flex: 1; overflow-y: auto; }
+    .company-item { padding: 10px 12px; border-bottom: 1px solid #F7FAFC; cursor: pointer; display: flex; align-items: center; gap: 9px; transition: background 0.1s; }
+    .company-item:hover { background: #F7FAFC; }
+    .company-item.active { background: #EBF8FF; border-left: 3px solid #4299E1; padding-left: 9px; }
+    .ci-thumb { width: 30px; height: 30px; border-radius: 6px; object-fit: contain; background: #F0F2F5; border: 1px solid #E2E8F0; flex-shrink: 0; }
+    .ci-dot { width: 30px; height: 30px; border-radius: 6px; flex-shrink: 0; }
+    .ci-meta { flex: 1; min-width: 0; }
+    .ci-name { font-size: 0.85rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .ci-pw { font-size: 0.7rem; color: #A0AEC0; font-family: monospace; }
+    .ci-del { padding: 3px 6px; border: none; background: none; cursor: pointer; color: #CBD5E0; font-size: 12px; border-radius: 4px; line-height: 1; }
+    .ci-del:hover { color: #E53E3E; background: #FFF5F5; }
+    .list-empty { padding: 28px 14px; text-align: center; color: #A0AEC0; font-size: 0.8rem; line-height: 1.6; }
+
+    /* ── Editor area ── */
+    .editor { flex: 1; overflow-y: auto; padding: 24px; }
+    .two-col { display: grid; grid-template-columns: 1fr 380px; gap: 20px; align-items: start; }
+    @media (max-width: 960px) { .two-col { grid-template-columns: 1fr; } }
+
+    /* ── Cards ── */
+    .card { background: white; border-radius: 12px; padding: 20px 22px; border: 1px solid #E2E8F0; margin-bottom: 16px; }
+    .card-title { font-size: 0.72rem; font-weight: 700; color: #718096; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #F0F2F5; }
+
+    /* ── Fields ── */
+    .field { margin-bottom: 13px; }
+    .field label { display: block; font-size: 0.75rem; font-weight: 600; color: #4A5568; margin-bottom: 5px; }
+    .field input[type=text], .field input[type=password] { width: 100%; padding: 9px 12px; border: 1px solid #E2E8F0; border-radius: 8px; font-size: 0.88rem; color: #2D3748; background: white; transition: border 0.15s; }
+    .field input:focus { outline: none; border-color: #4299E1; box-shadow: 0 0 0 3px rgba(66,153,225,0.12); }
+    .field-hint { font-size: 0.72rem; color: #A0AEC0; margin-top: 4px; }
+
+    /* ── Upload zone ── */
+    .upload-zone { border: 2px dashed #CBD5E0; border-radius: 10px; padding: 24px 16px; text-align: center; cursor: pointer; transition: all 0.2s; position: relative; background: #FAFAFA; }
+    .upload-zone:hover, .upload-zone.drag-over { border-color: #4299E1; background: #EBF8FF; }
+    .upload-zone input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+    .upload-preview { max-width: 120px; max-height: 80px; object-fit: contain; margin: 0 auto 8px; display: block; border-radius: 6px; }
+    .upload-icon { font-size: 32px; margin-bottom: 8px; }
+    .upload-label { font-size: 0.82rem; color: #718096; }
+    .upload-label strong { color: #4299E1; }
+    .upload-filename { font-size: 0.72rem; color: #A0AEC0; margin-top: 4px; }
+
+    /* ── URL extract button ── */
+    .btn-url-extract { padding: 9px 14px; border: none; border-radius: 8px; background: linear-gradient(135deg,#38B2AC,#2C7A7B); color: white; cursor: pointer; font-size: 0.82rem; font-weight: 600; white-space: nowrap; flex-shrink: 0; transition: opacity 0.2s; }
+    .btn-url-extract:hover { opacity: 0.85; }
+    .btn-url-extract:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ── Clear Image button ── */
+    .btn-clear-image { padding: 10px 14px; border: 1px solid #E2E8F0; border-radius: 8px; background: white; color: #718096; cursor: pointer; font-size: 0.82rem; font-weight: 600; flex-shrink: 0; transition: all 0.15s; }
+    .btn-clear-image:hover { background: #FFF5F5; border-color: #FEB2B2; color: #E53E3E; }
+    .btn-clear-image:disabled { opacity: 0.4; cursor: not-allowed; }
+    .btn-clear-image:disabled:hover { background: white; border-color: #E2E8F0; color: #718096; }
+
+    /* ── Analyze button ── */
+    .btn-analyze { width: 100%; padding: 10px; border: none; border-radius: 8px; background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%); color: white; cursor: pointer; font-size: 0.88rem; font-weight: 600; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; transition: opacity 0.2s; }
+    .btn-analyze:hover { opacity: 0.9; }
+    .btn-analyze:disabled { opacity: 0.5; cursor: not-allowed; }
+    .spinner { width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.35); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; flex-shrink: 0; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Color rows ── */
+    .color-row { display: flex; align-items: center; gap: 10px; margin-bottom: 11px; }
+    .cr-label { font-size: 0.78rem; font-weight: 600; color: #2D3748; width: 145px; flex-shrink: 0; }
+    .cr-label small { display: block; font-size: 0.65rem; color: #A0AEC0; font-weight: 400; margin-top: 1px; line-height: 1.3; }
+    input[type=color] { width: 36px; height: 32px; border: 1px solid #E2E8F0; border-radius: 6px; cursor: pointer; padding: 2px 3px; background: white; flex-shrink: 0; }
+    .cr-hex { flex: 1; padding: 6px 9px; border: 1px solid #E2E8F0; border-radius: 6px; font-size: 0.82rem; font-family: monospace; color: #2D3748; }
+    .cr-hex:focus { outline: none; border-color: #4299E1; }
+    .cr-swatch { width: 20px; height: 20px; border-radius: 4px; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.1); }
+
+    /* ── Status ── */
+    .status { font-size: 0.78rem; padding: 8px 11px; border-radius: 7px; margin-top: 8px; line-height: 1.5; }
+    .status.success { background: #F0FFF4; color: #276749; border: 1px solid #9AE6B4; }
+    .status.error   { background: #FFF5F5; color: #C53030; border: 1px solid #FEB2B2; }
+    .status.info    { background: #EBF8FF; color: #2B6CB0; border: 1px solid #BEE3F8; }
+
+    /* ── Import AI Colors button ── */
+    .btn-import { width: 100%; padding: 10px; border: none; border-radius: 8px; background: linear-gradient(135deg, #38B2AC 0%, #2C7A7B 100%); color: white; cursor: pointer; font-size: 0.88rem; font-weight: 600; margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 8px; transition: opacity 0.2s; }
+    .btn-import:hover { opacity: 0.9; }
+
+    /* ── Import modal ── */
+    .import-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 1000; align-items: center; justify-content: center; }
+    .import-modal-overlay.open { display: flex; }
+    .import-modal { background: white; border-radius: 14px; padding: 24px; width: 460px; max-width: 95vw; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
+    .import-modal h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .import-modal p { font-size: 0.8rem; color: #718096; margin-bottom: 14px; line-height: 1.5; }
+    .import-modal textarea { width: 100%; height: 120px; padding: 10px; border: 1px solid #E2E8F0; border-radius: 8px; font-size: 0.82rem; font-family: monospace; resize: vertical; }
+    .import-modal textarea:focus { outline: none; border-color: #38B2AC; }
+    .import-modal-btns { display: flex; gap: 8px; margin-top: 12px; justify-content: flex-end; }
+    .btn-import-apply { padding: 8px 18px; border: none; border-radius: 7px; background: #38B2AC; color: white; font-weight: 600; cursor: pointer; font-size: 0.88rem; }
+    .btn-import-cancel { padding: 8px 18px; border: 1px solid #E2E8F0; border-radius: 7px; background: white; color: #4A5568; font-weight: 600; cursor: pointer; font-size: 0.88rem; }
+
+    /* ── Save button ── */
+    .btn-save { width: 100%; padding: 11px; border: none; border-radius: 8px; background: #48BB78; color: white; cursor: pointer; font-size: 0.92rem; font-weight: 600; margin-top: 4px; transition: background 0.15s; }
+    .btn-save:hover { background: #38A169; }
+
+    /* ── Preview card ── */
+    .preview-card { background: white; border-radius: 12px; padding: 20px 22px; border: 1px solid #E2E8F0; max-height: calc(100vh - 72px); overflow-y: auto; }
+    .prev-label { font-size: 0.65rem; font-weight: 700; color: #718096; text-transform: uppercase; letter-spacing: 0.06em; margin: 12px 0 5px; }
+    .prev-label:first-child { margin-top: 0; }
+    .prev-wrap { overflow: hidden; border-radius: 8px; border: 1px solid #E2E8F0; position: relative; background: #F0F2F5; margin-bottom: 2px; }
+    .prev-spinner { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #F0F2F5; gap: 6px; pointer-events: none; }
+    .prev-spinner-ring { width: 18px; height: 18px; border: 2px solid #CBD5E0; border-top-color: #4299E1; border-radius: 50%; animation: spin 0.7s linear infinite; }
+    .preview-topbar { height: 46px; border-radius: 8px; display: flex; align-items: center; padding: 0 14px; color: white; font-size: 0.85rem; font-weight: 500; gap: 8px; margin-bottom: 10px; }
+    .preview-topbar img { height: 24px; object-fit: contain; }
+    .preview-chips { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 10px; }
+    .preview-chip { padding: 5px 12px; border-radius: 20px; font-size: 0.77rem; color: white; font-weight: 500; }
+    .preview-sidebar { border-radius: 8px; height: 70px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.82rem; font-weight: 500; margin-bottom: 10px; }
+    .preview-infobox { border-radius: 7px; padding: 10px 12px; font-size: 0.8rem; color: #2D3748; margin-bottom: 10px; line-height: 1.5; }
+    .preview-swatches { display: flex; gap: 5px; }
+    .preview-swatch { flex: 1; height: 26px; border-radius: 5px; }
+
+    /* ── Empty state ── */
+    .empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; color: #A0AEC0; gap: 8px; text-align: center; }
+    .empty-state h3 { color: #718096; font-size: 1rem; }
+    .empty-state p { font-size: 0.83rem; }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <svg class="header-logo" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+  </svg>
+  <h1>Training Platform — Company Setup</h1>
+  <a href="Main page.html" class="btn-goto-main" onclick="sessionStorage.removeItem('authenticated');sessionStorage.removeItem('active_company');">&#8594; Go to Training</a>
+</div>
+
+<div class="main">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-top">
+      <span>Companies</span>
+      <button class="btn-new" onclick="newCompany()">+ New</button>
+    </div>
+    <div class="company-list" id="company-list"></div>
+  </div>
+
+  <!-- Editor -->
+  <div class="editor" id="editor">
+    <div class="empty-state">
+      <h3>No company selected</h3>
+      <p>Click <strong>+ New</strong> to set up a company.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── Storage — server is source of truth, localStorage is a fast cache ────────
+var _companiesCache = null;
+
+function getCompanies() {
+  if (_companiesCache !== null) return _companiesCache;
+  try { return JSON.parse(localStorage.getItem('training_companies') || '[]'); } catch(e) { return []; }
+}
+function _setCache(list) {
+  _companiesCache = list;
+  // Strip logoDataUrl before saving to localStorage — base64 images are large
+  // and can exceed the ~5MB quota, causing the write to silently fail.
+  // The logo is persisted on disk (profiles/*.json) and reloaded from the server.
+  try {
+    var slim = list.map(function(c) {
+      var copy = Object.assign({}, c);
+      delete copy.logoDataUrl;
+      return copy;
+    });
+    localStorage.setItem('training_companies', JSON.stringify(slim));
+  } catch(e) {}
+}
+
+// Load companies FROM server (profiles/*.json) and sync into cache
+function loadCompaniesFromServer(callback) {
+  fetch('http://localhost:3001/list-profiles')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (!data.profiles) { callback([]); return; }
+      var list = data.profiles
+        .filter(function(p) { return p.config; }) // only profiles with saved config
+        .map(function(p) {
+          return {
+            id:          p.id,
+            name:        p.name,
+            website:     p.url  || '',
+            password:    p.config.password    || '',
+            colors:      p.config.colors      || {},
+            logoDataUrl: p.config.logoDataUrl || ''
+          };
+        });
+      _setCache(list);
+      callback(list);
+    })
+    .catch(function() {
+      // Server not running — fall back to localStorage cache
+      callback(getCompanies());
+    });
+}
+
+// Save a single company config to the server (writes into profiles/{id}.json)
+function saveCompanyToServer(company, callback) {
+  fetch('http://localhost:3001/save-company-config', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      id:          company.id,
+      name:        company.name,
+      url:         company.website || '',
+      password:    company.password,
+      colors:      company.colors,
+      logoDataUrl: company.logoDataUrl || null
+    })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(d) { if (callback) callback(d.error ? null : true, d.error); })
+  .catch(function(e) { if (callback) callback(null, e.message); });
+}
+
+// ── Preview iframe config ─────────────────────────────────────────
+var PREV_SCALE = 0.26;   // scale factor — fits ~336px wide column
+var PREV_W     = 1280;   // iframe render width (px)
+var PREV_H     = 1400;   // iframe render height (px)
+
+function iframeWrapperHtml(id) {
+  var wW = Math.floor(PREV_W * PREV_SCALE); // 332
+  var wH = Math.floor(PREV_H * PREV_SCALE); // 234
+  return '<div class="prev-wrap" style="width:' + wW + 'px;height:' + wH + 'px;">'
+    + '<iframe id="' + id + '" style="width:' + PREV_W + 'px;height:' + PREV_H + 'px;'
+    + 'transform:scale(' + PREV_SCALE + ');transform-origin:top left;border:none;pointer-events:none;display:block;" frameborder="0" scrolling="no"></iframe>'
+    + '<div id="' + id + '-spinner" class="prev-spinner">'
+    + '<div class="prev-spinner-ring"></div>'
+    + '<div style="font-size:0.62rem;color:#A0AEC0;">Loading preview…</div>'
+    + '</div>'
+    + '</div>';
+}
+
+function swatchBarHtml(c) {
+  return '<div style="margin-top:12px;padding:8px 10px;background:#F7FAFC;border-radius:6px;border:1px solid #E2E8F0;">'
+    + '<div style="font-size:0.55rem;font-weight:700;color:#A0AEC0;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:5px;">Current palette</div>'
+    + '<div style="display:flex;gap:4px;">'
+    + [{k:'primary',label:'Brand'},{k:'accent',label:'Highlight'},{k:'sidebarBg',label:'Sidebar BG'}].map(function(item) {
+        return '<div style="flex:1;text-align:center;">'
+          + '<div style="height:18px;border-radius:4px;background:' + c[item.k] + ';margin-bottom:2px;border:1px solid rgba(0,0,0,0.08);"></div>'
+          + '<div style="font-size:0.55rem;color:#718096;">' + item.label + '</div>'
+          + '</div>';
+      }).join('')
+    + '<div style="flex:0.6;text-align:center;">'
+    + '<div style="height:18px;border-radius:4px;background:' + c.primaryDark + ';margin-bottom:2px;border:1px solid rgba(0,0,0,0.08);"></div>'
+    + '<div style="font-size:0.48rem;color:#A0AEC0;">Auto-dark</div>'
+    + '</div>'
+    + '<div style="flex:0.6;text-align:center;">'
+    + '<div style="height:18px;border-radius:4px;background:' + c.primaryLight + ';margin-bottom:2px;border:1px solid #E2E8F0;"></div>'
+    + '<div style="font-size:0.48rem;color:#A0AEC0;">Auto-light</div>'
+    + '</div>'
+    + '</div></div>';
+}
+
+// ── State ────────────────────────────────────────────────────────
+var activeId = null;
+var logoDataUrl = null;
+// currentPreviewTab removed — all previews now stacked
+
+// ── Init — load from server on page load ─────────────────────────
+window.addEventListener('load', function() {
+  loadCompaniesFromServer(function(list) {
+    renderList();
+  });
+});
+
+// ── Sidebar ──────────────────────────────────────────────────────
+function renderList() {
+  var list = getCompanies();
+  var el = document.getElementById('company-list');
+  if (!list.length) {
+    el.innerHTML = '<div class="list-empty">No companies yet.<br>Click <strong>+ New</strong> to add one.</div>';
+    return;
+  }
+  el.innerHTML = list.map(function(c) {
+    var thumb = c.logoDataUrl
+      ? '<img src="' + c.logoDataUrl + '" class="ci-thumb" />'
+      : '<div class="ci-dot" style="background:' + c.colors.primary + '"></div>';
+    return '<div class="company-item' + (c.id === activeId ? ' active' : '') + '" onclick="editCompany(\'' + c.id + '\')">'
+      + thumb
+      + '<div class="ci-meta"><div class="ci-name">' + esc(c.name) + '</div>'
+      + '<div class="ci-pw">pw: ' + esc(c.password) + '</div></div>'
+      + '<button class="ci-del" onclick="event.stopPropagation();del(\'' + c.id + '\')">✕</button>'
+      + '</div>';
+  }).join('');
+}
+
+function del(id) {
+  if (!confirm('Delete this company?')) return;
+  // Remove from server (deletes the profile JSON file)
+  fetch('http://localhost:3001/delete-company', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ id: id })
+  }).catch(function() {});
+  // Remove from cache
+  _setCache(getCompanies().filter(function(c){ return c.id !== id; }));
+  if (activeId === id) { activeId = null; logoDataUrl = null; showEmpty(); }
+  renderList();
+}
+
+function showEmpty() {
+  document.getElementById('editor').innerHTML =
+    '<div class="empty-state"><h3>No company selected</h3><p>Click <strong>+ New</strong> to set up a company.</p></div>';
+}
+
+
+// ── Editor ────────────────────────────────────────────────────────
+var DEFAULT = { primary:'#4299E1', accent:'#48BB78', sidebarBg:'#1A202C' };
+
+// ── Color derivation helpers ───────────────────────────────────────
+function darkenHex(hex, pct) {
+  try { var r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16); return toHex(r*(1-pct/100),g*(1-pct/100),b*(1-pct/100)); } catch(e) { return hex; }
+}
+function lightenHex(hex, pct) {
+  try { var r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16); return toHex(r+(255-r)*(pct/100),g+(255-g)*(pct/100),b+(255-b)*(pct/100)); } catch(e) { return hex; }
+}
+
+function newCompany() {
+  activeId = null;
+  logoDataUrl = null;
+  renderEditor({ name:'', password:'', website:'', logoDataUrl:'', colors: Object.assign({}, DEFAULT) });
+}
+
+function editCompany(id) {
+  activeId = id;
+  var c = getCompanies().find(function(c){ return c.id === id; });
+  if (!c) return;
+  logoDataUrl = c.logoDataUrl || null;
+  renderEditor(c);
+  renderList();
+}
+
+function renderEditor(d) {
+  var c = d.colors || DEFAULT;
+  document.getElementById('editor').innerHTML =
+    '<div class="two-col">'
+    // ── Left ──────────────────────────────────────────────────
+    + '<div>'
+
+    // Details
+    + '<div class="card"><div class="card-title">Company Details</div>'
+    + '<div class="field"><label>Company Name</label>'
+    + '<input type="text" id="f-name" value="' + escAttr(d.name||'') + '" placeholder="e.g. NTUC" oninput="livePreview()" /></div>'
+    + '<div class="field"><label>Access Password</label>'
+    + '<input type="text" id="f-pw" value="' + escAttr(d.password||'') + '" placeholder="e.g. ntuc2025" />'
+    + '<div class="field-hint">Trainers share this with participants before the session.</div></div>'
+    + '<div class="field"><label>Website URL</label>'
+    + '<div style="display:flex;gap:8px;align-items:center;">'
+    + '<input type="text" id="f-url" value="' + escAttr(d.website||'') + '" placeholder="https://www.company.com" style="flex:1;" />'
+    + '<button type="button" class="btn-url-extract" id="url-extract-btn" onclick="extractColorsFromUrl()" title="Auto-detect brand colors from website">🔍 Get Colors</button>'
+    + '</div>'
+    + '<div id="url-extract-status"></div></div>'
+    + '</div>'
+
+    // Company Profile Research card
+    + '<div class="card"><div class="card-title">Company Profile — Profile Explorer</div>'
+    + '<div id="research-status"></div>'
+    + '<button class="btn-analyze" id="research-btn" onclick="researchProfile()" style="margin-top:4px;">'
+    + '<span id="research-icon">🔬</span> '
+    + '<span id="research-text">Research Company Profile</span>'
+    + '</button>'
+    + '<p style="font-size:0.72rem;color:#A0AEC0;margin-top:8px;line-height:1.5;">Uses the Claude Code CLI on this computer (your existing subscription — no API key needed). Scrapes the company website and generates the full Profile Explorer content: Priorities, Functions, Workflows, Pain Points, Technology, and Glossary. Saved to a local file. Re-research anytime.</p>'
+    + '</div>'
+
+    // Logo + auto-extract
+    + '<div class="card"><div class="card-title">Brand Assets</div>'
+    + '<div class="field"><label>Upload Logo or Brand Image</label>'
+    + '<div class="upload-zone" id="upload-zone" '
+    + 'ondragover="event.preventDefault();this.classList.add(\'drag-over\')" '
+    + 'ondragleave="this.classList.remove(\'drag-over\')" '
+    + 'ondrop="dropFile(event)">'
+    + '<input type="file" accept="image/*" onchange="pickFile(event)" />'
+    + (d.logoDataUrl
+        ? '<img src="' + d.logoDataUrl + '" class="upload-preview" id="logo-preview" />'
+        : '<div class="upload-icon" id="logo-preview">🖼️</div>')
+    + '<div class="upload-label"><strong>Click or drag</strong> image here</div>'
+    + '<div class="upload-filename" id="upload-filename">' + (d.logoDataUrl ? 'Image loaded' : 'PNG, JPG, SVG supported') + '</div>'
+    + '</div></div>'
+    + '<div style="display:flex;gap:8px;margin-top:10px;">'
+    + '<button class="btn-analyze" id="analyze-btn" onclick="extractColors()" style="flex:1;margin-top:0;" '
+    + (d.logoDataUrl ? '' : 'disabled') + '>'
+    + '<span id="analyze-icon">🎨</span>'
+    + '<span id="analyze-text">Extract Colors from Image</span>'
+    + '</button>'
+    + '<button class="btn-clear-image" id="clear-image-btn" onclick="clearImage()" '
+    + (d.logoDataUrl ? '' : 'disabled') + ' title="Remove uploaded image">✕ Clear</button>'
+    + '</div>'
+    + '<div id="analyze-status"></div>'
+    + '</div>'
+
+    + '</div>'
+
+    // ── Right: Brand Colors (always visible) + Preview (scrollable below) ──
+    + '<div style="position:sticky;top:0;align-self:start;display:flex;flex-direction:column;height:calc(100vh - 72px);gap:0;">'
+
+    // Brand Colors — pinned at top, always visible while editing
+    + '<div class="card" style="flex-shrink:0;margin-bottom:12px;">'
+    + '<div class="card-title">Brand Colors</div>'
+    + ''
+    + colorRow('primary',   'Brand Color',        'Headers · Buttons · Links · Module nav',  c.primary   || DEFAULT.primary)
+    + colorRow('accent',    'Highlight Color',     'Badges · Tags · Secondary accents',       c.accent    || DEFAULT.accent)
+    + colorRow('sidebarBg', 'Sidebar Background',  'Left sidebar panel & dark header bar',    c.sidebarBg || DEFAULT.sidebarBg)
+    + '<div style="font-size:0.71rem;color:#718096;margin-top:8px;padding:8px 10px;background:#FFFBEB;border-radius:6px;border:1px solid #F6E05E;line-height:1.5;">✨ <strong>Dark shade</strong> and <strong>light tint</strong> are automatically calculated from Brand Color — no need to set them manually.</div>'
+    + '<div id="save-status"></div>'
+    + '<button class="btn-save" onclick="saveCompany()">Save Company</button>'
+    + '</div>'
+
+    // Live Preview — takes remaining height, scrollable internally
+    + '<div class="preview-card" id="preview-card" style="flex:1;overflow-y:auto;max-height:none;">'
+    + '<div class="card-title">Live Preview <span style="font-size:0.65rem;font-weight:400;color:#A0AEC0;text-transform:none;letter-spacing:0;">real pages · scaled</span></div>'
+    + '<div class="prev-label">Main Page</div>'
+    + iframeWrapperHtml('prev-main')
+    + '<div class="prev-label">Module (Programme 1)</div>'
+    + iframeWrapperHtml('prev-module')
+    + '<div class="prev-label">Profile Explorer</div>'
+    + iframeWrapperHtml('prev-profiles')
+    + '<div class="prev-label">Copilot Value</div>'
+    + iframeWrapperHtml('prev-copilot')
+    + '<div id="preview-swatch-bar"></div>'
+    + '<div id="preview-color-legend"></div>'
+    + '</div>'
+
+    + '</div>'
+
+    + '</div>';
+
+  livePreview();
+  initPreviews();
+  setTimeout(fitPreviewCard, 0);
+  // Check if a profile already exists for this company (async, updates status div)
+  setTimeout(function() { checkProfileStatus(activeId); }, 50);
+}
+
+function colorRow(key, label, hint, val) {
+  return '<div class="color-row">'
+    + '<div class="cr-label">' + label + '<small>' + hint + '</small></div>'
+    + '<input type="color" id="cp-' + key + '" value="' + val + '" oninput="syncHex(\'' + key + '\')" />'
+    + '<input type="text"  id="ch-' + key + '" value="' + val + '" class="cr-hex" placeholder="#000000" oninput="syncPicker(\'' + key + '\')" />'
+    + '<div class="cr-swatch" id="cs-' + key + '" style="background:' + val + '"></div>'
+    + '</div>';
+}
+
+function syncHex(k) {
+  var v = document.getElementById('cp-' + k).value;
+  document.getElementById('ch-' + k).value = v;
+  document.getElementById('cs-' + k).style.background = v;
+  livePreview();
+}
+
+function syncPicker(k) {
+  var v = document.getElementById('ch-' + k).value.trim();
+  if (/^#[0-9A-Fa-f]{6}$/.test(v)) {
+    document.getElementById('cp-' + k).value = v;
+    document.getElementById('cs-' + k).style.background = v;
+    livePreview();
+  }
+}
+
+function getColors() {
+  var primary   = ((document.getElementById('ch-primary')   || {}).value || DEFAULT.primary).trim();
+  var accent    = ((document.getElementById('ch-accent')    || {}).value || DEFAULT.accent).trim();
+  var sidebarBg = ((document.getElementById('ch-sidebarBg') || {}).value || DEFAULT.sidebarBg).trim();
+  return {
+    primary:      primary,
+    primaryDark:  darkenHex(primary, 20),
+    primaryLight: lightenHex(primary, 60),
+    accent:       accent,
+    sidebarBg:    sidebarBg
+  };
+}
+
+function setColors(colors) {
+  // Only the 3 user-facing pickers exist in the UI; primaryDark and primaryLight are auto-derived
+  ['primary','accent','sidebarBg'].forEach(function(k) {
+    if (!colors[k]) return;
+    var v = colors[k];
+    var cp = document.getElementById('cp-' + k);
+    var ch = document.getElementById('ch-' + k);
+    var cs = document.getElementById('cs-' + k);
+    if (cp) cp.value = v;
+    if (ch) ch.value = v;
+    if (cs) cs.style.background = v;
+  });
+  livePreview();
+}
+
+// ── Fit preview card to fill all space below brand colors ─────────
+function fitPreviewCard() {
+  var previewCard = document.getElementById('preview-card');
+  if (!previewCard) return;
+  var colorCard = previewCard.previousElementSibling;
+  if (!colorCard) return;
+  var headerH    = 52;                       // .header height
+  var editorPadT = 24;                       // .editor padding-top
+  var gap        = parseInt(getComputedStyle(colorCard).marginBottom) || 12;
+  var colorH     = colorCard.getBoundingClientRect().height;
+  var available  = window.innerHeight - headerH - editorPadT;
+  var previewH   = Math.max(300, available - colorH - gap);
+  previewCard.style.height = previewH + 'px';
+  previewCard.style.flex   = 'none';
+}
+window.addEventListener('resize', fitPreviewCard);
+
+// ── Live Preview ──────────────────────────────────────────────────
+function livePreview() {
+  var c = getColors();
+
+  // Inject colors into all iframes that have already loaded
+  ['prev-main', 'prev-module', 'prev-profiles', 'prev-copilot'].forEach(function(id) {
+    var iframe = document.getElementById(id);
+    if (iframe && iframe.contentDocument && iframe.contentDocument.documentElement
+        && iframe.contentDocument.readyState === 'complete') {
+      injectBrandColors(iframe);
+    }
+  });
+
+  // Update the palette swatch and color reference map (always visible)
+  var swatchEl = document.getElementById('preview-swatch-bar');
+  if (swatchEl) swatchEl.innerHTML = swatchBarHtml(c);
+  var legendEl = document.getElementById('preview-color-legend');
+  if (legendEl) legendEl.innerHTML = colorMapLegend(c);
+}
+
+// Mirror the pages' own applyBrand() — sets every CSS variable they use
+function injectBrandColors(iframe) {
+  try {
+    var c = getColors();
+    var root = iframe.contentDocument.documentElement;
+    function hx(hex) {
+      var res = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      return res ? {r:parseInt(res[1],16),g:parseInt(res[2],16),b:parseInt(res[3],16)} : {r:66,g:153,b:225};
+    }
+    var p = hx(c.primary), a = hx(c.accent);
+    var r=p.r,g=p.g,b=p.b,ra=a.r,ga=a.g,ba=a.b;
+    var sp = function(k,v){ root.style.setProperty(k,v); };
+    sp('--brand-primary',       c.primary);
+    sp('--brand-primary-dark',  c.primaryDark);
+    sp('--brand-primary-light', c.primaryLight);
+    sp('--brand-secondary',     c.primaryDark);
+    sp('--brand-accent',        c.accent);
+    sp('--brand-sidebar-bg',    c.sidebarBg);
+    sp('--color-primary',       c.primary);
+    sp('--color-primary-dark',  c.primaryDark);
+    sp('--color-primary-light', 'rgba('+r+','+g+','+b+',0.08)');
+    sp('--color-primary-muted', 'rgba('+r+','+g+','+b+',0.06)');
+    sp('--color-primary-focus', 'rgba('+r+','+g+','+b+',0.20)');
+    sp('--color-primary-pale',  'rgba('+r+','+g+','+b+',0.08)');
+    sp('--color-accent',        c.accent);
+    sp('--color-accent-light',  'rgba('+ra+','+ga+','+ba+',0.10)');
+    sp('--color-accent-border', 'rgba('+ra+','+ga+','+ba+',0.30)');
+    sp('--color-nav-hover',     'rgba('+r+','+g+','+b+',0.12)');
+    sp('--color-sidebar-bg',    c.sidebarBg);
+    sp('--gradient-start',      c.primary);
+    sp('--gradient-end',        c.primaryDark);
+    sp('--color-info',          c.primary);
+    sp('--color-info-bg',       'rgba('+r+','+g+','+b+',0.08)');
+    sp('--color-bg-highlight',  'rgba('+r+','+g+','+b+',0.06)');
+    sp('--primary-color',       c.primary);
+    sp('--secondary-color',     c.primaryDark);
+    sp('--accent-color',        c.accent);
+    sp('--info-box-bg',         'rgba('+r+','+g+','+b+',0.08)');
+  } catch(e) {}
+}
+
+// Load all 4 preview iframes
+function initPreviews() {
+  var pages = [
+    {id:'prev-main',     url:'Main page.html'},
+    {id:'prev-module',   url:'Module 1.html'},
+    {id:'prev-profiles', url:'profile explorer.html'},
+    {id:'prev-copilot',  url:'Copilot Value.html'}
+  ];
+  pages.forEach(function(p) { loadPreviewIframe(p.id, p.url); });
+}
+
+function loadPreviewIframe(iframeId, url) {
+  // Build the company object the pages expect in sessionStorage
+  // Main page checks: sessionStorage.getItem('authenticated') === 'true'
+  //                   sessionStorage.getItem('active_company') (truthy JSON string)
+  // Module pages check: sessionStorage.getItem('authenticated') !== 'true' → redirect
+  var companies = getCompanies();
+  var co = companies.find(function(c) { return c.id === activeId; });
+  if (!co && activeId) co = { id: activeId, name: 'Preview', password: '', website: '', colors: getColors(), logoDataUrl: '' };
+  if (!co) co = { id: 'preview', name: 'Preview Company', password: '', website: '', colors: getColors(), logoDataUrl: '' };
+  // Double-encode the company JSON so it embeds safely as a JS string literal
+  // JSON.stringify twice produces a quoted string with all special chars escaped
+  var coJsonLiteral = JSON.stringify(
+    JSON.stringify({ id:co.id, name:co.name, website:co.website||'', password:co.password||'', colors:co.colors||{}, logoDataUrl:'' })
+  ).replace(/<\//g, '<\\/');
+  // coJsonLiteral is a valid JS string literal including surrounding double quotes e.g. "{\"id\":\"...\"}"
+
+  fetch(url)
+    .then(function(r) {
+      if (!r.ok) throw new Error(r.status);
+      return r.text();
+    })
+    .then(function(html) {
+      var iframe = document.getElementById(iframeId);
+      if (!iframe) return;
+
+      // Base href so relative paths (CSS/JS/images) resolve correctly
+      var basePath = window.location.href.replace(/[^\/]*$/, '');
+
+      // This script runs first in <head>, before ANY page auth checks
+      var headInject = '<base href="' + basePath + '">'
+        + '<script>'
+        + 'try{'
+        + 'sessionStorage.setItem("authenticated","true");'       // pages check === 'true'
+        + 'sessionStorage.setItem("active_company",' + coJsonLiteral + ');'
+        + '}catch(e){}'
+        + '<\/script>';
+
+      html = html.replace(/<head>/i, '<head>' + headInject);
+      iframe.srcdoc = html;
+
+      iframe.onload = function() {
+        var sp = document.getElementById(iframeId + '-spinner');
+        if (sp) sp.style.display = 'none';
+        // Force-hide any remaining auth overlays, then apply brand colors
+        try {
+          var doc = iframe.contentDocument;
+          ['auth-overlay','login-overlay','modal-overlay'].forEach(function(id) {
+            var el = doc.getElementById(id);
+            if (el) el.style.display = 'none';
+          });
+        } catch(e) {}
+        injectBrandColors(iframe);
+      };
+    })
+    .catch(function() {
+      var sp = document.getElementById(iframeId + '-spinner');
+      if (sp) sp.innerHTML = '<div style="font-size:0.62rem;color:#E53E3E;text-align:center;">Could not load preview<br><span style="color:#A0AEC0;">' + url + '</span></div>';
+    });
+}
+
+// ── Color Reference Map ───────────────────────────────────────────
+function colorMapLegend(c) {
+  var rows = [
+    { color: c.primary,      name: 'Brand Color',              auto: false,
+      uses: ['Top header bar & gradient', 'Module sidebar background', 'Buttons & primary links', 'Info box borders & tinted backgrounds', 'Active nav item highlight', 'Module card icons (Main page)'] },
+    { color: c.accent,       name: 'Highlight Color',           auto: false,
+      uses: ['Programme badges (e.g. "Programme 1 · Discover")', 'Category filter tags', 'Secondary accent chips & labels'] },
+    { color: c.sidebarBg,    name: 'Sidebar Background',        auto: false,
+      uses: ['Left sidebar panel background', 'Dark header bars', 'Admin navigation sidebar'] },
+    { color: c.primaryDark,  name: 'Dark Shade',                auto: true,
+      uses: ['Gradient header — darker end', 'Button hover state', 'Profile card gradient end'] },
+    { color: c.primaryLight, name: 'Light Tint',                auto: true,
+      uses: ['Subtle section backgrounds', 'Progress bar fills', 'Info box background tint'] }
+  ];
+  return '<div style="margin-top:14px;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden;">'
+    + '<div style="padding:7px 10px;background:#EBF8FF;border-bottom:1px solid #BEE3F8;display:flex;align-items:center;gap:6px;">'
+    + '<svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:#2B6CB0;flex-shrink:0;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>'
+    + '<span style="font-size:0.65rem;font-weight:700;color:#2B6CB0;text-transform:uppercase;letter-spacing:0.06em;">Color Reference Map — what each color controls</span>'
+    + '</div>'
+    + rows.map(function(row, i) {
+        return '<div style="display:flex;align-items:flex-start;gap:10px;padding:8px 10px;'
+          + (i < rows.length - 1 ? 'border-bottom:1px solid #F0F2F5;' : '')
+          + (row.auto ? 'background:#FAFAFA;' : '') + '">'
+          + '<div style="flex-shrink:0;text-align:center;">'
+          + '<div style="width:26px;height:26px;border-radius:6px;background:' + row.color + ';border:1px solid rgba(0,0,0,0.1);margin-bottom:2px;"></div>'
+          + (row.auto ? '<div style="font-size:0.45rem;color:#A0AEC0;line-height:1;">auto</div>' : '')
+          + '</div>'
+          + '<div style="flex:1;min-width:0;">'
+          + '<div style="font-size:0.72rem;font-weight:' + (row.auto ? '500' : '700') + ';color:' + (row.auto ? '#A0AEC0' : '#2D3748') + ';margin-bottom:3px;">'
+          + row.name + ' <span style="font-weight:400;color:#A0AEC0;font-size:0.65rem;">' + row.color + '</span></div>'
+          + '<div style="display:flex;flex-wrap:wrap;gap:2px;">'
+          + row.uses.map(function(u) {
+              return '<span style="font-size:0.58rem;padding:1px 5px;background:' + (row.auto ? '#F0F2F5' : '#F7FAFC') + ';border:1px solid #E2E8F0;border-radius:3px;color:#4A5568;">' + u + '</span>';
+            }).join('')
+          + '</div></div></div>';
+      }).join('')
+    + '</div>';
+}
+
+// ── Logo Upload ───────────────────────────────────────────────────
+function pickFile(e) { if (e.target.files[0]) loadImage(e.target.files[0]); }
+
+function dropFile(e) {
+  e.preventDefault();
+  document.getElementById('upload-zone').classList.remove('drag-over');
+  var f = e.dataTransfer.files[0];
+  if (f && f.type.startsWith('image/')) loadImage(f);
+}
+
+function loadImage(file) {
+  var reader = new FileReader();
+  reader.onload = function(ev) {
+    logoDataUrl = ev.target.result;
+    var prev = document.getElementById('logo-preview');
+    if (prev.tagName === 'IMG') {
+      prev.src = logoDataUrl;
+    } else {
+      prev.outerHTML = '<img src="' + logoDataUrl + '" class="upload-preview" id="logo-preview" />';
+    }
+    document.getElementById('upload-filename').textContent = file.name;
+    document.getElementById('analyze-btn').disabled = false;
+    document.getElementById('clear-image-btn').disabled = false;
+    livePreview();
+  };
+  reader.readAsDataURL(file);
+}
+
+function clearImage() {
+  logoDataUrl = null;
+  var zone = document.getElementById('upload-zone');
+  if (!zone) return;
+  // Replace preview img/icon back to placeholder
+  var prev = document.getElementById('logo-preview');
+  if (prev) {
+    if (prev.tagName === 'IMG') {
+      prev.outerHTML = '<div class="upload-icon" id="logo-preview">🖼️</div>';
+    } else {
+      prev.textContent = '🖼️';
+    }
+  }
+  document.getElementById('upload-filename').textContent = 'PNG, JPG, SVG supported';
+  document.getElementById('analyze-btn').disabled = true;
+  document.getElementById('clear-image-btn').disabled = true;
+  // Reset file input so same file can be re-uploaded
+  var fileInput = zone.querySelector('input[type=file]');
+  if (fileInput) fileInput.value = '';
+  livePreview();
+}
+
+// ── Color Extraction (Canvas API — no server/API key needed) ──────
+function extractColors() {
+  if (!logoDataUrl) return;
+  var btn  = document.getElementById('analyze-btn');
+  var text = document.getElementById('analyze-text');
+  var icon = document.getElementById('analyze-icon');
+  btn.disabled = true;
+  icon.innerHTML = '<span class="spinner"></span>';
+  text.textContent = 'Analyzing…';
+
+  var img = new Image();
+  img.onload = function() {
+    try {
+      var palette = getDominantColors(img, 8);
+      var suggested = mapToBrandColors(palette);
+      setColors(suggested);
+      showStatus('analyze-status', '✓ Colors extracted from image. Adjust with the pickers if needed.', 'success');
+    } catch(err) {
+      showStatus('analyze-status', 'Could not extract colors: ' + err.message, 'error');
+    }
+    btn.disabled = false;
+    icon.textContent = '🎨';
+    text.textContent = 'Extract Colors from Image';
+  };
+  img.onerror = function() {
+    showStatus('analyze-status', 'Could not load image.', 'error');
+    btn.disabled = false;
+    icon.textContent = '🎨';
+    text.textContent = 'Extract Colors from Image';
+  };
+  img.src = logoDataUrl;
+}
+
+function getDominantColors(img, count) {
+  // Draw image onto offscreen canvas and sample pixels
+  var size = 100; // downsample for speed
+  var canvas = document.createElement('canvas');
+  canvas.width = size; canvas.height = size;
+  var ctx = canvas.getContext('2d');
+  ctx.drawImage(img, 0, 0, size, size);
+  var data = ctx.getImageData(0, 0, size, size).data;
+
+  // Collect all sufficiently saturated, non-transparent pixels
+  var pixels = [];
+  for (var i = 0; i < data.length; i += 4) {
+    var r = data[i], g = data[i+1], b = data[i+2], a = data[i+3];
+    if (a < 128) continue; // skip transparent
+    var hsv = rgbToHsv(r, g, b);
+    if (hsv.s < 0.08 && hsv.v > 0.9) continue; // skip near-white
+    if (hsv.v < 0.05) continue; // skip near-black (unless it's a valid brand dark)
+    pixels.push({ r: r, g: g, b: b, h: hsv.h, s: hsv.s, v: hsv.v });
+  }
+
+  if (!pixels.length) throw new Error('No usable colors found in image.');
+
+  // Simple median-cut: quantize into buckets by hue
+  pixels.sort(function(a, b) { return b.s - a.s; }); // most saturated first
+
+  // Deduplicate into distinct color clusters
+  var clusters = [];
+  pixels.forEach(function(p) {
+    for (var ci = 0; ci < clusters.length; ci++) {
+      if (colorDistance(p, clusters[ci].center) < 40) {
+        clusters[ci].points.push(p);
+        return;
+      }
+    }
+    clusters.push({ center: p, points: [p] });
+  });
+
+  // Average each cluster
+  return clusters.slice(0, count).map(function(cl) {
+    var sr=0, sg=0, sb=0;
+    cl.points.forEach(function(p){ sr+=p.r; sg+=p.g; sb+=p.b; });
+    var n = cl.points.length;
+    return { r: Math.round(sr/n), g: Math.round(sg/n), b: Math.round(sb/n),
+             h: cl.center.h, s: cl.center.s, v: cl.center.v, count: n };
+  });
+}
+
+function mapToBrandColors(palette) {
+  if (!palette.length) throw new Error('Empty palette');
+
+  // Sort by saturation × count (most prominent saturated color = primary)
+  var sorted = palette.slice().sort(function(a, b) { return (b.s * b.count) - (a.s * a.count); });
+
+  var primary = sorted[0];
+  var primaryHex = toHex(primary.r, primary.g, primary.b);
+
+  // Dark = darken primary by 20%
+  var dk = darken(primary.r, primary.g, primary.b, 0.20);
+  var primaryDarkHex = toHex(dk.r, dk.g, dk.b);
+
+  // Light = lighten primary by 25%
+  var lt = lighten(primary.r, primary.g, primary.b, 0.25);
+  var primaryLightHex = toHex(lt.r, lt.g, lt.b);
+
+  // Accent = second distinct color (different hue), fallback to complementary
+  var accent = null;
+  for (var i = 1; i < sorted.length; i++) {
+    if (Math.abs(sorted[i].h - primary.h) > 30) { accent = sorted[i]; break; }
+  }
+  var accentHex = accent ? toHex(accent.r, accent.g, accent.b) : complementary(primary.r, primary.g, primary.b);
+
+  // Sidebar: very dark version of primary (mix with near-black)
+  var sb = mix(primary.r, primary.g, primary.b, 18, 18, 38, 0.25); // 25% primary, 75% dark navy
+  var sidebarHex = toHex(sb.r, sb.g, sb.b);
+
+  return { primary: primaryHex, primaryDark: primaryDarkHex, primaryLight: primaryLightHex, accent: accentHex, sidebarBg: sidebarHex };
+}
+
+// ── Color math helpers ────────────────────────────────────────────
+function rgbToHsv(r, g, b) {
+  r/=255; g/=255; b/=255;
+  var max=Math.max(r,g,b), min=Math.min(r,g,b), d=max-min, h, s=max===0?0:d/max, v=max;
+  if (max===min) { h=0; }
+  else if (max===r) { h=((g-b)/d+(g<b?6:0))/6; }
+  else if (max===g) { h=((b-r)/d+2)/6; }
+  else              { h=((r-g)/d+4)/6; }
+  return { h: h*360, s: s, v: v };
+}
+
+function colorDistance(a, b) {
+  return Math.sqrt(Math.pow(a.r-b.r,2)+Math.pow(a.g-b.g,2)+Math.pow(a.b-b.b,2));
+}
+
+function toHex(r, g, b) {
+  return '#' + [r,g,b].map(function(v){ return Math.max(0,Math.min(255,Math.round(v))).toString(16).padStart(2,'0'); }).join('');
+}
+
+function darken(r, g, b, amount) {
+  return { r: r*(1-amount), g: g*(1-amount), b: b*(1-amount) };
+}
+
+function lighten(r, g, b, amount) {
+  return { r: r+(255-r)*amount, g: g+(255-g)*amount, b: b+(255-b)*amount };
+}
+
+function mix(r1,g1,b1,r2,g2,b2,t) {
+  return { r: r1*t+r2*(1-t), g: g1*t+g2*(1-t), b: b1*t+b2*(1-t) };
+}
+
+function complementary(r, g, b) {
+  var hsv = rgbToHsv(r,g,b);
+  var ch  = (hsv.h + 180) % 360;
+  // Convert complementary hue back to RGB at reasonable saturation/value
+  return hsvToHex(ch, Math.min(hsv.s, 0.85), Math.min(hsv.v, 0.85));
+}
+
+function hsvToHex(h, s, v) {
+  h /= 60;
+  var i = Math.floor(h), f = h-i, p=v*(1-s), q=v*(1-s*f), t=v*(1-s*(1-f));
+  var rgb;
+  switch(i%6) {
+    case 0: rgb=[v,t,p]; break; case 1: rgb=[q,v,p]; break;
+    case 2: rgb=[p,v,t]; break; case 3: rgb=[p,q,v]; break;
+    case 4: rgb=[t,p,v]; break; default: rgb=[v,p,q];
+  }
+  return toHex(rgb[0]*255, rgb[1]*255, rgb[2]*255);
+}
+
+// ── Save ─────────────────────────────────────────────────────────
+function saveCompany() {
+  var name = ((document.getElementById('f-name')||{}).value||'').trim();
+  var pw   = ((document.getElementById('f-pw')  ||{}).value||'').trim();
+  var url  = ((document.getElementById('f-url') ||{}).value||'').trim();
+
+  if (!name) { showStatus('save-status','Please enter a company name.','error'); return; }
+  if (!pw)   { showStatus('save-status','Please set an access password.','error'); return; }
+
+  var colors = getColors();
+  var id     = activeId || (name.toLowerCase().replace(/[^a-z0-9]+/g,'-') + '-' + Date.now());
+  var company = { id:id, name:name, password:pw, website:url, logoDataUrl: logoDataUrl||'', colors:colors };
+
+  // Update local cache immediately
+  var list = getCompanies();
+  var idx  = list.findIndex(function(c){ return c.id === id; });
+  if (idx >= 0) list[idx] = company; else list.push(company);
+  _setCache(list);
+  activeId = id;
+
+  // Clear any cached session so the next login loads fresh colors
+  sessionStorage.removeItem('authenticated');
+  sessionStorage.removeItem('active_company');
+
+  renderList();
+  showStatus('save-status', '⏳ Saving to disk…', 'info');
+
+  // Persist to server (writes into profiles/{id}.json on disk)
+  saveCompanyToServer(company, function(ok, err) {
+    if (ok) {
+      showStatus('save-status', '✓ Saved to disk! Participants can now log in with the password above.', 'success');
+    } else {
+      showStatus('save-status', '⚠ Saved locally but could not reach server: ' + (err || 'unknown error') + '. Run node color-server.js to persist to disk.', 'error');
+    }
+  });
+}
+
+// ── Helpers ───────────────────────────────────────────────────────
+function showStatus(id, msg, type) {
+  var el = document.getElementById(id);
+  if (el) el.innerHTML = '<div class="status ' + type + '">' + msg + '</div>';
+}
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function escAttr(s) { return String(s).replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+
+// ── Auto-extract colors from URL via local color-server.js ───────
+function extractColorsFromUrl() {
+  var urlVal = (document.getElementById('f-url')||{}).value || '';
+  urlVal = urlVal.trim();
+  if (!urlVal) { showStatus('url-extract-status','Enter a website URL first.','error'); return; }
+
+  var btn = document.getElementById('url-extract-btn');
+  btn.disabled = true;
+  btn.textContent = '⏳ Fetching…';
+  showStatus('url-extract-status','Fetching website and extracting colors…','info');
+
+  fetch('http://localhost:3001/extract-colors', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({url: urlVal})
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data) {
+    btn.disabled = false;
+    btn.textContent = '🔍 Get Colors';
+    if (data.error) {
+      showStatus('url-extract-status', '✕ ' + data.error, 'error');
+      return;
+    }
+    setColors(data);
+    livePreview();
+    showStatus('url-extract-status', '✓ Colors detected from website. Adjust if needed.', 'success');
+  })
+  .catch(function() {
+    btn.disabled = false;
+    btn.textContent = '🔍 Get Colors';
+    showStatus('url-extract-status',
+      '✕ Could not connect. Run <strong>node color-server.js</strong> in a terminal first.',
+      'error');
+  });
+}
+
+// ── AI Color Import ───────────────────────────────────────────────
+function openImportModal() {
+  document.getElementById('import-modal-overlay').classList.add('open');
+  document.getElementById('import-textarea').value = '';
+  document.getElementById('import-error').textContent = '';
+  setTimeout(function(){ document.getElementById('import-textarea').focus(); }, 50);
+}
+function closeImportModal() {
+  document.getElementById('import-modal-overlay').classList.remove('open');
+}
+// ── Check whether a saved profile already exists for a company ID ─────────────
+function checkProfileStatus(id) {
+  var el = document.getElementById('research-status');
+  if (!el) return;
+  if (!id) {
+    el.innerHTML = '<div class="status info">Save the company first, then click Research to generate the profile.</div>';
+    return;
+  }
+  el.innerHTML = '<div class="status info">Checking for cached profile…</div>';
+  fetch('http://localhost:3001/profile?id=' + encodeURIComponent(id))
+    .then(function(r) { return r.json(); })
+    .then(function(result) {
+      if (!el) return;
+      if (result.found) {
+        var d = new Date(result.timestamp);
+        el.innerHTML = '<div class="status success">✓ Profile cached — last researched '
+          + d.toLocaleDateString() + ' at ' + d.toLocaleTimeString()
+          + '. Click Research to refresh it.</div>';
+      } else {
+        el.innerHTML = '<div class="status info">No profile yet. Enter your API key and click Research to generate it.</div>';
+      }
+    })
+    .catch(function() {
+      if (!el) return;
+      el.innerHTML = '<div class="status error">⚠️ color-server.js not running — start it with <strong>node color-server.js</strong> to enable profile research.</div>';
+    });
+}
+
+// ── Research company profile via local Claude Code CLI ────────────────────────
+function researchProfile() {
+  var name = ((document.getElementById('f-name') ||{}).value||'').trim();
+  var url  = ((document.getElementById('f-url')  ||{}).value||'').trim();
+
+  if (!name)     { showStatus('research-status', 'Enter company name first.', 'error'); return; }
+  if (!url)      { showStatus('research-status', 'Enter website URL first.', 'error'); return; }
+  if (!activeId) { showStatus('research-status', 'Save the company first — the ID is needed to store the profile file.', 'error'); return; }
+
+  var btn  = document.getElementById('research-btn');
+  var icon = document.getElementById('research-icon');
+  var text = document.getElementById('research-text');
+  btn.disabled = true;
+  icon.innerHTML = '<span class="spinner"></span>';
+  text.textContent = 'Researching… (may take several minutes)';
+  showStatus('research-status', 'Scraping website and running Claude locally — please wait…', 'info');
+
+  fetch('http://localhost:3001/research-company', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ id: activeId, name: name, url: url })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    btn.disabled = false;
+    icon.textContent = '🔬';
+    text.textContent = 'Research Company Profile';
+    if (data.error) {
+      showStatus('research-status', '✕ ' + data.error, 'error');
+    } else {
+      var d = new Date(data.timestamp);
+      var colorNote = '';
+      if (data.brandColors && data.brandColors.primary) {
+        setColors(data.brandColors);
+        colorNote = ' Brand colors auto-applied from Claude (<span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:' + data.brandColors.primary + ';vertical-align:middle;border:1px solid rgba(0,0,0,0.2);"></span> ' + data.brandColors.primary + '). Save to confirm.';
+      }
+      showStatus('research-status',
+        '✓ Profile saved — researched on ' + d.toLocaleDateString() + ' at ' + d.toLocaleTimeString()
+        + '. Profile Explorer will now show ' + esc(name) + ' data.' + colorNote,
+        'success');
+    }
+  })
+  .catch(function() {
+    btn.disabled = false;
+    icon.textContent = '🔬';
+    text.textContent = 'Research Company Profile';
+    showStatus('research-status',
+      '✕ Cannot connect to color-server.js. Run <strong>node color-server.js</strong> in a terminal first.',
+      'error');
+  });
+}
+
+function applyImportColors() {
+  var raw = document.getElementById('import-textarea').value.trim();
+  var errEl = document.getElementById('import-error');
+  errEl.textContent = '';
+  if (!raw) { errEl.textContent = 'Paste the JSON from Claude first, then click Apply Colors.'; return; }
+  try {
+    // Accept either a raw JSON object or a code block containing JSON
+    var jsonStr = raw.replace(/^```[a-z]*\n?/,'').replace(/```$/,'').trim();
+    // Normalize smart/curly quotes to straight quotes
+    jsonStr = jsonStr.replace(/[\u201C\u201D]/g,'"').replace(/[\u2018\u2019]/g,"'");
+    var colors = JSON.parse(jsonStr);
+    var required = ['primary','primaryDark','primaryLight','accent','sidebarBg'];
+    var missing = required.filter(function(k){ return !colors[k]; });
+    if (missing.length) { errEl.textContent = 'Missing keys: ' + missing.join(', '); return; }
+    setColors(colors);
+    livePreview();
+    closeImportModal();
+    showStatus('save-status', '✓ AI colors applied — review and click Save Company.', 'success');
+  } catch(e) {
+    errEl.textContent = 'Invalid JSON. Make sure you copied the full output from Claude.';
+  }
+}
+</script>
+
+<!-- Import AI Colors Modal -->
+<div class="import-modal-overlay" id="import-modal-overlay" onclick="if(event.target===this)closeImportModal()">
+  <div class="import-modal">
+    <h3>🤖 Import AI Colors</h3>
+    <p>Ask Claude: <em>"Extract brand colors for [Company] from [URL] and give me the JSON for the 5 color pickers"</em><br>Then paste the JSON output below.</p>
+    <textarea id="import-textarea" placeholder='{"primary":"#E91627","primaryDark":"#B8111F","primaryLight":"#F04B58","accent":"#1A73E8","sidebarBg":"#B8111F"}'></textarea>
+    <div id="import-error" style="color:#C53030;font-size:0.78rem;margin-top:6px;"></div>
+    <div class="import-modal-btns">
+      <button class="btn-import-cancel" onclick="closeImportModal()">Cancel</button>
+      <button class="btn-import-apply" onclick="applyImportColors()">Apply Colors</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

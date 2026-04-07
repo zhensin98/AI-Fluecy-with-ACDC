@@ -1,0 +1,691 @@
+{
+  "id": "liberty-mutual-1775385747417",
+  "name": "Liberty Mutual",
+  "url": "https://www.libertymutual.com/",
+  "timestamp": "2026-04-05T10:49:55.878Z",
+  "data": {
+    "client": {
+      "name": "Liberty Mutual Insurance Company",
+      "shortName": "Liberty Mutual",
+      "tagline": "Trusted for over 100 years",
+      "subtitle": "Insurance | Personal, Commercial & Specialty Lines",
+      "description": "Liberty Mutual Insurance is one of the largest global property and casualty insurers, offering personal, commercial, and specialty insurance products across more than 30 countries. Headquartered in Boston, Massachusetts, the company serves millions of customers through direct, agent, and digital channels. Liberty Mutual operates across personal lines (auto, home, renters), small business, and large commercial risk segments, underpinned by a major and growing technology engineering function."
+    },
+    "keyFacts": [
+      {
+        "label": "Founded",
+        "value": "1912",
+        "desc": "Established in Boston, MA; over 110 years of continuous operation"
+      },
+      {
+        "label": "Employees",
+        "value": "~45,000",
+        "desc": "Global workforce spanning insurance, technology, actuarial, and operations"
+      },
+      {
+        "label": "Revenue",
+        "value": "~$50 billion",
+        "desc": "Annual consolidated revenue; one of the top 5 US P&C insurers by premium volume"
+      },
+      {
+        "label": "Engineering Headcount",
+        "value": "~5,000+",
+        "desc": "Software engineers, data scientists, platform and security engineers globally"
+      },
+      {
+        "label": "Workshop Focus",
+        "value": "Claude Code",
+        "desc": "AI-native engineering programme"
+      }
+    ],
+    "serviceAreas": [
+      {
+        "title": "Global Retail Markets – U.S. Personal Lines",
+        "desc": "Provides auto, homeowners, renters, condo, motorcycle, boat, and umbrella insurance directly to consumers via digital, phone, and independent agent channels."
+      },
+      {
+        "title": "Global Retail Markets – Small Business",
+        "desc": "Delivers business owner's policy (BOP), workers' compensation, commercial auto, and liability products to small and mid-size enterprises."
+      },
+      {
+        "title": "Global Risk Solutions (GRS)",
+        "desc": "Underwrites large commercial, specialty, and reinsurance risks globally, serving Fortune 500 clients across environmental liability, equipment breakdown, and complex casualty lines."
+      },
+      {
+        "title": "Liberty Mutual Investments",
+        "desc": "Manages the company's investment portfolio and capital allocation strategy to support underwriting reserves and long-term financial stability."
+      },
+      {
+        "title": "Global Technology & Data",
+        "desc": "Delivers enterprise-wide software engineering, platform engineering, data science, and AI/ML capabilities that power policy, claims, and customer digital products."
+      },
+      {
+        "title": "Claims Operations",
+        "desc": "Handles end-to-end personal and commercial claims lifecycle including intake, investigation, settlement, and subrogation, supported by digital self-service tools and AI triage."
+      }
+    ],
+    "leadership": [
+      {
+        "title": "President & CEO",
+        "name": "Tim Sweeney"
+      },
+      {
+        "title": "EVP & Chief Information Officer",
+        "name": "Monica Caldas"
+      },
+      {
+        "title": "Chief Financial Officer",
+        "name": "Neeti Bhargava"
+      }
+    ],
+    "locations": [
+      {
+        "label": "Headquarters",
+        "address": "175 Berkeley Street, Boston, MA 02116, USA"
+      },
+      {
+        "label": "Technology Hub",
+        "address": "Plano, TX, USA"
+      },
+      {
+        "label": "EMEA Operations",
+        "address": "London, United Kingdom"
+      },
+      {
+        "label": "APAC Operations",
+        "address": "Singapore"
+      }
+    ],
+    "priorities": [
+      {
+        "num": 1,
+        "title": "Modernising Core Policy and Claims Platforms",
+        "tagline": "Replace legacy, ship faster",
+        "desc": "Liberty Mutual is actively migrating decades-old mainframe and monolithic policy management and claims processing systems to modern, cloud-native microservices architectures. This involves re-platforming onto AWS, containerising workloads with Kubernetes, and adopting event-driven patterns via Apache Kafka. Engineering teams must maintain parity with live production systems while shipping incremental migrations, creating significant complexity.",
+        "roles": "Software Engineers, Tech Leads & Architects, DevOps & Platform",
+        "pains": "Tightly coupled legacy codebases (COBOL, older Java EE) slow feature velocity; dual-running old and new systems increases operational cost; insufficient automated test coverage on legacy modules makes safe migration risky."
+      },
+      {
+        "num": 2,
+        "title": "Scaling AI and ML Across Underwriting and Claims",
+        "tagline": "Predict risk, automate decisions",
+        "desc": "The company is embedding machine learning models into underwriting pricing, fraud detection, claims triage, and subrogation recovery workflows. Data science teams build models using Python-based stacks (PyTorch, scikit-learn) and deploy them via internal MLOps pipelines. Engineers must operationalise model outputs into real-time policy and claims decision services while meeting strict actuarial governance and state regulatory approval requirements.",
+        "roles": "Software Engineers, QA Engineers, Tech Leads & Architects, Security Engineers",
+        "pains": "Model drift and retraining cycles create deployment uncertainty; regulatory approval for rate-affecting models can delay releases months; data quality across acquired companies is inconsistent; explainability requirements add engineering overhead."
+      },
+      {
+        "num": 3,
+        "title": "Accelerating Customer Digital Self-Service",
+        "tagline": "Quote, bind, claim in minutes",
+        "desc": "Liberty Mutual is investing heavily in reducing customer friction across the full insurance lifecycle — online quoting, policy binding, mid-term changes, and claims filing — via its web and mobile app surfaces. Engineering teams build and iterate on customer-facing React/TypeScript frontends backed by RESTful and GraphQL APIs. The 24/7 mobile app and online claims portal are key competitive differentiators that require high reliability and rapid feature iteration.",
+        "roles": "Software Engineers, QA Engineers, Product & Planning",
+        "pains": "A/B testing infrastructure is immature, slowing optimisation; accessibility compliance (WCAG) increases front-end QA scope; cross-device and cross-browser regression suites are large and slow; state-specific business rules fragment UI logic."
+      },
+      {
+        "num": 4,
+        "title": "Strengthening Cybersecurity and Regulatory Compliance",
+        "tagline": "Protect policyholders, pass audits",
+        "desc": "As a licensed insurer operating across all 50 U.S. states and 30+ countries, Liberty Mutual must comply with state insurance department regulations, NIST frameworks, SOC 2, and emerging AI governance requirements. Security engineers embed throughout the SDLC via DevSecOps practices, and all code changes touching customer PII or payment data must pass security review gates. Regulatory change management — tracking new state filing requirements — is a constant engineering overhead.",
+        "roles": "Security Engineers, DevOps & Platform, Tech Leads & Architects",
+        "pains": "Security scanning tools generate high false-positive rates that slow CI/CD pipelines; multi-jurisdictional regulatory divergence forces bespoke compliance logic per state; incident response playbooks are inconsistently documented across squads."
+      },
+      {
+        "num": 5,
+        "title": "Unifying Data Platform and Engineering Productivity",
+        "tagline": "One platform, faster engineers",
+        "desc": "Liberty Mutual is consolidating fragmented data pipelines, internal developer tooling, and observability stacks into a unified internal developer platform (IDP) on AWS. The goal is to reduce toil, standardise deployment patterns, and give engineering teams self-service access to data products, infrastructure provisioning, and monitoring dashboards. This initiative directly underpins adoption of AI coding tools including Claude Code.",
+        "roles": "DevOps & Platform, Tech Leads & Architects, Software Engineers",
+        "pains": "Inconsistent deployment tooling across squads leads to configuration drift; observability gaps make root-cause analysis slow during incidents; data product discoverability is poor, requiring engineers to track down owners manually."
+      }
+    ],
+    "capabilities": [
+      {
+        "role": "Software Engineers",
+        "short": "SWE",
+        "icon": "primary",
+        "objectives": "Software engineers at Liberty Mutual design, build, and maintain the full stack of insurance software products — from customer-facing quoting and claims web apps to backend policy engines, rating services, and third-party integrations. They work in cross-functional agile squads aligned to product domains (Auto, Home, Claims, Commercial) and are expected to own their services from development through production. Increasing expectations around inner-source contribution and cloud-native patterns (AWS Lambda, ECS, API Gateway) define the modern engineering baseline.",
+        "painPoints": "Navigating large, under-documented legacy codebases inherited from acquisitions; translating complex multi-state insurance business rules into code without deep actuarial context; slow build and test pipelines on older services delay feedback loops; context-switching between greenfield microservices and decade-old monoliths within the same sprint.",
+        "keyActivities": "Feature development, code review, unit and integration testing, API design, legacy service refactoring, AWS infrastructure provisioning via Terraform, participating in on-call rotations"
+      },
+      {
+        "role": "QA Engineers",
+        "short": "QA",
+        "icon": "secondary",
+        "objectives": "QA engineers at Liberty Mutual validate the correctness, performance, and regulatory compliance of insurance software before it reaches customers. They maintain automated test suites covering policy rating, claims intake, billing, and document generation workflows, and must verify that business rule changes — often driven by state regulatory filings — produce exactly correct premium calculations. Shift-left testing and embedded QA within squads is the evolving model, replacing centralised test phases.",
+        "painPoints": "Insurance business logic is highly complex and state-specific, making exhaustive test case generation manually intensive; regression suites for policy rating engines are large and slow; test data provisioning (synthetic PII, mock policy states) is cumbersome to maintain; keeping automated tests aligned with rapidly changing UI components in React requires constant rework.",
+        "keyActivities": "Automated test authoring (Selenium, Cypress, RestAssured), exploratory testing, regression test maintenance, performance and load testing, test data management, defect triage and root-cause analysis, compliance test scenario documentation"
+      },
+      {
+        "role": "Tech Leads & Architects",
+        "short": "TLA",
+        "icon": "accent",
+        "objectives": "Tech leads and architects at Liberty Mutual own the technical direction of insurance product domains and cross-cutting platform concerns. They define service boundaries, API contracts, data models, and integration patterns for complex distributed systems, and are responsible for ensuring architecture decisions align with cloud strategy, security policy, and long-term maintainability. They also mentor engineers, conduct architecture reviews, and represent engineering in product and stakeholder forums.",
+        "painPoints": "Architecture decision records (ADRs) are inconsistently maintained, leading to tribal knowledge dependencies; balancing rapid product delivery timelines against the technical debt embedded in legacy systems creates constant tension; coordinating cross-domain API changes across many autonomous squads without a robust governance process leads to integration failures; keeping up with AWS service evolution while managing existing patterns.",
+        "keyActivities": "Architecture design and review, ADR authorship, technical roadmap planning, engineering standards definition, cross-squad dependency coordination, proof-of-concept development, cloud cost optimisation reviews, technical interview panels"
+      },
+      {
+        "role": "Product & Planning",
+        "short": "PPL",
+        "icon": "primary",
+        "objectives": "Product managers and programme planners at Liberty Mutual translate insurance business strategy — new product launches, state market expansions, regulatory mandates, and digital experience improvements — into engineering roadmaps and sprint backlogs. They work closely with actuarial, underwriting, legal, and compliance stakeholders to define requirements that must be implemented precisely to maintain rate filings with state insurance departments. They prioritise across multiple engineering squads and manage dependencies in a complex portfolio.",
+        "painPoints": "Business requirements from actuarial and compliance teams often arrive late or in non-technical formats, causing re-work mid-sprint; multi-state regulatory filing timelines impose hard external deadlines that override internal prioritisation; limited tooling for cross-squad dependency visibility makes release planning error-prone; engineers lack insurance domain context, requiring product managers to invest heavily in knowledge transfer.",
+        "keyActivities": "User story authoring, backlog grooming, sprint planning, stakeholder requirement gathering, regulatory change impact assessment, dependency mapping, release coordination, KPI tracking, product roadmap presentation"
+      },
+      {
+        "role": "DevOps & Platform",
+        "short": "DPE",
+        "icon": "secondary",
+        "objectives": "DevOps and platform engineers at Liberty Mutual design and operate the CI/CD pipelines, cloud infrastructure, container orchestration, observability stacks, and internal developer platform (IDP) that every engineering squad relies on. They manage AWS environments across multiple accounts and regions, enforce infrastructure-as-code standards via Terraform, and operate Kubernetes clusters running production insurance workloads. Their mandate includes reducing deployment toil and improving engineering velocity through self-service platform capabilities.",
+        "painPoints": "Legacy Jenkins pipelines are fragile and slow, with inconsistent configurations across squads; Kubernetes cluster sprawl increases operational overhead; security scanning integrated into CI/CD generates noise that teams learn to ignore; production deployments during insurance rate-filing blackout windows create scheduling pressure; multi-account AWS governance adds complexity to networking and IAM management.",
+        "keyActivities": "CI/CD pipeline development and maintenance, Terraform infrastructure authoring, Kubernetes cluster management (EKS), observability stack operation (Datadog, Splunk), secrets management, cloud cost tagging and governance, platform onboarding support, on-call incident management"
+      },
+      {
+        "role": "Security Engineers",
+        "short": "SEC",
+        "icon": "accent",
+        "objectives": "Security engineers at Liberty Mutual embed security throughout the software development lifecycle, from threat modelling at design time to penetration testing pre-release and SIEM monitoring in production. They operate within a DevSecOps model, integrating SAST, DAST, and SCA tooling into CI/CD pipelines and conducting mandatory security reviews for all services handling customer PII, payment data, or insurance policy records. They also lead regulatory compliance engineering for frameworks including NIST CSF, SOC 2, and state insurance department cybersecurity rules.",
+        "painPoints": "High false-positive rates from automated scanning tools erode engineer trust and cause scan findings to be dismissed; security reviews can become release bottlenecks when not integrated early in the development cycle; rapidly changing cloud service configurations require continuous policy-as-code updates; security incident investigation is hampered by inconsistent log formats and coverage gaps across acquired company systems.",
+        "keyActivities": "Threat modelling, SAST/DAST/SCA tool configuration and triage, penetration testing coordination, security architecture review, IAM policy design and audit, SIEM rule authoring (Splunk), vulnerability management, regulatory compliance evidence collection, developer security training"
+      }
+    ],
+    "workflows": [
+      {
+        "name": "Insurance Feature Development (Policy & Rating)",
+        "steps": [
+          {
+            "t": "Business & Regulatory Intake",
+            "d": "Actuarial or compliance teams raise a requirement — e.g., new state discount rule or product change. Product Manager translates it into a feature brief with state filing constraints and target effective date."
+          },
+          {
+            "t": "Architecture & Design Review",
+            "d": "Tech Lead reviews impact on rating engine, policy microservices, and downstream billing. ADR is drafted if new patterns are introduced. Security engineer performs threat model if PII scope changes."
+          },
+          {
+            "t": "Sprint Development",
+            "d": "Engineers implement rating algorithm changes, update REST API contracts, and modify business rule configuration files. Unit and integration tests cover all new and modified rating scenarios by state."
+          },
+          {
+            "t": "QA Validation & Regulatory Verification",
+            "d": "QA engineers run regression suites against the rating engine and verify premium calculations match actuarial sign-off documents. State-specific test matrices are executed and results logged for compliance records."
+          },
+          {
+            "t": "Security & Compliance Gate",
+            "d": "CI/CD pipeline runs SAST and dependency scans. Security engineer reviews any flagged issues. Compliance team confirms implementation matches approved state filing language before release approval."
+          },
+          {
+            "t": "Staged Production Deployment",
+            "d": "DevOps engineers deploy via blue/green strategy on EKS. Feature flags control rollout to specific states. Monitoring dashboards (Datadog) track error rates and latency. Rollback is available within 15 minutes."
+          }
+        ],
+        "friction": "Actuarial and legal approval cycles are external dependencies outside engineering control, frequently causing late-sprint requirement changes; multi-state regression matrices are enormous and slow to execute; dual-running old and new rating engines during transition inflates cloud costs and complexity."
+      },
+      {
+        "name": "Claims Platform Release Pipeline",
+        "steps": [
+          {
+            "t": "Release Planning",
+            "d": "Release train engineer (RTE) coordinates across 6-8 claims squads to identify what features, fixes, and data migrations are targeted for the bi-weekly release window. Dependencies are mapped in Jira."
+          },
+          {
+            "t": "Integration Branch Merge & Build",
+            "d": "Squad leads merge feature branches to the release integration branch. Jenkins pipeline runs full build, unit tests, and SCA scans. Build failures trigger immediate squad notification via Teams."
+          },
+          {
+            "t": "Automated Regression Suite",
+            "d": "QA engineers trigger the claims end-to-end regression suite (Selenium + RestAssured) across auto and home claims workflows. Suite covers 2,000+ scenarios including fraud-flagging and settlement calculation paths."
+          },
+          {
+            "t": "UAT in Staging",
+            "d": "Claims operations business analysts validate key workflows in the staging environment using synthetic claim data. Defects above severity threshold block the release."
+          },
+          {
+            "t": "Change Approval Board (CAB) Review",
+            "d": "Change record submitted to CAB with release notes, rollback plan, and test evidence. Security engineer and compliance lead sign off. Approval is required 48 hours before production deployment window."
+          },
+          {
+            "t": "Production Deployment & Smoke Testing",
+            "d": "Platform team deploys to production EKS clusters via ArgoCD during low-traffic maintenance window. Automated smoke tests validate critical claim submission and status APIs. Splunk dashboards monitored for 2 hours post-deploy."
+          }
+        ],
+        "friction": "Coordinating merge readiness across 8 squads with different sprint cadences creates last-minute branch conflicts; the regression suite takes 3-4 hours to run, compressing the deployment window; CAB approval process adds 48-hour minimum lead time that squads must plan around."
+      },
+      {
+        "name": "Production Incident Response",
+        "steps": [
+          {
+            "t": "Alert Triage",
+            "d": "Datadog or Splunk alert fires based on SLO breach (e.g., claims API error rate > 1%). On-call engineer receives PagerDuty notification and assesses severity within 5 minutes using runbook classification criteria."
+          },
+          {
+            "t": "Incident Declaration & War Room",
+            "d": "For P1/P2 incidents, incident commander is paged. Microsoft Teams war room channel created. Stakeholders from engineering, claims operations, and customer support are notified. Status page updated."
+          },
+          {
+            "t": "Diagnosis & Root Cause Investigation",
+            "d": "Engineers query Splunk logs and Datadog traces to isolate failure. Distributed tracing identifies which microservice in the claims or policy chain is degraded. Recent deployments are reviewed as first suspect."
+          },
+          {
+            "t": "Mitigation & Rollback Decision",
+            "d": "If a recent deployment is implicated, platform team executes ArgoCD rollback within 15 minutes. If a data or infrastructure issue, mitigation is applied (scaling, config change, traffic re-routing). Claims operations team informed of workarounds."
+          },
+          {
+            "t": "Resolution & Communication",
+            "d": "Incident commander confirms SLOs are restored. Internal stakeholder update sent. Customer-facing status page updated to resolved. Claims operations verifies no in-flight claims were corrupted."
+          },
+          {
+            "t": "Post-Incident Review (PIR)",
+            "d": "Within 5 business days, owning squad produces a blameless PIR document. Root cause, contributing factors, timeline, and action items (with JIRA tickets) are published to the engineering wiki and shared in the #incidents Teams channel."
+          }
+        ],
+        "friction": "Log fragmentation across acquired-company systems slows root-cause identification; runbooks are unevenly maintained, causing on-call engineers to improvise; handoff between time zones during overnight incidents creates communication gaps; insurance-specific impacts (active claims mid-transaction) require careful remediation that generic runbooks do not address."
+      },
+      {
+        "name": "New Engineer Onboarding",
+        "steps": [
+          {
+            "t": "Pre-boarding & Access Provisioning",
+            "d": "IT and platform team provision AWS account access, GitHub organisation membership, Jira and Confluence access, Okta SSO, and VPN credentials. Laptop is pre-imaged with Liberty Mutual developer toolchain baseline."
+          },
+          {
+            "t": "Insurance Domain Orientation",
+            "d": "New engineer completes a structured insurance fundamentals curriculum covering P&C products, policy lifecycle, claims workflow, and actuarial concepts. Sessions led by experienced engineers and product managers over the first week."
+          },
+          {
+            "t": "Squad Embedding & Codebase Walkthrough",
+            "d": "Tech lead conducts codebase walkthrough of the squad's core services, explaining domain model, service boundaries, API contracts, and known tech debt areas. New engineer is assigned a buddy engineer for the first 30 days."
+          },
+          {
+            "t": "Dev Environment Setup & First Commit",
+            "d": "Engineer sets up local development environment using squad-specific runbook (Docker Compose, LocalStack for AWS emulation). First task is a small, well-scoped bug fix or test addition to complete the full PR-to-deploy cycle."
+          },
+          {
+            "t": "Security & Compliance Training",
+            "d": "Mandatory completion of Liberty Mutual data handling, PII policy, and secure coding training modules in the LM Academy learning platform. Security engineers run a squad-specific secure coding session covering OWASP Top 10 in context."
+          },
+          {
+            "t": "30/60/90 Day Review",
+            "d": "Manager and tech lead conduct structured check-ins at 30, 60, and 90 days. Objectives are set around codebase contribution, squad integration, and domain knowledge benchmarks. Gaps in tooling access or documentation are surfaced and remediated."
+          }
+        ],
+        "friction": "Codebase documentation is sparse and outdated on legacy services, making self-directed exploration ineffective; local development environment setup is time-consuming and squad-specific, with runbooks that frequently lag behind tooling changes; insurance domain complexity creates a steep learning curve that delays meaningful contribution for 4-6 weeks; access provisioning delays (especially for regulated data environments) can block work in the first two weeks."
+      }
+    ],
+    "painPoints": {
+      "individual": [
+        {
+          "name": "Legacy Codebase Navigation",
+          "desc": "Engineers regularly need to work within large, poorly documented Java or COBOL legacy services where understanding a single business rule requires tracing through multiple layers of inherited code. This leads to slow onboarding onto new tasks and high risk of unintended side effects from changes.",
+          "freq": "Daily"
+        },
+        {
+          "name": "Multi-State Business Rule Complexity",
+          "desc": "Insurance products behave differently in each of the 50 U.S. states due to regulatory requirements, creating a combinatorial explosion of conditional logic in rating engines and policy services. Engineers must deeply understand acturaial and legal nuance before implementing what appear to be simple features.",
+          "freq": "Daily"
+        },
+        {
+          "name": "Slow CI/CD Feedback Loops",
+          "desc": "Build and test pipelines on legacy services can take 30-60 minutes to complete, meaning engineers receive feedback on their changes too slowly to maintain flow state. This is compounded by flaky tests that require manual re-runs and investigation.",
+          "freq": "Daily"
+        },
+        {
+          "name": "Test Data Provisioning Friction",
+          "desc": "Creating realistic test data for insurance workflows requires synthetic policy records, mock claim histories, and state-specific coverage configurations that are difficult to generate and maintain. Engineers frequently block on test data availability before they can validate their work.",
+          "freq": "Daily"
+        },
+        {
+          "name": "Context Switching Between Old and New Systems",
+          "desc": "During platform modernisation, engineers must simultaneously maintain legacy monoliths and build new microservices, requiring them to context-switch between fundamentally different architectures, toolchains, and deployment models within the same working day.",
+          "freq": "Daily"
+        },
+        {
+          "name": "Regulatory Documentation Overhead",
+          "desc": "Any code change affecting insurance rates, policy terms, or claims decisions must be accompanied by compliance documentation that maps implementation to approved state filing language. Writing and maintaining this documentation consumes significant engineering time.",
+          "freq": "Weekly"
+        },
+        {
+          "name": "On-Call Cognitive Load",
+          "desc": "On-call rotations expose engineers to complex production incidents in unfamiliar service areas, requiring rapid diagnosis in systems they may not own. Inconsistent runbook quality means problem-solving often relies on finding the right person rather than following documented procedures.",
+          "freq": "Weekly"
+        },
+        {
+          "name": "Insurance Domain Knowledge Gap",
+          "desc": "Software engineers without insurance backgrounds must learn domain-specific concepts (subrogation, loss ratio, endorsement, umbrella coverage) before they can confidently implement actuarially correct features, creating a persistent productivity gap for newer hires.",
+          "freq": "Ongoing"
+        }
+      ],
+      "team": [
+        {
+          "name": "Cross-Squad Dependency Bottlenecks",
+          "desc": "Features that span multiple insurance domains (e.g., a billing change that touches policy, claims, and payments) require coordination across squads with different sprint cadences and priorities. These cross-squad dependencies are a leading cause of release delays and sprint scope changes.",
+          "freq": "Weekly"
+        },
+        {
+          "name": "Inconsistent Engineering Standards",
+          "desc": "Different squads have evolved their own approaches to logging, error handling, API design, and deployment configuration, leading to fragmented observability and making it difficult for engineers to move between squads or for platform teams to build shared tooling.",
+          "freq": "Weekly"
+        },
+        {
+          "name": "Release Coordination Overhead",
+          "desc": "Bi-weekly release trains require significant coordination effort from tech leads and RTEs to align merge readiness, complete CAB change records, schedule deployment windows, and communicate status across claims operations and customer support teams.",
+          "freq": "Weekly"
+        },
+        {
+          "name": "Knowledge Silos on Legacy Systems",
+          "desc": "Institutional knowledge about how legacy policy and claims platforms were designed is concentrated in a small number of tenured engineers. When those individuals are unavailable, squads lose the ability to safely make changes to critical production systems.",
+          "freq": "Ongoing"
+        },
+        {
+          "name": "Acquisition Integration Technical Debt",
+          "desc": "Liberty Mutual's growth through acquisitions has introduced multiple technology stacks, data models, and operational patterns that have never been fully rationalised. Teams inherit integration complexity and data quality issues from acquired systems that consume significant engineering capacity.",
+          "freq": "Structural"
+        }
+      ],
+      "organisation": [
+        {
+          "name": "Regulatory-Driven Deadline Rigidity",
+          "desc": "State insurance departments set effective dates for rate and form filings that create non-negotiable engineering deadlines. Engineering roadmaps are frequently disrupted by late-arriving compliance mandates that override internally prioritised product work, making long-term planning difficult.",
+          "freq": "Structural"
+        },
+        {
+          "name": "Pace of AI/ML Governance Maturity",
+          "desc": "Liberty Mutual is deploying ML models into underwriting and claims decisions faster than internal governance frameworks and state regulatory approval processes can evolve. This creates risk of models being deployed without adequate auditability, explainability, or regulatory clearance.",
+          "freq": "Structural"
+        },
+        {
+          "name": "Talent Competition for Insurance-Domain Engineers",
+          "desc": "Finding and retaining software engineers who understand both modern cloud-native engineering and insurance domain complexity is difficult in a market where technology talent gravitates toward consumer tech and fintech. Onboarding gaps mean new hires take 2-3 months to reach full productivity.",
+          "freq": "Structural"
+        },
+        {
+          "name": "Legacy System Sunset Risk",
+          "desc": "Core policy administration and billing systems that run on mainframe infrastructure represent significant business continuity risk as the pool of COBOL-skilled engineers shrinks. Modernisation programmes are multi-year efforts that must be carefully sequenced to avoid disrupting live policyholder operations.",
+          "freq": "Structural"
+        },
+        {
+          "name": "Global Engineering Coordination Complexity",
+          "desc": "Engineering teams distributed across Boston, Plano, London, Singapore, and nearshore locations must collaborate across time zones on shared platforms and services. Inconsistent tooling, varying engineering maturity levels, and timezone overlap constraints slow decision-making and increase integration risk.",
+          "freq": "Structural"
+        }
+      ]
+    },
+    "technology": {
+      "m365Status": "Liberty Mutual is a Microsoft 365 enterprise tenant, with Teams as the primary collaboration and incident war-room platform and SharePoint/OneDrive for internal documentation and file sharing. Microsoft 365 Copilot is being evaluated for productivity use cases, while Claude Code is the targeted AI tool for software engineering workflows.",
+      "m365": [
+        "Outlook",
+        "Teams",
+        "Word",
+        "Excel",
+        "PowerPoint",
+        "SharePoint",
+        "OneDrive",
+        "Viva Learning"
+      ],
+      "platforms": [
+        {
+          "name": "Guidewire PolicyCenter",
+          "desc": "Core policy administration platform for personal and small commercial lines; manages policy lifecycle from quoting and binding through endorsement and renewal."
+        },
+        {
+          "name": "Guidewire ClaimCenter",
+          "desc": "Core claims management platform handling first-notice-of-loss, investigation, reserves, settlement, and payment for personal and commercial lines."
+        },
+        {
+          "name": "AWS (Amazon Web Services)",
+          "desc": "Primary public cloud provider; engineering teams deploy workloads on EKS, Lambda, ECS, RDS, DynamoDB, S3, API Gateway, and SNS/SQS across multiple accounts and regions."
+        },
+        {
+          "name": "Apache Kafka",
+          "desc": "Event streaming platform used to decouple policy, claims, billing, and analytics services via event-driven architecture patterns."
+        },
+        {
+          "name": "GitHub Enterprise",
+          "desc": "Source control and code collaboration platform for all engineering squads; hosts repositories, pull request workflows, and is integrated with CI/CD pipelines."
+        },
+        {
+          "name": "Jenkins / GitHub Actions",
+          "desc": "CI/CD pipeline tooling; legacy services predominantly use Jenkins while modernised microservices migrate to GitHub Actions for build, test, and deployment automation."
+        },
+        {
+          "name": "ArgoCD",
+          "desc": "GitOps continuous delivery tool used to manage Kubernetes application deployment and synchronisation across EKS clusters."
+        },
+        {
+          "name": "Terraform",
+          "desc": "Infrastructure-as-code tool used by DevOps and platform teams to provision and manage AWS resources in a consistent, version-controlled manner."
+        },
+        {
+          "name": "Datadog",
+          "desc": "Observability and APM platform providing metrics, distributed tracing, and alerting for production microservices; integrated with PagerDuty for on-call alerting."
+        },
+        {
+          "name": "Splunk",
+          "desc": "Log aggregation and SIEM platform used for operational log search, security event monitoring, and compliance audit logging across production systems."
+        },
+        {
+          "name": "PagerDuty",
+          "desc": "On-call incident management platform used to page engineers when Datadog or Splunk alerts breach SLO thresholds."
+        },
+        {
+          "name": "Jira",
+          "desc": "Agile project management and issue tracking tool used by all engineering squads for sprint planning, backlog management, and defect tracking."
+        },
+        {
+          "name": "Confluence",
+          "desc": "Internal wiki and documentation platform where squads publish runbooks, architecture decision records, onboarding guides, and post-incident review documents."
+        },
+        {
+          "name": "Okta",
+          "desc": "Identity and access management (IAM) platform providing SSO, MFA, and application access governance across Liberty Mutual's internal and SaaS tool estate."
+        },
+        {
+          "name": "ServiceNow",
+          "desc": "IT service management (ITSM) platform for change management, incident ticketing, and the Change Advisory Board (CAB) approval workflow for production deployments."
+        },
+        {
+          "name": "Salesforce",
+          "desc": "CRM platform used by sales and agent management teams to track agent relationships, quoting activity, and commercial client management."
+        },
+        {
+          "name": "LM Academy",
+          "desc": "Liberty Mutual's internal learning management system (LMS) hosting mandatory compliance training, insurance domain education, and technical skills development courses."
+        },
+        {
+          "name": "SonarQube",
+          "desc": "Static application security testing (SAST) and code quality tool integrated into CI/CD pipelines to identify security vulnerabilities and code smells before merge."
+        }
+      ]
+    },
+    "glossary": [
+      {
+        "t": "P&C",
+        "d": "Property and Casualty — the primary insurance segment Liberty Mutual operates in, covering auto, home, and commercial risk as opposed to life or health insurance.",
+        "cat": "Industry"
+      },
+      {
+        "t": "PolicyCenter",
+        "d": "Liberty Mutual's Guidewire-based core policy administration system used to manage the full lifecycle of personal and commercial insurance policies.",
+        "cat": "Technology"
+      },
+      {
+        "t": "ClaimCenter",
+        "d": "Liberty Mutual's Guidewire-based core claims management system handling FNOL, investigation, reserves, and settlement for all personal and commercial claims.",
+        "cat": "Technology"
+      },
+      {
+        "t": "FNOL",
+        "d": "First Notice of Loss — the initial claim report submitted by a policyholder after an insured event; the trigger for the claims processing workflow.",
+        "cat": "Industry"
+      },
+      {
+        "t": "GRS",
+        "d": "Global Risk Solutions — Liberty Mutual's business unit handling large commercial, specialty, and reinsurance risks for enterprise and global clients.",
+        "cat": "Business Units"
+      },
+      {
+        "t": "GRM",
+        "d": "Global Retail Markets — Liberty Mutual's business unit serving personal lines and small business customers in the U.S. and international retail markets.",
+        "cat": "Business Units"
+      },
+      {
+        "t": "BOP",
+        "d": "Business Owner's Policy — a bundled small business insurance product combining property, general liability, and business interruption coverage.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Endorsement",
+        "d": "A mid-term policy modification that changes coverage terms, limits, or premium; engineering term for the workflow that processes policy changes after binding.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Rating Engine",
+        "d": "The proprietary software system that calculates insurance premium amounts based on risk factors, coverage selections, and state-specific actuarial tables.",
+        "cat": "Technology"
+      },
+      {
+        "t": "State Filing",
+        "d": "The regulatory submission process by which Liberty Mutual submits rate and form changes to state insurance departments for approval before implementation.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Loss Ratio",
+        "d": "Claims paid divided by premiums earned — a key actuarial metric that engineering teams must support via accurate claims data pipelines and reporting.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Subrogation",
+        "d": "The process by which Liberty Mutual recovers claim costs from a liable third party after paying a policyholder; supported by dedicated engineering workflows in ClaimCenter.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Umbrella Coverage",
+        "d": "A supplemental liability insurance product that provides coverage beyond the limits of underlying auto or home policies; sold as an add-on product.",
+        "cat": "Industry"
+      },
+      {
+        "t": "ADR",
+        "d": "Architecture Decision Record — a document tech leads author to capture the rationale behind significant technical design choices in Liberty Mutual systems.",
+        "cat": "Technology"
+      },
+      {
+        "t": "RTE",
+        "d": "Release Train Engineer — the SAFe agile role responsible for coordinating cross-squad release planning, dependency management, and delivery execution.",
+        "cat": "Organisation"
+      },
+      {
+        "t": "CAB",
+        "d": "Change Advisory Board — the governance body that reviews and approves production deployment change records via ServiceNow before changes are released.",
+        "cat": "Organisation"
+      },
+      {
+        "t": "PIR",
+        "d": "Post-Incident Review — the blameless review document produced by the owning squad after a production incident, capturing root cause and action items.",
+        "cat": "Organisation"
+      },
+      {
+        "t": "IDP",
+        "d": "Internal Developer Platform — Liberty Mutual's initiative to provide self-service infrastructure, deployment, and observability tooling to all engineering squads.",
+        "cat": "Technology"
+      },
+      {
+        "t": "EKS",
+        "d": "Amazon Elastic Kubernetes Service — the AWS managed Kubernetes offering on which Liberty Mutual runs its containerised microservices in production.",
+        "cat": "Technology"
+      },
+      {
+        "t": "LocalStack",
+        "d": "An AWS cloud emulation tool used by Liberty Mutual engineers to simulate AWS services locally during development without incurring cloud costs.",
+        "cat": "Technology"
+      },
+      {
+        "t": "LM Academy",
+        "d": "Liberty Mutual's internal learning management system (LMS) hosting mandatory compliance training, insurance domain education, and engineering skills courses.",
+        "cat": "HR & Learning"
+      },
+      {
+        "t": "Actuarial",
+        "d": "The statistical and mathematical discipline used to calculate insurance risk and premium pricing; actuarial sign-off is required for rate-affecting engineering changes.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Liberty+",
+        "d": "Liberty Mutual's small business customer portal providing self-service policy management, billing, and support tools for small business policyholders.",
+        "cat": "Business Units"
+      },
+      {
+        "t": "SLO",
+        "d": "Service Level Objective — a target reliability metric (e.g., 99.9% API availability) against which production services are monitored via Datadog.",
+        "cat": "Technology"
+      },
+      {
+        "t": "SAST",
+        "d": "Static Application Security Testing — automated code analysis run in CI/CD pipelines via SonarQube to detect security vulnerabilities before deployment.",
+        "cat": "Technology"
+      },
+      {
+        "t": "DAST",
+        "d": "Dynamic Application Security Testing — runtime security scanning performed against deployed test environments to identify exploitable vulnerabilities.",
+        "cat": "Technology"
+      },
+      {
+        "t": "SCA",
+        "d": "Software Composition Analysis — scanning of third-party dependencies and open-source libraries for known CVEs as part of the Liberty Mutual CI/CD security gate.",
+        "cat": "Technology"
+      },
+      {
+        "t": "Bind",
+        "d": "The insurance industry term for formally issuing and activating a policy after a quote is accepted by the customer; a key event in the policy workflow.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Reinsurance",
+        "d": "Insurance purchased by Liberty Mutual from other insurers to limit exposure on large commercial risks; a key product area of the GRS business unit.",
+        "cat": "Industry"
+      },
+      {
+        "t": "Squad",
+        "d": "The cross-functional agile team unit at Liberty Mutual, typically comprising 6-10 engineers, a QA engineer, a product manager, and a tech lead, aligned to a product domain.",
+        "cat": "Organisation"
+      },
+      {
+        "t": "Feature Flag",
+        "d": "A runtime configuration mechanism used by Liberty Mutual engineers to enable or disable features for specific user segments or states without a new deployment.",
+        "cat": "Technology"
+      },
+      {
+        "t": "Telematics",
+        "d": "Technology that captures real-time driving behaviour data (via mobile app or OBD device) to enable usage-based auto insurance pricing; a growing engineering capability.",
+        "cat": "Industry"
+      },
+      {
+        "t": "NIST CSF",
+        "d": "National Institute of Standards and Technology Cybersecurity Framework — the security governance framework Liberty Mutual's security engineering team uses to structure controls and compliance evidence.",
+        "cat": "Technology"
+      },
+      {
+        "t": "Solartis / Duck Creek",
+        "d": "Third-party insurance platform components used by some Liberty Mutual business units for policy administration in specific commercial lines segments.",
+        "cat": "Technology"
+      },
+      {
+        "t": "MLOps",
+        "d": "Machine Learning Operations — the engineering practice of deploying, monitoring, and retraining ML models in production; a key capability for Liberty Mutual's AI underwriting and fraud detection initiatives.",
+        "cat": "Technology"
+      }
+    ],
+    "brandColors": {
+      "primary": "#FFC726 — Liberty Mutual's signature golden yellow, used as the logo background fill and primary brand identity colour across marketing materials and app iconography.",
+      "accent": "#1A1446 — Deep navy blue used for primary headings, navigation text, and icon accents throughout the Liberty Mutual digital product suite."
+    }
+  },
+  "config": {
+    "password": "liberty2026",
+    "colors": {
+      "primary": "#fecf00",
+      "primaryDark": "#cba600",
+      "primaryLight": "#ffec99",
+      "accent": "#cac8d0",
+      "sidebarBg": "#c7980a"
+    },
+    "logoDataUrl": "data:image/png;base64,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"
+  }
+}

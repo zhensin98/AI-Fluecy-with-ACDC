@@ -1,0 +1,1459 @@
+<html lang="en"><head>
+
+<!-- Auth check remove before pushing to production -->
+<script>
+  if (sessionStorage.getItem('authenticated') !== 'true') {
+    window.location.href = 'Main page.html';
+  }
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NTUC | Operational Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <!-- Brand colors defined in customer-brand.css - swap this file for client-specific branding -->
+  <link href="customer-brand.css" rel="stylesheet">
+  <script src="brand-apply.js"></script>
+  <style>
+    :root {
+      /* <!-- CUSTOMIZE: Brand colors are defined in customer-brand.css --> */
+      --brand-primary: var(--color-primary);
+      --brand-primary-dark: var(--color-primary-dark);
+      /* --brand-primary-light: intentionally NOT aliased here.
+         customer-brand.css defines it as an opaque lighter shade.
+         --color-primary-light is a Tier 2 transparent tint for backgrounds. */
+      --brand-secondary: var(--color-secondary);
+      --brand-secondary-light: var(--color-secondary-light);
+      --brand-accent: var(--color-accent);
+      --brand-neutral: #F5F7FA;
+      --brand-white: #FFFFFF;
+      --brand-grey-100: #E8EEF5;
+      --brand-grey-200: #D0D9DE;
+      --text-primary: #1A1A1A;
+      --text-secondary: #666666;
+      --status-success: var(--color-primary);
+      --status-warning: #FDCB6E;
+      --status-error: #E74C3C;
+      --gradient-primary: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-accent) 100%);
+      --gradient-hero: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-primary-light) 100%);
+      --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.16);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --sidebar-width: 240px;
+      --header-height: 64px;
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-family); background: var(--brand-neutral); color: var(--text-primary); line-height: 1.6; font-size: 14px; }
+    .header { position: fixed; top: 0; left: 0; right: 0; height: var(--header-height); background: var(--brand-white); border-bottom: 1px solid var(--brand-grey-100); display: flex; align-items: center; padding: 0 24px; z-index: 1000; box-shadow: var(--shadow-sm); }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo-link { text-decoration: none; display: flex; align-items: center; gap: 12px; }
+    .logo-mark { width: 40px; height: 40px; background: var(--gradient-primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-md); }
+    .logo-mark svg { width: 24px; height: 24px; fill: white; }
+    .logo-title { font-size: 18px; font-weight: 700; color: var(--brand-primary); }
+    .logo-subtitle { font-size: 11px; color: var(--text-secondary); font-weight: 500; }
+    .header-actions { flex: 1; }
+    .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; margin-right: 12px; }
+    .menu-toggle svg { width: 24px; height: 24px; fill: var(--brand-primary); }
+    .sidebar { position: fixed; top: var(--header-height); left: 0; width: var(--sidebar-width); height: calc(100vh - var(--header-height)); background: var(--brand-white); border-right: 1px solid var(--brand-grey-100); overflow-y: auto; z-index: 900; padding: 16px 0; transition: transform 0.3s ease; display: flex; flex-direction: column; }
+    .sidebar nav { flex: 1; }
+    .nav-section { margin-bottom: 8px; }
+    .nav-label { padding: 8px 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); }
+    .nav-item { display: flex; align-items: center; padding: 10px 20px; cursor: pointer; transition: var(--transition); border-left: 3px solid transparent; gap: 12px; }
+    .nav-item:hover { background: var(--brand-grey-100); }
+    .nav-item.active { background: linear-gradient(90deg, rgba(15,60,120,0.15), transparent); border-left-color: var(--brand-primary); }
+    .nav-item.active .nav-text { color: var(--brand-primary); font-weight: 600; }
+    .nav-icon { width: 32px; height: 32px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; background: var(--brand-grey-100); flex-shrink: 0; }
+    .nav-icon svg { width: 16px; height: 16px; fill: var(--text-secondary); }
+    .nav-item.active .nav-icon { background: var(--brand-primary); }
+    .nav-item.active .nav-icon svg { fill: white; }
+    .nav-text { font-size: 13px; font-weight: 500; color: var(--text-primary); }
+    .nav-badge { margin-left: auto; padding: 2px 8px; background: var(--brand-grey-100); border-radius: 10px; font-size: 11px; font-weight: 600; color: var(--text-secondary); }
+    .nav-item.active .nav-badge { background: var(--brand-primary); color: white; }
+    .sidebar-footer { padding: 16px 20px; border-top: 1px solid var(--brand-grey-100); font-size: 11px; color: var(--text-secondary); text-align: center; }
+    .sidebar-footer .tagline { font-weight: 600; color: var(--brand-primary); margin-bottom: 4px; }
+    .sidebar-footer a { color: var(--brand-primary); text-decoration: none; }
+    .sidebar-footer a:hover { text-decoration: underline; }
+    .sidebar-home { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 10px 20px; margin: 0 12px 8px; text-decoration: none; color: var(--text-secondary); font-size: 13px; font-weight: 500; border-radius: var(--radius-sm); transition: var(--transition); }
+    .sidebar-home:hover { background: var(--brand-grey-100); color: var(--brand-primary); }
+    .sidebar-home svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+    .content-footer { text-align: center; padding: 32px 24px; margin-top: 48px; border-top: 1px solid var(--brand-grey-100); font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+    .content-footer a { color: var(--brand-primary); text-decoration: none; }
+    .content-footer a:hover { text-decoration: underline; }
+    .content-footer .disclaimer { font-size: 11px; color: var(--text-muted, #94A3B8); margin-top: 8px; max-width: 640px; margin-left: auto; margin-right: auto; }
+    .main { margin-left: var(--sidebar-width); margin-top: var(--header-height); padding: 32px; min-height: calc(100vh - var(--header-height)); }
+    .page { display: none; animation: fadeIn 0.4s ease; }
+    .page.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .page-header { background: var(--gradient-hero); border-radius: var(--radius-lg); padding: 32px; margin-bottom: 32px; color: white; position: relative; overflow: hidden; }
+    .page-header::before { content: ''; position: absolute; top: -50%; right: -20%; width: 60%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%); }
+    .page-header-content { position: relative; z-index: 1; display: flex; align-items: center; gap: 20px; }
+    .page-icon { width: 64px; height: 64px; background: rgba(255,255,255,0.2); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px); }
+    .page-icon svg { width: 32px; height: 32px; fill: white; }
+    .page-title { font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+    .page-subtitle { font-size: 14px; opacity: 0.9; }
+    .card { background: var(--brand-white); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); transition: var(--transition); overflow: hidden; }
+    .card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .card-header { padding: 20px 24px; border-bottom: 1px solid var(--brand-grey-100); display: flex; align-items: center; gap: 16px; }
+    .card-icon { width: 44px; height: 44px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; }
+    .card-icon svg { width: 22px; height: 22px; fill: white; }
+    .card-icon.primary { background: var(--brand-primary); }
+    .card-icon.secondary { background: var(--brand-secondary); }
+    .card-icon.accent { background: var(--brand-accent); }
+    .card-title { font-size: 16px; font-weight: 600; }
+    .card-subtitle { font-size: 12px; color: var(--text-secondary); }
+    .card-body { padding: 24px; }
+    .card-body p { margin-bottom: 16px; }
+    .card-body p:last-child { margin-bottom: 0; }
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 32px; }
+    .stat-card { background: var(--brand-white); border-radius: var(--radius-md); padding: 24px; box-shadow: var(--shadow-sm); border-left: 4px solid var(--brand-primary); }
+    .stat-label { font-size: 12px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .stat-value { font-size: 16px; font-weight: 700; color: var(--brand-primary); margin-bottom: 4px; line-height: 1.4; }
+    .stat-desc { font-size: 13px; color: var(--text-secondary); }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .grid-auto { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
+    .tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+    .tag-primary { background: rgba(15,60,120,0.15); color: var(--brand-primary); }
+    .tag-secondary { background: rgba(15,60,120,0.15); color: var(--brand-secondary); }
+    .tag-accent { background: rgba(230,57,70,0.15); color: var(--brand-accent); }
+    .priority-card { background: var(--brand-white); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); overflow: hidden; transition: var(--transition); }
+    .priority-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .priority-header { padding: 20px; background: var(--gradient-primary); color: white; display: flex; align-items: center; gap: 16px; }
+    .priority-num { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; }
+    .priority-title { font-size: 16px; font-weight: 600; }
+    .priority-tagline { font-size: 12px; opacity: 0.9; font-style: italic; }
+    .priority-body { padding: 20px; }
+    .priority-section { margin-bottom: 16px; }
+    .priority-section:last-child { margin-bottom: 0; }
+    .priority-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 6px; }
+    .priority-content { font-size: 13px; color: var(--text-primary); }
+    .accordion { background: var(--brand-white); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); margin-bottom: 16px; overflow: hidden; }
+    .accordion-header { padding: 20px 24px; cursor: pointer; display: flex; align-items: center; gap: 16px; transition: var(--transition); }
+    .accordion-header:hover { background: var(--brand-grey-100); }
+    .accordion-icon { width: 44px; height: 44px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .accordion-icon svg { width: 22px; height: 22px; fill: white; }
+    .accordion-title { font-size: 15px; font-weight: 600; flex: 1; }
+    .accordion-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .accordion-arrow { width: 24px; height: 24px; transition: transform 0.3s ease; }
+    .accordion-arrow svg { width: 24px; height: 24px; fill: var(--text-secondary); }
+    .accordion.active .accordion-arrow { transform: rotate(180deg); }
+    .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .accordion.active .accordion-body { max-height: 1000px; }
+    .accordion-content { padding: 0 24px 24px; border-top: 1px solid var(--brand-grey-100); }
+    .accordion-section { margin-top: 16px; }
+    .accordion-label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 6px; }
+    .workflow-card { background: var(--brand-white); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); padding: 24px; margin-bottom: 24px; }
+    .workflow-title { font-size: 16px; font-weight: 600; margin-bottom: 20px; color: var(--brand-primary); }
+    .workflow-timeline { display: flex; align-items: flex-start; gap: 0; overflow-x: auto; padding-bottom: 16px; }
+    .workflow-step { flex: 1; min-width: 140px; text-align: center; position: relative; }
+    .workflow-step::after { content: ''; position: absolute; top: 20px; left: 50%; width: 100%; height: 3px; background: var(--brand-grey-200); }
+    .workflow-step:last-child::after { display: none; }
+    .step-node { width: 40px; height: 40px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; position: relative; z-index: 1; color: white; font-weight: 700; font-size: 14px; }
+    .step-title { font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+    .step-desc { font-size: 11px; color: var(--text-secondary); padding: 0 8px; }
+    .workflow-friction { margin-top: 20px; padding: 16px; background: rgba(253,203,110,0.15); border-radius: var(--radius-sm); border-left: 3px solid var(--status-warning); }
+    .friction-label { font-size: 11px; font-weight: 700; color: var(--color-accent); margin-bottom: 6px; }
+    .friction-content { font-size: 13px; color: var(--text-primary); }
+    .tabs { display: flex; gap: 8px; margin-bottom: 24px; border-bottom: 2px solid var(--brand-grey-100); padding-bottom: 0; }
+    .tab { padding: 12px 20px; cursor: pointer; font-size: 13px; font-weight: 600; color: var(--text-secondary); border-bottom: 2px solid transparent; margin-bottom: -2px; transition: var(--transition); }
+    .tab:hover { color: var(--brand-primary); }
+    .tab.active { color: var(--brand-primary); border-bottom-color: var(--brand-primary); }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+    .pain-item { background: var(--brand-white); border-radius: var(--radius-md); padding: 20px; margin-bottom: 16px; box-shadow: var(--shadow-sm); border-left: 4px solid var(--brand-primary); }
+    .pain-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .pain-name { font-size: 15px; font-weight: 600; flex: 1; }
+    .pain-freq { padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; background: rgba(15,60,120,0.15); color: var(--brand-primary); }
+    .pain-desc { font-size: 13px; color: var(--text-secondary); }
+    .glossary-filters { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+    .filter-btn { padding: 8px 16px; border: 2px solid var(--brand-grey-200); background: var(--brand-white); border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; transition: var(--transition); }
+    .filter-btn:hover { border-color: var(--brand-primary); color: var(--brand-primary); }
+    .filter-btn.active { background: var(--brand-primary); border-color: var(--brand-primary); color: white; }
+    .glossary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+    .glossary-item { background: var(--brand-white); border-radius: var(--radius-sm); padding: 16px; box-shadow: var(--shadow-sm); }
+    .glossary-term { font-size: 14px; font-weight: 700; color: var(--brand-primary); margin-bottom: 6px; }
+    .glossary-def { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+    .glossary-cat { display: inline-block; padding: 2px 10px; background: var(--brand-grey-100); border-radius: 10px; font-size: 10px; font-weight: 600; color: var(--text-secondary); }
+    .tech-section { margin-bottom: 32px; }
+    .tech-title { font-size: 18px; font-weight: 600; margin-bottom: 16px; color: var(--brand-primary); }
+    .tech-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+    .tech-item { background: var(--brand-white); border-radius: var(--radius-sm); padding: 16px; box-shadow: var(--shadow-sm); text-align: center; }
+    .tech-icon { width: 48px; height: 48px; background: var(--gradient-primary); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+    .tech-icon svg { width: 24px; height: 24px; fill: white; }
+    .tech-name { font-size: 13px; font-weight: 600; }
+    .info-box { background: linear-gradient(135deg, rgba(15,60,120,0.08), rgba(15,60,120,0.02)); border-left: 4px solid var(--brand-primary); border-radius: var(--radius-md); padding: 20px; margin-top: 24px; }
+    @media (max-width: 1024px) {
+      .sidebar { transform: translateX(-100%); }
+      .sidebar.open { transform: translateX(0); }
+      .main { margin-left: 0; }
+      .menu-toggle { display: block; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .page-header { padding: 24px; }
+      .page-title { font-size: 22px; }
+      .stat-grid { grid-template-columns: 1fr; }
+      .workflow-timeline { flex-direction: column; }
+      .workflow-step::after { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <button class="menu-toggle" onclick="toggleSidebar()">
+      <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+    </button>
+    <div class="logo">
+      <a href="Main page.html" class="logo-link" title="Back to Home">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24"><path d="M12 2L9.5 8.5L3 11l6.5 2.5L12 22l2.5-8.5L21 11l-6.5-2.5L12 2z" fill="white" stroke="none"></path><path d="M7 5L6 7L4 8l2 1 1 2 1-2 2-1-2-1-1-2z" fill="white" stroke="none" opacity="0.6"></path></svg>
+      </div>
+      </a>
+      <div>
+        <div class="logo-title">NTUC</div>
+        <div class="logo-subtitle">Operational Profile</div>
+      </div>
+    </div>
+    <div class="header-actions"></div>
+  </header>
+
+  <aside class="sidebar" id="sidebar">
+    <nav>
+      <div class="nav-section">
+        <div class="nav-label">Operational Profile</div>
+        <div class="nav-item active" onclick="navigateTo('overview')">
+          <div class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"></path></svg></div>
+          <span class="nav-text" id="nav-about-label">About NTUC</span>
+        </div>
+        <div class="nav-item" onclick="navigateTo('priorities')">
+          <div class="nav-icon"><svg viewBox="0 0 24 24"><path d="M14 10H2v2h12v-2zm0-4H2v2h12V6zm4 8v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM2 16h8v-2H2v2z"></path></svg></div>
+          <span class="nav-text">Priorities</span>
+          <span class="nav-badge" id="priorities-badge">5</span>
+        </div>
+        <div class="nav-item" onclick="navigateTo('roles')">
+          <div class="nav-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"></path></svg></div>
+          <span class="nav-text">Functions &amp; Roles</span>
+          <span class="nav-badge" id="roles-badge">11</span>
+        </div>
+        <div class="nav-item" onclick="navigateTo('workflows')">
+          <div class="nav-icon"><svg viewBox="0 0 24 24"><path d="M22 11V3h-7v3H9V3H2v8h7V8h2v10h4v3h7v-8h-7v3h-2V8h2v3z"></path></svg></div>
+          <span class="nav-text">Workflows</span>
+          <span class="nav-badge" id="workflows-badge">4</span>
+        </div>
+        <div class="nav-item" onclick="navigateTo('painpoints')">
+          <div class="nav-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></div>
+          <span class="nav-text">Pain Points</span>
+        </div>
+        <div class="nav-item" onclick="navigateTo('technology')">
+          <div class="nav-icon"><svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"></path></svg></div>
+          <span class="nav-text">Technology</span>
+        </div>
+        <div class="nav-item" onclick="navigateTo('glossary')">
+          <div class="nav-icon"><svg viewBox="0 0 24 24"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"></path></svg></div>
+          <span class="nav-text">Glossary</span>
+          <span class="nav-badge" id="glossary-badge">39</span>
+        </div>
+      </div>
+    </nav>
+    <a href="Main page.html" class="sidebar-home" title="Back to Home">
+      <svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"></path></svg>
+      Home
+    </a>
+  </aside>
+
+  <main class="main" id="main"><div class="page active">
+    <div class="page-header">
+      <div class="page-header-content">
+        <div class="page-icon"><svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"></path></svg></div>
+        <div class="page-title-group">
+          <h1 class="page-title">About NTUC</h1>
+          <p class="page-subtitle">More Than a Trade Union – Making Life Better for Every Worker</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="stat-grid">
+      
+        <div class="stat-card">
+          <div class="stat-label">Founded</div>
+          <div class="stat-value">1961</div>
+          <div class="stat-desc">Singapore's national trade union centre</div>
+        </div>
+      
+        <div class="stat-card">
+          <div class="stat-label">Employees</div>
+          <div class="stat-value">~1,200</div>
+          <div class="stat-desc">Central secretariat staff</div>
+        </div>
+      
+        <div class="stat-card">
+          <div class="stat-label">Members</div>
+          <div class="stat-value">1M+</div>
+          <div class="stat-desc">Across 58 affiliated unions and 7 associations</div>
+        </div>
+      
+        <div class="stat-card">
+          <div class="stat-label">Social Enterprises</div>
+          <div class="stat-value">7+</div>
+          <div class="stat-desc">FairPrice, First Campus, Health, LearningHub, Foodfare, Club, Link</div>
+        </div>
+      
+        <div class="stat-card">
+          <div class="stat-label">Workshop Focus</div>
+          <div class="stat-value">M365 + Chat</div>
+          <div class="stat-desc">Both Copilot editions</div>
+        </div>
+      
+    </div>
+    
+    <div class="card" style="margin-bottom: 24px;">
+      <div class="card-header">
+        <div class="card-icon primary"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"></path></svg></div>
+        <div>
+          <div class="card-title">Organisation Overview</div>
+          <div class="card-subtitle">Labour Movement | Workforce Development &amp; Worker Protection</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>The National Trades Union Congress (NTUC) is Singapore's pre-eminent labour movement, representing over one million members through 58 affiliated unions, seven affiliated associations, and a portfolio of social enterprises. With approximately 1,200 employees at its central secretariat, NTUC champions workers' rights and interests while delivering essential services through its social enterprise network including FairPrice, NTUC Health, NTUC LearningHub, and NTUC First Campus.</p>
+      </div>
+    </div>
+    
+    
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon secondary"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg></div>
+          <div>
+            <div class="card-title">Core Service Areas</div>
+            <div class="card-subtitle">How NTUC serves stakeholders</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p><strong>NTUC FairPrice Group</strong> - Singapore’s largest supermarket chain and consumer cooperative</p><p><strong>NTUC First Campus</strong> - Leading preschool operator with 170+ centres serving 25,000+ children</p><p><strong>NTUC Health</strong> - Integrated health and eldercare social enterprise operating for 40+ years</p><p><strong>NTUC LearningHub</strong> - Continuing education and training provider</p><p><strong>NTUC Foodfare</strong> - Institutional catering and food manufacturing (est. 1995)</p><p><strong>NTUC Club</strong> - Lifestyle and recreation social enterprise</p><p><strong>NTUC Link (PLUS!)</strong> - Loyalty programme and data platform</p><p><strong>e2i (Employment &amp; Employability Institute)</strong> - Career matching and employment facilitation</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon accent"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"></path></svg></div>
+          <div>
+            <div class="card-title">Leadership</div>
+            <div class="card-subtitle">NTUC management team</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p><strong>Secretary-General:</strong> Ng Chee Meng</p><p><strong>Deputy Secretary-General:</strong> Koh Poh Koon</p><p><strong>President:</strong> Mary Liew</p>
+          <p style="margin-top: 12px; font-size: 13px; color: var(--text-secondary);">Headquarters: One Marina Boulevard, Singapore 018989</p>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    <div class="info-box" style="margin-top: 24px; background: linear-gradient(135deg, rgba(99,110,114,0.08), rgba(45,52,54,0.05)); border-left-color: var(--text-secondary);">
+      <div style="display: flex; align-items: flex-start; gap: 12px;">
+        <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: var(--text-secondary); flex-shrink: 0; margin-top: 2px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path></svg>
+        <div>
+          <div style="font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Disclaimer</div>
+          <p style="font-size: 13px; color: var(--text-secondary); margin: 0;">This document was prepared by Mission + for educational and workshop purposes. Content is based on research using publicly available information and industry knowledge. Role descriptions, workflows, and pain points are illustrative examples designed to support AI adoption training. This does not represent official NTUC data or endorsed recommendations. Please validate specific details with authoritative sources.</p>
+        </div>
+      </div>
+    </div>
+  </div><div class="content-footer"><div class="disclaimer">This document was prepared for educational and workshop purposes. Use cases are illustrative examples designed to support AI adoption training.</div></div></main>
+
+  <script>
+const ICONS = {
+  expand: '<svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>'
+};
+
+// === DATA_BLOCK_START === (DO NOT MODIFY OR DELETE THIS LINE)
+const DATA = {
+  "client": {
+    "name": "National Trades Union Congress",
+    "shortName": "NTUC",
+    "tagline": "More Than a Trade Union – Making Life Better for Every Worker",
+    "subtitle": "Labour Movement | Workforce Development & Worker Protection",
+    "description": "The National Trades Union Congress (NTUC) is Singapore's pre-eminent labour movement, representing over one million members through 58 affiliated unions, seven affiliated associations, and a portfolio of social enterprises. With approximately 1,200 employees at its central secretariat, NTUC champions workers' rights and interests while delivering essential services through its social enterprise network including FairPrice, NTUC Health, NTUC LearningHub, and NTUC First Campus."
+  },
+  "keyFacts": [
+    {
+      "label": "Founded",
+      "value": "1961",
+      "desc": "Singapore's national trade union centre"
+    },
+    {
+      "label": "Employees",
+      "value": "~1,200",
+      "desc": "Central secretariat staff"
+    },
+    {
+      "label": "Members",
+      "value": "1M+",
+      "desc": "Across 58 affiliated unions and 7 associations"
+    },
+    {
+      "label": "Social Enterprises",
+      "value": "7+",
+      "desc": "FairPrice, First Campus, Health, LearningHub, Foodfare, Club, Link"
+    },
+    {
+      "label": "Workshop Focus",
+      "value": "M365 + Chat",
+      "desc": "Both Copilot editions"
+    }
+  ],
+  "serviceAreas": [
+    {
+      "title": "NTUC FairPrice Group",
+      "desc": "Singapore’s largest supermarket chain and consumer cooperative"
+    },
+    {
+      "title": "NTUC First Campus",
+      "desc": "Leading preschool operator with 170+ centres serving 25,000+ children"
+    },
+    {
+      "title": "NTUC Health",
+      "desc": "Integrated health and eldercare social enterprise operating for 40+ years"
+    },
+    {
+      "title": "NTUC LearningHub",
+      "desc": "Continuing education and training provider"
+    },
+    {
+      "title": "NTUC Foodfare",
+      "desc": "Institutional catering and food manufacturing (est. 1995)"
+    },
+    {
+      "title": "NTUC Club",
+      "desc": "Lifestyle and recreation social enterprise"
+    },
+    {
+      "title": "NTUC Link (PLUS!)",
+      "desc": "Loyalty programme and data platform"
+    },
+    {
+      "title": "e2i (Employment & Employability Institute)",
+      "desc": "Career matching and employment facilitation"
+    }
+  ],
+  "leadership": [
+    {
+      "title": "Secretary-General",
+      "name": "Ng Chee Meng"
+    },
+    {
+      "title": "Deputy Secretary-General",
+      "name": "Koh Poh Koon"
+    },
+    {
+      "title": "President",
+      "name": "Mary Liew"
+    }
+  ],
+  "locations": [
+    {
+      "label": "Headquarters",
+      "address": "One Marina Boulevard, Singapore 018989"
+    }
+  ],
+  "priorities": [
+    {
+      "num": 1,
+      "title": "Skills Development & Future Workforce Readiness",
+      "tagline": "Equip every worker with the skills to thrive in a digital economy",
+      "desc": "Expand partnerships with NTUC LearningHub and SkillsFuture Singapore to deliver AI literacy, digital proficiency, and sector-specific upskilling programmes. Target 100,000 training places annually across union-affiliated programmes. Integrate AI-assisted learning pathways into existing skills framew",
+      "roles": "Training & Skills Development, HR, Strategy & Research",
+      "pains": "Adapting curriculum to rapidly evolving requirements; managing training logistics at scale; tracking participant progress"
+    },
+    {
+      "num": 2,
+      "title": "Progressive Wages & Worker Protection",
+      "tagline": "Ensure every worker earns a fair and progressive wage",
+      "desc": "Advance the Progressive Wage Model (PWM) across more sectors. Strengthen industrial relations frameworks through data-driven negotiation. Expand advisory services for gig workers, freelancers, and platform workers. Advocate for workplace safety and mental wellbeing standards.",
+      "roles": "Labour Relations & Union Affairs, Policy & Research, Legal & Compliance",
+      "pains": "Time-consuming wage data analysis; lengthy policy drafting; complex multi-party negotiations"
+    },
+    {
+      "num": 3,
+      "title": "Digital Transformation & Operational Excellence",
+      "tagline": "Harness technology to serve workers better and faster",
+      "desc": "Modernise internal systems and member-facing digital platforms. Deploy Microsoft 365 Copilot across the organisation. Enhance the U Portal and My NTUC app with AI-powered features. Automate routine administrative processes to free staff for higher-value engagement.",
+      "roles": "IT & Digital Transformation, All Role Families",
+      "pains": "Change management capacity; legacy system integration; balancing innovation with adoption pace"
+    },
+    {
+      "num": 4,
+      "title": "Community Care & Social Support",
+      "tagline": "Be the safety net and support system for workers and families",
+      "desc": "Strengthen U Care programmes providing financial assistance, healthcare subsidies, and emergency relief to workers in need. Expand partnerships with NTUC social enterprises to deliver integrated family support. Scale volunteer networks and community engagement initiatives.",
+      "roles": "Community Engagement / U Care, Membership Services, Finance & Administration",
+      "pains": "Managing large-scale events; complex eligibility assessments; coordinating across social enterprises"
+    },
+    {
+      "num": 5,
+      "title": "Membership Growth & Engagement",
+      "tagline": "Grow and deepen the labour movement's reach",
+      "desc": "Attract younger workers and professionals, managers, and executives (PMEs) to union membership. Enhance member value propositions through personalised benefits and digital engagement. Strengthen the U Associate programme for PMEs. Target a membership base exceeding 1.2 million.",
+      "roles": "Communications & Marketing, Membership Services, Strategy & Research",
+      "pains": "Personalising engagement at scale; data-driven segmentation; measuring campaign effectiveness"
+    }
+  ],
+  "capabilities": [
+    {
+      "role": "Labour Relations & Union Affairs",
+      "short": "LRUA",
+      "icon": "primary",
+      "objectives": "Maintain harmonious industrial relations across affiliated unions; provide advisory services on collective agreements and workplace disputes; coordinate with Ministry of Manpower on regulatory matters; support union leaders in member engagement and grievance resolution",
+      "painPoints": "Lengthy case documentation and correspondence; complex multi-party negotiations requiring extensive preparation; difficulty tracking precedents across hundreds of union cases; time-intensive compliance reporting",
+      "keyActivities": "Coordination, stakeholder management, reporting, process improvement"
+    },
+    {
+      "role": "Policy & Research",
+      "short": "PR",
+      "icon": "secondary",
+      "objectives": "Analyse labour market trends and policy developments; draft position papers and policy recommendations; conduct research on progressive wages, skills demand, and future of work; provide evidence-based inputs for tripartite negotiations",
+      "painPoints": "Information overload from multiple data sources and publications; time-consuming literature reviews and data synthesis; difficulty translating complex research into accessible policy briefs; coordinating inputs from multiple subject-matter experts",
+      "keyActivities": "Analysis, documentation, stakeholder engagement, process execution"
+    },
+    {
+      "role": "Communications & Marketing",
+      "short": "CM",
+      "icon": "accent",
+      "objectives": "Build and protect the NTUC brand across all channels; produce content for member engagement including newsletters, social media, and press releases; manage media relations and crisis communications; drive membership growth campaigns",
+      "painPoints": "High volume of content production across multiple channels; tight deadlines for news cycles and event coverage; maintaining consistent brand voice across 58 affiliated unions; measuring and reporting campaign effectiveness across fragmented platforms",
+      "keyActivities": "Coordination, stakeholder management, reporting, process improvement"
+    },
+    {
+      "role": "Membership Services",
+      "short": "MS",
+      "icon": "primary",
+      "objectives": "Manage member registration, renewals, and benefits administration for 1M+ members; deliver responsive service through multiple channels; process member enquiries, claims, and feedback; maintain accurate membership records and data",
+      "painPoints": "High volume of routine enquiries consuming service capacity; manual data entry and verification across disparate systems; difficulty personalising member interactions at scale; seasonal spikes during campaign periods straining resources",
+      "keyActivities": "Coordination, stakeholder management, reporting, process improvement"
+    },
+    {
+      "role": "Community Engagement / U Care",
+      "short": "CE",
+      "icon": "secondary",
+      "objectives": "Deliver social assistance programmes including financial aid, healthcare subsidies, and emergency relief; coordinate volunteer networks and community outreach events; manage partnerships with social enterprises for integrated family support; track programme impact and beneficiary outcomes",
+      "painPoints": "Managing large-scale events with thousands of participants; complex grant and assistance eligibility assessments; coordinating across multiple social enterprises and partner organisations; documenting and reporting programme impact for stakeholders",
+      "keyActivities": "Coordination, stakeholder management, reporting, process improvement"
+    },
+    {
+      "role": "Training & Skills Development",
+      "short": "TSD",
+      "icon": "accent",
+      "objectives": "Design and deliver training programmes aligned with national SkillsFuture priorities; coordinate with NTUC LearningHub on course development and delivery; facilitate workshops and learning events for members and affiliated unions; track training outcomes and certification progress",
+      "painPoints": "Adapting curriculum to rapidly evolving skills requirements; managing logistics for hundreds of training sessions annually; tracking participant progress and certification across multiple programmes; creating engaging content for diverse learner profiles",
+      "keyActivities": "Coordination, stakeholder management, reporting, process improvement"
+    },
+    {
+      "role": "IT & Digital Transformation",
+      "short": "IT",
+      "icon": "primary",
+      "objectives": "Manage and maintain NTUC’s technology infrastructure including M365 environment; drive digital transformation initiatives across the secretariat; support U Portal, My NTUC app, and other digital platforms; ensure cybersecurity and data governance compliance",
+      "painPoints": "Supporting diverse technology needs across multiple departments and entities; balancing innovation pace with change management capacity; maintaining legacy systems while driving modernisation; managing cybersecurity risks across an expanding digital footprint",
+      "keyActivities": "Coordination, stakeholder management, reporting, process improvement"
+    },
+    {
+      "role": "Finance & Administration",
+      "short": "FA",
+      "icon": "secondary",
+      "objectives": "Manage NTUC secretariat budgets, financial reporting, and audit compliance; process procurement, vendor management, and contract administration; oversee facilities management and office operations; support financial planning for programmes and initiatives",
+      "painPoints": "Month-end and year-end reporting cycles consuming significant manual effort; complex budget tracking across multiple departments and programmes; procurement processes with lengthy approval chains; reconciling data from multiple financial systems",
+      "keyActivities": "Coordination, stakeholder management, reporting, process improvement"
+    },
+    {
+      "role": "Human Resources",
+      "short": "HR",
+      "icon": "accent",
+      "objectives": "Attract, develop, and retain talent for the NTUC secretariat; design and administer learning and development programmes; manage employee engagement, performance, and wellbeing initiatives; ensure HR policy compliance and workforce planning",
+      "painPoints": "Time-intensive recruitment cycles in a competitive talent market; managing L&D programmes across diverse role families; tracking employee engagement and wellbeing metrics; producing HR reports and analytics for leadership decision-making",
+      "keyActivities": "Coordination, stakeholder management, reporting, process improvement"
+    },
+    {
+      "role": "Strategy & Research",
+      "short": "SR",
+      "icon": "primary",
+      "objectives": "Develop and monitor NTUC’s strategic plan and key performance indicators; conduct organisational development and change management initiatives; facilitate innovation and continuous improvement programmes; coordinate cross-departmental strategic projects",
+      "painPoints": "Aggregating performance data from multiple departments and entities; translating strategic direction into actionable departmental plans; managing change fatigue across the organisation; balancing long-term strategy with urgent operational demands",
+      "keyActivities": "Coordination, stakeholder management, reporting, process improvement"
+    },
+    {
+      "role": "Legal & Compliance",
+      "short": "LC",
+      "icon": "secondary",
+      "objectives": "Provide legal advisory services on labour law, contract matters, and regulatory compliance; support collective bargaining processes with legal frameworks; manage governance, risk, and compliance for the secretariat; oversee data protection and privacy compliance (PDPA)",
+      "painPoints": "Reviewing high volumes of contracts and legal documents; keeping pace with evolving labour legislation and regulatory changes; managing complex multi-stakeholder legal matters; ensuring PDPA compliance across member data systems",
+      "keyActivities": "Coordination, stakeholder management, reporting, process improvement"
+    }
+  ],
+  "workflows": [
+    {
+      "name": "Policy Position Development",
+      "steps": [
+        {
+          "t": "Research Initiation",
+          "d": "Policy team identifies emerging labour issue and scopes research requirements"
+        },
+        {
+          "t": "Data Collection & Analysis",
+          "d": "Research team gathers data from government statistics, benchmarks, and surveys"
+        },
+        {
+          "t": "Stakeholder Consultation",
+          "d": "Cross-departmental workshops with Labour Relations, Legal, and affected unions"
+        },
+        {
+          "t": "Position Paper Drafting",
+          "d": "Policy team drafts position paper incorporating legal review and operational input"
+        },
+        {
+          "t": "Internal Review",
+          "d": "Communications alignment review then escalation to Secretary-General's office"
+        },
+        {
+          "t": "External Engagement",
+          "d": "Approved position presented to tripartite partners through formal channels"
+        },
+        {
+          "t": "Implementation Tracking",
+          "d": "Strategy team monitors policy adoption outcomes and feeds into next cycle"
+        }
+      ],
+      "friction": "Time-intensive literature review and data synthesis; lengthy multi-reviewer document collaboration; maintaining consistency across multiple position papers"
+    },
+    {
+      "name": "Large-Scale Member Event Coordination",
+      "steps": [
+        {
+          "t": "Event Conceptualisation",
+          "d": "Community Engagement defines objectives with Communications and Membership input"
+        },
+        {
+          "t": "Planning & Logistics",
+          "d": "Cross-functional committee formed; Finance allocates budget; IT configures systems"
+        },
+        {
+          "t": "Member Outreach",
+          "d": "Membership Services manages invitations via CRM; Communications executes marketing"
+        },
+        {
+          "t": "Vendor & Partner Coordination",
+          "d": "Finance manages procurement; Community Engagement coordinates social enterprise partners"
+        },
+        {
+          "t": "Event Execution",
+          "d": "All departments support operations; IT manages live-streaming and digital engagement"
+        },
+        {
+          "t": "Post-Event Reporting",
+          "d": "Attendance and feedback compiled; media coverage summarised; budget reconciled"
+        }
+      ],
+      "friction": "Coordinating logistics across 10+ stakeholders; managing communications for thousands of participants; real-time content production during events"
+    },
+    {
+      "name": "Union Advisory & Grievance Resolution",
+      "steps": [
+        {
+          "t": "Case Intake",
+          "d": "Labour Relations receives grievance through email, phone, or walk-in"
+        },
+        {
+          "t": "Case Assessment",
+          "d": "Officer reviews details, checks precedents, and assesses applicable laws"
+        },
+        {
+          "t": "Mediation Preparation",
+          "d": "Officer prepares case brief and develops negotiation strategy"
+        },
+        {
+          "t": "Mediation & Resolution",
+          "d": "Officer facilitates mediation; documents outcomes and agreements"
+        },
+        {
+          "t": "Case Closure",
+          "d": "Case documented with outcome and precedent value; database updated"
+        },
+        {
+          "t": "Trend Analysis",
+          "d": "Case data aggregated quarterly to identify systemic issues"
+        }
+      ],
+      "friction": "Manual case documentation consuming officer time; difficulty searching historical precedents; preparing comprehensive case briefs under time pressure"
+    },
+    {
+      "name": "Training Programme Development & Delivery",
+      "steps": [
+        {
+          "t": "Needs Assessment",
+          "d": "Training team analyses skills gaps through surveys and labour market data"
+        },
+        {
+          "t": "Curriculum Design",
+          "d": "Programme structure designed with NTUC LearningHub and subject-matter experts"
+        },
+        {
+          "t": "Content Development",
+          "d": "Training materials created in PowerPoint and Word; digital assets for LMS"
+        },
+        {
+          "t": "Logistics & Promotion",
+          "d": "Budget processed; virtual environments set up; member channels promote programme"
+        },
+        {
+          "t": "Programme Delivery",
+          "d": "Facilitators deliver workshops; collect real-time feedback; adapt content"
+        },
+        {
+          "t": "Evaluation & Iteration",
+          "d": "Post-programme surveys analysed; certification records updated; curriculum refined"
+        }
+      ],
+      "friction": "Lengthy curriculum development cycles; adapting content for specific contexts; managing participant records across multiple platforms"
+    }
+  ],
+  "painPoints": {
+    "individual": [
+      {
+        "name": "Email Overload",
+        "desc": "Staff across all departments spend significant time processing emails, many of which require drafting tailored responses to union leaders, members, or partners. Repetitive correspondence patterns cons",
+        "freq": "Daily"
+      },
+      {
+        "name": "Document Drafting",
+        "desc": "Policy papers, case briefs, reports, and correspondence require extensive drafting and revision cycles. Staff often start from scratch rather than leveraging templates effectively.",
+        "freq": "Daily"
+      },
+      {
+        "name": "Meeting Preparation",
+        "desc": "Preparing for and following up on meetings requires manual note compilation, agenda drafting, and action-item tracking across Teams, Outlook, and OneNote.",
+        "freq": "Daily"
+      },
+      {
+        "name": "Data Analysis & Reporting",
+        "desc": "Financial reports, membership analytics, programme metrics, and case statistics involve manual Excel work, often pulling data from multiple sources with limited automation.",
+        "freq": "Weekly"
+      },
+      {
+        "name": "Information Search",
+        "desc": "Finding relevant precedents, policies, or reference materials across SharePoint, shared drives, and email archives is time-consuming and often yields incomplete results.",
+        "freq": "Daily"
+      },
+      {
+        "name": "Content Creation",
+        "desc": "Producing presentations, training materials, newsletters, and social media content requires significant creative effort with limited tools for ideation or first-draft generation.",
+        "freq": "Weekly"
+      },
+      {
+        "name": "Task Switching",
+        "desc": "Staff juggle multiple concurrent projects, union requests, and administrative tasks. Context-switching between different workstreams reduces focus and throughput.",
+        "freq": "Daily"
+      }
+    ],
+    "team": [
+      {
+        "name": "Cross-Department Coordination",
+        "desc": "Workflows spanning Labour Relations, Policy, Legal, and Communications require extensive coordination through email chains and meetings, creating bottlenecks and misalignment.",
+        "freq": "Weekly"
+      },
+      {
+        "name": "Knowledge Silos",
+        "desc": "Institutional knowledge is often trapped in individual inboxes, personal files, or undocumented expertise. Team members struggle to access colleagues’ historical work and insights.",
+        "freq": "Ongoing"
+      },
+      {
+        "name": "Inconsistent Documentation",
+        "desc": "Different teams and officers produce documents with varying formats, quality, and completeness, making it difficult to aggregate information or maintain organisational standards.",
+        "freq": "Weekly"
+      },
+      {
+        "name": "Meeting Overload",
+        "desc": "Cross-functional projects generate numerous meetings, many of which could be replaced by asynchronous updates or more efficient information-sharing mechanisms.",
+        "freq": "Daily"
+      },
+      {
+        "name": "Version Control",
+        "desc": "Multiple reviewers editing documents simultaneously leads to version conflicts, especially in lengthy policy papers and reports that pass through several approval stages.",
+        "freq": "Weekly"
+      }
+    ],
+    "organisation": [
+      {
+        "name": "Legacy System Integration",
+        "desc": "Multiple legacy systems for case management, membership, and finance do not integrate natively with Microsoft 365, requiring manual data transfer and reconciliation.",
+        "freq": "Structural"
+      },
+      {
+        "name": "Scale of Member Communications",
+        "desc": "Communicating effectively with over one million members across diverse demographics and interests strains existing content production and personalisation capabilities.",
+        "freq": "Ongoing"
+      },
+      {
+        "name": "Data-Driven Decision Making",
+        "desc": "While data is collected across programmes, consolidating it into actionable insights for leadership requires significant manual effort and analytical capacity.",
+        "freq": "Structural"
+      },
+      {
+        "name": "Change Management Capacity",
+        "desc": "The pace of digital transformation initiatives, including Copilot deployment, must be balanced against the organisation’s capacity to absorb change across all departments.",
+        "freq": "Structural"
+      },
+      {
+        "name": "Talent Attraction & Retention",
+        "desc": "Competing with the private sector for digital talent and ensuring existing staff remain motivated and skilled in a rapidly evolving technology landscape.",
+        "freq": "Ongoing"
+      },
+      {
+        "name": "Social Enterprise Coordination",
+        "desc": "Coordinating strategic priorities, shared services, and knowledge transfer across NTUC’s portfolio of social enterprises involves complex governance and communication structures.",
+        "freq": "Structural"
+      }
+    ]
+  },
+  "technology": {
+    "m365Status": "NTUC has made a decisive commitment to AI-augmented productivity by acquiring Microsoft 365 Copilot licences for all approximately 1,200 secretariat staff. This organisation-wide deployment is supported by an Mission +-led workshop series with the AI Fluency Toolkit for sustained adoption.",
+    "m365": [
+      "Outlook",
+      "Teams",
+      "Word",
+      "Excel",
+      "PowerPoint",
+      "SharePoint",
+      "OneDrive",
+      "M365 Copilot"
+    ],
+    "platforms": [
+      {
+        "name": "U Portal (Sitecore)",
+        "desc": "Primary member-facing web portal for services, news, and benefits"
+      },
+      {
+        "name": "My NTUC Mobile App",
+        "desc": "Mobile-first member engagement with personalised benefits and services"
+      },
+      {
+        "name": "Case Management System",
+        "desc": "Track and manage union advisory and grievance cases"
+      },
+      {
+        "name": "CRM / Member Management",
+        "desc": "Manage 1M+ member records, registrations, and benefits"
+      },
+      {
+        "name": "Financial ERP",
+        "desc": "Budgeting, accounting, procurement, and financial reporting"
+      },
+      {
+        "name": "SharePoint & OneDrive",
+        "desc": "Document management, collaboration, and knowledge repository"
+      },
+      {
+        "name": "Learning Management System",
+        "desc": "Manage training programmes, certifications, and learning paths"
+      },
+      {
+        "name": "Google Tag Manager / Analytics",
+        "desc": "Website analytics and member behaviour tracking"
+      }
+    ]
+  },
+  "glossary": [
+    {
+      "t": "NTUC",
+      "d": "National Trades Union Congress — Singapore’s sole national trade union centre representing the labour movement",
+      "cat": "Organisation"
+    },
+    {
+      "t": "Labour Movement",
+      "d": "The collective ecosystem of NTUC, its 58 affiliated unions, associations, social enterprises, and related organisations",
+      "cat": "Organisation"
+    },
+    {
+      "t": "Tripartism",
+      "d": "Singapore’s collaborative approach to labour relations involving government, employers, and unions",
+      "cat": "Organisation"
+    },
+    {
+      "t": "Secretary-General",
+      "d": "The chief executive leader of NTUC, traditionally a senior government figure reflecting tripartite collaboration",
+      "cat": "Organisation"
+    },
+    {
+      "t": "Central Committee",
+      "d": "NTUC’s elected governing body responsible for policy direction and strategic decisions",
+      "cat": "Organisation"
+    },
+    {
+      "t": "Affiliated Union",
+      "d": "An independent trade union that is formally affiliated to NTUC (58 in total)",
+      "cat": "Organisation"
+    },
+    {
+      "t": "Social Enterprise",
+      "d": "Commercially-operated entities under the NTUC umbrella that reinvest surpluses to benefit workers and communities",
+      "cat": "Organisation"
+    },
+    {
+      "t": "U Associate",
+      "d": "NTUC membership programme for professionals, managers, and executives (PMEs)",
+      "cat": "Organisation"
+    },
+    {
+      "t": "NTUC FairPrice",
+      "d": "Singapore’s largest supermarket chain, operating as an NTUC social enterprise focused on moderating the cost of living",
+      "cat": "Business Units"
+    },
+    {
+      "t": "NTUC First Campus (NFC)",
+      "d": "Preschool and early childhood social enterprise operating 170+ centres including My First Skool and Little Skool-House",
+      "cat": "Business Units"
+    },
+    {
+      "t": "NTUC Health",
+      "d": "Integrated health and eldercare social enterprise providing senior care, rehabilitation, family medicine, and dental services",
+      "cat": "Business Units"
+    },
+    {
+      "t": "NTUC LearningHub (LHUB)",
+      "d": "Continuing education and training provider offering professional development, digital skills, and SkillsFuture courses",
+      "cat": "Business Units"
+    },
+    {
+      "t": "NTUC Foodfare",
+      "d": "Institutional catering and food manufacturing social enterprise serving 20M+ meals annually",
+      "cat": "Business Units"
+    },
+    {
+      "t": "NTUC Club",
+      "d": "Lifestyle, recreation, and resort social enterprise for union members and families",
+      "cat": "Business Units"
+    },
+    {
+      "t": "NTUC Link (PLUS!)",
+      "d": "Member loyalty programme and data platform powering the PLUS! rewards card network",
+      "cat": "Business Units"
+    },
+    {
+      "t": "e2i",
+      "d": "Employment and Employability Institute — career matching, job placement, and employer partnership facilitation",
+      "cat": "Business Units"
+    },
+    {
+      "t": "U Portal",
+      "d": "NTUC’s primary member-facing web portal providing services, news, benefits, and digital transactions",
+      "cat": "Technology"
+    },
+    {
+      "t": "My NTUC App",
+      "d": "Mobile application for member engagement, benefits access, and personalised services (iOS and Android)",
+      "cat": "Technology"
+    },
+    {
+      "t": "M365 Copilot",
+      "d": "Microsoft 365 Copilot — AI-powered assistant integrated into Word, Excel, PowerPoint, Outlook, and Teams",
+      "cat": "Technology"
+    },
+    {
+      "t": "Copilot Chat",
+      "d": "Standalone AI chat interface for open-ended queries, research, and content generation without M365 app context",
+      "cat": "Technology"
+    },
+    {
+      "t": "SharePoint",
+      "d": "Microsoft’s document management and collaboration platform used for NTUC’s knowledge repository and team sites",
+      "cat": "Technology"
+    },
+    {
+      "t": "Power Platform",
+      "d": "Microsoft’s low-code/no-code suite including Power BI, Power Automate, and Power Apps for business solutions",
+      "cat": "Technology"
+    },
+    {
+      "t": "PDPA",
+      "d": "Personal Data Protection Act — Singapore’s data privacy legislation governing member data handling",
+      "cat": "Technology"
+    },
+    {
+      "t": "LMS",
+      "d": "Learning Management System used to deliver, track, and manage training programmes and certifications",
+      "cat": "Technology"
+    },
+    {
+      "t": "SkillsFuture",
+      "d": "Singapore’s national movement to provide citizens with learning opportunities throughout their careers",
+      "cat": "HR & Learning"
+    },
+    {
+      "t": "Progressive Wage Model (PWM)",
+      "d": "NTUC-advocated wage framework that links wage increases to skills, productivity, and career progression",
+      "cat": "HR & Learning"
+    },
+    {
+      "t": "WSQ",
+      "d": "Workforce Skills Qualifications — national credentialing system for competency-based training",
+      "cat": "HR & Learning"
+    },
+    {
+      "t": "L&D",
+      "d": "Learning and Development — the HR function responsible for staff training and capability building",
+      "cat": "HR & Learning"
+    },
+    {
+      "t": "Onboarding Programme",
+      "d": "Structured introduction programme for new NTUC staff covering organisational culture, systems, and processes",
+      "cat": "HR & Learning"
+    },
+    {
+      "t": "Digital Skills Accelerator",
+      "d": "NTUC’s internal programme to build digital confidence and AI fluency across all role families",
+      "cat": "HR & Learning"
+    },
+    {
+      "t": "AI Fluency Toolkit",
+      "d": "Mission +’s learning portal for sustained Copilot adoption, used during and after workshops",
+      "cat": "HR & Learning"
+    },
+    {
+      "t": "Collective Agreement",
+      "d": "Formal agreement between a union and employer on terms and conditions of employment",
+      "cat": "Labour Relations"
+    },
+    {
+      "t": "Industrial Arbitration Court (IAC)",
+      "d": "Singapore’s court for resolving industrial disputes between employers and unions",
+      "cat": "Labour Relations"
+    },
+    {
+      "t": "May Day",
+      "d": "International Workers’ Day (1 May) — NTUC’s signature annual event celebrating and rallying the labour movement",
+      "cat": "Labour Relations"
+    },
+    {
+      "t": "Tripartite Alliance",
+      "d": "Collaborative bodies (e.g., TAFEP, TAL) involving NTUC, government, and employers on workplace standards",
+      "cat": "Labour Relations"
+    },
+    {
+      "t": "PME",
+      "d": "Professionals, Managers, and Executives — a key growth segment for NTUC union membership",
+      "cat": "Labour Relations"
+    },
+    {
+      "t": "Gig Worker",
+      "d": "Workers engaged through digital platforms on flexible, non-traditional employment arrangements",
+      "cat": "Labour Relations"
+    },
+    {
+      "t": "MOM",
+      "d": "Ministry of Manpower — Singapore’s government ministry overseeing labour policies and employment regulation",
+      "cat": "Labour Relations"
+    },
+    {
+      "t": "NWC",
+      "d": "National Wages Council — tripartite body that issues annual wage guidelines for Singapore",
+      "cat": "Labour Relations"
+    }
+  ]
+};
+// === DATA_BLOCK_END === (DO NOT MODIFY OR DELETE THIS LINE)
+
+let currentPage = 'overview';
+let glossaryFilter = 'all';
+let painTab = 'individual';
+
+// Update nav badges
+document.getElementById('priorities-badge').textContent = DATA.priorities?.length || 0;
+document.getElementById('roles-badge').textContent = DATA.capabilities?.length || 0;
+document.getElementById('workflows-badge').textContent = DATA.workflows?.length || 0;
+document.getElementById('glossary-badge').textContent = DATA.glossary?.length || 0;
+
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+
+function navigateTo(pageId) {
+  currentPage = pageId;
+  document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  renderPage(pageId);
+  if (window.innerWidth <= 1024) {
+    document.getElementById('sidebar').classList.remove('open');
+  }
+}
+
+function toggleAccordion(el) {
+  el.closest('.accordion').classList.toggle('active');
+}
+
+function renderOverview() {
+  const keyFacts = DATA.keyFacts || [];
+  return `
+    <div class="page-header">
+      <div class="page-header-content">
+        <div class="page-icon"><svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg></div>
+        <div class="page-title-group">
+          <h1 class="page-title">About ${DATA.client.shortName}</h1>
+          <p class="page-subtitle">${DATA.client.tagline}</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="stat-grid">
+      ${keyFacts.map(s => `
+        <div class="stat-card">
+          <div class="stat-label">${s.label}</div>
+          <div class="stat-value">${s.value}</div>
+          <div class="stat-desc">${s.desc}</div>
+        </div>
+      `).join('')}
+    </div>
+    
+    <div class="card" style="margin-bottom: 24px;">
+      <div class="card-header">
+        <div class="card-icon primary"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></div>
+        <div>
+          <div class="card-title">Organisation Overview</div>
+          <div class="card-subtitle">${DATA.client.subtitle || 'About the organization'}</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>${DATA.client.description}</p>
+      </div>
+    </div>
+    
+    ${DATA.serviceAreas ? `
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon secondary"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+          <div>
+            <div class="card-title">Core Service Areas</div>
+            <div class="card-subtitle">How ${DATA.client.shortName} serves stakeholders</div>
+          </div>
+        </div>
+        <div class="card-body">
+          ${DATA.serviceAreas.map(s => `<p><strong>${s.title}</strong> - ${s.desc}</p>`).join('')}
+        </div>
+      </div>
+      ${DATA.leadership ? `
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon accent"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+          <div>
+            <div class="card-title">Leadership</div>
+            <div class="card-subtitle">${DATA.client.shortName} management team</div>
+          </div>
+        </div>
+        <div class="card-body">
+          ${DATA.leadership.map(l => `<p><strong>${l.title}:</strong> ${l.name}</p>`).join('')}
+          ${DATA.locations ? DATA.locations.map(l => `<p style="margin-top: 12px; font-size: 13px; color: var(--text-secondary);">${l.label}: ${l.address}</p>`).join('') : ''}
+        </div>
+      </div>
+      ` : ''}
+    </div>
+    ` : ''}
+    
+    <div class="info-box" style="margin-top: 24px; background: linear-gradient(135deg, rgba(99,110,114,0.08), rgba(45,52,54,0.05)); border-left-color: var(--text-secondary);">
+      <div style="display: flex; align-items: flex-start; gap: 12px;">
+        <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: var(--text-secondary); flex-shrink: 0; margin-top: 2px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        <div>
+          <div style="font-weight: 600; margin-bottom: 6px; color: var(--text-secondary);">Disclaimer</div>
+          <p style="font-size: 13px; color: var(--text-secondary); margin: 0;">This document was prepared by Mission + for educational and workshop purposes. Content is based on research using publicly available information and industry knowledge. Role descriptions, workflows, and pain points are illustrative examples designed to support AI adoption training. This does not represent official ${DATA.client.shortName} data or endorsed recommendations. Please validate specific details with authoritative sources.</p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderPriorities() {
+  return `
+    <div class="page-header">
+      <div class="page-header-content">
+        <div class="page-icon"><svg viewBox="0 0 24 24"><path d="M14 10H2v2h12v-2zm0-4H2v2h12V6zm4 8v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM2 16h8v-2H2v2z"/></svg></div>
+        <div class="page-title-group">
+          <h1 class="page-title">Strategic Priorities</h1>
+          <p class="page-subtitle">${DATA.priorities?.length || 0} key organizational priorities</p>
+        </div>
+      </div>
+    </div>
+    <div class="grid-auto">
+      ${(DATA.priorities || []).map(p => `
+        <div class="priority-card">
+          <div class="priority-header">
+            <div class="priority-num">${p.num}</div>
+            <div>
+              <div class="priority-title">${p.title}</div>
+              <div class="priority-tagline">"${p.tagline}"</div>
+            </div>
+          </div>
+          <div class="priority-body">
+            <div class="priority-section">
+              <div class="priority-label">Description</div>
+              <div class="priority-content">${p.desc}</div>
+            </div>
+            ${p.roles ? `<div class="priority-section"><div class="priority-label">Key Roles</div><div class="priority-content">${p.roles}</div></div>` : ''}
+            ${p.pains ? `<div class="priority-section"><div class="priority-label">Associated Challenges</div><div class="priority-content">${p.pains}</div></div>` : ''}
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+function renderRoles() {
+  return `
+    <div class="page-header">
+      <div class="page-header-content">
+        <div class="page-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+        <div class="page-title-group">
+          <h1 class="page-title">Functions & Roles</h1>
+          <p class="page-subtitle">${DATA.capabilities?.length || 0} organizational functions</p>
+        </div>
+      </div>
+    </div>
+    ${(DATA.capabilities || []).map((c, i) => `
+      <div class="accordion ${i === 0 ? 'active' : ''}">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <div class="accordion-icon" style="background: var(--brand-${c.icon || 'primary'});">
+            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="white"/></svg>
+          </div>
+          <div class="accordion-title">${c.role}</div>
+          <div class="accordion-arrow">${ICONS.expand}</div>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-content">
+            <div class="grid-2">
+              <div class="accordion-section">
+                <div class="accordion-label">Top Objectives</div>
+                <p>${c.objectives}</p>
+              </div>
+              <div class="accordion-section">
+                <div class="accordion-label">Key Challenges</div>
+                <p>${c.painPoints}</p>
+              </div>
+            </div>
+            ${c.keyActivities ? `
+            <div class="accordion-section">
+              <div class="accordion-label">Key Activities</div>
+              <p>${c.keyActivities}</p>
+            </div>
+            ` : ''}
+          </div>
+        </div>
+      </div>
+    `).join('')}
+  `;
+}
+
+function renderWorkflows() {
+  return `
+    <div class="page-header">
+      <div class="page-header-content">
+        <div class="page-icon"><svg viewBox="0 0 24 24"><path d="M22 11V3h-7v3H9V3H2v8h7V8h2v10h4v3h7v-8h-7v3h-2V8h2v3z"/></svg></div>
+        <div class="page-title-group">
+          <h1 class="page-title">Cross-Functional Workflows</h1>
+          <p class="page-subtitle">${DATA.workflows?.length || 0} workflows with friction points identified</p>
+        </div>
+      </div>
+    </div>
+    ${(DATA.workflows || []).map(w => `
+      <div class="workflow-card">
+        <div class="workflow-title">${w.name}</div>
+        <div class="workflow-timeline">
+          ${(w.steps || []).map((s, i) => `
+            <div class="workflow-step">
+              <div class="step-node">${i + 1}</div>
+              <div class="step-title">${s.t}</div>
+              <div class="step-desc">${s.d}</div>
+            </div>
+          `).join('')}
+        </div>
+        <div class="workflow-friction">
+          <div class="friction-label">⚠️ Friction Points</div>
+          <div class="friction-content">${w.friction}</div>
+        </div>
+      </div>
+    `).join('')}
+  `;
+}
+
+function renderPainPoints() {
+  const renderPainItems = (items) => (items || []).map(p => `
+    <div class="pain-item">
+      <div class="pain-header">
+        <div class="pain-name">${p.name}</div>
+        <div class="pain-freq">${p.freq}</div>
+      </div>
+      <div class="pain-desc">${p.desc}</div>
+    </div>
+  `).join('');
+
+  const pp = DATA.painPoints || {individual: [], team: [], organisation: []};
+  
+  return `
+    <div class="page-header">
+      <div class="page-header-content">
+        <div class="page-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg></div>
+        <div class="page-title-group">
+          <h1 class="page-title">Pain Points</h1>
+          <p class="page-subtitle">Challenges by organizational level</p>
+        </div>
+      </div>
+    </div>
+    <div class="tabs">
+      <div class="tab ${painTab === 'individual' ? 'active' : ''}" onclick="painTab='individual'; renderPage('painpoints');">Individual (${pp.individual?.length || 0})</div>
+      <div class="tab ${painTab === 'team' ? 'active' : ''}" onclick="painTab='team'; renderPage('painpoints');">Team (${pp.team?.length || 0})</div>
+      <div class="tab ${painTab === 'org' ? 'active' : ''}" onclick="painTab='org'; renderPage('painpoints');">Organization (${pp.organisation?.length || 0})</div>
+    </div>
+    <div class="tab-content active">
+      ${painTab === 'individual' ? renderPainItems(pp.individual) : ''}
+      ${painTab === 'team' ? renderPainItems(pp.team) : ''}
+      ${painTab === 'org' ? renderPainItems(pp.organisation) : ''}
+    </div>
+  `;
+}
+
+function renderTechnology() {
+  const tech = DATA.technology || {};
+  const renderTechItems = (items) => (items || []).map(t => `
+    <div class="tech-item">
+      <div class="tech-icon"><svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg></div>
+      <div class="tech-name">${typeof t === 'string' ? t : t.name}</div>
+    </div>
+  `).join('');
+
+  return `
+    <div class="page-header">
+      <div class="page-header-content">
+        <div class="page-icon"><svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg></div>
+        <div class="page-title-group">
+          <h1 class="page-title">Technology Landscape</h1>
+          <p class="page-subtitle">Systems and digital footprint</p>
+        </div>
+      </div>
+    </div>
+    
+    ${tech.platforms ? `
+    <div class="tech-section">
+      <div class="tech-title">Core Platforms</div>
+      <div class="tech-grid">${(tech.platforms || []).map(p => `
+        <div class="tech-item">
+          <div class="tech-icon"><svg viewBox="0 0 24 24"><path d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm8-2h8v8h-8v-8zm2 2v4h4v-4h-4z"/></svg></div>
+          <div class="tech-name">${p.name}</div>
+          <div style="font-size: 11px; color: var(--text-secondary); margin-top: 4px;">${p.desc}</div>
+        </div>
+      `).join('')}</div>
+    </div>
+    ` : ''}
+  `;
+}
+
+function renderGlossary() {
+  const categories = [...new Set((DATA.glossary || []).map(g => g.cat))];
+  const filtered = glossaryFilter === 'all' ? DATA.glossary : (DATA.glossary || []).filter(g => g.cat === glossaryFilter);
+  
+  return `
+    <div class="page-header">
+      <div class="page-header-content">
+        <div class="page-icon"><svg viewBox="0 0 24 24"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg></div>
+        <div class="page-title-group">
+          <h1 class="page-title">Glossary</h1>
+          <p class="page-subtitle">${DATA.glossary?.length || 0} terms and abbreviations</p>
+        </div>
+      </div>
+    </div>
+    <div class="glossary-filters">
+      <button class="filter-btn ${glossaryFilter === 'all' ? 'active' : ''}" onclick="glossaryFilter='all'; renderPage('glossary');">All</button>
+      ${categories.map(c => `<button class="filter-btn ${glossaryFilter === c ? 'active' : ''}" onclick="glossaryFilter='${c}'; renderPage('glossary');">${c}</button>`).join('')}
+    </div>
+    <div class="glossary-grid">
+      ${(filtered || []).map(g => `
+        <div class="glossary-item">
+          <div class="glossary-term">${g.t}</div>
+          <div class="glossary-def">${g.d}</div>
+          <span class="glossary-cat">${g.cat}</span>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+function renderPage(pageId) {
+  const main = document.getElementById('main');
+  let content = '';
+  switch(pageId) {
+    case 'overview': content = renderOverview(); break;
+    case 'priorities': content = renderPriorities(); break;
+    case 'roles': content = renderRoles(); break;
+    case 'workflows': content = renderWorkflows(); break;
+    case 'painpoints': content = renderPainPoints(); break;
+    case 'technology': content = renderTechnology(); break;
+    case 'glossary': content = renderGlossary(); break;
+    default: content = renderOverview();
+  }
+  main.innerHTML = `<div class="page active">${content}</div><div class="content-footer"><div class="disclaimer">This document was prepared for educational and workshop purposes. Use cases are illustrative examples designed to support AI adoption training.</div></div>`;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+renderPage('overview');
+
+// ── Dynamic profile loading ───────────────────────────────────────────────────
+// If a company profile has been researched and saved, load it from the local
+// server and replace the default NTUC DATA. Falls back silently if server is
+// not running or no profile exists for the active company.
+(function () {
+  var active = null;
+  try { active = JSON.parse(sessionStorage.getItem('active_company') || 'null'); } catch(e) {}
+  if (!active || !active.id) return;
+
+  fetch('http://localhost:3001/profile?id=' + encodeURIComponent(active.id) + '&name=' + encodeURIComponent(active.name || ''))
+    .then(function(r) { return r.json(); })
+    .then(function(result) {
+      if (!result.found || !result.data) return;
+
+      // Merge loaded data into DATA (const — property assignment is fine)
+      var loaded = result.data;
+      Object.keys(loaded).forEach(function(k) { DATA[k] = loaded[k]; });
+
+      // Update nav badges
+      var pb = document.getElementById('priorities-badge');
+      var rb = document.getElementById('roles-badge');
+      var wb = document.getElementById('workflows-badge');
+      var gb = document.getElementById('glossary-badge');
+      if (pb) pb.textContent = (DATA.priorities  || []).length;
+      if (rb) rb.textContent = (DATA.capabilities || []).length;
+      if (wb) wb.textContent = (DATA.workflows    || []).length;
+      if (gb) gb.textContent = (DATA.glossary     || []).length;
+
+      // Update sidebar header and page title
+      if (DATA.client) {
+        var logoTitle = document.querySelector('.logo-title');
+        var logoSub   = document.querySelector('.logo-subtitle');
+        if (logoTitle) logoTitle.textContent = DATA.client.shortName || DATA.client.name;
+        if (logoSub)   logoSub.textContent   = 'Operational Profile';
+        document.title = (DATA.client.shortName || DATA.client.name) + ' | Operational Profile';
+
+        // Update first nav item label ("About NTUC" → "About {Company}")
+        var navAbout = document.getElementById('nav-about-label');
+        if (navAbout) navAbout.textContent = 'About ' + (DATA.client.shortName || DATA.client.name);
+      }
+
+      // Re-render current page with new data
+      renderPage(currentPage);
+    })
+    .catch(function() {});  // silently ignore if server is not running
+})();
+</script>
+
+
+</body></html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Fluency Toolkit</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #0F172A;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      text-align: center;
+      padding: 40px 24px;
+    }
+    .logo {
+      width: 64px; height: 64px;
+      background: linear-gradient(135deg, #38B2AC, #4299E1);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      overflow: hidden;
+    }
+    .logo svg { width: 28px; height: 28px; }
+    .logo img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
+    h1 {
+      color: white;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    p {
+      color: #94A3B8;
+      font-size: 0.92rem;
+      margin-bottom: 40px;
+    }
+    .cards {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: #1E293B;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 28px 24px;
+      width: 200px;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.15s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .card:hover { border-color: #64748B; transform: translateY(-2px); }
+    .card-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+    }
+    .card-icon.trainer { background: rgba(56,178,172,0.15); }
+    .card-icon.trainee { background: rgba(66,153,225,0.15); }
+    .card h2 { color: white; font-size: 0.95rem; font-weight: 600; }
+    .card p { color: #64748B; font-size: 0.78rem; margin: 0; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo" id="site-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <h1 id="site-title">AI Fluency Toolkit</h1>
+    <p>Select your role to continue</p>
+    <div class="cards">
+      <a href="admin.html" class="card">
+        <div class="card-icon trainer">⚙️</div>
+        <h2>Trainer Setup</h2>
+        <p>Configure companies and brand colors</p>
+      </a>
+      <a href="Main page.html" class="card">
+        <div class="card-icon trainee">🎓</div>
+        <h2>Start Training</h2>
+        <p>Enter your access code to begin</p>
+      </a>
+    </div>
+  </div>
+  <script>
+    // If exactly one company is configured, show its logo and name on the landing page
+    (function() {
+      try {
+        var companies = JSON.parse(localStorage.getItem('training_companies') || '[]');
+        if (companies.length === 1) {
+          var c = companies[0];
+          var logoEl = document.getElementById('site-logo');
+          var titleEl = document.getElementById('site-title');
+
+          // Replace logo
+          if (c.logoDataUrl) {
+            logoEl.innerHTML = '<img src="' + c.logoDataUrl + '" alt="' + c.name + ' logo" />';
+            // Use brand primary as background behind logo
+            logoEl.style.background = c.colors && c.colors.primary
+              ? 'linear-gradient(135deg,' + c.colors.primary + ',' + (c.colors.primaryDark || c.colors.primary) + ')'
+              : logoEl.style.background;
+          } else if (c.colors && c.colors.primary) {
+            // No logo uploaded — at least recolor the gradient to match brand
+            logoEl.style.background = 'linear-gradient(135deg,' + c.colors.primary + ',' + (c.colors.primaryDark || c.colors.primary) + ')';
+          }
+
+          // Update title to company name
+          if (c.name) {
+            titleEl.textContent = c.name + ' AI Training';
+          }
+        }
+      } catch(e) {}
+    })();
+  </script>
+</body>
+</html>

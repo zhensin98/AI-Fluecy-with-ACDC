@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node color-server.js)",
+      "Bash(curl -s -X POST http://localhost:3001/extract-colors -H \"Content-Type: application/json\" -d \"{\\\\\"url\\\\\":\\\\\"https://www.google.com\\\\\"}\")",
+      "Bash(curl -s -X POST http://localhost:3001/extract-colors -H \"Content-Type: application/json\" -d \"{\\\\\"url\\\\\":\\\\\"https://www.ntuc.org.sg\\\\\"}\")",
+      "Bash(netstat -ano)",
+      "Bash(findstr :3001)",
+      "Bash(curl -v http://localhost:3001/extract-colors -X POST -H \"Content-Type: application/json\" -d \"{\\\\\"url\\\\\":\\\\\"https://www.ntuc.org.sg\\\\\"}\")",
+      "Bash(taskkill /F /PID 4968)",
+      "Bash(cmd /c \"taskkill /F /PID 4968\")",
+      "Bash(cmd /c \"taskkill /F /PID 4968 2>&1\")",
+      "Bash(powershell -Command \"Stop-Process -Id 4968 -Force -ErrorAction SilentlyContinue; Start-Sleep 1; netstat -ano | Select-String ':3001'\")",
+      "Bash(curl -s http://localhost:3001/extract-colors -X POST -H \"Content-Type: application/json\" -d \"{\\\\\"url\\\\\":\\\\\"https://www.ntuc.org.sg\\\\\"}\")",
+      "Bash(awk 'NR>=2000 && NR<=2400')",
+      "Read(//\"id\": \"UC-/{id=$0} /\"name\":.*[Ee]xplain|[Rr]esearch|[Dd]raft|[Cc]reate|[Aa]nalyse|[Bb]uild|[Ss]ummarise|[Ee]xtract|[Uu]nderstand|[Gg]et/**)",
+      "WebSearch",
+      "WebFetch(domain:adoption.microsoft.com)",
+      "Bash(python3 -c ':*)",
+      "Bash(python -c ':*)",
+      "Bash(grep -v \"style\\\\|class def\\\\|\\\\\\\\.section\\\\|@media\\\\|font\\\\|padding\\\\|margin\\\\|border\\\\|color\\\\|display\\\\|position\\\\|width\\\\|height\\\\|background\\\\|transition\\\\|overflow\\\\|flex\\\\|gap\\\\|transform\\\\|opacity\\\\|cursor\\\\|z-index\\\\|white-space\\\\|text\\\\|box-shadow\\\\|list\\\\|align\\\\|justify\\\\|min-\\\\|max-\\\\|scroll\\\\|var\\(--\")",
+      "Bash(grep -v \"^--$\")",
+      "Bash(ls -la \"c:/Users/Yeong Zhen Sin/OneDrive/Mission plus internship/Projects/Project 3/YS/Module\"*.html)",
+      "Read(//c/Users/Yeong Zhen Sin/OneDrive/Mission plus internship/Projects/Project 3/YS/**)",
+      "Bash(ls -la \"c:/Users/Yeong Zhen Sin/OneDrive/Mission plus internship/Projects/Project 3/YS/\"*.html)",
+      "Bash(node -e ':*)"
+    ]
+  }
+}
