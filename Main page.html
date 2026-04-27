@@ -1314,8 +1314,31 @@
                         initAuth();
                     })
                     .catch(function() {
-                        // Server not running — fall back to localStorage cache
-                        initAuth();
+                        // Server not running — try static profiles/index.json (Vercel)
+                        fetch('profiles/index.json')
+                            .then(function(r) { return r.json(); })
+                            .then(function(data) {
+                                if (data.profiles) {
+                                    var list = data.profiles
+                                        .filter(function(p) { return p.config && p.config.password; })
+                                        .map(function(p) {
+                                            return {
+                                                id:       p.id,
+                                                name:     p.name,
+                                                website:  p.url || '',
+                                                password: p.config.password,
+                                                colors:   p.config.colors || {},
+                                                logoDataUrl: ''
+                                            };
+                                        });
+                                    _companiesCache = list;
+                                    try {
+                                        localStorage.setItem('training_companies', JSON.stringify(list));
+                                    } catch(e) {}
+                                }
+                                initAuth();
+                            })
+                            .catch(function() { initAuth(); });
                     });
             }
         })();
@@ -1487,6 +1510,33 @@
             try { active = JSON.parse(sessionStorage.getItem('active_company') || 'null'); } catch(e) {}
             if (!active || !active.id) return;
 
+            function unlockCards() {
+                var peCard = document.getElementById('card-profile-explorer');
+                var cvCard = document.getElementById('card-copilot-value');
+                if (peCard) peCard.classList.remove('card--locked');
+                if (cvCard) cvCard.classList.remove('card--locked');
+            }
+            function lockCards() {
+                var peCard = document.getElementById('card-profile-explorer');
+                var cvCard = document.getElementById('card-copilot-value');
+                if (peCard) peCard.classList.add('card--locked');
+                if (cvCard) cvCard.classList.add('card--locked');
+            }
+            function checkStaticProfile() {
+                // Server not running — check static profiles/index.json (Vercel)
+                fetch('profiles/index.json')
+                    .then(function(r) { return r.json(); })
+                    .then(function(idx) {
+                        var companyName = (active.name || '').toLowerCase();
+                        // Find a research profile (no config) matching this company name
+                        var match = (idx.profiles || []).find(function(p) {
+                            return p.name && p.name.toLowerCase() === companyName && !p.config;
+                        });
+                        if (match) { unlockCards(); } else { lockCards(); }
+                    })
+                    .catch(lockCards);
+            }
+
             fetch('http://localhost:3001/profile?id=' + encodeURIComponent(active.id) + '&name=' + encodeURIComponent(active.name || ''))
                 .then(function(r) { return r.json(); })
                 .then(function(result) {
@@ -1496,13 +1546,7 @@
                     if (peCard) peCard.classList.toggle('card--locked', !hasResearch);
                     if (cvCard) cvCard.classList.toggle('card--locked', !hasResearch);
                 })
-                .catch(function() {
-                    // Server not running — lock cards to be safe
-                    var peCard = document.getElementById('card-profile-explorer');
-                    var cvCard = document.getElementById('card-copilot-value');
-                    if (peCard) peCard.classList.add('card--locked');
-                    if (cvCard) cvCard.classList.add('card--locked');
-                });
+                .catch(checkStaticProfile);
         }
     </script>
 

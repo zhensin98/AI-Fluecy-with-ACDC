@@ -1429,42 +1429,51 @@ renderPage('overview');
   try { active = JSON.parse(sessionStorage.getItem('active_company') || 'null'); } catch(e) {}
   if (!active || !active.id) return;
 
+  function applyProfileData(loaded) {
+    Object.keys(loaded).forEach(function(k) { DATA[k] = loaded[k]; });
+    var pb = document.getElementById('priorities-badge');
+    var rb = document.getElementById('roles-badge');
+    var wb = document.getElementById('workflows-badge');
+    var gb = document.getElementById('glossary-badge');
+    if (pb) pb.textContent = (DATA.priorities  || []).length;
+    if (rb) rb.textContent = (DATA.capabilities || []).length;
+    if (wb) wb.textContent = (DATA.workflows    || []).length;
+    if (gb) gb.textContent = (DATA.glossary     || []).length;
+    if (DATA.client) {
+      var logoTitle = document.querySelector('.logo-title');
+      var logoSub   = document.querySelector('.logo-subtitle');
+      if (logoTitle) logoTitle.textContent = DATA.client.shortName || DATA.client.name;
+      if (logoSub)   logoSub.textContent   = 'Operational Profile';
+      document.title = (DATA.client.shortName || DATA.client.name) + ' | Operational Profile';
+      var navAbout = document.getElementById('nav-about-label');
+      if (navAbout) navAbout.textContent = 'About ' + (DATA.client.shortName || DATA.client.name);
+    }
+    renderPage(currentPage);
+  }
+
+  function tryStaticProfile() {
+    fetch('profiles/index.json')
+      .then(function(r) { return r.json(); })
+      .then(function(idx) {
+        var companyName = (active.name || '').toLowerCase();
+        var match = (idx.profiles || []).find(function(p) {
+          return p.name && p.name.toLowerCase() === companyName && !p.config;
+        });
+        if (!match) return;
+        return fetch('profiles/' + match.id + '.json')
+          .then(function(r) { return r.json(); })
+          .then(function(p) { if (p && p.data) applyProfileData(p.data); });
+      })
+      .catch(function() {});
+  }
+
   fetch('http://localhost:3001/profile?id=' + encodeURIComponent(active.id) + '&name=' + encodeURIComponent(active.name || ''))
     .then(function(r) { return r.json(); })
     .then(function(result) {
-      if (!result.found || !result.data) return;
-
-      // Merge loaded data into DATA (const — property assignment is fine)
-      var loaded = result.data;
-      Object.keys(loaded).forEach(function(k) { DATA[k] = loaded[k]; });
-
-      // Update nav badges
-      var pb = document.getElementById('priorities-badge');
-      var rb = document.getElementById('roles-badge');
-      var wb = document.getElementById('workflows-badge');
-      var gb = document.getElementById('glossary-badge');
-      if (pb) pb.textContent = (DATA.priorities  || []).length;
-      if (rb) rb.textContent = (DATA.capabilities || []).length;
-      if (wb) wb.textContent = (DATA.workflows    || []).length;
-      if (gb) gb.textContent = (DATA.glossary     || []).length;
-
-      // Update sidebar header and page title
-      if (DATA.client) {
-        var logoTitle = document.querySelector('.logo-title');
-        var logoSub   = document.querySelector('.logo-subtitle');
-        if (logoTitle) logoTitle.textContent = DATA.client.shortName || DATA.client.name;
-        if (logoSub)   logoSub.textContent   = 'Operational Profile';
-        document.title = (DATA.client.shortName || DATA.client.name) + ' | Operational Profile';
-
-        // Update first nav item label ("About NTUC" → "About {Company}")
-        var navAbout = document.getElementById('nav-about-label');
-        if (navAbout) navAbout.textContent = 'About ' + (DATA.client.shortName || DATA.client.name);
-      }
-
-      // Re-render current page with new data
-      renderPage(currentPage);
+      if (!result.found || !result.data) { tryStaticProfile(); return; }
+      applyProfileData(result.data);
     })
-    .catch(function() {});  // silently ignore if server is not running
+    .catch(tryStaticProfile);
 })();
 </script>
 
