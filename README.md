@@ -1,6 +1,23 @@
 # AI Fluency Toolkit
 
-A multi-company training platform for Microsoft 365 Copilot adoption workshops. Trainers can set up a branded experience per company, and participants access module-based learning content through a password-protected portal.
+A multi-company training platform for Claude AI Fluency workshops. Trainers can set up a branded experience per company, and participants access module-based learning content through a password-protected portal.
+
+---
+
+## Sharing a Demo (Quick Start)
+
+1. **Copy this entire folder** to a USB drive or shared location and send it to your colleague.
+2. Your colleague installs **Node.js** from [nodejs.org](https://nodejs.org) (one-time, free).
+3. They **double-click `start.bat`** — this starts the server and opens the demo guide.
+4. The demo guide shows all available companies with passwords and a **Launch Demo** button.
+
+### Demo companies included
+
+| Company | Password | Theme |
+|---|---|---|
+| Yara International | `Yara2026` | Navy blue |
+| Chanel | `Chanel2026` | Black & white |
+| Liberty Mutual | `liberty2026` | Yellow |
 
 ---
 

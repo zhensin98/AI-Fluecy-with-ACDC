@@ -670,6 +670,35 @@
             color: var(--color-primary);
         }
 
+        /* Locked explorer cards — shown before research is done */
+        .card--locked {
+            opacity: 0.55;
+            pointer-events: none;
+            filter: grayscale(0.4);
+        }
+        .card--locked .card-icon {
+            background: #94A3B8;
+        }
+        .card-lock-badge {
+            display: none;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            padding: 7px 12px;
+            background: #FEF3C7;
+            border: 1px solid #FCD34D;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            color: #92400E;
+            font-weight: 500;
+        }
+        .card--locked .card-lock-badge {
+            display: flex;
+        }
+        .card--locked .card-footer {
+            display: none;
+        }
+
         /* ============================================================
            NOTICE SECTION
            ============================================================ */
@@ -1131,7 +1160,7 @@
 
         <div class="cards-grid cards-grid--2col">
             <!-- Profile Explorer -->
-            <article class="card card--explorer reveal reveal-delay-1 revealed">
+            <article id="card-profile-explorer" class="card card--explorer reveal reveal-delay-1 revealed">
                 <div class="card-icon">
                     <svg viewBox="0 0 24 24">
                         <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
@@ -1145,6 +1174,7 @@
                 <h2>Profile Explorer</h2>
                 <!-- CUSTOMIZE: Update description for customer context -->
                 <p>Explore the operational profile for your organization. Understand team structures, key functions, and how AI can support your specific workflows.</p>
+                <div class="card-lock-badge">🔒 Research required — ask your trainer to generate the company profile first.</div>
                 <div class="card-footer">
                     <a href="profile%20explorer.html" class="card-link">
                         Explore Profile
@@ -1154,7 +1184,7 @@
             </article>
 
             <!-- Copilot Explorer -->
-            <article class="card card--explorer reveal reveal-delay-2 revealed">
+            <article id="card-copilot-value" class="card card--explorer reveal reveal-delay-2 revealed">
                 <div class="card-icon">
                     <svg viewBox="0 0 24 24">
                         <circle cx="12" cy="12" r="10"></circle>
@@ -1164,7 +1194,8 @@
                 <span class="card-module">Workshop Resource</span>
                 <h2>Claude Value Explorer</h2>
                 <!-- CUSTOMIZE: Update description for customer context -->
-                <p>Discover 42 Claude Code use cases mapped to the 7 New Habits of AI-Native Software Engineering — across 6 engineering role families.</p>
+                <p>Discover 48 Claude Code use cases mapped to the 7 New Habits of AI-Native Software Engineering — across 6 engineering role families.</p>
+                <div class="card-lock-badge">🔒 Research required — ask your trainer to generate the company profile first.</div>
                 <div class="card-footer">
                     <a href="Copilot Value.html" class="card-link">
                         Explore Values
@@ -1255,6 +1286,7 @@
             var stored = sessionStorage.getItem('active_company');
             if (stored && sessionStorage.getItem('authenticated') === 'true') {
                 document.getElementById('auth-overlay').style.display = 'none';
+                checkResearchAndUpdateCards();
             } else {
                 // Load companies from server first, then start auth
                 fetch('http://localhost:3001/list-profiles')
@@ -1397,6 +1429,7 @@
                 sessionStorage.setItem('active_company', JSON.stringify(match));
                 document.getElementById('auth-overlay').style.display = 'none';
                 applyBrand(match.colors);
+                checkResearchAndUpdateCards();
             } else {
                 errorMsg.textContent   = 'Incorrect access code';
                 errorMsg.style.display = 'block';
@@ -1446,6 +1479,30 @@
 
         function escHtml(s) {
             return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        }
+
+        // ── Check if research exists and lock/unlock explorer cards ────
+        function checkResearchAndUpdateCards() {
+            var active = null;
+            try { active = JSON.parse(sessionStorage.getItem('active_company') || 'null'); } catch(e) {}
+            if (!active || !active.id) return;
+
+            fetch('http://localhost:3001/profile?id=' + encodeURIComponent(active.id) + '&name=' + encodeURIComponent(active.name || ''))
+                .then(function(r) { return r.json(); })
+                .then(function(result) {
+                    var hasResearch = result.found && result.data && result.data.capabilities && result.data.capabilities.length > 0;
+                    var peCard = document.getElementById('card-profile-explorer');
+                    var cvCard = document.getElementById('card-copilot-value');
+                    if (peCard) peCard.classList.toggle('card--locked', !hasResearch);
+                    if (cvCard) cvCard.classList.toggle('card--locked', !hasResearch);
+                })
+                .catch(function() {
+                    // Server not running — lock cards to be safe
+                    var peCard = document.getElementById('card-profile-explorer');
+                    var cvCard = document.getElementById('card-copilot-value');
+                    if (peCard) peCard.classList.add('card--locked');
+                    if (cvCard) cvCard.classList.add('card--locked');
+                });
         }
     </script>
 

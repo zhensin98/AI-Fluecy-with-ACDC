@@ -6,24 +6,6 @@
   var config = null;
   try { config = JSON.parse(sessionStorage.getItem('active_company') || 'null'); } catch (e) {}
 
-  // DEBUG BANNER — remove once confirmed working
-  document.addEventListener('DOMContentLoaded', function () {
-    var bar = document.createElement('div');
-    bar.id = '__brand_debug';
-    bar.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:99999;padding:6px 12px;font:12px monospace;display:flex;gap:12px;align-items:center;';
-    if (!config || !config.colors) {
-      bar.style.background = '#e53e3e';
-      bar.style.color = 'white';
-      bar.innerHTML = '&#9888; brand-apply.js: No active_company in sessionStorage — log in first';
-    } else {
-      bar.style.background = config.colors.primary;
-      bar.style.color = 'white';
-      bar.innerHTML = '&#9989; Brand applied: <b>' + config.name + '</b> &nbsp;|&nbsp; primary: ' + config.colors.primary
-        + ' &nbsp;<span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:' + config.colors.primary + ';border:1px solid rgba(255,255,255,0.5);vertical-align:middle;"></span>';
-    }
-    document.body.appendChild(bar);
-  });
-
   if (!config || !config.colors) return;
 
   var c = config.colors;

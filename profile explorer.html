@@ -1067,6 +1067,19 @@ const DATA = {
 };
 // === DATA_BLOCK_END === (DO NOT MODIFY OR DELETE THIS LINE)
 
+// Share profile data with Copilot Value page via localStorage
+try {
+  localStorage.setItem('ys_profile', JSON.stringify({
+    client: DATA.client,
+    priorities: DATA.priorities,
+    capabilities: DATA.capabilities,
+    workflows: DATA.workflows,
+    painPoints: DATA.painPoints,
+    technology: DATA.technology,
+    glossary: DATA.glossary
+  }));
+} catch(e) {}
+
 let currentPage = 'overview';
 let glossaryFilter = 'all';
 let painTab = 'individual';
