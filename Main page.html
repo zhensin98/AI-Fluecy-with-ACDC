@@ -1453,6 +1453,20 @@
                 document.getElementById('auth-overlay').style.display = 'none';
                 applyBrand(match.colors);
                 checkResearchAndUpdateCards();
+                // Fetch full config profile to get logoDataUrl (stripped from index.json)
+                if (!match.logoDataUrl) {
+                    fetch('profiles/' + match.id + '.json')
+                        .then(function(r) { return r.json(); })
+                        .then(function(p) {
+                            var logo = p && p.config && p.config.logoDataUrl;
+                            if (logo) {
+                                match.logoDataUrl = logo;
+                                sessionStorage.setItem('active_company', JSON.stringify(match));
+                                document.querySelectorAll('[data-company-logo]').forEach(function(el) { el.src = logo; });
+                            }
+                        })
+                        .catch(function() {});
+                }
             } else {
                 errorMsg.textContent   = 'Incorrect access code';
                 errorMsg.style.display = 'block';
