@@ -929,18 +929,33 @@ var PROFILE_ROLE_ICONS = [
       .then(function(res) { return res.json(); })
       .then(function(profile) {
         if (profile && profile.data && profile.data.useCases && profile.data.useCases.length) {
-          // Use cases already generated during research — load them directly
-          applyProfile(profile.data, profile.data.client);
-        } else if (profile && profile.data && profile.data.capabilities) {
-          // Older profile without pre-generated use cases — build them now
           applyProfile(profile.data, profile.data.client);
         } else {
           tryLocalStorage();
         }
       })
       .catch(function() {
-        // Server not running — fall back to localStorage
-        tryLocalStorage();
+        // Server not running — fetch profile JSON directly (Vercel static hosting)
+        fetch('profiles/index.json')
+          .then(function(r) { return r.json(); })
+          .then(function(idx) {
+            // Find a profile matching this company name that has use cases
+            var companyName = (activeCompany.name || '').toLowerCase();
+            var match = (idx.profiles || []).find(function(p) {
+              return p.name && p.name.toLowerCase() === companyName && !p.config;
+            });
+            if (!match) { tryLocalStorage(); return; }
+            return fetch('profiles/' + match.id + '.json')
+              .then(function(r) { return r.json(); })
+              .then(function(p) {
+                if (p && p.data && p.data.useCases && p.data.useCases.length) {
+                  applyProfile(p.data, p.data.client);
+                } else {
+                  tryLocalStorage();
+                }
+              });
+          })
+          .catch(tryLocalStorage);
       });
   } else {
     // No active company — fall back to localStorage (NTUC default)

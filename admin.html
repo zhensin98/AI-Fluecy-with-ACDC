@@ -214,8 +214,30 @@ function loadCompaniesFromServer(callback) {
       callback(list);
     })
     .catch(function() {
-      // Server not running — fall back to localStorage cache
-      callback(getCompanies());
+      // Server not running — try static profiles/index.json (Vercel / no local server)
+      fetch('profiles/index.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (!data.profiles) { callback(getCompanies()); return; }
+          var list = data.profiles
+            .filter(function(p) { return p.config; })
+            .map(function(p) {
+              return {
+                id:          p.id,
+                name:        p.name,
+                website:     p.url  || '',
+                password:    p.config.password    || '',
+                colors:      p.config.colors      || {},
+                logoDataUrl: p.config.logoDataUrl || ''
+              };
+            });
+          _setCache(list);
+          callback(list);
+        })
+        .catch(function() {
+          // Final fallback — localStorage cache
+          callback(getCompanies());
+        });
     });
 }
 
