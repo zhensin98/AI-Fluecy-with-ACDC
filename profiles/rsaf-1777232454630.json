@@ -1,0 +1,1396 @@
+{
+  "id": "rsaf-1777232454630",
+  "name": "RSAF",
+  "url": "https://www.rsaf.gov.sg/",
+  "timestamp": "2026-04-27T01:26:06.825Z",
+  "data": {
+    "client": {
+      "name": "Republic of Singapore Air Force",
+      "shortName": "RSAF",
+      "tagline": "Above All",
+      "subtitle": "Defence & Security | Aerospace & Air Power",
+      "description": "The Republic of Singapore Air Force (RSAF) is the aerial warfare branch of the Singapore Armed Forces (SAF), responsible for defending Singapore's sovereign airspace and projecting air power in joint military operations. Operating under the Ministry of Defence (MINDEF), the RSAF fields a technologically advanced force comprising fighter aircraft, transport aircraft, attack helicopters, unmanned aerial vehicles, and ground-based air defence systems. Widely regarded as one of the most capable air forces in Southeast Asia, the RSAF integrates both full-time regulars and national servicemen and maintains a strong emphasis on digital transformation, C4ISR modernisation, and software-driven operational capability."
+    },
+    "keyFacts": [
+      {
+        "label": "Founded",
+        "value": "1968",
+        "desc": "Established as the Singapore Air Defence Command; renamed Republic of Singapore Air Force in 1975"
+      },
+      {
+        "label": "Personnel",
+        "value": "~10,000+",
+        "desc": "Mix of regular servicemen (regulars), full-time national servicemen (NSF), and operationally ready national servicemen (NSmen)"
+      },
+      {
+        "label": "Defence Budget",
+        "value": "~SGD 20B",
+        "desc": "Singapore's total MINDEF defence budget FY2024; RSAF is the largest single-service recipient"
+      },
+      {
+        "label": "Aircraft Platforms",
+        "value": "100+ airframes",
+        "desc": "Includes F-15SG, F-16C/D Block 52, AH-64D Apache, CH-47SD Chinook, KC-135, C-130H, Heron MALE UAV, and Hermes 450"
+      },
+      {
+        "label": "Workshop Focus",
+        "value": "Claude Code",
+        "desc": "AI-native engineering programme"
+      }
+    ],
+    "serviceAreas": [
+      {
+        "title": "Aircrew",
+        "desc": "Fighter pilots, transport aircrew, rotary-wing crews, and mission crew specialists who operate RSAF's diverse aircraft fleet across air defence, strike, airlift, and support missions."
+      },
+      {
+        "title": "Air Force Engineering",
+        "desc": "Maintains, repairs, and upgrades all RSAF aircraft, avionics, weapon systems, and ground support equipment to sustain mission readiness across the full fleet."
+      },
+      {
+        "title": "Air Operations",
+        "desc": "Plans, coordinates, and manages all air operations from the Air Operations Centre (AOC), encompassing air traffic control, mission planning, airspace management, and operational command."
+      },
+      {
+        "title": "Ground-Based Air Defence (GBAD)",
+        "desc": "Operates state-of-the-art surface-to-air missile and radar systems — including the SPYDER and I-HAWK — to protect Singapore's airspace from aerial and missile threats."
+      },
+      {
+        "title": "Unmanned Aerial Vehicle (UAV)",
+        "desc": "Fields and operates RSAF's growing fleet of medium-altitude long-endurance UAVs for intelligence, surveillance, reconnaissance (ISR), and autonomous mission roles beyond visual line of sight."
+      },
+      {
+        "title": "Command, Control, Communications & Intelligence (C4I)",
+        "desc": "Develops, integrates, and operates the digital command backbone of RSAF operations, including battle management systems, secure communications networks, and cyber defence capabilities."
+      }
+    ],
+    "leadership": [
+      {
+        "title": "Chief of Air Force (CAF)",
+        "name": "Major-General Lim Kok Hua"
+      },
+      {
+        "title": "Commander, Air Combat Command (CACC)",
+        "name": "Brigadier-General (Air Combat Command)"
+      },
+      {
+        "title": "Director, C4 & Digital Transformation",
+        "name": "Senior Colonel, RSAF C4 Command"
+      }
+    ],
+    "locations": [
+      {
+        "label": "Headquarters",
+        "address": "HQ RSAF, 303 Gombak Drive, Singapore 669645"
+      },
+      {
+        "label": "Primary Operational Air Base",
+        "address": "Paya Lebar Air Base, Paya Lebar Road, Singapore 509934"
+      },
+      {
+        "label": "Western Air Base",
+        "address": "Tengah Air Base, Tengah Avenue, Singapore 609921"
+      },
+      {
+        "label": "Changi Air Base (East)",
+        "address": "Changi Air Base, Airport Road, Singapore 499759"
+      }
+    ],
+    "priorities": [
+      {
+        "num": 1,
+        "title": "Mission Systems Modernisation & Digital Transformation",
+        "tagline": "Code that flies the mission",
+        "desc": "The RSAF is undergoing a structured digital transformation to replace ageing C2 and mission-planning systems with modern, software-defined architectures. This encompasses re-platforming legacy operational systems onto contemporary frameworks, adopting DevSecOps practices in classified environments, and integrating AI-assisted decision support into operational workflows. Close collaboration with DSTA and DSO National Laboratories drives the technology roadmap.",
+        "roles": "Software Engineers, Tech Leads & Architects, DevOps & Platform",
+        "pains": "Decades-old legacy codebases with minimal documentation; strict airworthiness and military qualification gates that extend release cycles; difficulty applying commercial cloud-native practices inside classified air-gapped networks"
+      },
+      {
+        "num": 2,
+        "title": "Cyber Defence & Information Security Hardening",
+        "tagline": "Secure the stack, protect the skies",
+        "desc": "As RSAF systems become more networked and software-dependent, securing both IT and operational technology (OT) layers is a strategic imperative. The RSAF's Security Operations Centre (SOC) continuously monitors classified SAFNet infrastructure, while engineering teams are required to embed security-by-design across all system development lifecycles. Compliance with MINDEF cybersecurity frameworks and alignment to MIL-STD security standards are non-negotiable.",
+        "roles": "Security Engineers, Software Engineers, DevOps & Platform",
+        "pains": "Bridging IT/OT security domains where avionics and ground systems intersect; managing vulnerabilities in COTS components used in classified systems; limited tooling that works inside air-gapped environments for automated security scanning"
+      },
+      {
+        "num": 3,
+        "title": "Autonomous Systems & AI-Enabled Operational Capability",
+        "tagline": "Beyond sight to insight",
+        "desc": "The RSAF's expanding UAV fleet and AI-driven ISR capabilities require sophisticated onboard and ground software that processes sensor data, executes autonomous decision logic, and feeds real-time intelligence into the battle management system. Engineering teams are building and integrating machine learning pipelines for image recognition, flight path optimisation, and mission data fusion, while ensuring these systems meet stringent military qualification and safety standards.",
+        "roles": "Software Engineers, QA Engineers, Tech Leads & Architects",
+        "pains": "Validating AI/ML models against military safety and reliability thresholds; integrating proprietary UAV data formats with legacy C4ISR systems; lack of training data pipelines within the classified environment"
+      },
+      {
+        "num": 4,
+        "title": "Interoperability & Joint Force Integration",
+        "tagline": "One network, one fight",
+        "desc": "RSAF systems must interoperate with Singapore Army, Navy, and allied nation platforms using STANAG and other military data-link standards such as Link 16. Software engineering teams build and maintain the middleware, API gateways, and data translation layers that enable joint force operations. This requires deep understanding of both military communication protocols and modern integration patterns.",
+        "roles": "Software Engineers, Tech Leads & Architects, DevOps & Platform",
+        "pains": "Translating between military STANAG protocols and modern REST/gRPC service interfaces; testing integration in simulated joint environments without exposing classified system details; long lead times for obtaining interoperability certification from allied partners"
+      },
+      {
+        "num": 5,
+        "title": "Engineering Workforce Development & AI Upskilling",
+        "tagline": "Building the engineers who build the force",
+        "desc": "Attracting, developing, and retaining software engineering talent in a public-sector military environment is a persistent challenge. The RSAF invests in structured upskilling programmes — including AI-native tooling such as Claude Code — to accelerate developer productivity, reduce dependency on external contractors for system maintenance, and build internal expertise in modern software practices. The national service model also requires continuous onboarding of fresh engineer-cycle NSFs.",
+        "roles": "All Engineering Roles, Product & Planning, Tech Leads & Architects",
+        "pains": "Short NSF posting durations create knowledge transfer gaps; salary competitiveness against tech industry makes retaining senior regulars difficult; limited access to public cloud-hosted learning platforms due to network restrictions"
+      }
+    ],
+    "capabilities": [
+      {
+        "role": "Software Engineers",
+        "short": "SWE",
+        "icon": "primary",
+        "objectives": "RSAF software engineers design, develop, and maintain mission-critical applications spanning battle management systems, mission planning tools, UAV ground control stations, simulation environments, and C4ISR middleware. They operate across both unclassified development environments and classified SAFNet-connected systems, often context-switching between open toolchains and locked-down air-gapped workstations. Many are DSTA engineers embedded within RSAF formations or uniformed regulars trained in software development.",
+        "painPoints": "Writing boilerplate code for protocol adapters between military data standards (Link 16, ASTERIX) and modern APIs is tedious and error-prone; reproducing classified bugs on unclassified machines requires careful sanitisation of test data; documenting complex C2 system behaviour is time-consuming and often deprioritised under operational pressures",
+        "keyActivities": "Feature development on C4ISR platforms, Link 16 and STANAG protocol integration, UAV ground control station software, battle management system modules, simulation environment scripting, code review on MINDEF GitLab"
+      },
+      {
+        "role": "QA Engineers",
+        "short": "QAE",
+        "icon": "secondary",
+        "objectives": "QA engineers at RSAF are responsible for verifying that software meets both functional requirements and stringent military qualification standards before deployment to operational systems. This includes hardware-in-the-loop (HIL) testing, integration testing against live avionics interfaces, and formal qualification testing required for airworthiness certification. They work closely with DSTA system engineers and RSAF operators to define acceptance criteria grounded in real operational scenarios.",
+        "painPoints": "Writing test cases for real-time avionics interfaces requires specialised hardware rigs that are scarce and time-booked; replicating edge-case failure modes of military systems in a safe test environment is complex; qualification documentation must follow MIL-STD formats which are verbose and slow to produce manually",
+        "keyActivities": "System integration testing (SIT), hardware-in-the-loop (HIL) test execution, qualification test documentation, regression testing across system upgrades, defect triage with software engineers, operator acceptance testing coordination"
+      },
+      {
+        "role": "Tech Leads & Architects",
+        "short": "TLA",
+        "icon": "accent",
+        "objectives": "Tech leads and architects at RSAF define the system architecture for defence software platforms, balancing operational requirements, security classifications, interoperability mandates, and long software lifecycle horizons (often 15–20 years). They work with DSTA chief engineers and DSO researchers to evaluate emerging technologies, set coding and integration standards, and govern technical debt reduction across legacy mission systems. Many also serve as primary technical interface to MINDEF's IT governance and external defence prime contractors.",
+        "painPoints": "Architectural decisions must account for systems that will be maintained across multiple generations of hardware and OS; aligning commercial cloud-native design patterns with the constraints of classified air-gapped environments requires significant adaptation; getting timely architectural sign-off through MINDEF governance layers slows down innovation cycles",
+        "keyActivities": "System architecture design, technical authority reviews, technology evaluation and selection, integration interface definition, API contract governance, mentoring software engineers, engagement with external defence contractors on system integration"
+      },
+      {
+        "role": "Product & Planning",
+        "short": "PPL",
+        "icon": "primary",
+        "objectives": "Product and planning personnel at RSAF translate operational requirements from air force commanders and operations staff into software development roadmaps and system specifications. They manage the requirement lifecycle using defence-standard methodologies, coordinate between RSAF formation users and DSTA development teams, and track programme milestones against the RSAF's rolling capability development plan. They must balance urgent operational needs with long-term system lifecycle management.",
+        "painPoints": "Operational requirements are often expressed in tactical/mission terms that require significant translation into software specifications; managing scope between iterative development cycles and fixed military procurement contracts creates tension; stakeholder alignment across uniformed commanders, civilian DSTA engineers, and external prime contractors is complex and slow",
+        "keyActivities": "Requirements elicitation from operational users, CONOPS documentation, programme milestone tracking, sprint planning with engineering teams, user acceptance coordination, interface management with MINDEF procurement and DSTA project offices"
+      },
+      {
+        "role": "DevOps & Platform",
+        "short": "DOP",
+        "icon": "secondary",
+        "objectives": "DevOps and platform engineers at RSAF build and operate the CI/CD infrastructure that supports software delivery within both unclassified and classified environments. They maintain MINDEF GitLab pipelines, manage containerised build environments, and operate the deployment toolchains that release software to operational systems. A key challenge is replicating modern DevOps velocity inside networks with no internet connectivity, where package registries, container image pulls, and security scanning tools must all be locally mirrored.",
+        "painPoints": "Maintaining a fully offline-capable CI/CD pipeline requires continuous synchronisation of package mirrors, container registries, and tool binaries from the internet to the classified environment; deployment to operational avionics or ground systems requires additional airworthiness gateway steps not present in commercial pipelines; on-call responsibilities for operational system outages carry higher stakes than typical enterprise software",
+        "keyActivities": "MINDEF GitLab pipeline management, container image management on private registries, infrastructure-as-code for air-gapped environments, deployment orchestration to operational systems, incident response for platform failures, environment provisioning for new development teams"
+      },
+      {
+        "role": "Security Engineers",
+        "short": "SEC",
+        "icon": "accent",
+        "objectives": "Security engineers at RSAF design and enforce the cybersecurity posture of both IT systems (SAFNet-connected) and operational technology (OT) systems (avionics networks, weapon system interfaces, radar systems). They conduct threat modelling against military adversary profiles, perform penetration testing on system upgrades, and operate the SOC tooling that monitors for anomalies across RSAF's digital infrastructure. They also ensure all externally procured COTS components meet MINDEF security vetting requirements.",
+        "painPoints": "OT security is fundamentally different from IT security — proprietary avionics protocols make standard SIEM tooling ineffective; COTS components in classified systems cannot be patched at commercial cadence due to qualification dependencies; insider threat monitoring in a national service environment with high personnel turnover requires careful policy calibration",
+        "keyActivities": "Threat modelling for new system developments, penetration testing, SOC operations and alert triage, COTS component security vetting, MINDEF cybersecurity framework compliance audits, security architecture review for system integration, incident investigation and forensics"
+      }
+    ],
+    "workflows": [
+      {
+        "name": "Mission System Feature Development",
+        "steps": [
+          {
+            "t": "Operational Requirement Capture",
+            "d": "RSAF formation operations staff raise a capability gap or enhancement request; Product & Planning team facilitates structured requirements elicitation sessions to produce a formal Operational Requirement Document (ORD)"
+          },
+          {
+            "t": "System Specification & Architecture Review",
+            "d": "Tech Leads translate the ORD into a Software Requirement Specification (SRS); architects conduct design reviews and define interface control documents (ICDs) for integration with existing C4ISR components"
+          },
+          {
+            "t": "Development in Unclassified Environment",
+            "d": "Software Engineers develop and unit-test code on unclassified workstations using MINDEF GitLab; code is reviewed by peers and Tech Leads before merge; sensitive data is replaced with sanitised fixtures"
+          },
+          {
+            "t": "Transfer & Integration Testing",
+            "d": "Approved code is transferred to the classified SAFNet environment via approved data diode or one-way transfer process; QA Engineers conduct system integration testing against live system interfaces or HIL test rigs"
+          },
+          {
+            "t": "Qualification & User Acceptance Testing",
+            "d": "QA Engineers execute the formal qualification test plan; operational users from the relevant RSAF formation conduct user acceptance testing (UAT) and sign acceptance certificates"
+          },
+          {
+            "t": "Operational Deployment",
+            "d": "DevOps engineers execute the deployment runbook to push the release to operational systems; a post-deployment verification test is run; Tech Lead signs off operational release and the change is recorded in the system configuration baseline"
+          }
+        ],
+        "friction": "The unclassified-to-classified transfer step is a hard bottleneck — code can sit waiting for a scheduled transfer window, and any bugs found in classified SIT require the entire cycle to restart from the unclassified environment"
+      },
+      {
+        "name": "Software Release & Qualification Pipeline",
+        "steps": [
+          {
+            "t": "Release Candidate Freeze",
+            "d": "Tech Lead declares a code freeze on the release branch in MINDEF GitLab; a release candidate (RC) is tagged and the DevOps team triggers the automated build and static analysis pipeline"
+          },
+          {
+            "t": "Automated Testing & SAST",
+            "d": "CI pipeline runs unit tests, integration tests, and static application security testing (SAST) using on-premise tools mirrored inside the classified environment; results are reviewed by QA and Security Engineers"
+          },
+          {
+            "t": "Qualification Test Execution",
+            "d": "QA Engineers execute the formal qualification test plan against the RC on the HIL rig; all test results are recorded in the qualification test report with MIL-STD traceability to requirements"
+          },
+          {
+            "t": "Technical Authority Review",
+            "d": "The DSTA Technical Authority (TA) reviews the qualification test report, known defect list, and risk register; the TA issues a Technical Clearance (TC) recommending the release for operational deployment"
+          },
+          {
+            "t": "Configuration Control Board Approval",
+            "d": "The CCB (Configuration Control Board) comprising RSAF formation commander, DSTA PM, and Tech Lead reviews the TC and approves the baseline change; a System Configuration Identification (SCI) document is updated"
+          },
+          {
+            "t": "Operational Deployment & Baseline Update",
+            "d": "DevOps team executes the deployment runbook; post-deployment verification is completed by QA; the operational baseline is updated and the release is archived in the configuration management system"
+          }
+        ],
+        "friction": "The Technical Authority review and CCB approval steps can take weeks if reviewers are operationally committed or if the test report has deficiencies; this serial governance gate prevents any form of continuous deployment and forces batched releases every few months"
+      },
+      {
+        "name": "Cyber Incident Response",
+        "steps": [
+          {
+            "t": "Detection & Alert Triage",
+            "d": "SOC analysts detect an anomaly via SIEM alerts on SAFNet monitoring infrastructure; Security Engineers triage the alert to assess whether it is a true positive and estimate affected systems and severity"
+          },
+          {
+            "t": "Containment",
+            "d": "On confirmation of an incident, Security Engineers isolate affected nodes from the network; DevOps team assists with traffic routing changes and system isolation without disrupting broader operations"
+          },
+          {
+            "t": "Investigation & Forensics",
+            "d": "Security Engineers conduct forensic analysis of affected systems; Software Engineers assist in tracing whether the incident exploited a software vulnerability in a developed application or a COTS component"
+          },
+          {
+            "t": "Eradication & Remediation",
+            "d": "Root cause is identified; Security Engineers develop a remediation plan; Software Engineers patch affected application code and DevOps engineers apply OS and infrastructure patches within the air-gapped environment"
+          },
+          {
+            "t": "Recovery & Verification",
+            "d": "Patched systems are reintroduced to the network; QA Engineers run regression tests to confirm operational function is restored; Security Engineers verify that the attack vector is closed"
+          },
+          {
+            "t": "Post-Incident Review & Reporting",
+            "d": "Tech Lead and Security Lead conduct an after-action review (AAR); a formal incident report is submitted to MINDEF CISO; lessons learned are incorporated into the threat model and development security standards"
+          }
+        ],
+        "friction": "In a classified environment, forensic tooling options are limited and analysts cannot query external threat intelligence feeds freely; manual evidence collection on air-gapped systems significantly extends investigation timelines"
+      },
+      {
+        "name": "New Engineer Onboarding",
+        "steps": [
+          {
+            "t": "Security Clearance Processing",
+            "d": "New engineer submits security vetting documentation via the MINDEF clearance process; HR and the formation security officer track the background check which typically takes 4–12 weeks and must complete before any classified system access is granted"
+          },
+          {
+            "t": "SAF IT Induction & Access Provisioning",
+            "d": "Upon clearance, the engineer attends mandatory SAF IT security training; system access to SAFNet, MINDEF GitLab, and relevant mission system environments is provisioned by the IT helpdesk and system administrators"
+          },
+          {
+            "t": "Formation & Codebase Orientation",
+            "d": "Tech Lead conducts a codebase walkthrough covering the system architecture, key repositories, local development setup, and coding standards; the engineer is paired with a buddy for the first month"
+          },
+          {
+            "t": "Tool Familiarisation & Environment Setup",
+            "d": "Engineer sets up their local development environment on an unclassified workstation; they familiarise themselves with on-premise tools including MINDEF GitLab, Jira, Confluence, and the offline package mirror for dependencies"
+          },
+          {
+            "t": "First Assigned Tasks & Shadowing",
+            "d": "Engineer is assigned starter tasks (bug fixes, documentation updates, test case writing) and shadows senior engineers in sprint ceremonies, code reviews, and deployment activities"
+          },
+          {
+            "t": "Full Productivity & System Access Expansion",
+            "d": "After 4–8 weeks, Tech Lead assesses readiness; classified system access is progressively expanded; engineer begins contributing independently to active feature development within their assigned mission system"
+          }
+        ],
+        "friction": "The security clearance gate means the engineer cannot touch any real system for weeks after joining; this idle time is wasted if no structured unclassified onboarding content is prepared, and NSF engineers on 2-year cycles effectively lose 10–20% of their posting to clearance and ramp-up"
+      }
+    ],
+    "painPoints": {
+      "individual": [
+        {
+          "name": "Air-Gapped Development Friction",
+          "desc": "Engineers cannot access public package registries, Stack Overflow, GitHub, or public AI coding assistants from classified workstations. Every dependency or reference must be pre-approved and mirrored internally, making even routine tasks like installing a new library a multi-day process.",
+          "freq": "Daily"
+        },
+        {
+          "name": "Legacy Codebase Navigation",
+          "desc": "Core mission systems contain code written over 20+ years with inconsistent documentation, mixed languages, and no original engineers available. Tracing a bug through undocumented legacy modules takes days and relies heavily on tribal knowledge from long-serving regulars.",
+          "freq": "Daily"
+        },
+        {
+          "name": "Context Switching Between Classification Levels",
+          "desc": "Engineers regularly work across unclassified development machines and classified SAFNet-connected systems, requiring physical workstation switches and strict data handling discipline. This context switching kills flow state and introduces risk of accidental data mishandling.",
+          "freq": "Daily"
+        },
+        {
+          "name": "Verbose MIL-STD Documentation Burden",
+          "desc": "Qualification test reports, Software Requirement Specifications, and Interface Control Documents must follow MIL-STD formats that are extremely verbose. Engineers spend disproportionate time writing documentation rather than building or testing software.",
+          "freq": "Daily"
+        },
+        {
+          "name": "Scarce & Booked Hardware Test Rigs",
+          "desc": "Hardware-in-the-loop rigs that simulate avionics or weapon system interfaces are shared across multiple teams and are frequently fully booked. Engineers often wait days or weeks for a rig slot, blocking QA and integration work.",
+          "freq": "Weekly"
+        },
+        {
+          "name": "Protocol Adapter Boilerplate",
+          "desc": "Writing adapters between military data formats (Link 16, ASTERIX, STANAG 5516) and modern service interfaces involves large volumes of repetitive, low-level byte-manipulation code that is tedious but unforgiving of errors.",
+          "freq": "Weekly"
+        },
+        {
+          "name": "Knowledge Loss from Short NSF Postings",
+          "desc": "National service software engineers rotate through postings on 12–24 month cycles. Each departure takes institutional knowledge with them; the incoming NSF must be re-trained from scratch, creating a permanent knowledge drain.",
+          "freq": "Recurring"
+        },
+        {
+          "name": "Slow Internal Tool Procurement",
+          "desc": "Requesting a new development tool, plugin, or library requires a security vetting and procurement process that can take months. Engineers work around this with outdated or suboptimal tooling rather than waiting for approval.",
+          "freq": "Weekly"
+        }
+      ],
+      "team": [
+        {
+          "name": "Serial Qualification Gates Blocking Releases",
+          "desc": "Every software release to an operational system requires a sequential qualification test → Technical Authority review → CCB approval cycle that cannot be parallelised. Teams can spend more time in governance than in development, and a single reviewer bottleneck can delay a release by months.",
+          "freq": "Per Release"
+        },
+        {
+          "name": "Unclassified-to-Classified Transfer Bottleneck",
+          "desc": "Code, test data, and build artefacts must pass through an approved one-way transfer mechanism to enter the classified environment. Transfer windows are scheduled and infrequent, forcing teams to batch work rather than deliver continuously.",
+          "freq": "Weekly"
+        },
+        {
+          "name": "Dependency on External Defence Contractors",
+          "desc": "Key mission systems were delivered by external prime contractors who retain proprietary knowledge of system internals. RSAF software teams cannot independently modify or debug these components without engaging the contractor, creating long lead times and high costs for any change.",
+          "freq": "Ongoing"
+        },
+        {
+          "name": "Inconsistent Development Standards Across Formations",
+          "desc": "Different RSAF formations and embedded DSTA teams have developed their own coding conventions, branching strategies, and toolchains independently. This inconsistency makes engineers less effective when moving between projects and complicates cross-team code sharing.",
+          "freq": "Ongoing"
+        },
+        {
+          "name": "Operational Urgency vs. Engineering Rigour Tension",
+          "desc": "When operational commanders need a capability enhancement urgently, pressure mounts on engineering teams to shortcut test and qualification processes. This creates technical debt and security risk in safety-critical systems.",
+          "freq": "Monthly"
+        }
+      ],
+      "organisation": [
+        {
+          "name": "Talent Retention Against Private Sector Competition",
+          "desc": "Experienced software engineers who develop deep expertise in complex defence systems are highly attractive to technology companies offering significantly higher salaries. RSAF and DSTA struggle to retain senior engineers beyond their initial bond periods, causing recurring capability loss.",
+          "freq": "Structural"
+        },
+        {
+          "name": "Slow Technology Adoption Cycle",
+          "desc": "Introducing modern engineering practices — containerisation, AI-assisted development, microservices — into classified environments requires extensive security evaluation, procurement, and policy approval before adoption. By the time a technology is approved, the industry has often moved further ahead.",
+          "freq": "Structural"
+        },
+        {
+          "name": "IT/OT Security Convergence Risk",
+          "desc": "As RSAF systems become more networked, the boundary between IT systems (office and C2) and OT systems (avionics, weapon systems) is blurring. Managing cybersecurity across these converged domains requires skills and frameworks that are scarce in both the defence and private sectors.",
+          "freq": "Structural"
+        },
+        {
+          "name": "Long System Lifecycle vs. Short Technology Cycles",
+          "desc": "Mission-critical RSAF platforms are designed for 20–30 year operational lives, but the software frameworks, programming languages, and operating systems they depend on evolve or reach end-of-life within 5–10 years. Sustaining software in platforms long past their original technology horizon is a growing engineering burden.",
+          "freq": "Structural"
+        },
+        {
+          "name": "National Service Throughput Ceiling",
+          "desc": "The 2-year NSF cycle creates a hard ceiling on accumulated engineering capability — the organisation cannot build multi-year project expertise within the NSF cohort. Regulars must carry disproportionate institutional knowledge while managing a constantly rotating cohort of junior engineers.",
+          "freq": "Structural"
+        }
+      ]
+    },
+    "technology": {
+      "m365Status": "RSAF and MINDEF operate Microsoft 365 Government tenancies for unclassified administrative and collaboration workloads, with Teams, SharePoint, and Outlook widely used for inter-formation coordination. Copilot and other cloud-connected AI features are not enabled on classified SAFNet-connected environments due to data sovereignty and security classification requirements.",
+      "m365": [
+        "Outlook",
+        "Teams",
+        "Word",
+        "Excel",
+        "PowerPoint",
+        "SharePoint",
+        "OneDrive",
+        "Forms",
+        "Planner"
+      ],
+      "platforms": [
+        {
+          "name": "SAFNet",
+          "desc": "Singapore Armed Forces' classified intranet backbone connecting all three services; the primary network for operational and mission-critical system access, air-gapped from the public internet"
+        },
+        {
+          "name": "MINDEF GitLab (On-Premise)",
+          "desc": "Self-hosted GitLab instance running inside the classified environment serving as the primary source control, CI/CD pipeline, and code review platform for RSAF and DSTA development teams"
+        },
+        {
+          "name": "Battle Management System (BMS)",
+          "desc": "The core operational software platform for planning, executing, and monitoring air operations including mission planning, airspace deconfliction, and sensor track fusion"
+        },
+        {
+          "name": "Air Operations Centre (AOC) System",
+          "desc": "Integrated command and control software suite used by air operations personnel to manage real-time airspace picture, tasking, and inter-agency coordination"
+        },
+        {
+          "name": "UAV Ground Control Station (GCS)",
+          "desc": "Software and hardware system used by UAV operators to control MALE UAV platforms, receive sensor feeds, and manage autonomous mission execution"
+        },
+        {
+          "name": "MINDEF Jira & Confluence (On-Premise)",
+          "desc": "Self-hosted Atlassian suite used for sprint and project tracking (Jira) and technical documentation, system specifications, and knowledge base (Confluence)"
+        },
+        {
+          "name": "Hardware-in-the-Loop (HIL) Test Rigs",
+          "desc": "Specialised test infrastructure that connects real avionics hardware and weapon system interfaces to software under test, enabling realistic integration and qualification testing without operational systems"
+        },
+        {
+          "name": "iMinDef Portal",
+          "desc": "MINDEF's internal intranet portal for administrative services, HR processes, policy documents, and inter-agency information sharing accessible to uniformed and civilian MINDEF staff"
+        },
+        {
+          "name": "NS Portal",
+          "desc": "Online e-services platform for national servicemen to manage NSF and NSman administrative matters, leave, and reporting obligations"
+        },
+        {
+          "name": "Offline Package Mirror",
+          "desc": "Internally maintained mirror of approved software package repositories (npm, PyPI, Maven, apt) synchronised from the internet through an approved transfer process and hosted inside the classified environment"
+        }
+      ]
+    },
+    "glossary": [
+      {
+        "t": "RSAF",
+        "d": "Republic of Singapore Air Force — the aerial warfare branch of the Singapore Armed Forces",
+        "cat": "Organisation"
+      },
+      {
+        "t": "SAF",
+        "d": "Singapore Armed Forces — comprising the Army, Navy (RSN), Air Force (RSAF), and Digital and Intelligence Service (DIS)",
+        "cat": "Organisation"
+      },
+      {
+        "t": "MINDEF",
+        "d": "Ministry of Defence Singapore — the government ministry overseeing all SAF services and defence procurement",
+        "cat": "Organisation"
+      },
+      {
+        "t": "DSTA",
+        "d": "Defence Science and Technology Agency — the statutory board that provides technology acquisition, engineering, and project management support to MINDEF and SAF",
+        "cat": "Organisation"
+      },
+      {
+        "t": "DSO",
+        "d": "DSO National Laboratories — Singapore's national defence research and development organisation, delivering advanced technology for the SAF",
+        "cat": "Organisation"
+      },
+      {
+        "t": "DIS",
+        "d": "Digital and Intelligence Service — the fourth branch of SAF, specialising in digital, cyber, and intelligence operations",
+        "cat": "Organisation"
+      },
+      {
+        "t": "CAF",
+        "d": "Chief of Air Force — the most senior uniformed commander of the RSAF, typically at Major-General rank",
+        "cat": "Organisation"
+      },
+      {
+        "t": "AOC",
+        "d": "Air Operations Centre — the command hub from which all RSAF air operations are planned, coordinated, and monitored in real time",
+        "cat": "Business Units"
+      },
+      {
+        "t": "GBAD",
+        "d": "Ground-Based Air Defence — the RSAF branch responsible for operating surface-to-air missile and radar systems that defend Singapore's airspace from aerial threats",
+        "cat": "Business Units"
+      },
+      {
+        "t": "C4I",
+        "d": "Command, Control, Communications, Computers, and Intelligence — the digital and information systems command within RSAF responsible for battle management and cyber capabilities",
+        "cat": "Business Units"
+      },
+      {
+        "t": "ALC",
+        "d": "Air Logistics Command — the RSAF command responsible for aircraft maintenance, engineering support, and supply chain management",
+        "cat": "Business Units"
+      },
+      {
+        "t": "NSF",
+        "d": "National Serviceman Full-time — a Singaporean male serving his mandatory two-year full-time national service; NSF software engineers are often assigned to RSAF or DSTA technical roles",
+        "cat": "HR & Learning"
+      },
+      {
+        "t": "NSman",
+        "d": "Operationally Ready National Serviceman — a NSF who has completed full-time service and continues to serve periodic reservist in-camp training cycles",
+        "cat": "HR & Learning"
+      },
+      {
+        "t": "Regulars",
+        "d": "Full-time professional servicemen and women who choose military careers in the SAF beyond their national service obligation",
+        "cat": "HR & Learning"
+      },
+      {
+        "t": "AAR",
+        "d": "After-Action Review — a structured post-event debrief used to identify what worked, what did not, and lessons learned; standard practice after exercises, incidents, and project milestones",
+        "cat": "HR & Learning"
+      },
+      {
+        "t": "Posting",
+        "d": "A formal assignment of a serviceman to a specific role or formation, typically lasting 12–24 months before rotation to a new appointment",
+        "cat": "HR & Learning"
+      },
+      {
+        "t": "C4ISR",
+        "d": "Command, Control, Communications, Computers, Intelligence, Surveillance, and Reconnaissance — the overarching category of military digital and sensor systems that RSAF software engineers primarily develop and maintain",
+        "cat": "Technology"
+      },
+      {
+        "t": "SAFNet",
+        "d": "Singapore Armed Forces Network — the classified intranet infrastructure connecting all SAF formations; air-gapped from public internet and the primary environment for operational system access",
+        "cat": "Technology"
+      },
+      {
+        "t": "Link 16",
+        "d": "A NATO-standard military tactical data link protocol used by RSAF aircraft and ground systems to share real-time positional and situational awareness data across the joint force",
+        "cat": "Technology"
+      },
+      {
+        "t": "STANAG",
+        "d": "Standardization Agreement — NATO technical standards that the RSAF adopts for interoperability with allied partners; engineers must implement STANAG-compliant protocols in communications and data systems",
+        "cat": "Technology"
+      },
+      {
+        "t": "HIL",
+        "d": "Hardware-in-the-Loop — a testing methodology where real avionics or weapon system hardware is connected to software under test, enabling realistic integration testing of mission-critical systems",
+        "cat": "Technology"
+      },
+      {
+        "t": "MALE UAV",
+        "d": "Medium Altitude Long Endurance Unmanned Aerial Vehicle — the class of long-range ISR drone (e.g. Heron, Hermes 450) operated by the RSAF UAV squadron",
+        "cat": "Technology"
+      },
+      {
+        "t": "ASTERIX",
+        "d": "All Purpose STructured Eurocontrol SuRveillance Information EXchange — a standard data format used in radar and surveillance systems; RSAF software must parse and generate ASTERIX messages for air defence applications",
+        "cat": "Technology"
+      },
+      {
+        "t": "OT",
+        "d": "Operational Technology — hardware and software that monitors and controls physical equipment such as avionics systems, radar, and weapon systems; distinct from IT in its real-time and safety-critical requirements",
+        "cat": "Technology"
+      },
+      {
+        "t": "COTS",
+        "d": "Commercial Off-The-Shelf — commercially available hardware or software components used in defence systems; COTS items in classified systems require security vetting before use and cannot be freely patched",
+        "cat": "Technology"
+      },
+      {
+        "t": "MIL-STD",
+        "d": "Military Standard — US Department of Defense technical standards adopted by the RSAF and DSTA for system design, testing, qualification documentation, and reliability requirements",
+        "cat": "Technology"
+      },
+      {
+        "t": "SRS",
+        "d": "Software Requirement Specification — a formal document defining the functional and non-functional requirements for a software system; required as part of MINDEF's system development governance",
+        "cat": "Technology"
+      },
+      {
+        "t": "ICD",
+        "d": "Interface Control Document — a formal specification defining the data formats, protocols, and behaviour of interfaces between software components or systems; critical in multi-system integration projects",
+        "cat": "Technology"
+      },
+      {
+        "t": "ORD",
+        "d": "Operational Requirement Document — a formal statement from the military user defining what capability a new or upgraded system must deliver; the starting point for all RSAF software development projects",
+        "cat": "Organisation"
+      },
+      {
+        "t": "CONOPS",
+        "d": "Concept of Operations — a document describing how a system will be used by operators in real missions; written by Product & Planning and used by engineers to contextualise requirements",
+        "cat": "Organisation"
+      },
+      {
+        "t": "CCB",
+        "d": "Configuration Control Board — the formal governance body that approves changes to the operational baseline of a mission system; approval is required before any software release can be deployed to operational platforms",
+        "cat": "Organisation"
+      },
+      {
+        "t": "TA",
+        "d": "Technical Authority — a designated DSTA engineer with formal authority to review and clear a software release for deployment; the TA issues a Technical Clearance document after reviewing qualification evidence",
+        "cat": "Organisation"
+      },
+      {
+        "t": "TC",
+        "d": "Technical Clearance — the formal sign-off issued by the DSTA Technical Authority confirming that a software release has passed qualification and is recommended for operational deployment",
+        "cat": "Organisation"
+      },
+      {
+        "t": "SIT",
+        "d": "System Integration Testing — formal testing of a software component within the full operational system environment, including live hardware interfaces, conducted by QA Engineers before qualification",
+        "cat": "Technology"
+      },
+      {
+        "t": "SOC",
+        "d": "Security Operations Centre — the team and facility responsible for continuous monitoring of SAFNet and RSAF system infrastructure for cyber threats, anomalies, and security incidents",
+        "cat": "Business Units"
+      },
+      {
+        "t": "SIEM",
+        "d": "Security Information and Event Management — the platform used by the SOC to aggregate, correlate, and analyse security log data from across RSAF and SAFNet systems",
+        "cat": "Technology"
+      },
+      {
+        "t": "Airworthiness",
+        "d": "The formal certification that an aircraft system — including its software — meets safety and reliability standards required for flight operations; software changes to flight-critical systems must obtain airworthiness clearance",
+        "cat": "Industry"
+      },
+      {
+        "t": "ORBAT",
+        "d": "Order of Battle — the structured listing of military units, their organisation, equipment, and personnel; engineers reference ORBAT when designing systems that model or interface with force structure data",
+        "cat": "Industry"
+      },
+      {
+        "t": "ISR",
+        "d": "Intelligence, Surveillance, and Reconnaissance — the mission category that involves collecting, processing, and disseminating information about adversaries and the operational environment; a primary use case for RSAF UAV software",
+        "cat": "Industry"
+      },
+      {
+        "t": "ROE",
+        "d": "Rules of Engagement — the directives governing when and how force may be used; software that automates or supports decision-making in weapon systems must be designed with ROE constraints embedded",
+        "cat": "Industry"
+      }
+    ],
+    "brandColors": {
+      "primary": "#1A5EA8 — RSAF Royal Blue, the dominant colour of the RSAF logo eagle shield and primary website navigation elements, representing the sky and air power identity of the service",
+      "accent": "#C9A227 — RSAF Gold, the secondary brand colour used in the RSAF eagle emblem and rank insignia, applied to headings, icon accents, and decorative highlights across RSAF publications and digital assets"
+    },
+    "useCases": [
+      {
+        "id": "UC-001",
+        "role": "Software Engineers",
+        "code": "SWE",
+        "name": "Write the implementation intent before opening the codebase — feature brief in MINDEF Jira & Confluence for RSAF",
+        "pain": "Writing boilerplate code for protocol adapters between military data standards (Link 16, ASTERIX) and modern APIs is tedious and error-prone",
+        "habitId": "SH1",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a Software Engineers at RSAF about to implement:\n\n\"Feature development on C4ISR platforms\"\n\nChallenge: Writing boilerplate code for protocol adapters between military data standards (Link 16, ASTERIX) and modern APIs is tedious and error-prone\n\nBefore I touch the codebase or create a MINDEF Jira & Confluence ticket, help me write a tight implementation intent brief:\n\n1. Outcome — what exactly must be true when this is done, in one sentence?\n2. Technical acceptance criteria — 3–5 conditions that automated tests can verify\n3. Scope boundary — what files, services, or APIs are IN scope vs. OUT?\n4. Likely failure point — where does this type of change typically break at RSAF?\n5. Pre-conditions — what must exist (API contracts, migrations, feature flags) before I start?\n\nOutput: a paste-ready MINDEF Jira & Confluence story description. Do not start implementation.",
+        "inputs": "MINDEF Jira & Confluence story template; stakeholder request or existing ticket; any relevant API contracts or designs; compliance constraints at RSAF",
+        "metric": "Rework from scope misalignment reduced by ~30%; implementation starts with clear acceptance criteria (BCG/Harvard \"Jagged Frontier\": 25–40% speed gain on well-specified tasks)",
+        "guardrails": "Review with product owner or Tech Lead before coding; flag any acceptance criterion that depends on a third-party decision not yet made",
+        "timeSaved": 50,
+        "priority": "High"
+      },
+      {
+        "id": "UC-002",
+        "role": "Software Engineers",
+        "code": "SWE",
+        "name": "Implement a RSAF feature end-to-end with Claude Code — code, tests, and MINDEF GitLab MR in one agent run",
+        "pain": "reproducing classified bugs on unclassified machines requires careful sanitisation of test data",
+        "habitId": "SH2",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this task into Claude Code:\nI am a Software Engineers at RSAF. Implement the following feature end-to-end.\n\nFeature: [Paste your MINDEF Jira & Confluence story title and acceptance criteria here]\n\nThis codebase uses SAFNet, MINDEF GitLab, Battle Management System, Air Operations Centre. Act as my engineering agent:\n\nStep 1 — Explore the codebase: find the relevant modules, existing patterns for this type of change, and related tests. Report what you find before touching anything.\n\nStep 2 — Propose your approach: file-by-file plan, any new dependencies, and how you will test it. Wait for my go-ahead.\n\nStep 3 — Implement completely: feature code + unit tests + any config or migration changes. Follow the patterns from Step 1.\n\nStep 4 — Write the MINDEF GitLab MR description: what changed, why, how to test it locally, and review notes for the Tech Lead.\n\nConstraints:\n- Current blocker to address: reproducing classified bugs on unclassified machines requires careful sanitisation of test data\n- Do not modify files outside the scope of this feature\n- All new logic must have unit test coverage\n\nDo not write any code until I confirm the approach in Step 2.",
+        "inputs": "MINDEF Jira & Confluence story with acceptance criteria; any related existing code or API contracts; branch name",
+        "metric": "Feature implementation ~55% faster than solo (GitHub Copilot controlled study, N=95, P=.0017 — task time cut from 2h41m to 1h11m on comparable coding task); consistent MINDEF GitLab MR quality",
+        "guardrails": "Review all diffs before raising the MR; confirm the approach at Step 2 before Claude writes any code; run the full MINDEF GitLab pipeline before merging",
+        "timeSaved": 149,
+        "priority": "High"
+      },
+      {
+        "id": "UC-003",
+        "role": "Software Engineers",
+        "code": "SWE",
+        "name": "Run parallel Claude Code worktrees at RSAF — deliver two Software Engineers tasks simultaneously in separate MINDEF GitLab branches",
+        "pain": "Writing boilerplate code for protocol adapters between military data standards (Link 16, ASTERIX) and modern APIs is tedious and error-prone",
+        "habitId": "SH3",
+        "entry": "Claude Code CLI",
+        "prompt": "# Set up two separate git worktrees — one per task:\ngit worktree add ../rsaf-task-A <branch-name-A>\ngit worktree add ../rsaf-task-B <branch-name-B>\n\n# Open a separate terminal and start Claude Code in each worktree:\ncd ../rsaf-task-A && claude\n\n# Give each Claude Code session ONE scoped task:\nI am a Software Engineers at RSAF. This session owns ONE task only — do not touch files outside its scope.\n\nTask for this worktree: [One scoped task from your MINDEF Jira & Confluence board — one feature or fix]\n\nI am running a parallel Claude Code session in a separate worktree for a different task.\n\nThis codebase uses SAFNet, MINDEF GitLab, Battle Management System, Air Operations Centre. For this task:\n1. Explore the relevant files and confirm scope — report before changing anything\n2. Implement completely\n3. Write the MINDEF GitLab MR description and flag any cross-branch risks\n\nContext — why this matters at RSAF: RSAF software engineers design, develop, and maintain mission-critical applications spanning battle management systems, mission planning tools, UAV ground control stations, simulation environments, and C4ISR middleware. They operate across both unclassified development environments and classified SAFNet-connected systems, often context-switching between open toolchains and locked-down air-gapped workstations. Many are DSTA engineers embedded within RSAF formations or uniformed regulars trained in software development.",
+        "inputs": "Two scoped task briefs (one per worktree); MINDEF Jira & Confluence story per branch; files in scope; branch names",
+        "metric": "Two tasks delivered in the time of one; ~23 min context-switching overhead removed per task pair (UC Irvine / Gloria Mark research); sprint throughput doubles for independent work items",
+        "guardrails": "Keep each Claude Code session strictly scoped to its worktree; review and merge each branch independently via MINDEF GitLab; resolve any merge conflicts before both MRs land on main",
+        "timeSaved": 110,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-004",
+        "role": "Software Engineers",
+        "code": "SWE",
+        "name": "Review your own RSAF PR before raising it to MINDEF GitLab — catch author blind spots before review",
+        "pain": "documenting complex C2 system behaviour is time-consuming and often deprioritised under operational pressures",
+        "habitId": "SH4",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a Software Engineers at RSAF. Before I raise this PR, review my own changes for issues I've missed as the author.\n\n[Paste the PR diff or describe the changes]\n\nContext: New Engineer Onboarding at RSAF. Review as a critical peer:\n\n1. Missing tests — which execution paths, edge cases, or error conditions have no test coverage?\n2. Scope creep — are there any changes here beyond the original MINDEF Jira & Confluence story?\n3. Code quality — what patterns here could cause problems at scale or make future changes harder?\n4. RSAF-specific risks — what could break existing functionality given: documenting complex C2 system behaviour is time-consuming and often deprioritised under operational pressures?\n5. MR description gaps — what would a reviewer need to understand that isn't clear from the diff?\n\nDo not fix — identify and rank issues by review impact. Output a numbered list I can action before raising.",
+        "inputs": "PR diff or description; MINDEF Jira & Confluence story the PR addresses; any known constraints or standards at RSAF",
+        "metric": "Review round-trips reduced from 3–4 to 1–2 per feature; author blind spots caught before reviewer time is spent (~50% rework reduction per BCG/Harvard)",
+        "guardrails": "Address all High-impact findings before raising the MR; loop in product owner if scope changes are needed; run MINDEF GitLab before raising",
+        "timeSaved": 64,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-005",
+        "role": "Software Engineers",
+        "code": "SWE",
+        "name": "Draft the RSAF post-mortem, ADR, or technical runbook — self-audit before it reaches the team",
+        "pain": "reproducing classified bugs on unclassified machines requires careful sanitisation of test data",
+        "habitId": "SH5",
+        "entry": "Claude.ai Web",
+        "prompt": "Draft the following engineering content for RSAF:\n\n[Describe what to draft — e.g., incident post-mortem, architecture decision record, onboarding runbook for the Mission System Feature Development workflow, or MINDEF GitLab MR description template]\n\nContext:\n- Purpose: [why this document is needed]\n- Audience: [Tech Lead, new joiner, product owner, on-call engineer]\n- Key message: [the single most important point this must communicate]\n- Engineering context: RSAF software engineers design, develop, and maintain mission-critical applications spanning battle management systems, mission planning tools, UAV ground control stations, simulation environments, and C4ISR middleware. They operate across both unclassified development environments and classified SAFNet-connected systems, often context-switching between open toolchains and locked-down air-gapped workstations. Many are DSTA engineers embedded within RSAF formations or uniformed regulars trained in software development.\n- Known challenge to address: reproducing classified bugs on unclassified machines requires careful sanitisation of test data\n\nAfter drafting, self-audit:\n1. What assumptions did you make that a senior RSAF engineer would immediately challenge?\n2. Would a new joiner following this runbook succeed without asking questions?\n3. Is any section vague enough to be misinterpreted by someone outside the team?\n4. What must be verified against RSAF systems or monitoring stack data before this goes out?\n5. What is the single weakest paragraph in this draft?\n\nOutput the draft and self-audit together. I will address all flagged items before sharing.",
+        "inputs": "Topic, purpose, and intended audience; any source material (incident timeline, sprint data, architecture diagram); relevant standards or templates at RSAF",
+        "metric": "First-draft quality good enough to share in ~40% less writing time (Anthropic internal productivity study); review cycles drop from 3 to 1",
+        "guardrails": "Never share without human review; address all self-audit flags; verify factual claims against RSAF systems or monitoring stack data before sending",
+        "timeSaved": 68,
+        "priority": "High"
+      },
+      {
+        "id": "UC-006",
+        "role": "Software Engineers",
+        "code": "SWE",
+        "name": "Turn the RSAF \"Link 16 and STANAG protocol integration\" process into a reusable Claude template — never start from scratch again",
+        "pain": "Writing boilerplate code for protocol adapters between military data standards (Link 16, ASTERIX) and modern APIs is tedious and error-prone",
+        "habitId": "SH6",
+        "entry": "Claude.ai Web",
+        "prompt": "Help me create a reusable Claude prompt template for this recurring Software Engineers task at RSAF:\n\nRecurring task: Link 16 and STANAG protocol integration\n\nInterview me to extract the pattern:\n1. What inputs are always needed to start this task at RSAF?\n2. What is the consistent output format — what must every output include?\n3. What RSAF-specific context should always be embedded (e.g., MINDEF Jira & Confluence format, MINDEF GitLab convention, compliance requirements)?\n4. What mistakes are commonly made because of: \"Writing boilerplate code for protocol adapters between military data standards (Link 16, ASTERIX) and modern APIs is tedious and error-prone\"?\n5. What does excellent vs. acceptable output look like?\n\nAfter the interview, generate:\n- A reusable Claude prompt template with clear [FILL IN] markers\n- A one-paragraph usage guide any new Software Engineers can follow in their first sprint\n- Two example completions applied to real RSAF tasks\n\nThis template must work for a new joiner with no prior context.",
+        "inputs": "Description of the recurring task; a high-quality past output example; list of common failure modes; any RSAF-specific standards that apply",
+        "metric": "Recurring task time reduced by ~75% per use once template is established (60% average from task automation research); institutional knowledge survives rotation without handover sessions",
+        "guardrails": "Validate on 3 real tasks with a senior Software Engineers before sharing squad-wide; store in team wiki; review quarterly; update whenever RSAF processes change",
+        "timeSaved": 71,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-007",
+        "role": "Software Engineers",
+        "code": "SWE",
+        "name": "Encode the RSAF \"Link 16 and STANAG protocol integration\" workflow as a SKILL.md Agent Skill — Claude Code runs it on command",
+        "pain": "Writing boilerplate code for protocol adapters between military data standards (Link 16, ASTERIX) and modern APIs is tedious and error-prone",
+        "habitId": "SH6",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this into Claude Code:\nI am a Software Engineers at RSAF. Help me encode a recurring task as a SKILL.md Agent Skill so Claude Code can execute it automatically.\n\nRecurring task: Link 16 and STANAG protocol integration\nPain point this solves: Writing boilerplate code for protocol adapters between military data standards (Link 16, ASTERIX) and modern APIs is tedious and error-prone\n\nInterview me to extract what makes this consistent and automatable:\n1. What inputs does this task always start with?\n2. What is the exact output format that's always expected?\n3. What RSAF-specific context must every run include (e.g., MINDEF Jira & Confluence format, MINDEF GitLab convention, compliance constraints)?\n4. Failure modes — what should the agent stop and flag vs. handle automatically?\n5. Success criteria — how would you verify the output is correct?\n\nGenerate SKILL.md in the project root:\n- name: Short, verb-first skill name\n- description: One sentence — what it does and when to invoke it\n- inputs: The [FILL IN] variables the user provides each run\n- steps: Step-by-step agent execution plan\n- guardrails: What the agent must never do or always verify\n- output: The exact deliverable format\n\nTest it immediately by running the skill and show me the output before finalising.",
+        "inputs": "Description of the recurring task; a high-quality past output as the gold standard; list of failure modes; any RSAF-specific standards the skill must enforce",
+        "metric": "Recurring task goes from manual to one-line invocation — ~75% effort reduction per run; skill compounds in value as the whole team uses it",
+        "guardrails": "Validate on 3 real tasks before sharing team-wide; commit SKILL.md to MINDEF GitLab so the whole team benefits; review quarterly; update when RSAF processes change",
+        "timeSaved": 90,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-008",
+        "role": "Software Engineers",
+        "code": "SWE",
+        "name": "Queue a Software Engineers task to run autonomously in Claude Code at RSAF — review the MINDEF GitLab output at morning standup",
+        "pain": "Writing boilerplate code for protocol adapters between military data standards (Link 16, ASTERIX) and modern APIs is tedious and error-prone",
+        "habitId": "SH7",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Queue this task before end of day — Claude runs, you review tomorrow:\nI am a Software Engineers at RSAF. Complete this task fully autonomously. I will not be monitoring — run to completion and leave a reviewable output.\n\nTask:\n[Describe the task in full — e.g., \"Expand your test framework test coverage for [module] to 80% branch coverage\" or \"Refactor [component] to eliminate: Writing boilerplate code for protocol adapters between military data standards (Link 16, ASTERIX) and modern APIs is tedious and error-prone\"]\n\nThis codebase uses SAFNet, MINDEF GitLab, Battle Management System, Air Operations Centre.\n\nBefore starting:\n1. Explore the relevant files and confirm you have everything needed — list what you found\n2. If you hit a hard blocker requiring a decision, stop cleanly and document it; do not guess\n3. Confirm the task is self-contained before beginning\n\nExecute completely. When finished, create REVIEW.md containing:\n- What was completed and what changed\n- Files modified (list with one-line reason each)\n- Key decisions made and why\n- Items needing my review before the MINDEF GitLab MR is raised\n- Any risks or assumptions I should validate before merging\n\nContext — why this matters at RSAF: RSAF software engineers design, develop, and maintain mission-critical applications spanning battle management systems, mission planning tools, UAV ground control stations, simulation environments, and C4ISR middleware. They operate across both unclassified development environments and classified SAFNet-connected systems, often context-switching between open toolchains and locked-down air-gapped workstations. Many are DSTA engineers embedded within RSAF formations or uniformed regulars trained in software development.",
+        "inputs": "Full task description with acceptance criteria; branch name to work on; files in scope; any standards to follow",
+        "metric": "~75% of active engineering time converted to passive review (Salesforce/Cursor: 85% effort reduction on test coverage; Anthropic 100k conversations: 80% average time reduction on autonomous tasks); REVIEW.md ready at morning standup",
+        "guardrails": "Review REVIEW.md and all diffs before raising the MINDEF GitLab MR; run the full MINDEF GitLab pipeline; validate key assumptions; never deploy to RSAF production without human sign-off",
+        "timeSaved": 201,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-009",
+        "role": "QA Engineers",
+        "code": "QAE",
+        "name": "Write the RSAF test strategy before writing tests — QA coverage plan for System integration testing (SIT)",
+        "pain": "Writing test cases for real-time avionics interfaces requires specialised hardware rigs that are scarce and time-booked",
+        "habitId": "SH1",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a QA Engineers at RSAF. Before I write a single test, help me write a test strategy for this scope.\n\nScope: [Paste the MINDEF Jira & Confluence story or sprint release scope]\n\nChallenge: Writing test cases for real-time avionics interfaces requires specialised hardware rigs that are scarce and time-booked\n\n1. Test scope — what is explicitly in scope for testing vs. out of scope?\n2. Test types — what mix of unit, integration, your test framework E2E, and exploratory testing is needed and why?\n3. Risk map — which areas carry the highest regression risk at RSAF and need the most coverage?\n4. Entry and exit criteria — when is this scope considered \"tested\" and ready for sign-off?\n5. Blockers — what dev dependencies, test data, or environment access must exist before testing can begin?\n\nOutput: a QA strategy document I can paste into MINDEF Jira & Confluence before development starts. Do not write test code.",
+        "inputs": "MINDEF Jira & Confluence story or sprint scope; any known regression risk areas; test environment details; existing coverage baseline at RSAF",
+        "metric": "Test planning time reduced by ~30%; coverage gaps caught before development completes rather than after (BCG/Harvard: 25–40% quality improvement on well-specified work)",
+        "guardrails": "Strategy requires Tech Lead or QA Lead review before sprint starts; flag any area where test data or environment access is not yet confirmed",
+        "timeSaved": 48,
+        "priority": "High"
+      },
+      {
+        "id": "UC-010",
+        "role": "QA Engineers",
+        "code": "QAE",
+        "name": "Build automated your test framework coverage for RSAF — expand test suite to 80% branch coverage in one agent run",
+        "pain": "replicating edge-case failure modes of military systems in a safe test environment is complex",
+        "habitId": "SH2",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this task into Claude Code:\nI am a QA Engineers at RSAF. Expand automated test coverage for this service.\n\nTarget: [Module or service name]\nCoverage goal: 80% branch coverage (current: [X]%)\n\nThis codebase uses SAFNet, MINDEF GitLab, Battle Management System, Air Operations Centre. Act as my test automation agent:\n\nStep 1 — Coverage analysis: Run the existing your test framework suite, identify uncovered branches and edge cases. Report findings before writing anything.\n\nStep 2 — Test plan: List every test case you will write, grouped by scenario. Wait for my go-ahead.\n\nStep 3 — Implement: Write all your test framework tests following existing patterns. Cover happy path, error paths, and boundary conditions.\n\nStep 4 — Write the MINDEF GitLab MR description: coverage delta, test categories added, notes for review.\n\nConstraints:\n- Do not modify production code — test code only\n- Current blocker: replicating edge-case failure modes of military systems in a safe test environment is complex\n- Follow naming conventions in existing tests\n\nDo not write any tests until I confirm the plan in Step 2.",
+        "inputs": "your test framework test suite; coverage report (current baseline); module under test; any known edge cases or defect history at RSAF",
+        "metric": "Test coverage expanded ~55% faster than manual authoring (GitHub Copilot study: N=95, P=.0017); MINDEF GitLab MR ready with full coverage report; QA backlog cleared faster",
+        "guardrails": "Review all generated tests before raising the MR; run the full MINDEF GitLab pipeline; confirm assertions are meaningful and not just coverage-padding",
+        "timeSaved": 143,
+        "priority": "High"
+      },
+      {
+        "id": "UC-011",
+        "role": "QA Engineers",
+        "code": "QAE",
+        "name": "Run parallel Claude Code worktrees at RSAF — deliver two QA Engineers tasks simultaneously in separate MINDEF GitLab branches",
+        "pain": "Writing test cases for real-time avionics interfaces requires specialised hardware rigs that are scarce and time-booked",
+        "habitId": "SH3",
+        "entry": "Claude Code CLI",
+        "prompt": "# Set up two separate git worktrees — one per task:\ngit worktree add ../rsaf-task-A <branch-name-A>\ngit worktree add ../rsaf-task-B <branch-name-B>\n\n# Open a separate terminal and start Claude Code in each worktree:\ncd ../rsaf-task-A && claude\n\n# Give each Claude Code session ONE scoped task:\nI am a QA Engineers at RSAF. This session owns ONE task only — do not touch files outside its scope.\n\nTask for this worktree: [One scoped task from your MINDEF Jira & Confluence board — one your test framework test suite]\n\nI am running a parallel Claude Code session in a separate worktree for a different task.\n\nThis codebase uses SAFNet, MINDEF GitLab, Battle Management System, Air Operations Centre. For this task:\n1. Explore the relevant files and confirm scope — report before changing anything\n2. Implement completely\n3. Write the MINDEF GitLab MR description and flag any cross-branch risks\n\nContext — why this matters at RSAF: QA engineers at RSAF are responsible for verifying that software meets both functional requirements and stringent military qualification standards before deployment to operational systems. This includes hardware-in-the-loop (HIL) testing, integration testing against live avionics interfaces, and formal qualification testing required for airworthiness certification. They work closely with DSTA system engineers and RSAF operators to define acceptance criteria grounded in real operational scenarios.",
+        "inputs": "Two scoped task briefs (one per worktree); MINDEF Jira & Confluence story per branch; files in scope; branch names",
+        "metric": "Two tasks delivered in the time of one; ~23 min context-switching overhead removed per task pair (UC Irvine / Gloria Mark research); sprint throughput doubles for independent work items",
+        "guardrails": "Keep each Claude Code session strictly scoped to its worktree; review and merge each branch independently via MINDEF GitLab; resolve any merge conflicts before both MRs land on main",
+        "timeSaved": 108,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-012",
+        "role": "QA Engineers",
+        "code": "QAE",
+        "name": "Review the RSAF test plan for coverage gaps before a single your test framework test runs",
+        "pain": "qualification documentation must follow MIL-STD formats which are verbose and slow to produce manually",
+        "habitId": "SH4",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a QA Engineers at RSAF. Before test execution begins, review this test plan for gaps.\n\n[Paste the test plan or test case list]\n\nContext: New Engineer Onboarding at RSAF. Review for:\n\n1. Missing coverage — which execution paths, edge cases, or boundary conditions are not tested?\n2. Missing negative tests — what error paths or invalid inputs are not covered?\n3. Test data gaps — what scenarios require test data that may not exist in the test environment?\n4. Environment assumptions — what assumptions about the test environment could fail in practice?\n5. Blocked scenarios related to: qualification documentation must follow MIL-STD formats which are verbose and slow to produce manually\n\nDo not write tests — identify gaps only. Output a numbered gap list ordered by release risk.",
+        "inputs": "Test plan or test case list; feature spec or user story; known environment constraints; existing coverage report",
+        "metric": "Coverage gaps caught before execution rather than after release; regression escapes to production reduced (~50% rework reduction per BCG/Harvard)",
+        "guardrails": "Address all High-risk gaps before execution begins; loop in the developer if a gap requires new endpoints or test data; document deferred gaps in MINDEF Jira & Confluence",
+        "timeSaved": 76,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-013",
+        "role": "QA Engineers",
+        "code": "QAE",
+        "name": "Draft the RSAF test report and quality metrics — self-audit before it reaches stakeholders",
+        "pain": "replicating edge-case failure modes of military systems in a safe test environment is complex",
+        "habitId": "SH5",
+        "entry": "Claude.ai Web",
+        "prompt": "Draft the following QA content for RSAF:\n\n[Describe what to draft — e.g., sprint test report, regression summary, quality dashboard commentary, release go/no-go document]\n\nContext:\n- Purpose: [who will act on this and what decision it enables]\n- Audience: [Tech Lead, Product Owner, Engineering Manager]\n- Key message: [the single most important quality signal this must communicate]\n- Sprint context: QA engineers at RSAF are responsible for verifying that software meets both functional requirements and stringent military qualification standards before deployment to operational systems. This includes hardware-in-the-loop (HIL) testing, integration testing against live avionics interfaces, and formal qualification testing required for airworthiness certification. They work closely with DSTA system engineers and RSAF operators to define acceptance criteria grounded in real operational scenarios.\n- Known quality challenge: replicating edge-case failure modes of military systems in a safe test environment is complex\n\nAfter drafting, self-audit:\n1. Would a developer challenged by this report know exactly what to fix and in what order?\n2. Are the quality metrics presented fairly — does anything make quality look better than it is?\n3. What assumption about test environment stability did you embed that a reader might challenge?\n4. Is any finding vague enough that the team could deprioritise it without being technically wrong?\n5. What is the single finding that, if buried, would cause the most regret after release?\n\nOutput the draft and self-audit together.",
+        "inputs": "Test execution results; defect log; coverage report; any known environment or test data issues; previous sprint quality trend",
+        "metric": "QA report time from ~90 minutes to ~40 minutes; self-audit catches data presentation issues before stakeholder review",
+        "guardrails": "Never publish AI-drafted QA content without reviewing all metrics against actual test data; address all self-audit flags; verify numbers before sending",
+        "timeSaved": 62,
+        "priority": "High"
+      },
+      {
+        "id": "UC-014",
+        "role": "QA Engineers",
+        "code": "QAE",
+        "name": "Turn the RSAF \"hardware-in-the-loop (HIL) test execution\" process into a reusable Claude template — never start from scratch again",
+        "pain": "Writing test cases for real-time avionics interfaces requires specialised hardware rigs that are scarce and time-booked",
+        "habitId": "SH6",
+        "entry": "Claude.ai Web",
+        "prompt": "Help me create a reusable Claude prompt template for this recurring QA Engineers task at RSAF:\n\nRecurring task: hardware-in-the-loop (HIL) test execution\n\nInterview me to extract the pattern:\n1. What inputs are always needed to start this task at RSAF?\n2. What is the consistent output format — what must every output include?\n3. What RSAF-specific context should always be embedded (e.g., MINDEF Jira & Confluence format, MINDEF GitLab convention, compliance requirements)?\n4. What mistakes are commonly made because of: \"Writing test cases for real-time avionics interfaces requires specialised hardware rigs that are scarce and time-booked\"?\n5. What does excellent vs. acceptable output look like?\n\nAfter the interview, generate:\n- A reusable Claude prompt template with clear [FILL IN] markers\n- A one-paragraph usage guide any new QA Engineers can follow in their first sprint\n- Two example completions applied to real RSAF tasks\n\nThis template must work for a new joiner with no prior context.",
+        "inputs": "Description of the recurring task; a high-quality past output example; list of common failure modes; any RSAF-specific standards that apply",
+        "metric": "Recurring task time reduced by ~75% per use once template is established (60% average from task automation research); institutional knowledge survives rotation without handover sessions",
+        "guardrails": "Validate on 3 real tasks with a senior QA Engineers before sharing squad-wide; store in team wiki; review quarterly; update whenever RSAF processes change",
+        "timeSaved": 69,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-015",
+        "role": "QA Engineers",
+        "code": "QAE",
+        "name": "Encode the RSAF \"hardware-in-the-loop (HIL) test execution\" workflow as a SKILL.md Agent Skill — Claude Code runs it on command",
+        "pain": "Writing test cases for real-time avionics interfaces requires specialised hardware rigs that are scarce and time-booked",
+        "habitId": "SH6",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this into Claude Code:\nI am a QA Engineers at RSAF. Help me encode a recurring task as a SKILL.md Agent Skill so Claude Code can execute it automatically.\n\nRecurring task: hardware-in-the-loop (HIL) test execution\nPain point this solves: Writing test cases for real-time avionics interfaces requires specialised hardware rigs that are scarce and time-booked\n\nInterview me to extract what makes this consistent and automatable:\n1. What inputs does this task always start with?\n2. What is the exact output format that's always expected?\n3. What RSAF-specific context must every run include (e.g., MINDEF Jira & Confluence format, MINDEF GitLab convention, compliance constraints)?\n4. Failure modes — what should the agent stop and flag vs. handle automatically?\n5. Success criteria — how would you verify the output is correct?\n\nGenerate SKILL.md in the project root:\n- name: Short, verb-first skill name\n- description: One sentence — what it does and when to invoke it\n- inputs: The [FILL IN] variables the user provides each run\n- steps: Step-by-step agent execution plan\n- guardrails: What the agent must never do or always verify\n- output: The exact deliverable format\n\nTest it immediately by running the skill and show me the output before finalising.",
+        "inputs": "Description of the recurring task; a high-quality past output as the gold standard; list of failure modes; any RSAF-specific standards the skill must enforce",
+        "metric": "Recurring task goes from manual to one-line invocation — ~75% effort reduction per run; skill compounds in value as the whole team uses it",
+        "guardrails": "Validate on 3 real tasks before sharing team-wide; commit SKILL.md to MINDEF GitLab so the whole team benefits; review quarterly; update when RSAF processes change",
+        "timeSaved": 88,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-016",
+        "role": "QA Engineers",
+        "code": "QAE",
+        "name": "Queue a QA Engineers task to run autonomously in Claude Code at RSAF — review the MINDEF GitLab output at morning standup",
+        "pain": "Writing test cases for real-time avionics interfaces requires specialised hardware rigs that are scarce and time-booked",
+        "habitId": "SH7",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Queue this task before end of day — Claude runs, you review tomorrow:\nI am a QA Engineers at RSAF. Complete this task fully autonomously. I will not be monitoring — run to completion and leave a reviewable output.\n\nTask:\n[Describe the task in full — e.g., \"Run the full your test framework regression suite, triage failures by severity, and prepare a morning report\"]\n\nThis codebase uses SAFNet, MINDEF GitLab, Battle Management System, Air Operations Centre.\n\nBefore starting:\n1. Explore the relevant files and confirm you have everything needed — list what you found\n2. If you hit a hard blocker requiring a decision, stop cleanly and document it; do not guess\n3. Confirm the task is self-contained before beginning\n\nExecute completely. When finished, create REVIEW.md containing:\n- What was completed and what changed\n- Files modified (list with one-line reason each)\n- Key decisions made and why\n- Items needing my review before the MINDEF GitLab MR is raised\n- Any risks or assumptions I should validate before merging\n\nContext — why this matters at RSAF: QA engineers at RSAF are responsible for verifying that software meets both functional requirements and stringent military qualification standards before deployment to operational systems. This includes hardware-in-the-loop (HIL) testing, integration testing against live avionics interfaces, and formal qualification testing required for airworthiness certification. They work closely with DSTA system engineers and RSAF operators to define acceptance criteria grounded in real operational scenarios.",
+        "inputs": "Full task description with acceptance criteria; branch name to work on; files in scope; any standards to follow",
+        "metric": "~75% of active engineering time converted to passive review (Salesforce/Cursor: 85% effort reduction on test coverage; Anthropic 100k conversations: 80% average time reduction on autonomous tasks); REVIEW.md ready at morning standup",
+        "guardrails": "Review REVIEW.md and all diffs before raising the MINDEF GitLab MR; run the full MINDEF GitLab pipeline; validate key assumptions; never deploy to RSAF production without human sign-off",
+        "timeSaved": 199,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-017",
+        "role": "Tech Leads & Architects",
+        "code": "TLA",
+        "name": "Write the RSAF ADR before the architecture decision is made — decision brief for System architecture design",
+        "pain": "Architectural decisions must account for systems that will be maintained across multiple generations of hardware and OS",
+        "habitId": "SH1",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a Tech Leads & Architects at RSAF. Before this architectural decision is made in a meeting, help me write an Architecture Decision Record (ADR).\n\nDecision needed: [Describe the architectural question — e.g., \"System architecture design\"]\n\nChallenge: Architectural decisions must account for systems that will be maintained across multiple generations of hardware and OS\n\n1. Context — what constraints, requirements, and team capabilities drive this decision at RSAF?\n2. Options considered — 2–3 viable approaches with one-line pros and cons each\n3. Decision criteria — what matters most: performance, maintainability, cost, team skill, or operational complexity?\n4. Consequences — what does choosing this approach make easier? What does it foreclose or make harder?\n5. Review trigger — under what circumstances should this ADR be revisited?\n\nOutput: a structured ADR I can paste into Confluence or MINDEF GitLab before the architecture review.",
+        "inputs": "Architectural question with constraints; options already under consideration; team capability context; performance or compliance requirements",
+        "metric": "Architecture decisions documented before the meeting, not after; undocumented assumption rework eliminated; new engineers onboard faster with an ADR trail",
+        "guardrails": "ADR requires sign-off from at least one peer architect before it is treated as decided; \"decision\" field must not be blank; revisit triggers must be specific and measurable",
+        "timeSaved": 54,
+        "priority": "High"
+      },
+      {
+        "id": "UC-018",
+        "role": "Tech Leads & Architects",
+        "code": "TLA",
+        "name": "Prototype the RSAF architectural approach — build a working spike and evaluate fit before the team commits",
+        "pain": "aligning commercial cloud-native design patterns with the constraints of classified air-gapped environments requires significant adaptation",
+        "habitId": "SH2",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this task into Claude Code:\nI am a Tech Leads & Architects at RSAF. Build a working architectural spike.\n\nArchitectural question: [e.g., \"Evaluate event-driven vs. request-response for [service]\" or \"Prototype the proposed [data model]\"]\n\nThis stack uses SAFNet, MINDEF GitLab, Battle Management System, Air Operations Centre. Act as my architecture spike agent:\n\nStep 1 — Explore: Map the current architecture — entry points, data flows, integration contracts, constraints. Report before building.\n\nStep 2 — Spike plan: What you will build to answer the question, what to prove or disprove, how to measure fit. Wait for my go-ahead.\n\nStep 3 — Build: Minimal working prototype — no production polish, just prove the approach.\n\nStep 4 — Evaluation report: Does this fit RSAF's constraints? What works, what breaks, recommendation with confidence level.\n\nConstraints:\n- Constraint to validate against: aligning commercial cloud-native design patterns with the constraints of classified air-gapped environments requires significant adaptation\n- Spike code goes in /spike — do not touch production code",
+        "inputs": "Existing architecture docs or ADRs; integration contracts; performance or scalability requirements; any prior spikes",
+        "metric": "Architecture decision validated in days not weeks; team commits with working code evidence rather than whiteboard reasoning; reduces costly late-stage rework",
+        "guardrails": "Spike code must not be merged to main without a production implementation; evaluation requires engineering lead review; all trade-offs documented before team commits",
+        "timeSaved": 151,
+        "priority": "High"
+      },
+      {
+        "id": "UC-019",
+        "role": "Tech Leads & Architects",
+        "code": "TLA",
+        "name": "Run parallel Claude Code worktrees at RSAF — deliver two Tech Leads & Architects tasks simultaneously in separate MINDEF GitLab branches",
+        "pain": "Architectural decisions must account for systems that will be maintained across multiple generations of hardware and OS",
+        "habitId": "SH3",
+        "entry": "Claude Code CLI",
+        "prompt": "# Set up two separate git worktrees — one per task:\ngit worktree add ../rsaf-task-A <branch-name-A>\ngit worktree add ../rsaf-task-B <branch-name-B>\n\n# Open a separate terminal and start Claude Code in each worktree:\ncd ../rsaf-task-A && claude\n\n# Give each Claude Code session ONE scoped task:\nI am a Tech Leads & Architects at RSAF. This session owns ONE task only — do not touch files outside its scope.\n\nTask for this worktree: [One scoped task from your MINDEF Jira & Confluence board — one architecture spike]\n\nI am running a parallel Claude Code session in a separate worktree for a different task.\n\nThis codebase uses SAFNet, MINDEF GitLab, Battle Management System, Air Operations Centre. For this task:\n1. Explore the relevant files and confirm scope — report before changing anything\n2. Implement completely\n3. Write the MINDEF GitLab MR description and flag any cross-branch risks\n\nContext — why this matters at RSAF: Tech leads and architects at RSAF define the system architecture for defence software platforms, balancing operational requirements, security classifications, interoperability mandates, and long software lifecycle horizons (often 15–20 years). They work with DSTA chief engineers and DSO researchers to evaluate emerging technologies, set coding and integration standards, and govern technical debt reduction across legacy mission systems. Many also serve as primary technical interface to MINDEF's IT governance and external defence prime contractors.",
+        "inputs": "Two scoped task briefs (one per worktree); MINDEF Jira & Confluence story per branch; files in scope; branch names",
+        "metric": "Two tasks delivered in the time of one; ~23 min context-switching overhead removed per task pair (UC Irvine / Gloria Mark research); sprint throughput doubles for independent work items",
+        "guardrails": "Keep each Claude Code session strictly scoped to its worktree; review and merge each branch independently via MINDEF GitLab; resolve any merge conflicts before both MRs land on main",
+        "timeSaved": 114,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-020",
+        "role": "Tech Leads & Architects",
+        "code": "TLA",
+        "name": "Review the RSAF architecture proposal for hidden risks before the team commits",
+        "pain": "getting timely architectural sign-off through MINDEF governance layers slows down innovation cycles",
+        "habitId": "SH4",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a Tech Leads & Architects at RSAF. Before this architectural proposal is committed to, review it for hidden risks.\n\n[Paste the ADR, design doc, or architecture description]\n\nContext: New Engineer Onboarding at RSAF. Review for:\n\n1. Missing constraints — what operational, compliance, or team-skill constraints are not addressed?\n2. Scalability assumptions — what load, data volume, or growth assumptions could break this design?\n3. Integration risks — what dependencies on external systems or teams could block implementation?\n4. Reversibility — how hard is it to undo this decision once implemented? What is the rollback path?\n5. RSAF-specific blind spots: getting timely architectural sign-off through MINDEF governance layers slows down innovation cycles\n\nDo not redesign — identify and rank risks by impact. Output a numbered risk list.",
+        "inputs": "ADR or design doc; system constraints and compliance requirements; team capability profile; integration dependencies",
+        "metric": "Architectural risks caught before implementation (~50% rework reduction per BCG/Harvard); team commits to better-understood decisions",
+        "guardrails": "Address all High-impact risks before architecture is finalised; loop in affected teams on integration risks; revisit this review if scope changes significantly",
+        "timeSaved": 63,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-021",
+        "role": "Tech Leads & Architects",
+        "code": "TLA",
+        "name": "Draft the RSAF architecture proposal or RFC — self-audit before team review",
+        "pain": "aligning commercial cloud-native design patterns with the constraints of classified air-gapped environments requires significant adaptation",
+        "habitId": "SH5",
+        "entry": "Claude.ai Web",
+        "prompt": "Draft the following architecture content for RSAF:\n\n[Describe what to draft — e.g., architecture proposal, RFC, system design doc, tech radar entry, or migration plan]\n\nContext:\n- Purpose: [what decision this document enables]\n- Audience: [engineering team, CTO, product stakeholders]\n- Key message: [the single most important technical argument this must make]\n- Architecture context: Tech leads and architects at RSAF define the system architecture for defence software platforms, balancing operational requirements, security classifications, interoperability mandates, and long software lifecycle horizons (often 15–20 years). They work with DSTA chief engineers and DSO researchers to evaluate emerging technologies, set coding and integration standards, and govern technical debt reduction across legacy mission systems. Many also serve as primary technical interface to MINDEF's IT governance and external defence prime contractors.\n- Constraint to address: aligning commercial cloud-native design patterns with the constraints of classified air-gapped environments requires significant adaptation\n\nAfter drafting, self-audit:\n1. What assumptions about team capability or operational capacity did you make that a reader would challenge?\n2. Is the trade-off section honest — does it fully acknowledge the downsides of the recommended approach?\n3. What would a skeptical senior engineer attack first in this proposal?\n4. What must be verified against actual RSAF system metrics before this goes out?\n5. What is the weakest technical argument in this document?\n\nOutput the draft and self-audit together.",
+        "inputs": "Architecture problem statement; constraints (performance, compliance, team size); relevant ADRs; current tech stack at RSAF",
+        "metric": "Architecture proposals ready for review in ~40% less time; self-audit catches weak arguments before peer challenge",
+        "guardrails": "Never treat AI-drafted architecture proposals as final; address all self-audit flags; verify all performance claims against actual RSAF system data",
+        "timeSaved": 70,
+        "priority": "High"
+      },
+      {
+        "id": "UC-022",
+        "role": "Tech Leads & Architects",
+        "code": "TLA",
+        "name": "Turn the RSAF \"technical authority reviews\" process into a reusable Claude template — never start from scratch again",
+        "pain": "Architectural decisions must account for systems that will be maintained across multiple generations of hardware and OS",
+        "habitId": "SH6",
+        "entry": "Claude.ai Web",
+        "prompt": "Help me create a reusable Claude prompt template for this recurring Tech Leads & Architects task at RSAF:\n\nRecurring task: technical authority reviews\n\nInterview me to extract the pattern:\n1. What inputs are always needed to start this task at RSAF?\n2. What is the consistent output format — what must every output include?\n3. What RSAF-specific context should always be embedded (e.g., MINDEF Jira & Confluence format, MINDEF GitLab convention, compliance requirements)?\n4. What mistakes are commonly made because of: \"Architectural decisions must account for systems that will be maintained across multiple generations of hardware and OS\"?\n5. What does excellent vs. acceptable output look like?\n\nAfter the interview, generate:\n- A reusable Claude prompt template with clear [FILL IN] markers\n- A one-paragraph usage guide any new Tech Leads & Architects can follow in their first sprint\n- Two example completions applied to real RSAF tasks\n\nThis template must work for a new joiner with no prior context.",
+        "inputs": "Description of the recurring task; a high-quality past output example; list of common failure modes; any RSAF-specific standards that apply",
+        "metric": "Recurring task time reduced by ~75% per use once template is established (60% average from task automation research); institutional knowledge survives rotation without handover sessions",
+        "guardrails": "Validate on 3 real tasks with a senior Tech Leads & Architects before sharing squad-wide; store in team wiki; review quarterly; update whenever RSAF processes change",
+        "timeSaved": 75,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-023",
+        "role": "Tech Leads & Architects",
+        "code": "TLA",
+        "name": "Encode the RSAF \"technical authority reviews\" workflow as a SKILL.md Agent Skill — Claude Code runs it on command",
+        "pain": "Architectural decisions must account for systems that will be maintained across multiple generations of hardware and OS",
+        "habitId": "SH6",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this into Claude Code:\nI am a Tech Leads & Architects at RSAF. Help me encode a recurring task as a SKILL.md Agent Skill so Claude Code can execute it automatically.\n\nRecurring task: technical authority reviews\nPain point this solves: Architectural decisions must account for systems that will be maintained across multiple generations of hardware and OS\n\nInterview me to extract what makes this consistent and automatable:\n1. What inputs does this task always start with?\n2. What is the exact output format that's always expected?\n3. What RSAF-specific context must every run include (e.g., MINDEF Jira & Confluence format, MINDEF GitLab convention, compliance constraints)?\n4. Failure modes — what should the agent stop and flag vs. handle automatically?\n5. Success criteria — how would you verify the output is correct?\n\nGenerate SKILL.md in the project root:\n- name: Short, verb-first skill name\n- description: One sentence — what it does and when to invoke it\n- inputs: The [FILL IN] variables the user provides each run\n- steps: Step-by-step agent execution plan\n- guardrails: What the agent must never do or always verify\n- output: The exact deliverable format\n\nTest it immediately by running the skill and show me the output before finalising.",
+        "inputs": "Description of the recurring task; a high-quality past output as the gold standard; list of failure modes; any RSAF-specific standards the skill must enforce",
+        "metric": "Recurring task goes from manual to one-line invocation — ~75% effort reduction per run; skill compounds in value as the whole team uses it",
+        "guardrails": "Validate on 3 real tasks before sharing team-wide; commit SKILL.md to MINDEF GitLab so the whole team benefits; review quarterly; update when RSAF processes change",
+        "timeSaved": 94,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-024",
+        "role": "Tech Leads & Architects",
+        "code": "TLA",
+        "name": "Queue a Tech Leads & Architects task to run autonomously in Claude Code at RSAF — review the MINDEF GitLab output at morning standup",
+        "pain": "Architectural decisions must account for systems that will be maintained across multiple generations of hardware and OS",
+        "habitId": "SH7",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Queue this task before end of day — Claude runs, you review tomorrow:\nI am a Tech Leads & Architects at RSAF. Complete this task fully autonomously. I will not be monitoring — run to completion and leave a reviewable output.\n\nTask:\n[Describe the task in full — e.g., \"Audit all dependencies for CVEs and flag packages more than 2 major versions behind stable\"]\n\nThis codebase uses SAFNet, MINDEF GitLab, Battle Management System, Air Operations Centre.\n\nBefore starting:\n1. Explore the relevant files and confirm you have everything needed — list what you found\n2. If you hit a hard blocker requiring a decision, stop cleanly and document it; do not guess\n3. Confirm the task is self-contained before beginning\n\nExecute completely. When finished, create REVIEW.md containing:\n- What was completed and what changed\n- Files modified (list with one-line reason each)\n- Key decisions made and why\n- Items needing my review before the MINDEF GitLab MR is raised\n- Any risks or assumptions I should validate before merging\n\nContext — why this matters at RSAF: Tech leads and architects at RSAF define the system architecture for defence software platforms, balancing operational requirements, security classifications, interoperability mandates, and long software lifecycle horizons (often 15–20 years). They work with DSTA chief engineers and DSO researchers to evaluate emerging technologies, set coding and integration standards, and govern technical debt reduction across legacy mission systems. Many also serve as primary technical interface to MINDEF's IT governance and external defence prime contractors.",
+        "inputs": "Full task description with acceptance criteria; branch name to work on; files in scope; any standards to follow",
+        "metric": "~75% of active engineering time converted to passive review (Salesforce/Cursor: 85% effort reduction on test coverage; Anthropic 100k conversations: 80% average time reduction on autonomous tasks); REVIEW.md ready at morning standup",
+        "guardrails": "Review REVIEW.md and all diffs before raising the MINDEF GitLab MR; run the full MINDEF GitLab pipeline; validate key assumptions; never deploy to RSAF production without human sign-off",
+        "timeSaved": 205,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-025",
+        "role": "Product & Planning",
+        "code": "PPL",
+        "name": "Write the implementation intent before opening the codebase — feature brief in MINDEF Jira & Confluence for RSAF",
+        "pain": "Operational requirements are often expressed in tactical/mission terms that require significant translation into software specifications",
+        "habitId": "SH1",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a Product & Planning at RSAF about to implement:\n\n\"Requirements elicitation from operational users\"\n\nChallenge: Operational requirements are often expressed in tactical/mission terms that require significant translation into software specifications\n\nBefore I touch the codebase or create a MINDEF Jira & Confluence ticket, help me write a tight implementation intent brief:\n\n1. Outcome — what exactly must be true when this is done, in one sentence?\n2. Technical acceptance criteria — 3–5 conditions that automated tests can verify\n3. Scope boundary — what files, services, or APIs are IN scope vs. OUT?\n4. Likely failure point — where does this type of change typically break at RSAF?\n5. Pre-conditions — what must exist (API contracts, migrations, feature flags) before I start?\n\nOutput: a paste-ready MINDEF Jira & Confluence story description. Do not start implementation.",
+        "inputs": "MINDEF Jira & Confluence story template; stakeholder request or existing ticket; any relevant API contracts or designs; compliance constraints at RSAF",
+        "metric": "Rework from scope misalignment reduced by ~30%; implementation starts with clear acceptance criteria (BCG/Harvard \"Jagged Frontier\": 25–40% speed gain on well-specified tasks)",
+        "guardrails": "Review with product owner or Tech Lead before coding; flag any acceptance criterion that depends on a third-party decision not yet made",
+        "timeSaved": 49,
+        "priority": "High"
+      },
+      {
+        "id": "UC-026",
+        "role": "Product & Planning",
+        "code": "PPL",
+        "name": "Implement a RSAF feature end-to-end with Claude Code — code, tests, and MINDEF GitLab MR in one agent run",
+        "pain": "managing scope between iterative development cycles and fixed military procurement contracts creates tension",
+        "habitId": "SH2",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this task into Claude Code:\nI am a Product & Planning at RSAF. Implement the following feature end-to-end.\n\nFeature: [Paste your MINDEF Jira & Confluence story title and acceptance criteria here]\n\nThis codebase uses SAFNet, MINDEF GitLab, Battle Management System, Air Operations Centre. Act as my engineering agent:\n\nStep 1 — Explore the codebase: find the relevant modules, existing patterns for this type of change, and related tests. Report what you find before touching anything.\n\nStep 2 — Propose your approach: file-by-file plan, any new dependencies, and how you will test it. Wait for my go-ahead.\n\nStep 3 — Implement completely: feature code + unit tests + any config or migration changes. Follow the patterns from Step 1.\n\nStep 4 — Write the MINDEF GitLab MR description: what changed, why, how to test it locally, and review notes for the Tech Lead.\n\nConstraints:\n- Current blocker to address: managing scope between iterative development cycles and fixed military procurement contracts creates tension\n- Do not modify files outside the scope of this feature\n- All new logic must have unit test coverage\n\nDo not write any code until I confirm the approach in Step 2.",
+        "inputs": "MINDEF Jira & Confluence story with acceptance criteria; any related existing code or API contracts; branch name",
+        "metric": "Feature implementation ~55% faster than solo (GitHub Copilot controlled study, N=95, P=.0017 — task time cut from 2h41m to 1h11m on comparable coding task); consistent MINDEF GitLab MR quality",
+        "guardrails": "Review all diffs before raising the MR; confirm the approach at Step 2 before Claude writes any code; run the full MINDEF GitLab pipeline before merging",
+        "timeSaved": 144,
+        "priority": "High"
+      },
+      {
+        "id": "UC-027",
+        "role": "Product & Planning",
+        "code": "PPL",
+        "name": "Run parallel Claude Code worktrees at RSAF — deliver two Product & Planning tasks simultaneously in separate MINDEF GitLab branches",
+        "pain": "Operational requirements are often expressed in tactical/mission terms that require significant translation into software specifications",
+        "habitId": "SH3",
+        "entry": "Claude Code CLI",
+        "prompt": "# Set up two separate git worktrees — one per task:\ngit worktree add ../rsaf-task-A <branch-name-A>\ngit worktree add ../rsaf-task-B <branch-name-B>\n\n# Open a separate terminal and start Claude Code in each worktree:\ncd ../rsaf-task-A && claude\n\n# Give each Claude Code session ONE scoped task:\nI am a Product & Planning at RSAF. This session owns ONE task only — do not touch files outside its scope.\n\nTask for this worktree: [One scoped task from your MINDEF Jira & Confluence board — one feature or fix]\n\nI am running a parallel Claude Code session in a separate worktree for a different task.\n\nThis codebase uses SAFNet, MINDEF GitLab, Battle Management System, Air Operations Centre. For this task:\n1. Explore the relevant files and confirm scope — report before changing anything\n2. Implement completely\n3. Write the MINDEF GitLab MR description and flag any cross-branch risks\n\nContext — why this matters at RSAF: Product and planning personnel at RSAF translate operational requirements from air force commanders and operations staff into software development roadmaps and system specifications. They manage the requirement lifecycle using defence-standard methodologies, coordinate between RSAF formation users and DSTA development teams, and track programme milestones against the RSAF's rolling capability development plan. They must balance urgent operational needs with long-term system lifecycle management.",
+        "inputs": "Two scoped task briefs (one per worktree); MINDEF Jira & Confluence story per branch; files in scope; branch names",
+        "metric": "Two tasks delivered in the time of one; ~23 min context-switching overhead removed per task pair (UC Irvine / Gloria Mark research); sprint throughput doubles for independent work items",
+        "guardrails": "Keep each Claude Code session strictly scoped to its worktree; review and merge each branch independently via MINDEF GitLab; resolve any merge conflicts before both MRs land on main",
+        "timeSaved": 109,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-028",
+        "role": "Product & Planning",
+        "code": "PPL",
+        "name": "Review your own RSAF PR before raising it to MINDEF GitLab — catch author blind spots before review",
+        "pain": "stakeholder alignment across uniformed commanders, civilian DSTA engineers, and external prime contractors is complex and slow",
+        "habitId": "SH4",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a Product & Planning at RSAF. Before I raise this PR, review my own changes for issues I've missed as the author.\n\n[Paste the PR diff or describe the changes]\n\nContext: New Engineer Onboarding at RSAF. Review as a critical peer:\n\n1. Missing tests — which execution paths, edge cases, or error conditions have no test coverage?\n2. Scope creep — are there any changes here beyond the original MINDEF Jira & Confluence story?\n3. Code quality — what patterns here could cause problems at scale or make future changes harder?\n4. RSAF-specific risks — what could break existing functionality given: stakeholder alignment across uniformed commanders, civilian DSTA engineers, and external prime contractors is complex and slow?\n5. MR description gaps — what would a reviewer need to understand that isn't clear from the diff?\n\nDo not fix — identify and rank issues by review impact. Output a numbered list I can action before raising.",
+        "inputs": "PR diff or description; MINDEF Jira & Confluence story the PR addresses; any known constraints or standards at RSAF",
+        "metric": "Review round-trips reduced from 3–4 to 1–2 per feature; author blind spots caught before reviewer time is spent (~50% rework reduction per BCG/Harvard)",
+        "guardrails": "Address all High-impact findings before raising the MR; loop in product owner if scope changes are needed; run MINDEF GitLab before raising",
+        "timeSaved": 65,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-029",
+        "role": "Product & Planning",
+        "code": "PPL",
+        "name": "Draft the RSAF post-mortem, ADR, or technical runbook — self-audit before it reaches the team",
+        "pain": "managing scope between iterative development cycles and fixed military procurement contracts creates tension",
+        "habitId": "SH5",
+        "entry": "Claude.ai Web",
+        "prompt": "Draft the following engineering content for RSAF:\n\n[Describe what to draft — e.g., incident post-mortem, architecture decision record, onboarding runbook for the Mission System Feature Development workflow, or MINDEF GitLab MR description template]\n\nContext:\n- Purpose: [why this document is needed]\n- Audience: [Tech Lead, new joiner, product owner, on-call engineer]\n- Key message: [the single most important point this must communicate]\n- Engineering context: Product and planning personnel at RSAF translate operational requirements from air force commanders and operations staff into software development roadmaps and system specifications. They manage the requirement lifecycle using defence-standard methodologies, coordinate between RSAF formation users and DSTA development teams, and track programme milestones against the RSAF's rolling capability development plan. They must balance urgent operational needs with long-term system lifecycle management.\n- Known challenge to address: managing scope between iterative development cycles and fixed military procurement contracts creates tension\n\nAfter drafting, self-audit:\n1. What assumptions did you make that a senior RSAF engineer would immediately challenge?\n2. Would a new joiner following this runbook succeed without asking questions?\n3. Is any section vague enough to be misinterpreted by someone outside the team?\n4. What must be verified against RSAF systems or monitoring stack data before this goes out?\n5. What is the single weakest paragraph in this draft?\n\nOutput the draft and self-audit together. I will address all flagged items before sharing.",
+        "inputs": "Topic, purpose, and intended audience; any source material (incident timeline, sprint data, architecture diagram); relevant standards or templates at RSAF",
+        "metric": "First-draft quality good enough to share in ~40% less writing time (Anthropic internal productivity study); review cycles drop from 3 to 1",
+        "guardrails": "Never share without human review; address all self-audit flags; verify factual claims against RSAF systems or monitoring stack data before sending",
+        "timeSaved": 63,
+        "priority": "High"
+      },
+      {
+        "id": "UC-030",
+        "role": "Product & Planning",
+        "code": "PPL",
+        "name": "Turn the RSAF \"CONOPS documentation\" process into a reusable Claude template — never start from scratch again",
+        "pain": "Operational requirements are often expressed in tactical/mission terms that require significant translation into software specifications",
+        "habitId": "SH6",
+        "entry": "Claude.ai Web",
+        "prompt": "Help me create a reusable Claude prompt template for this recurring Product & Planning task at RSAF:\n\nRecurring task: CONOPS documentation\n\nInterview me to extract the pattern:\n1. What inputs are always needed to start this task at RSAF?\n2. What is the consistent output format — what must every output include?\n3. What RSAF-specific context should always be embedded (e.g., MINDEF Jira & Confluence format, MINDEF GitLab convention, compliance requirements)?\n4. What mistakes are commonly made because of: \"Operational requirements are often expressed in tactical/mission terms that require significant translation into software specifications\"?\n5. What does excellent vs. acceptable output look like?\n\nAfter the interview, generate:\n- A reusable Claude prompt template with clear [FILL IN] markers\n- A one-paragraph usage guide any new Product & Planning can follow in their first sprint\n- Two example completions applied to real RSAF tasks\n\nThis template must work for a new joiner with no prior context.",
+        "inputs": "Description of the recurring task; a high-quality past output example; list of common failure modes; any RSAF-specific standards that apply",
+        "metric": "Recurring task time reduced by ~75% per use once template is established (60% average from task automation research); institutional knowledge survives rotation without handover sessions",
+        "guardrails": "Validate on 3 real tasks with a senior Product & Planning before sharing squad-wide; store in team wiki; review quarterly; update whenever RSAF processes change",
+        "timeSaved": 70,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-031",
+        "role": "Product & Planning",
+        "code": "PPL",
+        "name": "Encode the RSAF \"CONOPS documentation\" workflow as a SKILL.md Agent Skill — Claude Code runs it on command",
+        "pain": "Operational requirements are often expressed in tactical/mission terms that require significant translation into software specifications",
+        "habitId": "SH6",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this into Claude Code:\nI am a Product & Planning at RSAF. Help me encode a recurring task as a SKILL.md Agent Skill so Claude Code can execute it automatically.\n\nRecurring task: CONOPS documentation\nPain point this solves: Operational requirements are often expressed in tactical/mission terms that require significant translation into software specifications\n\nInterview me to extract what makes this consistent and automatable:\n1. What inputs does this task always start with?\n2. What is the exact output format that's always expected?\n3. What RSAF-specific context must every run include (e.g., MINDEF Jira & Confluence format, MINDEF GitLab convention, compliance constraints)?\n4. Failure modes — what should the agent stop and flag vs. handle automatically?\n5. Success criteria — how would you verify the output is correct?\n\nGenerate SKILL.md in the project root:\n- name: Short, verb-first skill name\n- description: One sentence — what it does and when to invoke it\n- inputs: The [FILL IN] variables the user provides each run\n- steps: Step-by-step agent execution plan\n- guardrails: What the agent must never do or always verify\n- output: The exact deliverable format\n\nTest it immediately by running the skill and show me the output before finalising.",
+        "inputs": "Description of the recurring task; a high-quality past output as the gold standard; list of failure modes; any RSAF-specific standards the skill must enforce",
+        "metric": "Recurring task goes from manual to one-line invocation — ~75% effort reduction per run; skill compounds in value as the whole team uses it",
+        "guardrails": "Validate on 3 real tasks before sharing team-wide; commit SKILL.md to MINDEF GitLab so the whole team benefits; review quarterly; update when RSAF processes change",
+        "timeSaved": 89,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-032",
+        "role": "Product & Planning",
+        "code": "PPL",
+        "name": "Queue a Product & Planning task to run autonomously in Claude Code at RSAF — review the MINDEF GitLab output at morning standup",
+        "pain": "Operational requirements are often expressed in tactical/mission terms that require significant translation into software specifications",
+        "habitId": "SH7",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Queue this task before end of day — Claude runs, you review tomorrow:\nI am a Product & Planning at RSAF. Complete this task fully autonomously. I will not be monitoring — run to completion and leave a reviewable output.\n\nTask:\n[Describe the task in full — e.g., \"Expand your test framework test coverage for [module] to 80% branch coverage\" or \"Refactor [component] to eliminate: Operational requirements are often expressed in tactical/mission terms that require significant translation into software specifications\"]\n\nThis codebase uses SAFNet, MINDEF GitLab, Battle Management System, Air Operations Centre.\n\nBefore starting:\n1. Explore the relevant files and confirm you have everything needed — list what you found\n2. If you hit a hard blocker requiring a decision, stop cleanly and document it; do not guess\n3. Confirm the task is self-contained before beginning\n\nExecute completely. When finished, create REVIEW.md containing:\n- What was completed and what changed\n- Files modified (list with one-line reason each)\n- Key decisions made and why\n- Items needing my review before the MINDEF GitLab MR is raised\n- Any risks or assumptions I should validate before merging\n\nContext — why this matters at RSAF: Product and planning personnel at RSAF translate operational requirements from air force commanders and operations staff into software development roadmaps and system specifications. They manage the requirement lifecycle using defence-standard methodologies, coordinate between RSAF formation users and DSTA development teams, and track programme milestones against the RSAF's rolling capability development plan. They must balance urgent operational needs with long-term system lifecycle management.",
+        "inputs": "Full task description with acceptance criteria; branch name to work on; files in scope; any standards to follow",
+        "metric": "~75% of active engineering time converted to passive review (Salesforce/Cursor: 85% effort reduction on test coverage; Anthropic 100k conversations: 80% average time reduction on autonomous tasks); REVIEW.md ready at morning standup",
+        "guardrails": "Review REVIEW.md and all diffs before raising the MINDEF GitLab MR; run the full MINDEF GitLab pipeline; validate key assumptions; never deploy to RSAF production without human sign-off",
+        "timeSaved": 200,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-033",
+        "role": "DevOps & Platform",
+        "code": "DOP",
+        "name": "Write the RSAF infrastructure change proposal before touching IaC — change brief for MINDEF GitLab pipeline management",
+        "pain": "Maintaining a fully offline-capable CI/CD pipeline requires continuous synchronisation of package mirrors, container registries, and tool binaries from the internet to the classified environment",
+        "habitId": "SH1",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a DevOps & Platform at RSAF. Before I write IaC or modify MINDEF GitLab config, help me write a change proposal.\n\nChange: \"MINDEF GitLab pipeline management\"\n\nChallenge: Maintaining a fully offline-capable CI/CD pipeline requires continuous synchronisation of package mirrors, container registries, and tool binaries from the internet to the classified environment\n\n1. Change scope — exactly which infrastructure components, services, or pipelines at RSAF are affected?\n2. Risk assessment — what could break? What is the rollback plan if this goes wrong?\n3. Pre-conditions — what must be true before this change is safe to apply?\n4. Validation plan — how will I verify the change worked correctly in each environment?\n5. Stakeholder impact — who needs to know about this change before it is applied?\n\nOutput: a change proposal I can paste into MINDEF Jira & Confluence before any IaC is written.",
+        "inputs": "Change description; affected infrastructure components; relevant runbook sections; environment specifications; change window constraints at RSAF",
+        "metric": "Infrastructure change incidents from insufficient planning reduced; rollback procedures documented before changes are made, not during an incident",
+        "guardrails": "Change proposal requires peer review before IaC is written; all rollback procedures must be tested in staging first; never apply to production without documented approval",
+        "timeSaved": 58,
+        "priority": "High"
+      },
+      {
+        "id": "UC-034",
+        "role": "DevOps & Platform",
+        "code": "DOP",
+        "name": "Build a RSAF MINDEF GitLab pipeline improvement — automate a deployment workflow end-to-end with Claude Code",
+        "pain": "deployment to operational avionics or ground systems requires additional airworthiness gateway steps not present in commercial pipelines",
+        "habitId": "SH2",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this task into Claude Code:\nI am a DevOps & Platform at RSAF. Build the following pipeline automation end-to-end.\n\nPipeline task: [e.g., \"Add security scanning to MINDEF GitLab\" or \"Implement blue-green deployment for [service]\"]\n\nThis stack uses SAFNet, MINDEF GitLab, Battle Management System, Air Operations Centre. Act as my platform engineering agent:\n\nStep 1 — Explore: Examine the current MINDEF GitLab config and deployment scripts. Report what exists before touching anything.\n\nStep 2 — Propose: File-by-file plan, new pipeline stages or IaC changes, and validation approach. Wait for my go-ahead.\n\nStep 3 — Implement: Pipeline config, IaC, runbook update, and validation commands.\n\nStep 4 — Write the MINDEF GitLab MR description: what changes, why, how to test, rollback procedure.\n\nConstraints:\n- Current blocker: deployment to operational avionics or ground systems requires additional airworthiness gateway steps not present in commercial pipelines\n- Do not modify unrelated pipeline stages\n- All changes must pass MINDEF GitLab dry-run before MR is raised",
+        "inputs": "MINDEF GitLab pipeline config; deployment architecture; any runbook sections to update; target environment specs",
+        "metric": "Pipeline automation ~55% faster to build and validate (GitHub Copilot controlled study, N=95); deployment time reduced and manual intervention per release minimised",
+        "guardrails": "Review all pipeline config changes before merging; test in staging first; confirm rollback procedure is documented; never modify production pipelines without peer review",
+        "timeSaved": 145,
+        "priority": "High"
+      },
+      {
+        "id": "UC-035",
+        "role": "DevOps & Platform",
+        "code": "DOP",
+        "name": "Run parallel Claude Code worktrees at RSAF — deliver two DevOps & Platform tasks simultaneously in separate MINDEF GitLab branches",
+        "pain": "Maintaining a fully offline-capable CI/CD pipeline requires continuous synchronisation of package mirrors, container registries, and tool binaries from the internet to the classified environment",
+        "habitId": "SH3",
+        "entry": "Claude Code CLI",
+        "prompt": "# Set up two separate git worktrees — one per task:\ngit worktree add ../rsaf-task-A <branch-name-A>\ngit worktree add ../rsaf-task-B <branch-name-B>\n\n# Open a separate terminal and start Claude Code in each worktree:\ncd ../rsaf-task-A && claude\n\n# Give each Claude Code session ONE scoped task:\nI am a DevOps & Platform at RSAF. This session owns ONE task only — do not touch files outside its scope.\n\nTask for this worktree: [One scoped task from your MINDEF Jira & Confluence board — one pipeline change]\n\nI am running a parallel Claude Code session in a separate worktree for a different task.\n\nThis codebase uses SAFNet, MINDEF GitLab, Battle Management System, Air Operations Centre. For this task:\n1. Explore the relevant files and confirm scope — report before changing anything\n2. Implement completely\n3. Write the MINDEF GitLab MR description and flag any cross-branch risks\n\nContext — why this matters at RSAF: DevOps and platform engineers at RSAF build and operate the CI/CD infrastructure that supports software delivery within both unclassified and classified environments. They maintain MINDEF GitLab pipelines, manage containerised build environments, and operate the deployment toolchains that release software to operational systems. A key challenge is replicating modern DevOps velocity inside networks with no internet connectivity, where package registries, container image pulls, and security scanning tools must all be locally mirrored.",
+        "inputs": "Two scoped task briefs (one per worktree); MINDEF Jira & Confluence story per branch; files in scope; branch names",
+        "metric": "Two tasks delivered in the time of one; ~23 min context-switching overhead removed per task pair (UC Irvine / Gloria Mark research); sprint throughput doubles for independent work items",
+        "guardrails": "Keep each Claude Code session strictly scoped to its worktree; review and merge each branch independently via MINDEF GitLab; resolve any merge conflicts before both MRs land on main",
+        "timeSaved": 118,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-036",
+        "role": "DevOps & Platform",
+        "code": "DOP",
+        "name": "Review the RSAF MINDEF GitLab pipeline change for deployment risks before it runs",
+        "pain": "on-call responsibilities for operational system outages carry higher stakes than typical enterprise software",
+        "habitId": "SH4",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a DevOps & Platform at RSAF. Before this pipeline or infrastructure change is applied, review it for deployment risks.\n\n[Paste the pipeline config diff, IaC change, or runbook]\n\nContext: New Engineer Onboarding at RSAF. Review for:\n\n1. Missing rollback — what is the revert procedure if this change needs to be undone? Is it documented?\n2. Blast radius — what downstream services or teams could be affected?\n3. Validation gaps — how will success be verified in each environment before progressing to production?\n4. Environment-specific risks that work in staging but could fail in production due to: on-call responsibilities for operational system outages carry higher stakes than typical enterprise software\n5. Missing approvals — who needs to sign off before this runs?\n\nDo not modify the config — identify and rank risks. Output a numbered checklist.",
+        "inputs": "Pipeline config diff or IaC change; deployment architecture; current runbook; list of dependent services",
+        "metric": "Deployment incidents from configuration errors reduced by ~50%; rollback procedures documented before changes are made, not during incidents",
+        "guardrails": "Address all High-risk items before the change is applied; verify rollback in staging; never apply to production without documented peer review",
+        "timeSaved": 70,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-037",
+        "role": "DevOps & Platform",
+        "code": "DOP",
+        "name": "Draft the RSAF incident post-mortem or deployment report — self-audit before distribution",
+        "pain": "deployment to operational avionics or ground systems requires additional airworthiness gateway steps not present in commercial pipelines",
+        "habitId": "SH5",
+        "entry": "Claude.ai Web",
+        "prompt": "Draft the following operational content for RSAF:\n\n[Describe what to draft — e.g., incident post-mortem, deployment report, on-call handover, or infrastructure change summary]\n\nContext:\n- Purpose: [incident review, deployment sign-off, or ops handover]\n- Audience: [engineering team, management, on-call rotation]\n- Key message: [the single most important operational fact this must communicate]\n- Operational context: DevOps and platform engineers at RSAF build and operate the CI/CD infrastructure that supports software delivery within both unclassified and classified environments. They maintain MINDEF GitLab pipelines, manage containerised build environments, and operate the deployment toolchains that release software to operational systems. A key challenge is replicating modern DevOps velocity inside networks with no internet connectivity, where package registries, container image pulls, and security scanning tools must all be locally mirrored.\n- Known challenge: deployment to operational avionics or ground systems requires additional airworthiness gateway steps not present in commercial pipelines\n\nAfter drafting, self-audit:\n1. If another engineer reads this at 2am during an incident, will they know exactly what to do?\n2. Does the post-mortem blame systems rather than people — is the language blameless?\n3. Are the action items specific, assigned, and time-bound — or vague commitments?\n4. What must be verified against monitoring stack data before this goes out?\n5. What would the on-call engineer most want to know that isn't clearly stated?\n\nOutput the draft and self-audit together.",
+        "inputs": "Incident timeline or deployment log; monitoring data from monitoring stack; action items already identified; prior post-mortems for similar incidents",
+        "metric": "Post-mortems and deployment reports ready in ~40% less time; self-audit improves quality of action items before stakeholder review",
+        "guardrails": "Never publish without verifying all facts against monitoring stack logs; address all self-audit flags; all action items must have named owners",
+        "timeSaved": 64,
+        "priority": "High"
+      },
+      {
+        "id": "UC-038",
+        "role": "DevOps & Platform",
+        "code": "DOP",
+        "name": "Turn the RSAF \"container image management on private registries\" process into a reusable Claude template — never start from scratch again",
+        "pain": "Maintaining a fully offline-capable CI/CD pipeline requires continuous synchronisation of package mirrors, container registries, and tool binaries from the internet to the classified environment",
+        "habitId": "SH6",
+        "entry": "Claude.ai Web",
+        "prompt": "Help me create a reusable Claude prompt template for this recurring DevOps & Platform task at RSAF:\n\nRecurring task: container image management on private registries\n\nInterview me to extract the pattern:\n1. What inputs are always needed to start this task at RSAF?\n2. What is the consistent output format — what must every output include?\n3. What RSAF-specific context should always be embedded (e.g., MINDEF Jira & Confluence format, MINDEF GitLab convention, compliance requirements)?\n4. What mistakes are commonly made because of: \"Maintaining a fully offline-capable CI/CD pipeline requires continuous synchronisation of package mirrors, container registries, and tool binaries from the internet to the classified environment\"?\n5. What does excellent vs. acceptable output look like?\n\nAfter the interview, generate:\n- A reusable Claude prompt template with clear [FILL IN] markers\n- A one-paragraph usage guide any new DevOps & Platform can follow in their first sprint\n- Two example completions applied to real RSAF tasks\n\nThis template must work for a new joiner with no prior context.",
+        "inputs": "Description of the recurring task; a high-quality past output example; list of common failure modes; any RSAF-specific standards that apply",
+        "metric": "Recurring task time reduced by ~75% per use once template is established (60% average from task automation research); institutional knowledge survives rotation without handover sessions",
+        "guardrails": "Validate on 3 real tasks with a senior DevOps & Platform before sharing squad-wide; store in team wiki; review quarterly; update whenever RSAF processes change",
+        "timeSaved": 79,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-039",
+        "role": "DevOps & Platform",
+        "code": "DOP",
+        "name": "Encode the RSAF \"container image management on private registries\" workflow as a SKILL.md Agent Skill — Claude Code runs it on command",
+        "pain": "Maintaining a fully offline-capable CI/CD pipeline requires continuous synchronisation of package mirrors, container registries, and tool binaries from the internet to the classified environment",
+        "habitId": "SH6",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this into Claude Code:\nI am a DevOps & Platform at RSAF. Help me encode a recurring task as a SKILL.md Agent Skill so Claude Code can execute it automatically.\n\nRecurring task: container image management on private registries\nPain point this solves: Maintaining a fully offline-capable CI/CD pipeline requires continuous synchronisation of package mirrors, container registries, and tool binaries from the internet to the classified environment\n\nInterview me to extract what makes this consistent and automatable:\n1. What inputs does this task always start with?\n2. What is the exact output format that's always expected?\n3. What RSAF-specific context must every run include (e.g., MINDEF Jira & Confluence format, MINDEF GitLab convention, compliance constraints)?\n4. Failure modes — what should the agent stop and flag vs. handle automatically?\n5. Success criteria — how would you verify the output is correct?\n\nGenerate SKILL.md in the project root:\n- name: Short, verb-first skill name\n- description: One sentence — what it does and when to invoke it\n- inputs: The [FILL IN] variables the user provides each run\n- steps: Step-by-step agent execution plan\n- guardrails: What the agent must never do or always verify\n- output: The exact deliverable format\n\nTest it immediately by running the skill and show me the output before finalising.",
+        "inputs": "Description of the recurring task; a high-quality past output as the gold standard; list of failure modes; any RSAF-specific standards the skill must enforce",
+        "metric": "Recurring task goes from manual to one-line invocation — ~75% effort reduction per run; skill compounds in value as the whole team uses it",
+        "guardrails": "Validate on 3 real tasks before sharing team-wide; commit SKILL.md to MINDEF GitLab so the whole team benefits; review quarterly; update when RSAF processes change",
+        "timeSaved": 98,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-040",
+        "role": "DevOps & Platform",
+        "code": "DOP",
+        "name": "Queue a DevOps & Platform task to run autonomously in Claude Code at RSAF — review the MINDEF GitLab output at morning standup",
+        "pain": "Maintaining a fully offline-capable CI/CD pipeline requires continuous synchronisation of package mirrors, container registries, and tool binaries from the internet to the classified environment",
+        "habitId": "SH7",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Queue this task before end of day — Claude runs, you review tomorrow:\nI am a DevOps & Platform at RSAF. Complete this task fully autonomously. I will not be monitoring — run to completion and leave a reviewable output.\n\nTask:\n[Describe the task in full — e.g., \"Run infrastructure health checks across all environments and prepare an ops briefing\"]\n\nThis codebase uses SAFNet, MINDEF GitLab, Battle Management System, Air Operations Centre.\n\nBefore starting:\n1. Explore the relevant files and confirm you have everything needed — list what you found\n2. If you hit a hard blocker requiring a decision, stop cleanly and document it; do not guess\n3. Confirm the task is self-contained before beginning\n\nExecute completely. When finished, create REVIEW.md containing:\n- What was completed and what changed\n- Files modified (list with one-line reason each)\n- Key decisions made and why\n- Items needing my review before the MINDEF GitLab MR is raised\n- Any risks or assumptions I should validate before merging\n\nContext — why this matters at RSAF: DevOps and platform engineers at RSAF build and operate the CI/CD infrastructure that supports software delivery within both unclassified and classified environments. They maintain MINDEF GitLab pipelines, manage containerised build environments, and operate the deployment toolchains that release software to operational systems. A key challenge is replicating modern DevOps velocity inside networks with no internet connectivity, where package registries, container image pulls, and security scanning tools must all be locally mirrored.",
+        "inputs": "Full task description with acceptance criteria; branch name to work on; files in scope; any standards to follow",
+        "metric": "~75% of active engineering time converted to passive review (Salesforce/Cursor: 85% effort reduction on test coverage; Anthropic 100k conversations: 80% average time reduction on autonomous tasks); REVIEW.md ready at morning standup",
+        "guardrails": "Review REVIEW.md and all diffs before raising the MINDEF GitLab MR; run the full MINDEF GitLab pipeline; validate key assumptions; never deploy to RSAF production without human sign-off",
+        "timeSaved": 209,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-041",
+        "role": "Security Engineers",
+        "code": "SEC",
+        "name": "Write the RSAF threat model before the security assessment begins — scope brief for Threat modelling for new system developments",
+        "pain": "OT security is fundamentally different from IT security — proprietary avionics protocols make standard SIEM tooling ineffective",
+        "habitId": "SH1",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a Security Engineers at RSAF. Before conducting a security assessment, help me write a threat model brief.\n\nTarget: \"Threat modelling for new system developments\"\n\nChallenge: OT security is fundamentally different from IT security — proprietary avionics protocols make standard SIEM tooling ineffective\n\n1. Attack surface — what are the entry points, trust boundaries, and data flows to assess?\n2. Threat actors — who are the realistic adversaries and what are their likely capabilities against RSAF?\n3. Assets at risk — what data or functionality must be protected?\n4. Relevant threat vectors — which vulnerability classes are most likely given the stack: SAFNet, MINDEF GitLab, Battle Management System, Air Operations Centre?\n5. Assessment scope — what is explicitly in scope vs. out of scope for this engagement?\n\nOutput: a threat model brief I can share with the team before the assessment begins.",
+        "inputs": "System description; data classification requirements; known threat history; compliance framework; tech stack details",
+        "metric": "Security assessment coverage gaps caught before the engagement starts; time wasted on out-of-scope findings eliminated; findings are actionable because scope is agreed upfront",
+        "guardrails": "Threat model requires review by a senior security engineer before assessment begins; data classification must be confirmed with the system owner; never start without agreed scope",
+        "timeSaved": 49,
+        "priority": "High"
+      },
+      {
+        "id": "UC-042",
+        "role": "Security Engineers",
+        "code": "SEC",
+        "name": "Run an automated security code review of RSAF services — identify vulnerabilities and generate remediation code with Claude Code",
+        "pain": "COTS components in classified systems cannot be patched at commercial cadence due to qualification dependencies",
+        "habitId": "SH2",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this task into Claude Code:\nI am a Security Engineers at RSAF. Conduct a security code review of this service.\n\nTarget: [Service or module name]\nScope: [Authentication / input validation / secret handling / external API calls]\n\nThis codebase uses SAFNet, MINDEF GitLab, Battle Management System, Air Operations Centre. Act as my security review agent:\n\nStep 1 — Explore: Map the attack surface — auth, authorisation, data handling, external calls, secret storage. Report before proposing changes.\n\nStep 2 — Findings: List all vulnerabilities by severity (Critical / High / Medium / Low). For each: issue description, exploitability in RSAF's context, and remediation. Wait for my go-ahead.\n\nStep 3 — Remediation code: Implement approved High and Critical fixes, following existing patterns.\n\nStep 4 — Write the MINDEF GitLab MR: vulnerability summary, fixes applied, deferred items and why.\n\nConstraints:\n- Current blocker: COTS components in classified systems cannot be patched at commercial cadence due to qualification dependencies\n- Do not modify business logic outside the security fix scope",
+        "inputs": "Service code; any known CVEs or prior findings; compliance requirements; threat model if available",
+        "metric": "Security review ~55% faster than manual (GitHub Copilot study); Critical and High findings remediated before production; audit trail maintained in MINDEF GitLab",
+        "guardrails": "All findings require security lead sign-off before MR is raised; Critical findings block deployment; Medium/Low deferred items tracked in MINDEF Jira & Confluence",
+        "timeSaved": 150,
+        "priority": "High"
+      },
+      {
+        "id": "UC-043",
+        "role": "Security Engineers",
+        "code": "SEC",
+        "name": "Run parallel Claude Code worktrees at RSAF — deliver two Security Engineers tasks simultaneously in separate MINDEF GitLab branches",
+        "pain": "OT security is fundamentally different from IT security — proprietary avionics protocols make standard SIEM tooling ineffective",
+        "habitId": "SH3",
+        "entry": "Claude Code CLI",
+        "prompt": "# Set up two separate git worktrees — one per task:\ngit worktree add ../rsaf-task-A <branch-name-A>\ngit worktree add ../rsaf-task-B <branch-name-B>\n\n# Open a separate terminal and start Claude Code in each worktree:\ncd ../rsaf-task-A && claude\n\n# Give each Claude Code session ONE scoped task:\nI am a Security Engineers at RSAF. This session owns ONE task only — do not touch files outside its scope.\n\nTask for this worktree: [One scoped task from your MINDEF Jira & Confluence board — one service security audit]\n\nI am running a parallel Claude Code session in a separate worktree for a different task.\n\nThis codebase uses SAFNet, MINDEF GitLab, Battle Management System, Air Operations Centre. For this task:\n1. Explore the relevant files and confirm scope — report before changing anything\n2. Implement completely\n3. Write the MINDEF GitLab MR description and flag any cross-branch risks\n\nContext — why this matters at RSAF: Security engineers at RSAF design and enforce the cybersecurity posture of both IT systems (SAFNet-connected) and operational technology (OT) systems (avionics networks, weapon system interfaces, radar systems). They conduct threat modelling against military adversary profiles, perform penetration testing on system upgrades, and operate the SOC tooling that monitors for anomalies across RSAF's digital infrastructure. They also ensure all externally procured COTS components meet MINDEF security vetting requirements.",
+        "inputs": "Two scoped task briefs (one per worktree); MINDEF Jira & Confluence story per branch; files in scope; branch names",
+        "metric": "Two tasks delivered in the time of one; ~23 min context-switching overhead removed per task pair (UC Irvine / Gloria Mark research); sprint throughput doubles for independent work items",
+        "guardrails": "Keep each Claude Code session strictly scoped to its worktree; review and merge each branch independently via MINDEF GitLab; resolve any merge conflicts before both MRs land on main",
+        "timeSaved": 109,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-044",
+        "role": "Security Engineers",
+        "code": "SEC",
+        "name": "Review the RSAF feature spec for security vulnerabilities before development starts",
+        "pain": "insider threat monitoring in a national service environment with high personnel turnover requires careful policy calibration",
+        "habitId": "SH4",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a Security Engineers at RSAF. Before development starts on this feature, review the spec for security vulnerabilities and missing controls.\n\n[Paste the feature spec, user story, or design doc]\n\nContext: New Engineer Onboarding at RSAF. Review for:\n\n1. Authentication and authorisation gaps — are there operations that should require elevated privilege but are not specified?\n2. Data exposure risks — what sensitive data is handled? Are data classification requirements addressed?\n3. Input validation — what user-supplied or external inputs are processed? Are they all validated and sanitised?\n4. Audit trail gaps — what security-relevant events should be logged but are not specified?\n5. RSAF-specific security constraints related to: insider threat monitoring in a national service environment with high personnel turnover requires careful policy calibration\n\nDo not fix — identify and rank by severity (Critical / High / Medium / Low). Output a security gap list.",
+        "inputs": "Feature spec or user story; data classification of assets involved; relevant compliance requirements; known vulnerability history for this area",
+        "metric": "Security vulnerabilities caught at design time (10× cheaper to fix) vs. after implementation; VAPT findings for in-flight features reduced",
+        "guardrails": "Critical and High gaps must be addressed before any development starts; loop in product owner if spec changes are required; track deferred items in MINDEF Jira & Confluence",
+        "timeSaved": 65,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-045",
+        "role": "Security Engineers",
+        "code": "SEC",
+        "name": "Draft the RSAF security assessment or compliance report — self-audit before sign-off",
+        "pain": "COTS components in classified systems cannot be patched at commercial cadence due to qualification dependencies",
+        "habitId": "SH5",
+        "entry": "Claude.ai Web",
+        "prompt": "Draft the following security content for RSAF:\n\n[Describe what to draft — e.g., VAPT findings summary, security assessment report, compliance evidence document, or risk register update]\n\nContext:\n- Purpose: [compliance submission, management review, or engineering action]\n- Audience: [CISO, engineering team, compliance officer]\n- Key message: [the single most important security finding or status this must communicate]\n- Security context: Security engineers at RSAF design and enforce the cybersecurity posture of both IT systems (SAFNet-connected) and operational technology (OT) systems (avionics networks, weapon system interfaces, radar systems). They conduct threat modelling against military adversary profiles, perform penetration testing on system upgrades, and operate the SOC tooling that monitors for anomalies across RSAF's digital infrastructure. They also ensure all externally procured COTS components meet MINDEF security vetting requirements.\n- Challenge to address: COTS components in classified systems cannot be patched at commercial cadence due to qualification dependencies\n\nAfter drafting, self-audit:\n1. Would a non-technical stakeholder understand the business risk behind each finding?\n2. Are severity ratings defensible — is any finding over- or under-stated?\n3. What assumptions about remediation timelines did you make that the team might challenge?\n4. What must be verified against actual scan results or VAPT evidence before this goes out?\n5. What finding, if omitted or downplayed, would cause the most reputational damage if discovered?\n\nOutput the draft and self-audit together.",
+        "inputs": "Security scan results or VAPT findings; compliance framework requirements; system architecture; prior security reports for trend comparison",
+        "metric": "Security report drafting time reduced by ~40%; self-audit catches severity mis-ratings and missing evidence before sign-off review",
+        "guardrails": "Never publish AI-drafted security reports without human review of all findings; verify all severity ratings against actual evidence; address all self-audit flags before submitting externally",
+        "timeSaved": 69,
+        "priority": "High"
+      },
+      {
+        "id": "UC-046",
+        "role": "Security Engineers",
+        "code": "SEC",
+        "name": "Turn the RSAF \"penetration testing\" process into a reusable Claude template — never start from scratch again",
+        "pain": "OT security is fundamentally different from IT security — proprietary avionics protocols make standard SIEM tooling ineffective",
+        "habitId": "SH6",
+        "entry": "Claude.ai Web",
+        "prompt": "Help me create a reusable Claude prompt template for this recurring Security Engineers task at RSAF:\n\nRecurring task: penetration testing\n\nInterview me to extract the pattern:\n1. What inputs are always needed to start this task at RSAF?\n2. What is the consistent output format — what must every output include?\n3. What RSAF-specific context should always be embedded (e.g., MINDEF Jira & Confluence format, MINDEF GitLab convention, compliance requirements)?\n4. What mistakes are commonly made because of: \"OT security is fundamentally different from IT security — proprietary avionics protocols make standard SIEM tooling ineffective\"?\n5. What does excellent vs. acceptable output look like?\n\nAfter the interview, generate:\n- A reusable Claude prompt template with clear [FILL IN] markers\n- A one-paragraph usage guide any new Security Engineers can follow in their first sprint\n- Two example completions applied to real RSAF tasks\n\nThis template must work for a new joiner with no prior context.",
+        "inputs": "Description of the recurring task; a high-quality past output example; list of common failure modes; any RSAF-specific standards that apply",
+        "metric": "Recurring task time reduced by ~75% per use once template is established (60% average from task automation research); institutional knowledge survives rotation without handover sessions",
+        "guardrails": "Validate on 3 real tasks with a senior Security Engineers before sharing squad-wide; store in team wiki; review quarterly; update whenever RSAF processes change",
+        "timeSaved": 70,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-047",
+        "role": "Security Engineers",
+        "code": "SEC",
+        "name": "Encode the RSAF \"penetration testing\" workflow as a SKILL.md Agent Skill — Claude Code runs it on command",
+        "pain": "OT security is fundamentally different from IT security — proprietary avionics protocols make standard SIEM tooling ineffective",
+        "habitId": "SH6",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this into Claude Code:\nI am a Security Engineers at RSAF. Help me encode a recurring task as a SKILL.md Agent Skill so Claude Code can execute it automatically.\n\nRecurring task: penetration testing\nPain point this solves: OT security is fundamentally different from IT security — proprietary avionics protocols make standard SIEM tooling ineffective\n\nInterview me to extract what makes this consistent and automatable:\n1. What inputs does this task always start with?\n2. What is the exact output format that's always expected?\n3. What RSAF-specific context must every run include (e.g., MINDEF Jira & Confluence format, MINDEF GitLab convention, compliance constraints)?\n4. Failure modes — what should the agent stop and flag vs. handle automatically?\n5. Success criteria — how would you verify the output is correct?\n\nGenerate SKILL.md in the project root:\n- name: Short, verb-first skill name\n- description: One sentence — what it does and when to invoke it\n- inputs: The [FILL IN] variables the user provides each run\n- steps: Step-by-step agent execution plan\n- guardrails: What the agent must never do or always verify\n- output: The exact deliverable format\n\nTest it immediately by running the skill and show me the output before finalising.",
+        "inputs": "Description of the recurring task; a high-quality past output as the gold standard; list of failure modes; any RSAF-specific standards the skill must enforce",
+        "metric": "Recurring task goes from manual to one-line invocation — ~75% effort reduction per run; skill compounds in value as the whole team uses it",
+        "guardrails": "Validate on 3 real tasks before sharing team-wide; commit SKILL.md to MINDEF GitLab so the whole team benefits; review quarterly; update when RSAF processes change",
+        "timeSaved": 89,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-048",
+        "role": "Security Engineers",
+        "code": "SEC",
+        "name": "Queue a Security Engineers task to run autonomously in Claude Code at RSAF — review the MINDEF GitLab output at morning standup",
+        "pain": "OT security is fundamentally different from IT security — proprietary avionics protocols make standard SIEM tooling ineffective",
+        "habitId": "SH7",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Queue this task before end of day — Claude runs, you review tomorrow:\nI am a Security Engineers at RSAF. Complete this task fully autonomously. I will not be monitoring — run to completion and leave a reviewable output.\n\nTask:\n[Describe the task in full — e.g., \"Scan our stack for new CVEs published this week and exposed secrets in recent commits\"]\n\nThis codebase uses SAFNet, MINDEF GitLab, Battle Management System, Air Operations Centre.\n\nBefore starting:\n1. Explore the relevant files and confirm you have everything needed — list what you found\n2. If you hit a hard blocker requiring a decision, stop cleanly and document it; do not guess\n3. Confirm the task is self-contained before beginning\n\nExecute completely. When finished, create REVIEW.md containing:\n- What was completed and what changed\n- Files modified (list with one-line reason each)\n- Key decisions made and why\n- Items needing my review before the MINDEF GitLab MR is raised\n- Any risks or assumptions I should validate before merging\n\nContext — why this matters at RSAF: Security engineers at RSAF design and enforce the cybersecurity posture of both IT systems (SAFNet-connected) and operational technology (OT) systems (avionics networks, weapon system interfaces, radar systems). They conduct threat modelling against military adversary profiles, perform penetration testing on system upgrades, and operate the SOC tooling that monitors for anomalies across RSAF's digital infrastructure. They also ensure all externally procured COTS components meet MINDEF security vetting requirements.",
+        "inputs": "Full task description with acceptance criteria; branch name to work on; files in scope; any standards to follow",
+        "metric": "~75% of active engineering time converted to passive review (Salesforce/Cursor: 85% effort reduction on test coverage; Anthropic 100k conversations: 80% average time reduction on autonomous tasks); REVIEW.md ready at morning standup",
+        "guardrails": "Review REVIEW.md and all diffs before raising the MINDEF GitLab MR; run the full MINDEF GitLab pipeline; validate key assumptions; never deploy to RSAF production without human sign-off",
+        "timeSaved": 200,
+        "priority": "Medium"
+      }
+    ]
+  }
+}

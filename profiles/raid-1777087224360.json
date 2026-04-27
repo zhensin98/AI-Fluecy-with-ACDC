@@ -1,0 +1,1352 @@
+{
+  "id": "raid-1777087224360",
+  "name": "RAID",
+  "url": "https://rsaf-agile-inno-digital.defence.gov.sg/",
+  "timestamp": "2026-04-27T01:14:34.478Z",
+  "data": {
+    "client": {
+      "name": "RSAF Agile Innovation & Digital",
+      "shortName": "RAiD",
+      "tagline": "Agile · Innovation · Digital",
+      "subtitle": "Defence Technology | Air Force Digital Transformation",
+      "description": "RAiD is the Republic of Singapore Air Force's dedicated digital innovation and agile software development unit, established to modernise RSAF's operational and administrative systems through iterative, user-centred engineering. Operating under the Ministry of Defence (MINDEF), RAiD builds and maintains mission-critical internal platforms, data pipelines, and digital tools that support air operations, logistics, and personnel management. The unit applies commercial-grade software engineering practices — including DevSecOps, cloud-native architecture, and agile delivery — within Singapore's defence environment."
+    },
+    "keyFacts": [
+      {
+        "label": "Established",
+        "value": "~2019",
+        "desc": "Stood up as part of RSAF's broader Digital Transformation agenda"
+      },
+      {
+        "label": "Team Size",
+        "value": "~200",
+        "desc": "Mix of uniformed officers, regulars, NSFs, and civilian software engineers"
+      },
+      {
+        "label": "Parent Organisation",
+        "value": "MINDEF / SAF",
+        "desc": "Fully government-funded; no commercial revenue"
+      },
+      {
+        "label": "Cloud Platform",
+        "value": "GCC (AWS & Azure)",
+        "desc": "Singapore Government Commercial Cloud — primary hosting environment"
+      },
+      {
+        "label": "Workshop Focus",
+        "value": "Claude Code",
+        "desc": "AI-native engineering programme"
+      }
+    ],
+    "serviceAreas": [
+      {
+        "title": "Agile Software Delivery",
+        "desc": "Designs, builds and maintains internal RSAF platforms using iterative sprint cycles and modern engineering practices."
+      },
+      {
+        "title": "Digital Innovation & R&D",
+        "desc": "Explores emerging technologies — AI/ML, data analytics, IoT — and pilots their application to air force operational problems."
+      },
+      {
+        "title": "Platform & DevSecOps Engineering",
+        "desc": "Maintains the developer platform, CI/CD pipelines, cloud infrastructure, and security compliance tooling that all product squads build on."
+      },
+      {
+        "title": "Data Engineering & Analytics",
+        "desc": "Builds data pipelines, dashboards, and analytical models that give RSAF commanders and planners operational insight."
+      },
+      {
+        "title": "Systems Integration",
+        "desc": "Connects legacy RSAF systems with modern cloud-native platforms, ensuring interoperability across defence information systems."
+      },
+      {
+        "title": "User Experience & Product Design",
+        "desc": "Embeds UX designers and product managers within delivery squads to ensure tools are intuitive for operational end-users."
+      }
+    ],
+    "leadership": [
+      {
+        "title": "Commanding Officer (CO)",
+        "name": "Not Publicly Disclosed"
+      },
+      {
+        "title": "Head of Engineering",
+        "name": "Not Publicly Disclosed"
+      },
+      {
+        "title": "Head of Product & Innovation",
+        "name": "Not Publicly Disclosed"
+      }
+    ],
+    "locations": [
+      {
+        "label": "Headquarters",
+        "address": "HQ RSAF, Gombak Drive, Singapore 669985"
+      }
+    ],
+    "priorities": [
+      {
+        "num": 1,
+        "title": "Accelerate Internal Product Delivery Velocity",
+        "tagline": "Ship faster, safely",
+        "desc": "RAiD teams are expected to deliver production-grade RSAF tools at a pace comparable to commercial startups while meeting defence security requirements. This means compressing sprint-to-deploy cycles, reducing manual review gates, and maintaining quality without slowing release cadence. AI-assisted coding is a key lever being explored to multiply engineering throughput without requiring headcount growth.",
+        "roles": "Software Engineers, QA Engineers, DevOps & Platform",
+        "pains": "Manual testing bottlenecks, long security scan queues, context-switching across multiple product squads, limited senior engineer bandwidth for code review"
+      },
+      {
+        "num": 2,
+        "title": "Embed DevSecOps Across All Product Squads",
+        "tagline": "Security baked in, not bolted on",
+        "desc": "As a defence organisation, RAiD must meet stringent IM8 (Instruction Manual 8) and MINDEF cybersecurity policies across every system it operates. The priority is shifting security left so that every engineer owns secure coding, SAST/DAST scans are automated in CI, and compliance evidence is generated continuously rather than assembled at audit time. This reduces last-minute security remediations that delay releases.",
+        "roles": "Security Engineers, DevOps & Platform, Software Engineers",
+        "pains": "Manual compliance evidence gathering, inconsistent secret management practices, unclear ownership of vulnerabilities across squads, slow security review turnaround before CAB submission"
+      },
+      {
+        "num": 3,
+        "title": "Build a Sustainable Engineering Talent Pipeline",
+        "tagline": "Grow engineers, retain expertise",
+        "desc": "RAiD operates in a uniquely challenging talent environment: uniformed officers cycle through on 2-3 year postings, NSF software engineers serve for 2 years and then leave, and civilian hires compete with higher-paying tech industry employers. The priority is accelerating onboarding, codifying institutional knowledge, and developing junior engineers to production-level competency faster — so each posting cohort contributes meaningfully before rotating out.",
+        "roles": "Tech Leads & Architects, Software Engineers, Product & Planning",
+        "pains": "Steep onboarding curve for engineers unfamiliar with defence systems, knowledge loss when officers rotate postings, junior engineers needing close mentorship before contributing independently"
+      },
+      {
+        "num": 4,
+        "title": "Modernise Legacy Mission Systems and Interfaces",
+        "tagline": "Retire technical debt, unlock capability",
+        "desc": "RSAF has a portfolio of older operational systems — some bespoke, some COTS — that require modernisation to support new data flows and user experiences. RAiD is progressively migrating these to cloud-native architectures on GCC, wrapping legacy APIs, and retiring outdated interfaces. This work is complex due to mission-criticality requirements, strict change management, and the need to maintain continuous operations during migration.",
+        "roles": "Tech Leads & Architects, Software Engineers, DevOps & Platform",
+        "pains": "Undocumented legacy codebases, risk-averse change approval processes, missing test coverage on legacy systems, dependency on external vendors for system knowledge"
+      },
+      {
+        "num": 5,
+        "title": "Scale AI/ML for Operational Decision Support",
+        "tagline": "Intelligence at the speed of ops",
+        "desc": "RAiD is developing AI and machine learning capabilities to support RSAF planners and operators — including predictive maintenance for aircraft, resource optimisation, and natural language interfaces to operational data. This requires building robust data infrastructure, responsible AI governance, and tooling to validate model outputs in high-stakes defence contexts. The AI tools built must be explainable and auditable for mission-critical use.",
+        "roles": "Software Engineers, Tech Leads & Architects, Data Engineers",
+        "pains": "Data quality and labelling effort, model validation complexity in regulated environments, shortage of ML engineering expertise within the team, integration complexity with operational legacy systems"
+      }
+    ],
+    "capabilities": [
+      {
+        "role": "Software Engineers",
+        "short": "SWE",
+        "icon": "primary",
+        "objectives": "Software Engineers at RAiD form the core delivery force across all product squads, building web applications, APIs, data pipelines, and integration layers that power RSAF's internal digital tools. They work in cross-functional squads aligned to RSAF user groups — such as air operations, logistics, or personnel — and own features end-to-end from design to production deployment on GCC. Engineers are expected to maintain high code quality, write automated tests, and participate actively in agile ceremonies.",
+        "painPoints": "Context-switching between multiple squad commitments, limited time for deep work due to ad-hoc operational queries from RSAF users, slow onboarding to existing codebases with sparse documentation, frequent requirement changes driven by shifting operational priorities and posting rotations",
+        "keyActivities": "Feature development, code review, unit and integration testing, sprint planning, technical design, API development, database schema design, PR review"
+      },
+      {
+        "role": "QA Engineers",
+        "short": "QAE",
+        "icon": "secondary",
+        "objectives": "QA Engineers at RAiD are responsible for ensuring that software deployed to RSAF operations meets functional, performance, and security quality bars before it reaches end-users in operational contexts where failures can have mission impact. They design and maintain automated test suites, perform exploratory testing, and manage UAT coordination with RSAF user representatives. Given the sensitivity of RSAF systems, QA also plays a role in verifying compliance with data handling and security requirements.",
+        "painPoints": "Manual regression testing of features across multiple environments, coordinating UAT with operational users who have limited availability due to flying and exercise schedules, test environment instability causing false failures, insufficient test automation coverage inherited from early-stage product development",
+        "keyActivities": "Test planning, automated test suite development, regression testing, UAT facilitation, defect management, performance testing, security testing coordination, environment validation"
+      },
+      {
+        "role": "Tech Leads & Architects",
+        "short": "TLA",
+        "icon": "accent",
+        "objectives": "Tech Leads and Architects at RAiD set the technical direction for product squads and the broader platform, making decisions on architecture patterns, technology selection, and engineering standards that must balance agility with the long-term security and maintainability requirements of a defence organisation. They mentor junior engineers, lead technical design reviews, and interface with MINDEF cybersecurity policy teams to ensure alignment. Senior architects also oversee cross-squad platform decisions and manage technical roadmaps across the RAiD portfolio.",
+        "painPoints": "Balancing hands-on engineering with mentoring and architectural oversight, navigating bureaucratic approval processes for new technology adoption on GCC, knowledge concentration risk when senior engineers rotate postings, difficulty enforcing architecture standards consistently across autonomous squads",
+        "keyActivities": "Architecture design, technical design reviews, engineering standards authorship, technology evaluation, mentoring junior engineers, cross-squad coordination, security policy interpretation, posting handover documentation"
+      },
+      {
+        "role": "Product & Planning",
+        "short": "PPM",
+        "icon": "primary",
+        "objectives": "The Product and Planning function at RAiD bridges the gap between RSAF operational users and engineering teams, translating complex operational requirements — often articulated by non-technical military users — into clear product roadmaps and well-scoped user stories. Product Managers work with RSAF unit commanders and operations staff to prioritise features by operational impact, manage stakeholder expectations, and ensure that what gets built genuinely solves real mission problems rather than creating technical solutions in search of a problem.",
+        "painPoints": "Difficulty eliciting precise requirements from operational users who communicate in domain-specific military terminology, frequent priority shifts driven by evolving operational tempo and exercises, limited influence over deployment timelines governed by CAB and change management committees, balancing short-term operational requests with long-term platform health",
+        "keyActivities": "User research, requirements gathering, product roadmap management, backlog grooming, stakeholder management, sprint review facilitation, OKR setting and tracking, operational user engagement"
+      },
+      {
+        "role": "DevOps & Platform",
+        "short": "DPE",
+        "icon": "secondary",
+        "objectives": "The DevOps and Platform Engineering team at RAiD maintains the foundational developer infrastructure that all product squads depend on — including CI/CD pipelines on GitLab, GCC cloud environments (AWS and Azure), Kubernetes clusters, monitoring and observability stacks, and the internal developer portal. They own the deployment pipeline from commit to production and are responsible for ensuring the platform meets MINDEF's stringent availability, security, and audit requirements. They also drive adoption of Infrastructure-as-Code and GitOps practices across the organisation.",
+        "painPoints": "Responding to urgent infrastructure incidents while maintaining planned platform improvement work, managing multiple environment configurations across development, staging, and production on GCC, keeping pace with MINDEF security policy changes that require platform updates, long lead times for cloud resource provisioning through government procurement processes",
+        "keyActivities": "CI/CD pipeline management, cloud infrastructure provisioning, Kubernetes cluster operations, incident response, monitoring and alerting, security patching, Terraform IaC development, developer enablement and onboarding support"
+      },
+      {
+        "role": "Security Engineers",
+        "short": "SEC",
+        "icon": "accent",
+        "objectives": "Security Engineers at RAiD operate in a uniquely high-stakes environment where defence systems must meet both Singapore Government IM8 cybersecurity standards and MINDEF-specific classified system requirements for Certification & Accreditation. They conduct threat modelling, manage vulnerability programmes, implement SAST/DAST tooling in CI pipelines, and respond to security incidents across the RAiD application portfolio. Security Engineers also advise product squads on secure architecture decisions and prepare documentation for government security audits and C&A submissions.",
+        "painPoints": "High volume of security findings generated by automated scanners requiring manual triage and disposition, coordinating remediation across multiple autonomous product squads with competing sprint priorities, assembling accreditation documentation packages for new system deployments, keeping application dependencies patched in GCC environments with restricted external internet access",
+        "keyActivities": "Threat modelling, SAST/DAST tooling management, vulnerability management and triage, security audit preparation, penetration testing coordination, secure code review, incident response, IM8 compliance tracking, C&A package assembly"
+      }
+    ],
+    "workflows": [
+      {
+        "name": "Feature Development & Delivery",
+        "steps": [
+          {
+            "t": "Requirement Intake",
+            "d": "Product Manager collects operational requirement from RSAF user unit; translates military need into a user story with acceptance criteria and data classification assessment"
+          },
+          {
+            "t": "Technical Design",
+            "d": "Engineer or Tech Lead writes a design document; reviewed asynchronously by peers and Security Engineer for threat model implications and IM8 alignment"
+          },
+          {
+            "t": "Sprint Development",
+            "d": "Engineers implement the feature in a 2-week sprint; PR raised for peer code review and automated CI checks including lint, unit tests, and SonarQube SAST scan"
+          },
+          {
+            "t": "QA & UAT",
+            "d": "QA runs automated regression suite and exploratory testing on staging; UAT session scheduled with RSAF user representatives from the operational unit"
+          },
+          {
+            "t": "Change Advisory Review",
+            "d": "Change request submitted to MINDEF Change Advisory Board (CAB); reviewed for security and operational impact before production deployment approval is granted"
+          },
+          {
+            "t": "Production Deployment",
+            "d": "DevOps triggers deployment via GitLab CI/CD pipeline to GCC production Kubernetes cluster; post-deployment smoke tests run automatically and monitoring alerts confirmed"
+          }
+        ],
+        "friction": "CAB review cycle adds 1-2 weeks to release cadence; UAT scheduling with operational users who have primary flying or planning duties is persistently difficult; SAST findings require manual security review before PR approval"
+      },
+      {
+        "name": "Security Compliance & Accreditation",
+        "steps": [
+          {
+            "t": "IM8 Baseline Assessment",
+            "d": "Security Engineer maps new system against MINDEF IM8 controls and identifies gaps requiring technical remediation or formal risk acceptance by the approving authority"
+          },
+          {
+            "t": "Automated Vulnerability Scanning",
+            "d": "SAST and DAST scans run continuously in GitLab CI pipeline; findings triaged by Security Engineer weekly for severity classification and false positive removal"
+          },
+          {
+            "t": "Remediation Sprints",
+            "d": "Critical and high findings assigned to the engineering squad for remediation; tracked in Jira backlog alongside feature work and prioritised by Security Engineer"
+          },
+          {
+            "t": "Penetration Testing",
+            "d": "External or internal pen test conducted against staging environment; findings documented, severity-rated, and remediated before C&A package is assembled"
+          },
+          {
+            "t": "C&A Package Submission",
+            "d": "Security Engineer assembles Certification & Accreditation evidence package including architecture diagrams, scan reports, pen test results, and risk acceptances for submission to approving authority"
+          },
+          {
+            "t": "Approval & Live Certification",
+            "d": "System receives C&A approval from MINDEF; production deployment authorised for classified or sensitive data processing; certification scheduled for annual renewal review"
+          }
+        ],
+        "friction": "Manual assembly of C&A evidence packages is highly labour-intensive and poorly tooled; remediation competes directly with feature delivery for sprint capacity; accreditation approval timelines are unpredictable and can stall releases by weeks"
+      },
+      {
+        "name": "Incident Response",
+        "steps": [
+          {
+            "t": "Alert Detection",
+            "d": "Datadog or CloudWatch alert fires, or an RSAF operational user reports a system anomaly via the internal helpdesk ticketing system to the on-call DevOps engineer"
+          },
+          {
+            "t": "Incident Triage",
+            "d": "On-call DevOps engineer assesses severity using the MINDEF incident classification matrix; creates incident ticket in Jira and notifies the relevant squad and Tech Lead via Teams"
+          },
+          {
+            "t": "Investigation & Mitigation",
+            "d": "Squad investigates Datadog logs, traces, and metrics; applies hotfix branch or rollback via GitLab pipeline to restore service within the defined SLA window"
+          },
+          {
+            "t": "MINDEF Notification",
+            "d": "If the incident is security-related or classified P1/P2 severity, it is formally reported to the MINDEF Cybersecurity team within the required notification window per IM8 requirements"
+          },
+          {
+            "t": "Root Cause Analysis",
+            "d": "Post-incident RCA written by the squad on Confluence within 48 hours; identifies contributing factors, contributing system conditions, and preventive actions to be taken"
+          },
+          {
+            "t": "Remediation & Retrospective",
+            "d": "Preventive actions added to squad Jira backlog with assigned owners; incident reviewed at next squad retrospective and platform team weekly sync for systemic improvements"
+          }
+        ],
+        "friction": "On-call coverage is thin given team size relative to the number of production systems; observability tooling coverage is inconsistent across older legacy RSAF systems; MINDEF notification requirements add process overhead during active incidents when speed is critical"
+      },
+      {
+        "name": "New Engineer Onboarding",
+        "steps": [
+          {
+            "t": "Security Clearance & Access Provisioning",
+            "d": "New engineer undergoes MINDEF security screening and vetting process; SAF network account, GCC environment access, and GitLab permissions provisioned only after clearance is granted"
+          },
+          {
+            "t": "Platform & Tools Orientation",
+            "d": "DevOps or buddy engineer walks new joiner through developer environment setup, VPN configuration, GCC console access, GitLab onboarding, Jira, and Confluence navigation"
+          },
+          {
+            "t": "Codebase Familiarisation",
+            "d": "Tech Lead assigns an engineer buddy; new joiner reads available architecture docs on Confluence, explores assigned squad's GitLab repositories, and gets the local development environment running"
+          },
+          {
+            "t": "Good First Issues",
+            "d": "New engineer picks up low-risk tasks from the squad Jira backlog — typically bug fixes or small enhancements — to build familiarity with the codebase, CI/CD workflow, and code review norms"
+          },
+          {
+            "t": "Mandatory Security Training",
+            "d": "MINDEF cybersecurity awareness training and IM8 induction completed; squad-specific secure coding practices and secret management procedures reviewed with the Security Engineer"
+          },
+          {
+            "t": "Full Squad Integration",
+            "d": "Engineer takes on standard sprint load and attends all agile ceremonies; buddy check-ins continue for the first 3 months; Tech Lead assesses readiness for independent feature ownership at 90-day mark"
+          }
+        ],
+        "friction": "Security clearance and GCC access provisioning can take 2-4 weeks, delaying productive contribution from day one; documentation is sparse or outdated requiring heavy reliance on tribal knowledge from squad members; engineers rotating from other RSAF units need significant reorientation to agile workflows and commercial development practices"
+      }
+    ],
+    "painPoints": {
+      "individual": [
+        {
+          "name": "Codebase Orientation Time",
+          "desc": "Engineers joining a new squad or inheriting legacy code spend significant time reading unfamiliar codebases with sparse or outdated documentation on Confluence. This ramp-up period delays productive contribution and creates dependency on senior engineers for context that leaves when they rotate postings.",
+          "freq": "Daily"
+        },
+        {
+          "name": "Boilerplate and Repetitive Code",
+          "desc": "Writing unit tests, API endpoint scaffolding, data model definitions, and database migration scripts is time-consuming but low-cognitive-value work that engineers must complete to meet quality standards. This occupies bandwidth that could be redirected to solving harder operational problems.",
+          "freq": "Daily"
+        },
+        {
+          "name": "Security Scan Findings Triage",
+          "desc": "SonarQube SAST scans generate large volumes of findings — many false positives — that engineers must manually review and disposition before PRs can be approved and merged. This creates recurring friction in the review cycle and is a persistent context-switch away from development work.",
+          "freq": "Daily"
+        },
+        {
+          "name": "Documentation Debt",
+          "desc": "Operational pressure to ship features means documentation is routinely deferred or skipped entirely. Engineers who need to understand a system's design rationale, API contracts, or deployment procedures often find Confluence docs missing, outdated, or contradicting the actual code.",
+          "freq": "Daily"
+        },
+        {
+          "name": "Navigating MINDEF Policy Requirements",
+          "desc": "Engineers regularly encounter IM8 policies, GCC usage guidelines, and data classification rules that constrain how features can be implemented. Interpreting these policies correctly — and knowing when to escalate to the Security Engineer for a ruling — consumes significant time and creates anxiety about inadvertent compliance violations.",
+          "freq": "Weekly"
+        },
+        {
+          "name": "Environment Configuration Drift",
+          "desc": "Development, staging, and production GCC environments can diverge in configuration over time, causing bugs that appear only in production and are difficult to reproduce locally. Debugging environment-specific failures is time-consuming and frustrating, particularly when GCC console access is required.",
+          "freq": "Weekly"
+        },
+        {
+          "name": "Interrupted Deep Work",
+          "desc": "Engineers are frequently pulled from focused development by ad-hoc requests from RSAF operational users, Teams messages from product teams, and urgent helpdesk escalations from other squads. This fragmentation of focus makes it difficult to maintain the flow state required for complex problem-solving.",
+          "freq": "Daily"
+        },
+        {
+          "name": "Posting Rotation Knowledge Loss",
+          "desc": "When officers or NSF engineers rotate out of their posting, their system knowledge, design rationale, and hard-won institutional context leave with them. The incoming engineer must reconstruct this understanding from incomplete documentation and the fading memories of remaining squad members.",
+          "freq": "Recurring"
+        }
+      ],
+      "team": [
+        {
+          "name": "Change Advisory Board Latency",
+          "desc": "Production deployments require CAB approval, adding 1-2 weeks to release cycles. This creates pressure to batch multiple features into single release windows, increasing deployment risk and slowing feedback loops from operational users who need the features to do their jobs.",
+          "freq": "Bi-weekly"
+        },
+        {
+          "name": "UAT Coordination with Operational Users",
+          "desc": "RSAF operational users who participate in UAT have primary duties — flying, ops planning, logistics — and limited scheduled availability for testing sessions. Scheduling, conducting, and getting formal sign-off from UAT participants is a persistent coordination overhead that delays feature acceptance and release.",
+          "freq": "Weekly"
+        },
+        {
+          "name": "Inconsistent Engineering Standards Across Squads",
+          "desc": "With multiple autonomous squads operating in parallel, code style, testing standards, and architectural patterns diverge over time. Platform-level changes or cross-squad features surface these inconsistencies, creating integration friction, rework, and difficult code review conversations.",
+          "freq": "Recurring"
+        },
+        {
+          "name": "Sprint Capacity Fragmentation",
+          "desc": "Each sprint, squad capacity is eroded by security remediation tasks, helpdesk escalations, tech debt paydown, and mandatory SAF administrative duties such as safety inspections and mandatory training, leaving consistently less time for planned feature delivery than nominal velocity suggests.",
+          "freq": "Weekly"
+        },
+        {
+          "name": "Legacy System Integration Complexity",
+          "desc": "New RAiD products frequently need to interface with older RSAF systems that have undocumented APIs, unreliable behaviour, or vendor-controlled codebases. Integration work routinely takes significantly longer than estimated and is a recurring source of late-breaking defects discovered only during UAT.",
+          "freq": "Per project"
+        }
+      ],
+      "organisation": [
+        {
+          "name": "Engineering Talent Retention",
+          "desc": "RAiD competes for software engineering talent against Singapore's tech industry, which offers significantly higher total compensation. Civilian engineers require active retention efforts and career development investment, while uniformed engineers cycle through postings on fixed terms, creating a structural knowledge loss challenge that compounds over years.",
+          "freq": "Structural"
+        },
+        {
+          "name": "Technology Adoption Governance Lag",
+          "desc": "Adopting new tools, frameworks, or cloud services requires approval through MINDEF procurement and security review processes that can take many months. This lag between commercial technology maturity and organisational adoption means RAiD sometimes begins building on platforms that are approaching deprecation by the time they are formally approved.",
+          "freq": "Structural"
+        },
+        {
+          "name": "Institutional Knowledge Preservation",
+          "desc": "The combination of posting rotations, NSF turnover, and a limited documentation culture means RAiD faces a persistent and growing risk of losing critical system knowledge. There is no systematic knowledge management practice capable of capturing design decisions, operational context, and system rationale at scale across the entire portfolio.",
+          "freq": "Structural"
+        },
+        {
+          "name": "Demonstrating Software Engineering Value",
+          "desc": "Demonstrating the value of software engineering investment to SAF senior leadership — who are primarily operational commanders — is difficult. Standard engineering metrics such as DORA metrics and defect rates do not translate easily into operational outcomes, making it hard to secure resources, headcount approvals, and priority alignment.",
+          "freq": "Structural"
+        },
+        {
+          "name": "Cross-Unit Requirements Alignment",
+          "desc": "RAiD builds products for multiple RSAF units with different operational priorities, technical literacy levels, and urgency profiles. Balancing competing demands across user groups without a clear organisational prioritisation framework leads to roadmap conflicts, perceptions of favouritism, and underserved stakeholder communities.",
+          "freq": "Structural"
+        }
+      ]
+    },
+    "technology": {
+      "m365Status": "RAiD operates within Singapore Government's digital ecosystem using Microsoft 365 under MINDEF's enterprise licensing for unclassified collaboration and productivity. Teams and SharePoint serve as primary internal communication and document management platforms, though classified communications and data are handled through separate secured government systems outside the M365 environment.",
+      "m365": [
+        "Outlook",
+        "Teams",
+        "Word",
+        "Excel",
+        "PowerPoint",
+        "SharePoint",
+        "OneDrive"
+      ],
+      "platforms": [
+        {
+          "name": "GCC (Government Commercial Cloud)",
+          "desc": "Singapore Government's secured cloud hosting environment on AWS and Azure; primary production hosting platform for all RAiD applications, with network segmentation and access controls meeting MINDEF requirements"
+        },
+        {
+          "name": "GitLab (Self-Hosted)",
+          "desc": "RAiD's primary version control and CI/CD platform, self-hosted on GCC; used for all source code management, merge request reviews, automated pipeline execution, and container registry"
+        },
+        {
+          "name": "SHIP-HATS",
+          "desc": "Singapore Government's Secure Hybrid Integrated Pipeline – Hosted Automated Tools; government-managed DevSecOps platform providing compliant CI/CD, code scanning, and security tooling that RAiD integrates with for regulated software delivery"
+        },
+        {
+          "name": "Kubernetes on GCC",
+          "desc": "Container orchestration platform running on GCC; used by the Platform Team for deploying and scaling RAiD's microservices and web applications across development, staging, and production namespaces"
+        },
+        {
+          "name": "Terraform",
+          "desc": "Infrastructure-as-Code tool used by the DevOps team to provision and manage all GCC cloud resources in a version-controlled, auditable, and repeatable manner aligned to GitOps principles"
+        },
+        {
+          "name": "SonarQube",
+          "desc": "Static application security testing (SAST) tool integrated into GitLab CI pipelines; scans every pull request for code quality issues and security vulnerabilities as part of the mandatory pre-merge gate"
+        },
+        {
+          "name": "Datadog",
+          "desc": "Observability and monitoring platform for application performance monitoring, log aggregation, distributed tracing, and alerting across all RAiD GCC production environments"
+        },
+        {
+          "name": "Jira",
+          "desc": "Agile project management and issue tracking tool used across all product squads for backlog management, sprint planning, defect tracking, and security remediation task management"
+        },
+        {
+          "name": "Confluence",
+          "desc": "Internal wiki and documentation platform used for architecture decision records, runbooks, onboarding guides, and project documentation; the primary institutional knowledge repository"
+        },
+        {
+          "name": "SGTS (Singapore Government Tech Stack)",
+          "desc": "Suite of shared government engineering services including SingPass authentication integration, Notify.gov.sg for government notifications, and Form.gov.sg for data collection — used by RAiD products where applicable"
+        }
+      ]
+    },
+    "glossary": [
+      {
+        "t": "RAiD",
+        "d": "RSAF Agile Innovation & Digital — the RSAF unit responsible for digital transformation and agile software development within the Singapore Air Force",
+        "cat": "Organisation"
+      },
+      {
+        "t": "RSAF",
+        "d": "Republic of Singapore Air Force — one of the three services of the Singapore Armed Forces; RAiD's parent organisation and primary end-user of the software it builds",
+        "cat": "Organisation"
+      },
+      {
+        "t": "SAF",
+        "d": "Singapore Armed Forces — Singapore's military comprising the Army, Republic of Singapore Navy (RSN), and Republic of Singapore Air Force (RSAF)",
+        "cat": "Organisation"
+      },
+      {
+        "t": "MINDEF",
+        "d": "Ministry of Defence — the Singapore government ministry responsible for the SAF; sets policy, procurement governance, and cybersecurity standards for all defence digital systems",
+        "cat": "Organisation"
+      },
+      {
+        "t": "CO",
+        "d": "Commanding Officer — the military commander of RAiD; holds overall accountability for the unit's mission, personnel, and operational output",
+        "cat": "Organisation"
+      },
+      {
+        "t": "NSF",
+        "d": "National Serviceman — a full-time national service personnel serving a mandatory 2-year conscription; RAiD employs NSFs as software engineers through the specialist technical national service pathway",
+        "cat": "Organisation"
+      },
+      {
+        "t": "Regular",
+        "d": "A professional full-time SAF serviceman who has signed on beyond National Service; typically holds mid-to-senior engineering or leadership roles within RAiD on multi-year career tracks",
+        "cat": "Organisation"
+      },
+      {
+        "t": "Posting",
+        "d": "The assignment of a uniformed officer or NCO to a specific unit or role for a defined tenure, typically 2-3 years; posting rotations are a primary driver of knowledge loss and onboarding overhead at RAiD",
+        "cat": "Organisation"
+      },
+      {
+        "t": "CAB",
+        "d": "Change Advisory Board — the MINDEF governance body that reviews and approves production changes to RSAF systems; a mandatory gating step in RAiD's release workflow that adds 1-2 weeks to deployment cycles",
+        "cat": "Organisation"
+      },
+      {
+        "t": "OC",
+        "d": "Officer Commanding — the commander of a company-level subunit within RAiD, typically a Captain or Major, responsible for a cluster of product squads or a functional domain",
+        "cat": "Organisation"
+      },
+      {
+        "t": "Squad",
+        "d": "A cross-functional agile delivery team at RAiD comprising software engineers, a QA engineer, a product manager, and a tech lead, aligned to a specific RSAF product or operational domain",
+        "cat": "Business Units"
+      },
+      {
+        "t": "Platform Team",
+        "d": "The DevOps and Platform Engineering squad at RAiD that maintains shared CI/CD infrastructure, GCC environments, Kubernetes clusters, and developer tooling used by all product squads",
+        "cat": "Business Units"
+      },
+      {
+        "t": "Agile CoE",
+        "d": "Agile Centre of Excellence — the function within RAiD responsible for coaching squads on agile practices, facilitating retrospectives, and evolving the engineering culture",
+        "cat": "Business Units"
+      },
+      {
+        "t": "GCC",
+        "d": "Government Commercial Cloud — Singapore's secured cloud hosting environment on AWS and Azure, used by government agencies including RAiD for all production workloads meeting MINDEF security standards",
+        "cat": "Technology"
+      },
+      {
+        "t": "SHIP-HATS",
+        "d": "Secure Hybrid Integrated Pipeline – Hosted Automated Tools — Singapore Government's managed DevSecOps platform providing compliant CI/CD, code scanning, and security tooling to government software teams",
+        "cat": "Technology"
+      },
+      {
+        "t": "SGTS",
+        "d": "Singapore Government Tech Stack — the suite of shared technology services (SingPass authentication, Notify.gov.sg, Form.gov.sg) that government developers integrate with to avoid building commodity capabilities",
+        "cat": "Technology"
+      },
+      {
+        "t": "IM8",
+        "d": "Instruction Manual 8 — the Singapore Government's cybersecurity policy framework mandating security controls for all government IT systems; every RAiD product must demonstrate IM8 compliance to receive C&A approval",
+        "cat": "Technology"
+      },
+      {
+        "t": "C&A",
+        "d": "Certification & Accreditation — the formal MINDEF security approval process required before a system can process classified or sensitive data in production; involves pen testing, evidence assembly, and sign-off from the approving authority",
+        "cat": "Technology"
+      },
+      {
+        "t": "SAST",
+        "d": "Static Application Security Testing — automated source code scanning for security vulnerabilities; integrated into RAiD's GitLab CI pipelines via SonarQube as a mandatory pre-merge quality gate",
+        "cat": "Technology"
+      },
+      {
+        "t": "DAST",
+        "d": "Dynamic Application Security Testing — runtime vulnerability scanning of deployed applications; run against RAiD staging environments as part of the security compliance workflow before C&A submission",
+        "cat": "Technology"
+      },
+      {
+        "t": "IaC",
+        "d": "Infrastructure-as-Code — the practice of managing all GCC cloud infrastructure through version-controlled Terraform configuration files; mandated by RAiD's Platform Team for auditability and reproducibility",
+        "cat": "Technology"
+      },
+      {
+        "t": "GitOps",
+        "d": "An operational model where infrastructure and deployment configurations are managed through Git as the single source of truth; adopted by RAiD's Platform Team for all GCC environment management",
+        "cat": "Technology"
+      },
+      {
+        "t": "SingPass",
+        "d": "Singapore's national digital identity system; RAiD integrates SingPass authentication for RSAF applications requiring verified identity of servicemen or civilian staff accessing sensitive systems",
+        "cat": "Technology"
+      },
+      {
+        "t": "OKR",
+        "d": "Objectives and Key Results — the goal-setting framework used by RAiD product squads to align quarterly engineering priorities to measurable RSAF operational outcomes",
+        "cat": "HR & Learning"
+      },
+      {
+        "t": "UAT",
+        "d": "User Acceptance Testing — the final validation phase where RSAF operational users test new features in a staging environment and provide formal sign-off before production deployment is requested at CAB",
+        "cat": "HR & Learning"
+      },
+      {
+        "t": "Sprint",
+        "d": "A 2-week development cycle used by RAiD squads; each sprint begins with planning from the Jira backlog and ends with a review demo presented to RSAF stakeholders",
+        "cat": "HR & Learning"
+      },
+      {
+        "t": "RCA",
+        "d": "Root Cause Analysis — a post-incident document written by the squad on Confluence within 48 hours of a production incident, identifying contributing factors and preventive actions",
+        "cat": "HR & Learning"
+      },
+      {
+        "t": "DevSecOps",
+        "d": "The practice of integrating security controls and testing into every phase of the software development lifecycle; a strategic priority for RAiD to meet MINDEF compliance requirements without slowing delivery",
+        "cat": "Industry"
+      },
+      {
+        "t": "Mission System",
+        "d": "A software system directly supporting RSAF operational activities such as air operations planning, mission debrief, or aircraft maintenance tracking; subject to the highest C&A security and availability standards",
+        "cat": "Industry"
+      },
+      {
+        "t": "Ops Tempo",
+        "d": "Operational Tempo — the pace and intensity of RSAF flying and operational activities; directly affects user availability for UAT sessions and product feedback cycles, particularly during exercises",
+        "cat": "Industry"
+      },
+      {
+        "t": "DORA Metrics",
+        "d": "DevOps Research and Assessment metrics (deployment frequency, lead time for changes, mean time to restore, change failure rate) used by RAiD's Platform Team to benchmark and improve engineering delivery performance",
+        "cat": "Industry"
+      },
+      {
+        "t": "Classified System",
+        "d": "A system processing information under Singapore's security classification scheme (Restricted, Confidential, Secret, Top Secret); requires enhanced C&A controls and network segmentation beyond standard IM8 requirements",
+        "cat": "Industry"
+      },
+      {
+        "t": "Microservices",
+        "d": "RAiD's preferred architectural pattern for new GCC-hosted applications, where systems are decomposed into independently deployable services communicating via well-defined REST or gRPC APIs",
+        "cat": "Industry"
+      },
+      {
+        "t": "Technical Debt",
+        "d": "Accumulated shortcuts and suboptimal design decisions in RAiD's codebases that increase future maintenance cost; managing tech debt is a recurring squad priority that competes with feature delivery for sprint capacity",
+        "cat": "Industry"
+      }
+    ],
+    "brandColors": {
+      "primary": "#0066CC — RAiD's primary brand blue, a vibrant medium blue consistent with RSAF's institutional identity and used for primary buttons, logo accents, and interactive elements across defence.gov.sg digital properties",
+      "accent": "#00B4D8 — a cyan-teal accent colour used for innovation highlights, icon fills, and secondary interactive elements, contrasting with the primary navy-blue to convey RAiD's forward-looking digital identity"
+    },
+    "useCases": [
+      {
+        "id": "UC-001",
+        "role": "Software Engineers",
+        "code": "SWE",
+        "name": "Write the implementation intent before opening the codebase — feature brief in Jira for RAiD",
+        "pain": "Context-switching between multiple squad commitments, limited time for deep work due to ad-hoc operational queries from RSAF users, slow onboarding to existing codebases with sparse documentation, frequent requirement changes driven by shifting operational priorities and posting rotations",
+        "habitId": "SH1",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a Software Engineers at RAiD about to implement:\n\n\"Feature development\"\n\nChallenge: Context-switching between multiple squad commitments, limited time for deep work due to ad-hoc operational queries from RSAF users, slow onboarding to existing codebases with sparse documentation, frequent requirement changes driven by shifting operational priorities and posting rotations\n\nBefore I touch the codebase or create a Jira ticket, help me write a tight implementation intent brief:\n\n1. Outcome — what exactly must be true when this is done, in one sentence?\n2. Technical acceptance criteria — 3–5 conditions that automated tests can verify\n3. Scope boundary — what files, services, or APIs are IN scope vs. OUT?\n4. Likely failure point — where does this type of change typically break at RAiD?\n5. Pre-conditions — what must exist (API contracts, migrations, feature flags) before I start?\n\nOutput: a paste-ready Jira story description. Do not start implementation.",
+        "inputs": "Jira story template; stakeholder request or existing ticket; any relevant API contracts or designs; compliance constraints at RAiD",
+        "metric": "Rework from scope misalignment reduced by ~30%; implementation starts with clear acceptance criteria (BCG/Harvard \"Jagged Frontier\": 25–40% speed gain on well-specified tasks)",
+        "guardrails": "Review with product owner or Tech Lead before coding; flag any acceptance criterion that depends on a third-party decision not yet made",
+        "timeSaved": 69,
+        "priority": "High"
+      },
+      {
+        "id": "UC-002",
+        "role": "Software Engineers",
+        "code": "SWE",
+        "name": "Implement a RAiD feature end-to-end with Claude Code — code, tests, and GitLab MR in one agent run",
+        "pain": "Context-switching between multiple squad commitments, limited time for deep work due to ad-hoc operational queries from RSAF users, slow onboarding to existing codebases with sparse documentation, frequent requirement changes driven by shifting operational priorities and posting rotations",
+        "habitId": "SH2",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this task into Claude Code:\nI am a Software Engineers at RAiD. Implement the following feature end-to-end.\n\nFeature: [Paste your Jira story title and acceptance criteria here]\n\nThis codebase uses GCC, GitLab, SHIP-HATS, Kubernetes on GCC. Act as my engineering agent:\n\nStep 1 — Explore the codebase: find the relevant modules, existing patterns for this type of change, and related tests. Report what you find before touching anything.\n\nStep 2 — Propose your approach: file-by-file plan, any new dependencies, and how you will test it. Wait for my go-ahead.\n\nStep 3 — Implement completely: feature code + unit tests + any config or migration changes. Follow the patterns from Step 1.\n\nStep 4 — Write the GitLab MR description: what changed, why, how to test it locally, and review notes for the Tech Lead.\n\nConstraints:\n- Current blocker to address: Context-switching between multiple squad commitments, limited time for deep work due to ad-hoc operational queries from RSAF users, slow onboarding to existing codebases with sparse documentation, frequent requirement changes driven by shifting operational priorities and posting rotations\n- Do not modify files outside the scope of this feature\n- All new logic must have unit test coverage\n\nDo not write any code until I confirm the approach in Step 2.",
+        "inputs": "Jira story with acceptance criteria; any related existing code or API contracts; branch name",
+        "metric": "Feature implementation ~55% faster than solo (GitHub Copilot controlled study, N=95, P=.0017 — task time cut from 2h41m to 1h11m on comparable coding task); consistent GitLab MR quality",
+        "guardrails": "Review all diffs before raising the MR; confirm the approach at Step 2 before Claude writes any code; run the full GitLab pipeline before merging",
+        "timeSaved": 164,
+        "priority": "High"
+      },
+      {
+        "id": "UC-003",
+        "role": "Software Engineers",
+        "code": "SWE",
+        "name": "Run parallel Claude Code worktrees at RAiD — deliver two Software Engineers tasks simultaneously in separate GitLab branches",
+        "pain": "Context-switching between multiple squad commitments, limited time for deep work due to ad-hoc operational queries from RSAF users, slow onboarding to existing codebases with sparse documentation, frequent requirement changes driven by shifting operational priorities and posting rotations",
+        "habitId": "SH3",
+        "entry": "Claude Code CLI",
+        "prompt": "# Set up two separate git worktrees — one per task:\ngit worktree add ../raid-task-A <branch-name-A>\ngit worktree add ../raid-task-B <branch-name-B>\n\n# Open a separate terminal and start Claude Code in each worktree:\ncd ../raid-task-A && claude\n\n# Give each Claude Code session ONE scoped task:\nI am a Software Engineers at RAiD. This session owns ONE task only — do not touch files outside its scope.\n\nTask for this worktree: [One scoped task from your Jira board — one feature or fix]\n\nI am running a parallel Claude Code session in a separate worktree for a different task.\n\nThis codebase uses GCC, GitLab, SHIP-HATS, Kubernetes on GCC. For this task:\n1. Explore the relevant files and confirm scope — report before changing anything\n2. Implement completely\n3. Write the GitLab MR description and flag any cross-branch risks\n\nContext — why this matters at RAiD: Software Engineers at RAiD form the core delivery force across all product squads, building web applications, APIs, data pipelines, and integration layers that power RSAF's internal digital tools. They work in cross-functional squads aligned to RSAF user groups — such as air operations, logistics, or personnel — and own features end-to-end from design to production deployment on GCC. Engineers are expected to maintain high code quality, write automated tests, and participate actively in agile ceremonies.",
+        "inputs": "Two scoped task briefs (one per worktree); Jira story per branch; files in scope; branch names",
+        "metric": "Two tasks delivered in the time of one; ~23 min context-switching overhead removed per task pair (UC Irvine / Gloria Mark research); sprint throughput doubles for independent work items",
+        "guardrails": "Keep each Claude Code session strictly scoped to its worktree; review and merge each branch independently via GitLab; resolve any merge conflicts before both MRs land on main",
+        "timeSaved": 130,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-004",
+        "role": "Software Engineers",
+        "code": "SWE",
+        "name": "Review your own RAiD PR before raising it to GitLab — catch author blind spots before review",
+        "pain": "Context-switching between multiple squad commitments, limited time for deep work due to ad-hoc operational queries from RSAF users, slow onboarding to existing codebases with sparse documentation, frequent requirement changes driven by shifting operational priorities and posting rotations",
+        "habitId": "SH4",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a Software Engineers at RAiD. Before I raise this PR, review my own changes for issues I've missed as the author.\n\n[Paste the PR diff or describe the changes]\n\nContext: New Engineer Onboarding at RAiD. Review as a critical peer:\n\n1. Missing tests — which execution paths, edge cases, or error conditions have no test coverage?\n2. Scope creep — are there any changes here beyond the original Jira story?\n3. Code quality — what patterns here could cause problems at scale or make future changes harder?\n4. RAiD-specific risks — what could break existing functionality given: Context-switching between multiple squad commitments, limited time for deep work due to ad-hoc operational queries from RSAF users, slow onboarding to existing codebases with sparse documentation, frequent requirement changes driven by shifting operational priorities and posting rotations?\n5. MR description gaps — what would a reviewer need to understand that isn't clear from the diff?\n\nDo not fix — identify and rank issues by review impact. Output a numbered list I can action before raising.",
+        "inputs": "PR diff or description; Jira story the PR addresses; any known constraints or standards at RAiD",
+        "metric": "Review round-trips reduced from 3–4 to 1–2 per feature; author blind spots caught before reviewer time is spent (~50% rework reduction per BCG/Harvard)",
+        "guardrails": "Address all High-impact findings before raising the MR; loop in product owner if scope changes are needed; run GitLab before raising",
+        "timeSaved": 85,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-005",
+        "role": "Software Engineers",
+        "code": "SWE",
+        "name": "Draft the RAiD post-mortem, ADR, or technical runbook — self-audit before it reaches the team",
+        "pain": "Context-switching between multiple squad commitments, limited time for deep work due to ad-hoc operational queries from RSAF users, slow onboarding to existing codebases with sparse documentation, frequent requirement changes driven by shifting operational priorities and posting rotations",
+        "habitId": "SH5",
+        "entry": "Claude.ai Web",
+        "prompt": "Draft the following engineering content for RAiD:\n\n[Describe what to draft — e.g., incident post-mortem, architecture decision record, onboarding runbook for the Feature Development & Delivery workflow, or GitLab MR description template]\n\nContext:\n- Purpose: [why this document is needed]\n- Audience: [Tech Lead, new joiner, product owner, on-call engineer]\n- Key message: [the single most important point this must communicate]\n- Engineering context: Software Engineers at RAiD form the core delivery force across all product squads, building web applications, APIs, data pipelines, and integration layers that power RSAF's internal digital tools. They work in cross-functional squads aligned to RSAF user groups — such as air operations, logistics, or personnel — and own features end-to-end from design to production deployment on GCC. Engineers are expected to maintain high code quality, write automated tests, and participate actively in agile ceremonies.\n- Known challenge to address: Context-switching between multiple squad commitments, limited time for deep work due to ad-hoc operational queries from RSAF users, slow onboarding to existing codebases with sparse documentation, frequent requirement changes driven by shifting operational priorities and posting rotations\n\nAfter drafting, self-audit:\n1. What assumptions did you make that a senior RAiD engineer would immediately challenge?\n2. Would a new joiner following this runbook succeed without asking questions?\n3. Is any section vague enough to be misinterpreted by someone outside the team?\n4. What must be verified against RAiD systems or Datadog data before this goes out?\n5. What is the single weakest paragraph in this draft?\n\nOutput the draft and self-audit together. I will address all flagged items before sharing.",
+        "inputs": "Topic, purpose, and intended audience; any source material (incident timeline, sprint data, architecture diagram); relevant standards or templates at RAiD",
+        "metric": "First-draft quality good enough to share in ~40% less writing time (Anthropic internal productivity study); review cycles drop from 3 to 1",
+        "guardrails": "Never share without human review; address all self-audit flags; verify factual claims against RAiD systems or Datadog data before sending",
+        "timeSaved": 84,
+        "priority": "High"
+      },
+      {
+        "id": "UC-006",
+        "role": "Software Engineers",
+        "code": "SWE",
+        "name": "Turn the RAiD \"code review\" process into a reusable Claude template — never start from scratch again",
+        "pain": "Context-switching between multiple squad commitments, limited time for deep work due to ad-hoc operational queries from RSAF users, slow onboarding to existing codebases with sparse documentation, frequent requirement changes driven by shifting operational priorities and posting rotations",
+        "habitId": "SH6",
+        "entry": "Claude.ai Web",
+        "prompt": "Help me create a reusable Claude prompt template for this recurring Software Engineers task at RAiD:\n\nRecurring task: code review\n\nInterview me to extract the pattern:\n1. What inputs are always needed to start this task at RAiD?\n2. What is the consistent output format — what must every output include?\n3. What RAiD-specific context should always be embedded (e.g., Jira format, GitLab convention, compliance requirements)?\n4. What mistakes are commonly made because of: \"Context-switching between multiple squad commitments, limited time for deep work due to ad-hoc operational queries from RSAF users, slow onboarding to existing codebases with sparse documentation, frequent requirement changes driven by shifting operational priorities and posting rotations\"?\n5. What does excellent vs. acceptable output look like?\n\nAfter the interview, generate:\n- A reusable Claude prompt template with clear [FILL IN] markers\n- A one-paragraph usage guide any new Software Engineers can follow in their first sprint\n- Two example completions applied to real RAiD tasks\n\nThis template must work for a new joiner with no prior context.",
+        "inputs": "Description of the recurring task; a high-quality past output example; list of common failure modes; any RAiD-specific standards that apply",
+        "metric": "Recurring task time reduced by ~75% per use once template is established (60% average from task automation research); institutional knowledge survives rotation without handover sessions",
+        "guardrails": "Validate on 3 real tasks with a senior Software Engineers before sharing squad-wide; store in team wiki; review quarterly; update whenever RAiD processes change",
+        "timeSaved": 89,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-007",
+        "role": "Software Engineers",
+        "code": "SWE",
+        "name": "Encode the RAiD \"code review\" workflow as a SKILL.md Agent Skill — Claude Code runs it on command",
+        "pain": "Context-switching between multiple squad commitments, limited time for deep work due to ad-hoc operational queries from RSAF users, slow onboarding to existing codebases with sparse documentation, frequent requirement changes driven by shifting operational priorities and posting rotations",
+        "habitId": "SH6",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this into Claude Code:\nI am a Software Engineers at RAiD. Help me encode a recurring task as a SKILL.md Agent Skill so Claude Code can execute it automatically.\n\nRecurring task: code review\nPain point this solves: Context-switching between multiple squad commitments, limited time for deep work due to ad-hoc operational queries from RSAF users, slow onboarding to existing codebases with sparse documentation, frequent requirement changes driven by shifting operational priorities and posting rotations\n\nInterview me to extract what makes this consistent and automatable:\n1. What inputs does this task always start with?\n2. What is the exact output format that's always expected?\n3. What RAiD-specific context must every run include (e.g., Jira format, GitLab convention, compliance constraints)?\n4. Failure modes — what should the agent stop and flag vs. handle automatically?\n5. Success criteria — how would you verify the output is correct?\n\nGenerate SKILL.md in the project root:\n- name: Short, verb-first skill name\n- description: One sentence — what it does and when to invoke it\n- inputs: The [FILL IN] variables the user provides each run\n- steps: Step-by-step agent execution plan\n- guardrails: What the agent must never do or always verify\n- output: The exact deliverable format\n\nTest it immediately by running the skill and show me the output before finalising.",
+        "inputs": "Description of the recurring task; a high-quality past output as the gold standard; list of failure modes; any RAiD-specific standards the skill must enforce",
+        "metric": "Recurring task goes from manual to one-line invocation — ~75% effort reduction per run; skill compounds in value as the whole team uses it",
+        "guardrails": "Validate on 3 real tasks before sharing team-wide; commit SKILL.md to GitLab so the whole team benefits; review quarterly; update when RAiD processes change",
+        "timeSaved": 110,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-008",
+        "role": "Software Engineers",
+        "code": "SWE",
+        "name": "Queue a Software Engineers task to run autonomously in Claude Code at RAiD — review the GitLab output at morning standup",
+        "pain": "Context-switching between multiple squad commitments, limited time for deep work due to ad-hoc operational queries from RSAF users, slow onboarding to existing codebases with sparse documentation, frequent requirement changes driven by shifting operational priorities and posting rotations",
+        "habitId": "SH7",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Queue this task before end of day — Claude runs, you review tomorrow:\nI am a Software Engineers at RAiD. Complete this task fully autonomously. I will not be monitoring — run to completion and leave a reviewable output.\n\nTask:\n[Describe the task in full — e.g., \"Expand your test framework test coverage for [module] to 80% branch coverage\" or \"Refactor [component] to eliminate: Context-switching between multiple squad commitments, limited time for deep work due to ad-hoc operational queries from RSAF users, slow onboarding to existing codebases with sparse documentation, frequent requirement changes driven by shifting operational priorities and posting rotations\"]\n\nThis codebase uses GCC, GitLab, SHIP-HATS, Kubernetes on GCC.\n\nBefore starting:\n1. Explore the relevant files and confirm you have everything needed — list what you found\n2. If you hit a hard blocker requiring a decision, stop cleanly and document it; do not guess\n3. Confirm the task is self-contained before beginning\n\nExecute completely. When finished, create REVIEW.md containing:\n- What was completed and what changed\n- Files modified (list with one-line reason each)\n- Key decisions made and why\n- Items needing my review before the GitLab MR is raised\n- Any risks or assumptions I should validate before merging\n\nContext — why this matters at RAiD: Software Engineers at RAiD form the core delivery force across all product squads, building web applications, APIs, data pipelines, and integration layers that power RSAF's internal digital tools. They work in cross-functional squads aligned to RSAF user groups — such as air operations, logistics, or personnel — and own features end-to-end from design to production deployment on GCC. Engineers are expected to maintain high code quality, write automated tests, and participate actively in agile ceremonies.",
+        "inputs": "Full task description with acceptance criteria; branch name to work on; files in scope; any standards to follow",
+        "metric": "~75% of active engineering time converted to passive review (Salesforce/Cursor: 85% effort reduction on test coverage; Anthropic 100k conversations: 80% average time reduction on autonomous tasks); REVIEW.md ready at morning standup",
+        "guardrails": "Review REVIEW.md and all diffs before raising the GitLab MR; run the full GitLab pipeline; validate key assumptions; never deploy to RAiD production without human sign-off",
+        "timeSaved": 220,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-009",
+        "role": "QA Engineers",
+        "code": "QAE",
+        "name": "Write the RAiD test strategy before writing tests — QA coverage plan for Test planning",
+        "pain": "Manual regression testing of features across multiple environments, coordinating UAT with operational users who have limited availability due to flying and exercise schedules, test environment instability causing false failures, insufficient test automation coverage inherited from early-stage product development",
+        "habitId": "SH1",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a QA Engineers at RAiD. Before I write a single test, help me write a test strategy for this scope.\n\nScope: [Paste the Jira story or sprint release scope]\n\nChallenge: Manual regression testing of features across multiple environments, coordinating UAT with operational users who have limited availability due to flying and exercise schedules, test environment instability causing false failures, insufficient test automation coverage inherited from early-stage product development\n\n1. Test scope — what is explicitly in scope for testing vs. out of scope?\n2. Test types — what mix of unit, integration, your test framework E2E, and exploratory testing is needed and why?\n3. Risk map — which areas carry the highest regression risk at RAiD and need the most coverage?\n4. Entry and exit criteria — when is this scope considered \"tested\" and ready for sign-off?\n5. Blockers — what dev dependencies, test data, or environment access must exist before testing can begin?\n\nOutput: a QA strategy document I can paste into Jira before development starts. Do not write test code.",
+        "inputs": "Jira story or sprint scope; any known regression risk areas; test environment details; existing coverage baseline at RAiD",
+        "metric": "Test planning time reduced by ~30%; coverage gaps caught before development completes rather than after (BCG/Harvard: 25–40% quality improvement on well-specified work)",
+        "guardrails": "Strategy requires Tech Lead or QA Lead review before sprint starts; flag any area where test data or environment access is not yet confirmed",
+        "timeSaved": 70,
+        "priority": "High"
+      },
+      {
+        "id": "UC-010",
+        "role": "QA Engineers",
+        "code": "QAE",
+        "name": "Build automated your test framework coverage for RAiD — expand test suite to 80% branch coverage in one agent run",
+        "pain": "Manual regression testing of features across multiple environments, coordinating UAT with operational users who have limited availability due to flying and exercise schedules, test environment instability causing false failures, insufficient test automation coverage inherited from early-stage product development",
+        "habitId": "SH2",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this task into Claude Code:\nI am a QA Engineers at RAiD. Expand automated test coverage for this service.\n\nTarget: [Module or service name]\nCoverage goal: 80% branch coverage (current: [X]%)\n\nThis codebase uses GCC, GitLab, SHIP-HATS, Kubernetes on GCC. Act as my test automation agent:\n\nStep 1 — Coverage analysis: Run the existing your test framework suite, identify uncovered branches and edge cases. Report findings before writing anything.\n\nStep 2 — Test plan: List every test case you will write, grouped by scenario. Wait for my go-ahead.\n\nStep 3 — Implement: Write all your test framework tests following existing patterns. Cover happy path, error paths, and boundary conditions.\n\nStep 4 — Write the GitLab MR description: coverage delta, test categories added, notes for review.\n\nConstraints:\n- Do not modify production code — test code only\n- Current blocker: Manual regression testing of features across multiple environments, coordinating UAT with operational users who have limited availability due to flying and exercise schedules, test environment instability causing false failures, insufficient test automation coverage inherited from early-stage product development\n- Follow naming conventions in existing tests\n\nDo not write any tests until I confirm the plan in Step 2.",
+        "inputs": "your test framework test suite; coverage report (current baseline); module under test; any known edge cases or defect history at RAiD",
+        "metric": "Test coverage expanded ~55% faster than manual authoring (GitHub Copilot study: N=95, P=.0017); GitLab MR ready with full coverage report; QA backlog cleared faster",
+        "guardrails": "Review all generated tests before raising the MR; run the full GitLab pipeline; confirm assertions are meaningful and not just coverage-padding",
+        "timeSaved": 165,
+        "priority": "High"
+      },
+      {
+        "id": "UC-011",
+        "role": "QA Engineers",
+        "code": "QAE",
+        "name": "Run parallel Claude Code worktrees at RAiD — deliver two QA Engineers tasks simultaneously in separate GitLab branches",
+        "pain": "Manual regression testing of features across multiple environments, coordinating UAT with operational users who have limited availability due to flying and exercise schedules, test environment instability causing false failures, insufficient test automation coverage inherited from early-stage product development",
+        "habitId": "SH3",
+        "entry": "Claude Code CLI",
+        "prompt": "# Set up two separate git worktrees — one per task:\ngit worktree add ../raid-task-A <branch-name-A>\ngit worktree add ../raid-task-B <branch-name-B>\n\n# Open a separate terminal and start Claude Code in each worktree:\ncd ../raid-task-A && claude\n\n# Give each Claude Code session ONE scoped task:\nI am a QA Engineers at RAiD. This session owns ONE task only — do not touch files outside its scope.\n\nTask for this worktree: [One scoped task from your Jira board — one your test framework test suite]\n\nI am running a parallel Claude Code session in a separate worktree for a different task.\n\nThis codebase uses GCC, GitLab, SHIP-HATS, Kubernetes on GCC. For this task:\n1. Explore the relevant files and confirm scope — report before changing anything\n2. Implement completely\n3. Write the GitLab MR description and flag any cross-branch risks\n\nContext — why this matters at RAiD: QA Engineers at RAiD are responsible for ensuring that software deployed to RSAF operations meets functional, performance, and security quality bars before it reaches end-users in operational contexts where failures can have mission impact. They design and maintain automated test suites, perform exploratory testing, and manage UAT coordination with RSAF user representatives. Given the sensitivity of RSAF systems, QA also plays a role in verifying compliance with data handling and security requirements.",
+        "inputs": "Two scoped task briefs (one per worktree); Jira story per branch; files in scope; branch names",
+        "metric": "Two tasks delivered in the time of one; ~23 min context-switching overhead removed per task pair (UC Irvine / Gloria Mark research); sprint throughput doubles for independent work items",
+        "guardrails": "Keep each Claude Code session strictly scoped to its worktree; review and merge each branch independently via GitLab; resolve any merge conflicts before both MRs land on main",
+        "timeSaved": 131,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-012",
+        "role": "QA Engineers",
+        "code": "QAE",
+        "name": "Review the RAiD test plan for coverage gaps before a single your test framework test runs",
+        "pain": "Manual regression testing of features across multiple environments, coordinating UAT with operational users who have limited availability due to flying and exercise schedules, test environment instability causing false failures, insufficient test automation coverage inherited from early-stage product development",
+        "habitId": "SH4",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a QA Engineers at RAiD. Before test execution begins, review this test plan for gaps.\n\n[Paste the test plan or test case list]\n\nContext: New Engineer Onboarding at RAiD. Review for:\n\n1. Missing coverage — which execution paths, edge cases, or boundary conditions are not tested?\n2. Missing negative tests — what error paths or invalid inputs are not covered?\n3. Test data gaps — what scenarios require test data that may not exist in the test environment?\n4. Environment assumptions — what assumptions about the test environment could fail in practice?\n5. Blocked scenarios related to: Manual regression testing of features across multiple environments, coordinating UAT with operational users who have limited availability due to flying and exercise schedules, test environment instability causing false failures, insufficient test automation coverage inherited from early-stage product development\n\nDo not write tests — identify gaps only. Output a numbered gap list ordered by release risk.",
+        "inputs": "Test plan or test case list; feature spec or user story; known environment constraints; existing coverage report",
+        "metric": "Coverage gaps caught before execution rather than after release; regression escapes to production reduced (~50% rework reduction per BCG/Harvard)",
+        "guardrails": "Address all High-risk gaps before execution begins; loop in the developer if a gap requires new endpoints or test data; document deferred gaps in Jira",
+        "timeSaved": 86,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-013",
+        "role": "QA Engineers",
+        "code": "QAE",
+        "name": "Draft the RAiD test report and quality metrics — self-audit before it reaches stakeholders",
+        "pain": "Manual regression testing of features across multiple environments, coordinating UAT with operational users who have limited availability due to flying and exercise schedules, test environment instability causing false failures, insufficient test automation coverage inherited from early-stage product development",
+        "habitId": "SH5",
+        "entry": "Claude.ai Web",
+        "prompt": "Draft the following QA content for RAiD:\n\n[Describe what to draft — e.g., sprint test report, regression summary, quality dashboard commentary, release go/no-go document]\n\nContext:\n- Purpose: [who will act on this and what decision it enables]\n- Audience: [Tech Lead, Product Owner, Engineering Manager]\n- Key message: [the single most important quality signal this must communicate]\n- Sprint context: QA Engineers at RAiD are responsible for ensuring that software deployed to RSAF operations meets functional, performance, and security quality bars before it reaches end-users in operational contexts where failures can have mission impact. They design and maintain automated test suites, perform exploratory testing, and manage UAT coordination with RSAF user representatives. Given the sensitivity of RSAF systems, QA also plays a role in verifying compliance with data handling and security requirements.\n- Known quality challenge: Manual regression testing of features across multiple environments, coordinating UAT with operational users who have limited availability due to flying and exercise schedules, test environment instability causing false failures, insufficient test automation coverage inherited from early-stage product development\n\nAfter drafting, self-audit:\n1. Would a developer challenged by this report know exactly what to fix and in what order?\n2. Are the quality metrics presented fairly — does anything make quality look better than it is?\n3. What assumption about test environment stability did you embed that a reader might challenge?\n4. Is any finding vague enough that the team could deprioritise it without being technically wrong?\n5. What is the single finding that, if buried, would cause the most regret after release?\n\nOutput the draft and self-audit together.",
+        "inputs": "Test execution results; defect log; coverage report; any known environment or test data issues; previous sprint quality trend",
+        "metric": "QA report time from ~90 minutes to ~40 minutes; self-audit catches data presentation issues before stakeholder review",
+        "guardrails": "Never publish AI-drafted QA content without reviewing all metrics against actual test data; address all self-audit flags; verify numbers before sending",
+        "timeSaved": 85,
+        "priority": "High"
+      },
+      {
+        "id": "UC-014",
+        "role": "QA Engineers",
+        "code": "QAE",
+        "name": "Turn the RAiD \"automated test suite development\" process into a reusable Claude template — never start from scratch again",
+        "pain": "Manual regression testing of features across multiple environments, coordinating UAT with operational users who have limited availability due to flying and exercise schedules, test environment instability causing false failures, insufficient test automation coverage inherited from early-stage product development",
+        "habitId": "SH6",
+        "entry": "Claude.ai Web",
+        "prompt": "Help me create a reusable Claude prompt template for this recurring QA Engineers task at RAiD:\n\nRecurring task: automated test suite development\n\nInterview me to extract the pattern:\n1. What inputs are always needed to start this task at RAiD?\n2. What is the consistent output format — what must every output include?\n3. What RAiD-specific context should always be embedded (e.g., Jira format, GitLab convention, compliance requirements)?\n4. What mistakes are commonly made because of: \"Manual regression testing of features across multiple environments, coordinating UAT with operational users who have limited availability due to flying and exercise schedules, test environment instability causing false failures, insufficient test automation coverage inherited from early-stage product development\"?\n5. What does excellent vs. acceptable output look like?\n\nAfter the interview, generate:\n- A reusable Claude prompt template with clear [FILL IN] markers\n- A one-paragraph usage guide any new QA Engineers can follow in their first sprint\n- Two example completions applied to real RAiD tasks\n\nThis template must work for a new joiner with no prior context.",
+        "inputs": "Description of the recurring task; a high-quality past output example; list of common failure modes; any RAiD-specific standards that apply",
+        "metric": "Recurring task time reduced by ~75% per use once template is established (60% average from task automation research); institutional knowledge survives rotation without handover sessions",
+        "guardrails": "Validate on 3 real tasks with a senior QA Engineers before sharing squad-wide; store in team wiki; review quarterly; update whenever RAiD processes change",
+        "timeSaved": 90,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-015",
+        "role": "QA Engineers",
+        "code": "QAE",
+        "name": "Encode the RAiD \"automated test suite development\" workflow as a SKILL.md Agent Skill — Claude Code runs it on command",
+        "pain": "Manual regression testing of features across multiple environments, coordinating UAT with operational users who have limited availability due to flying and exercise schedules, test environment instability causing false failures, insufficient test automation coverage inherited from early-stage product development",
+        "habitId": "SH6",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this into Claude Code:\nI am a QA Engineers at RAiD. Help me encode a recurring task as a SKILL.md Agent Skill so Claude Code can execute it automatically.\n\nRecurring task: automated test suite development\nPain point this solves: Manual regression testing of features across multiple environments, coordinating UAT with operational users who have limited availability due to flying and exercise schedules, test environment instability causing false failures, insufficient test automation coverage inherited from early-stage product development\n\nInterview me to extract what makes this consistent and automatable:\n1. What inputs does this task always start with?\n2. What is the exact output format that's always expected?\n3. What RAiD-specific context must every run include (e.g., Jira format, GitLab convention, compliance constraints)?\n4. Failure modes — what should the agent stop and flag vs. handle automatically?\n5. Success criteria — how would you verify the output is correct?\n\nGenerate SKILL.md in the project root:\n- name: Short, verb-first skill name\n- description: One sentence — what it does and when to invoke it\n- inputs: The [FILL IN] variables the user provides each run\n- steps: Step-by-step agent execution plan\n- guardrails: What the agent must never do or always verify\n- output: The exact deliverable format\n\nTest it immediately by running the skill and show me the output before finalising.",
+        "inputs": "Description of the recurring task; a high-quality past output as the gold standard; list of failure modes; any RAiD-specific standards the skill must enforce",
+        "metric": "Recurring task goes from manual to one-line invocation — ~75% effort reduction per run; skill compounds in value as the whole team uses it",
+        "guardrails": "Validate on 3 real tasks before sharing team-wide; commit SKILL.md to GitLab so the whole team benefits; review quarterly; update when RAiD processes change",
+        "timeSaved": 111,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-016",
+        "role": "QA Engineers",
+        "code": "QAE",
+        "name": "Queue a QA Engineers task to run autonomously in Claude Code at RAiD — review the GitLab output at morning standup",
+        "pain": "Manual regression testing of features across multiple environments, coordinating UAT with operational users who have limited availability due to flying and exercise schedules, test environment instability causing false failures, insufficient test automation coverage inherited from early-stage product development",
+        "habitId": "SH7",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Queue this task before end of day — Claude runs, you review tomorrow:\nI am a QA Engineers at RAiD. Complete this task fully autonomously. I will not be monitoring — run to completion and leave a reviewable output.\n\nTask:\n[Describe the task in full — e.g., \"Run the full your test framework regression suite, triage failures by severity, and prepare a morning report\"]\n\nThis codebase uses GCC, GitLab, SHIP-HATS, Kubernetes on GCC.\n\nBefore starting:\n1. Explore the relevant files and confirm you have everything needed — list what you found\n2. If you hit a hard blocker requiring a decision, stop cleanly and document it; do not guess\n3. Confirm the task is self-contained before beginning\n\nExecute completely. When finished, create REVIEW.md containing:\n- What was completed and what changed\n- Files modified (list with one-line reason each)\n- Key decisions made and why\n- Items needing my review before the GitLab MR is raised\n- Any risks or assumptions I should validate before merging\n\nContext — why this matters at RAiD: QA Engineers at RAiD are responsible for ensuring that software deployed to RSAF operations meets functional, performance, and security quality bars before it reaches end-users in operational contexts where failures can have mission impact. They design and maintain automated test suites, perform exploratory testing, and manage UAT coordination with RSAF user representatives. Given the sensitivity of RSAF systems, QA also plays a role in verifying compliance with data handling and security requirements.",
+        "inputs": "Full task description with acceptance criteria; branch name to work on; files in scope; any standards to follow",
+        "metric": "~75% of active engineering time converted to passive review (Salesforce/Cursor: 85% effort reduction on test coverage; Anthropic 100k conversations: 80% average time reduction on autonomous tasks); REVIEW.md ready at morning standup",
+        "guardrails": "Review REVIEW.md and all diffs before raising the GitLab MR; run the full GitLab pipeline; validate key assumptions; never deploy to RAiD production without human sign-off",
+        "timeSaved": 221,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-017",
+        "role": "Tech Leads & Architects",
+        "code": "TLA",
+        "name": "Write the RAiD ADR before the architecture decision is made — decision brief for Architecture design",
+        "pain": "Balancing hands-on engineering with mentoring and architectural oversight, navigating bureaucratic approval processes for new technology adoption on GCC, knowledge concentration risk when senior engineers rotate postings, difficulty enforcing architecture standards consistently across autonomous squads",
+        "habitId": "SH1",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a Tech Leads & Architects at RAiD. Before this architectural decision is made in a meeting, help me write an Architecture Decision Record (ADR).\n\nDecision needed: [Describe the architectural question — e.g., \"Architecture design\"]\n\nChallenge: Balancing hands-on engineering with mentoring and architectural oversight, navigating bureaucratic approval processes for new technology adoption on GCC, knowledge concentration risk when senior engineers rotate postings, difficulty enforcing architecture standards consistently across autonomous squads\n\n1. Context — what constraints, requirements, and team capabilities drive this decision at RAiD?\n2. Options considered — 2–3 viable approaches with one-line pros and cons each\n3. Decision criteria — what matters most: performance, maintainability, cost, team skill, or operational complexity?\n4. Consequences — what does choosing this approach make easier? What does it foreclose or make harder?\n5. Review trigger — under what circumstances should this ADR be revisited?\n\nOutput: a structured ADR I can paste into Confluence or GitLab before the architecture review.",
+        "inputs": "Architectural question with constraints; options already under consideration; team capability context; performance or compliance requirements",
+        "metric": "Architecture decisions documented before the meeting, not after; undocumented assumption rework eliminated; new engineers onboard faster with an ADR trail",
+        "guardrails": "ADR requires sign-off from at least one peer architect before it is treated as decided; \"decision\" field must not be blank; revisit triggers must be specific and measurable",
+        "timeSaved": 70,
+        "priority": "High"
+      },
+      {
+        "id": "UC-018",
+        "role": "Tech Leads & Architects",
+        "code": "TLA",
+        "name": "Prototype the RAiD architectural approach — build a working spike and evaluate fit before the team commits",
+        "pain": "Balancing hands-on engineering with mentoring and architectural oversight, navigating bureaucratic approval processes for new technology adoption on GCC, knowledge concentration risk when senior engineers rotate postings, difficulty enforcing architecture standards consistently across autonomous squads",
+        "habitId": "SH2",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this task into Claude Code:\nI am a Tech Leads & Architects at RAiD. Build a working architectural spike.\n\nArchitectural question: [e.g., \"Evaluate event-driven vs. request-response for [service]\" or \"Prototype the proposed [data model]\"]\n\nThis stack uses GCC, GitLab, SHIP-HATS, Kubernetes on GCC. Act as my architecture spike agent:\n\nStep 1 — Explore: Map the current architecture — entry points, data flows, integration contracts, constraints. Report before building.\n\nStep 2 — Spike plan: What you will build to answer the question, what to prove or disprove, how to measure fit. Wait for my go-ahead.\n\nStep 3 — Build: Minimal working prototype — no production polish, just prove the approach.\n\nStep 4 — Evaluation report: Does this fit RAiD's constraints? What works, what breaks, recommendation with confidence level.\n\nConstraints:\n- Constraint to validate against: Balancing hands-on engineering with mentoring and architectural oversight, navigating bureaucratic approval processes for new technology adoption on GCC, knowledge concentration risk when senior engineers rotate postings, difficulty enforcing architecture standards consistently across autonomous squads\n- Spike code goes in /spike — do not touch production code",
+        "inputs": "Existing architecture docs or ADRs; integration contracts; performance or scalability requirements; any prior spikes",
+        "metric": "Architecture decision validated in days not weeks; team commits with working code evidence rather than whiteboard reasoning; reduces costly late-stage rework",
+        "guardrails": "Spike code must not be merged to main without a production implementation; evaluation requires engineering lead review; all trade-offs documented before team commits",
+        "timeSaved": 165,
+        "priority": "High"
+      },
+      {
+        "id": "UC-019",
+        "role": "Tech Leads & Architects",
+        "code": "TLA",
+        "name": "Run parallel Claude Code worktrees at RAiD — deliver two Tech Leads & Architects tasks simultaneously in separate GitLab branches",
+        "pain": "Balancing hands-on engineering with mentoring and architectural oversight, navigating bureaucratic approval processes for new technology adoption on GCC, knowledge concentration risk when senior engineers rotate postings, difficulty enforcing architecture standards consistently across autonomous squads",
+        "habitId": "SH3",
+        "entry": "Claude Code CLI",
+        "prompt": "# Set up two separate git worktrees — one per task:\ngit worktree add ../raid-task-A <branch-name-A>\ngit worktree add ../raid-task-B <branch-name-B>\n\n# Open a separate terminal and start Claude Code in each worktree:\ncd ../raid-task-A && claude\n\n# Give each Claude Code session ONE scoped task:\nI am a Tech Leads & Architects at RAiD. This session owns ONE task only — do not touch files outside its scope.\n\nTask for this worktree: [One scoped task from your Jira board — one architecture spike]\n\nI am running a parallel Claude Code session in a separate worktree for a different task.\n\nThis codebase uses GCC, GitLab, SHIP-HATS, Kubernetes on GCC. For this task:\n1. Explore the relevant files and confirm scope — report before changing anything\n2. Implement completely\n3. Write the GitLab MR description and flag any cross-branch risks\n\nContext — why this matters at RAiD: Tech Leads and Architects at RAiD set the technical direction for product squads and the broader platform, making decisions on architecture patterns, technology selection, and engineering standards that must balance agility with the long-term security and maintainability requirements of a defence organisation. They mentor junior engineers, lead technical design reviews, and interface with MINDEF cybersecurity policy teams to ensure alignment. Senior architects also oversee cross-squad platform decisions and manage technical roadmaps across the RAiD portfolio.",
+        "inputs": "Two scoped task briefs (one per worktree); Jira story per branch; files in scope; branch names",
+        "metric": "Two tasks delivered in the time of one; ~23 min context-switching overhead removed per task pair (UC Irvine / Gloria Mark research); sprint throughput doubles for independent work items",
+        "guardrails": "Keep each Claude Code session strictly scoped to its worktree; review and merge each branch independently via GitLab; resolve any merge conflicts before both MRs land on main",
+        "timeSaved": 131,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-020",
+        "role": "Tech Leads & Architects",
+        "code": "TLA",
+        "name": "Review the RAiD architecture proposal for hidden risks before the team commits",
+        "pain": "Balancing hands-on engineering with mentoring and architectural oversight, navigating bureaucratic approval processes for new technology adoption on GCC, knowledge concentration risk when senior engineers rotate postings, difficulty enforcing architecture standards consistently across autonomous squads",
+        "habitId": "SH4",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a Tech Leads & Architects at RAiD. Before this architectural proposal is committed to, review it for hidden risks.\n\n[Paste the ADR, design doc, or architecture description]\n\nContext: New Engineer Onboarding at RAiD. Review for:\n\n1. Missing constraints — what operational, compliance, or team-skill constraints are not addressed?\n2. Scalability assumptions — what load, data volume, or growth assumptions could break this design?\n3. Integration risks — what dependencies on external systems or teams could block implementation?\n4. Reversibility — how hard is it to undo this decision once implemented? What is the rollback path?\n5. RAiD-specific blind spots: Balancing hands-on engineering with mentoring and architectural oversight, navigating bureaucratic approval processes for new technology adoption on GCC, knowledge concentration risk when senior engineers rotate postings, difficulty enforcing architecture standards consistently across autonomous squads\n\nDo not redesign — identify and rank risks by impact. Output a numbered risk list.",
+        "inputs": "ADR or design doc; system constraints and compliance requirements; team capability profile; integration dependencies",
+        "metric": "Architectural risks caught before implementation (~50% rework reduction per BCG/Harvard); team commits to better-understood decisions",
+        "guardrails": "Address all High-impact risks before architecture is finalised; loop in affected teams on integration risks; revisit this review if scope changes significantly",
+        "timeSaved": 86,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-021",
+        "role": "Tech Leads & Architects",
+        "code": "TLA",
+        "name": "Draft the RAiD architecture proposal or RFC — self-audit before team review",
+        "pain": "Balancing hands-on engineering with mentoring and architectural oversight, navigating bureaucratic approval processes for new technology adoption on GCC, knowledge concentration risk when senior engineers rotate postings, difficulty enforcing architecture standards consistently across autonomous squads",
+        "habitId": "SH5",
+        "entry": "Claude.ai Web",
+        "prompt": "Draft the following architecture content for RAiD:\n\n[Describe what to draft — e.g., architecture proposal, RFC, system design doc, tech radar entry, or migration plan]\n\nContext:\n- Purpose: [what decision this document enables]\n- Audience: [engineering team, CTO, product stakeholders]\n- Key message: [the single most important technical argument this must make]\n- Architecture context: Tech Leads and Architects at RAiD set the technical direction for product squads and the broader platform, making decisions on architecture patterns, technology selection, and engineering standards that must balance agility with the long-term security and maintainability requirements of a defence organisation. They mentor junior engineers, lead technical design reviews, and interface with MINDEF cybersecurity policy teams to ensure alignment. Senior architects also oversee cross-squad platform decisions and manage technical roadmaps across the RAiD portfolio.\n- Constraint to address: Balancing hands-on engineering with mentoring and architectural oversight, navigating bureaucratic approval processes for new technology adoption on GCC, knowledge concentration risk when senior engineers rotate postings, difficulty enforcing architecture standards consistently across autonomous squads\n\nAfter drafting, self-audit:\n1. What assumptions about team capability or operational capacity did you make that a reader would challenge?\n2. Is the trade-off section honest — does it fully acknowledge the downsides of the recommended approach?\n3. What would a skeptical senior engineer attack first in this proposal?\n4. What must be verified against actual RAiD system metrics before this goes out?\n5. What is the weakest technical argument in this document?\n\nOutput the draft and self-audit together.",
+        "inputs": "Architecture problem statement; constraints (performance, compliance, team size); relevant ADRs; current tech stack at RAiD",
+        "metric": "Architecture proposals ready for review in ~40% less time; self-audit catches weak arguments before peer challenge",
+        "guardrails": "Never treat AI-drafted architecture proposals as final; address all self-audit flags; verify all performance claims against actual RAiD system data",
+        "timeSaved": 85,
+        "priority": "High"
+      },
+      {
+        "id": "UC-022",
+        "role": "Tech Leads & Architects",
+        "code": "TLA",
+        "name": "Turn the RAiD \"technical design reviews\" process into a reusable Claude template — never start from scratch again",
+        "pain": "Balancing hands-on engineering with mentoring and architectural oversight, navigating bureaucratic approval processes for new technology adoption on GCC, knowledge concentration risk when senior engineers rotate postings, difficulty enforcing architecture standards consistently across autonomous squads",
+        "habitId": "SH6",
+        "entry": "Claude.ai Web",
+        "prompt": "Help me create a reusable Claude prompt template for this recurring Tech Leads & Architects task at RAiD:\n\nRecurring task: technical design reviews\n\nInterview me to extract the pattern:\n1. What inputs are always needed to start this task at RAiD?\n2. What is the consistent output format — what must every output include?\n3. What RAiD-specific context should always be embedded (e.g., Jira format, GitLab convention, compliance requirements)?\n4. What mistakes are commonly made because of: \"Balancing hands-on engineering with mentoring and architectural oversight, navigating bureaucratic approval processes for new technology adoption on GCC, knowledge concentration risk when senior engineers rotate postings, difficulty enforcing architecture standards consistently across autonomous squads\"?\n5. What does excellent vs. acceptable output look like?\n\nAfter the interview, generate:\n- A reusable Claude prompt template with clear [FILL IN] markers\n- A one-paragraph usage guide any new Tech Leads & Architects can follow in their first sprint\n- Two example completions applied to real RAiD tasks\n\nThis template must work for a new joiner with no prior context.",
+        "inputs": "Description of the recurring task; a high-quality past output example; list of common failure modes; any RAiD-specific standards that apply",
+        "metric": "Recurring task time reduced by ~75% per use once template is established (60% average from task automation research); institutional knowledge survives rotation without handover sessions",
+        "guardrails": "Validate on 3 real tasks with a senior Tech Leads & Architects before sharing squad-wide; store in team wiki; review quarterly; update whenever RAiD processes change",
+        "timeSaved": 90,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-023",
+        "role": "Tech Leads & Architects",
+        "code": "TLA",
+        "name": "Encode the RAiD \"technical design reviews\" workflow as a SKILL.md Agent Skill — Claude Code runs it on command",
+        "pain": "Balancing hands-on engineering with mentoring and architectural oversight, navigating bureaucratic approval processes for new technology adoption on GCC, knowledge concentration risk when senior engineers rotate postings, difficulty enforcing architecture standards consistently across autonomous squads",
+        "habitId": "SH6",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this into Claude Code:\nI am a Tech Leads & Architects at RAiD. Help me encode a recurring task as a SKILL.md Agent Skill so Claude Code can execute it automatically.\n\nRecurring task: technical design reviews\nPain point this solves: Balancing hands-on engineering with mentoring and architectural oversight, navigating bureaucratic approval processes for new technology adoption on GCC, knowledge concentration risk when senior engineers rotate postings, difficulty enforcing architecture standards consistently across autonomous squads\n\nInterview me to extract what makes this consistent and automatable:\n1. What inputs does this task always start with?\n2. What is the exact output format that's always expected?\n3. What RAiD-specific context must every run include (e.g., Jira format, GitLab convention, compliance constraints)?\n4. Failure modes — what should the agent stop and flag vs. handle automatically?\n5. Success criteria — how would you verify the output is correct?\n\nGenerate SKILL.md in the project root:\n- name: Short, verb-first skill name\n- description: One sentence — what it does and when to invoke it\n- inputs: The [FILL IN] variables the user provides each run\n- steps: Step-by-step agent execution plan\n- guardrails: What the agent must never do or always verify\n- output: The exact deliverable format\n\nTest it immediately by running the skill and show me the output before finalising.",
+        "inputs": "Description of the recurring task; a high-quality past output as the gold standard; list of failure modes; any RAiD-specific standards the skill must enforce",
+        "metric": "Recurring task goes from manual to one-line invocation — ~75% effort reduction per run; skill compounds in value as the whole team uses it",
+        "guardrails": "Validate on 3 real tasks before sharing team-wide; commit SKILL.md to GitLab so the whole team benefits; review quarterly; update when RAiD processes change",
+        "timeSaved": 111,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-024",
+        "role": "Tech Leads & Architects",
+        "code": "TLA",
+        "name": "Queue a Tech Leads & Architects task to run autonomously in Claude Code at RAiD — review the GitLab output at morning standup",
+        "pain": "Balancing hands-on engineering with mentoring and architectural oversight, navigating bureaucratic approval processes for new technology adoption on GCC, knowledge concentration risk when senior engineers rotate postings, difficulty enforcing architecture standards consistently across autonomous squads",
+        "habitId": "SH7",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Queue this task before end of day — Claude runs, you review tomorrow:\nI am a Tech Leads & Architects at RAiD. Complete this task fully autonomously. I will not be monitoring — run to completion and leave a reviewable output.\n\nTask:\n[Describe the task in full — e.g., \"Audit all dependencies for CVEs and flag packages more than 2 major versions behind stable\"]\n\nThis codebase uses GCC, GitLab, SHIP-HATS, Kubernetes on GCC.\n\nBefore starting:\n1. Explore the relevant files and confirm you have everything needed — list what you found\n2. If you hit a hard blocker requiring a decision, stop cleanly and document it; do not guess\n3. Confirm the task is self-contained before beginning\n\nExecute completely. When finished, create REVIEW.md containing:\n- What was completed and what changed\n- Files modified (list with one-line reason each)\n- Key decisions made and why\n- Items needing my review before the GitLab MR is raised\n- Any risks or assumptions I should validate before merging\n\nContext — why this matters at RAiD: Tech Leads and Architects at RAiD set the technical direction for product squads and the broader platform, making decisions on architecture patterns, technology selection, and engineering standards that must balance agility with the long-term security and maintainability requirements of a defence organisation. They mentor junior engineers, lead technical design reviews, and interface with MINDEF cybersecurity policy teams to ensure alignment. Senior architects also oversee cross-squad platform decisions and manage technical roadmaps across the RAiD portfolio.",
+        "inputs": "Full task description with acceptance criteria; branch name to work on; files in scope; any standards to follow",
+        "metric": "~75% of active engineering time converted to passive review (Salesforce/Cursor: 85% effort reduction on test coverage; Anthropic 100k conversations: 80% average time reduction on autonomous tasks); REVIEW.md ready at morning standup",
+        "guardrails": "Review REVIEW.md and all diffs before raising the GitLab MR; run the full GitLab pipeline; validate key assumptions; never deploy to RAiD production without human sign-off",
+        "timeSaved": 221,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-025",
+        "role": "Product & Planning",
+        "code": "PPM",
+        "name": "Write the implementation intent before opening the codebase — feature brief in Jira for RAiD",
+        "pain": "Difficulty eliciting precise requirements from operational users who communicate in domain-specific military terminology, frequent priority shifts driven by evolving operational tempo and exercises, limited influence over deployment timelines governed by CAB and change management committees, balancing short-term operational requests with long-term platform health",
+        "habitId": "SH1",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a Product & Planning at RAiD about to implement:\n\n\"User research\"\n\nChallenge: Difficulty eliciting precise requirements from operational users who communicate in domain-specific military terminology, frequent priority shifts driven by evolving operational tempo and exercises, limited influence over deployment timelines governed by CAB and change management committees, balancing short-term operational requests with long-term platform health\n\nBefore I touch the codebase or create a Jira ticket, help me write a tight implementation intent brief:\n\n1. Outcome — what exactly must be true when this is done, in one sentence?\n2. Technical acceptance criteria — 3–5 conditions that automated tests can verify\n3. Scope boundary — what files, services, or APIs are IN scope vs. OUT?\n4. Likely failure point — where does this type of change typically break at RAiD?\n5. Pre-conditions — what must exist (API contracts, migrations, feature flags) before I start?\n\nOutput: a paste-ready Jira story description. Do not start implementation.",
+        "inputs": "Jira story template; stakeholder request or existing ticket; any relevant API contracts or designs; compliance constraints at RAiD",
+        "metric": "Rework from scope misalignment reduced by ~30%; implementation starts with clear acceptance criteria (BCG/Harvard \"Jagged Frontier\": 25–40% speed gain on well-specified tasks)",
+        "guardrails": "Review with product owner or Tech Lead before coding; flag any acceptance criterion that depends on a third-party decision not yet made",
+        "timeSaved": 58,
+        "priority": "High"
+      },
+      {
+        "id": "UC-026",
+        "role": "Product & Planning",
+        "code": "PPM",
+        "name": "Implement a RAiD feature end-to-end with Claude Code — code, tests, and GitLab MR in one agent run",
+        "pain": "Difficulty eliciting precise requirements from operational users who communicate in domain-specific military terminology, frequent priority shifts driven by evolving operational tempo and exercises, limited influence over deployment timelines governed by CAB and change management committees, balancing short-term operational requests with long-term platform health",
+        "habitId": "SH2",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this task into Claude Code:\nI am a Product & Planning at RAiD. Implement the following feature end-to-end.\n\nFeature: [Paste your Jira story title and acceptance criteria here]\n\nThis codebase uses GCC, GitLab, SHIP-HATS, Kubernetes on GCC. Act as my engineering agent:\n\nStep 1 — Explore the codebase: find the relevant modules, existing patterns for this type of change, and related tests. Report what you find before touching anything.\n\nStep 2 — Propose your approach: file-by-file plan, any new dependencies, and how you will test it. Wait for my go-ahead.\n\nStep 3 — Implement completely: feature code + unit tests + any config or migration changes. Follow the patterns from Step 1.\n\nStep 4 — Write the GitLab MR description: what changed, why, how to test it locally, and review notes for the Tech Lead.\n\nConstraints:\n- Current blocker to address: Difficulty eliciting precise requirements from operational users who communicate in domain-specific military terminology, frequent priority shifts driven by evolving operational tempo and exercises, limited influence over deployment timelines governed by CAB and change management committees, balancing short-term operational requests with long-term platform health\n- Do not modify files outside the scope of this feature\n- All new logic must have unit test coverage\n\nDo not write any code until I confirm the approach in Step 2.",
+        "inputs": "Jira story with acceptance criteria; any related existing code or API contracts; branch name",
+        "metric": "Feature implementation ~55% faster than solo (GitHub Copilot controlled study, N=95, P=.0017 — task time cut from 2h41m to 1h11m on comparable coding task); consistent GitLab MR quality",
+        "guardrails": "Review all diffs before raising the MR; confirm the approach at Step 2 before Claude writes any code; run the full GitLab pipeline before merging",
+        "timeSaved": 153,
+        "priority": "High"
+      },
+      {
+        "id": "UC-027",
+        "role": "Product & Planning",
+        "code": "PPM",
+        "name": "Run parallel Claude Code worktrees at RAiD — deliver two Product & Planning tasks simultaneously in separate GitLab branches",
+        "pain": "Difficulty eliciting precise requirements from operational users who communicate in domain-specific military terminology, frequent priority shifts driven by evolving operational tempo and exercises, limited influence over deployment timelines governed by CAB and change management committees, balancing short-term operational requests with long-term platform health",
+        "habitId": "SH3",
+        "entry": "Claude Code CLI",
+        "prompt": "# Set up two separate git worktrees — one per task:\ngit worktree add ../raid-task-A <branch-name-A>\ngit worktree add ../raid-task-B <branch-name-B>\n\n# Open a separate terminal and start Claude Code in each worktree:\ncd ../raid-task-A && claude\n\n# Give each Claude Code session ONE scoped task:\nI am a Product & Planning at RAiD. This session owns ONE task only — do not touch files outside its scope.\n\nTask for this worktree: [One scoped task from your Jira board — one feature or fix]\n\nI am running a parallel Claude Code session in a separate worktree for a different task.\n\nThis codebase uses GCC, GitLab, SHIP-HATS, Kubernetes on GCC. For this task:\n1. Explore the relevant files and confirm scope — report before changing anything\n2. Implement completely\n3. Write the GitLab MR description and flag any cross-branch risks\n\nContext — why this matters at RAiD: The Product and Planning function at RAiD bridges the gap between RSAF operational users and engineering teams, translating complex operational requirements — often articulated by non-technical military users — into clear product roadmaps and well-scoped user stories. Product Managers work with RSAF unit commanders and operations staff to prioritise features by operational impact, manage stakeholder expectations, and ensure that what gets built genuinely solves real mission problems rather than creating technical solutions in search of a problem.",
+        "inputs": "Two scoped task briefs (one per worktree); Jira story per branch; files in scope; branch names",
+        "metric": "Two tasks delivered in the time of one; ~23 min context-switching overhead removed per task pair (UC Irvine / Gloria Mark research); sprint throughput doubles for independent work items",
+        "guardrails": "Keep each Claude Code session strictly scoped to its worktree; review and merge each branch independently via GitLab; resolve any merge conflicts before both MRs land on main",
+        "timeSaved": 119,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-028",
+        "role": "Product & Planning",
+        "code": "PPM",
+        "name": "Review your own RAiD PR before raising it to GitLab — catch author blind spots before review",
+        "pain": "Difficulty eliciting precise requirements from operational users who communicate in domain-specific military terminology, frequent priority shifts driven by evolving operational tempo and exercises, limited influence over deployment timelines governed by CAB and change management committees, balancing short-term operational requests with long-term platform health",
+        "habitId": "SH4",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a Product & Planning at RAiD. Before I raise this PR, review my own changes for issues I've missed as the author.\n\n[Paste the PR diff or describe the changes]\n\nContext: New Engineer Onboarding at RAiD. Review as a critical peer:\n\n1. Missing tests — which execution paths, edge cases, or error conditions have no test coverage?\n2. Scope creep — are there any changes here beyond the original Jira story?\n3. Code quality — what patterns here could cause problems at scale or make future changes harder?\n4. RAiD-specific risks — what could break existing functionality given: Difficulty eliciting precise requirements from operational users who communicate in domain-specific military terminology, frequent priority shifts driven by evolving operational tempo and exercises, limited influence over deployment timelines governed by CAB and change management committees, balancing short-term operational requests with long-term platform health?\n5. MR description gaps — what would a reviewer need to understand that isn't clear from the diff?\n\nDo not fix — identify and rank issues by review impact. Output a numbered list I can action before raising.",
+        "inputs": "PR diff or description; Jira story the PR addresses; any known constraints or standards at RAiD",
+        "metric": "Review round-trips reduced from 3–4 to 1–2 per feature; author blind spots caught before reviewer time is spent (~50% rework reduction per BCG/Harvard)",
+        "guardrails": "Address all High-impact findings before raising the MR; loop in product owner if scope changes are needed; run GitLab before raising",
+        "timeSaved": 74,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-029",
+        "role": "Product & Planning",
+        "code": "PPM",
+        "name": "Draft the RAiD post-mortem, ADR, or technical runbook — self-audit before it reaches the team",
+        "pain": "Difficulty eliciting precise requirements from operational users who communicate in domain-specific military terminology, frequent priority shifts driven by evolving operational tempo and exercises, limited influence over deployment timelines governed by CAB and change management committees, balancing short-term operational requests with long-term platform health",
+        "habitId": "SH5",
+        "entry": "Claude.ai Web",
+        "prompt": "Draft the following engineering content for RAiD:\n\n[Describe what to draft — e.g., incident post-mortem, architecture decision record, onboarding runbook for the Feature Development & Delivery workflow, or GitLab MR description template]\n\nContext:\n- Purpose: [why this document is needed]\n- Audience: [Tech Lead, new joiner, product owner, on-call engineer]\n- Key message: [the single most important point this must communicate]\n- Engineering context: The Product and Planning function at RAiD bridges the gap between RSAF operational users and engineering teams, translating complex operational requirements — often articulated by non-technical military users — into clear product roadmaps and well-scoped user stories. Product Managers work with RSAF unit commanders and operations staff to prioritise features by operational impact, manage stakeholder expectations, and ensure that what gets built genuinely solves real mission problems rather than creating technical solutions in search of a problem.\n- Known challenge to address: Difficulty eliciting precise requirements from operational users who communicate in domain-specific military terminology, frequent priority shifts driven by evolving operational tempo and exercises, limited influence over deployment timelines governed by CAB and change management committees, balancing short-term operational requests with long-term platform health\n\nAfter drafting, self-audit:\n1. What assumptions did you make that a senior RAiD engineer would immediately challenge?\n2. Would a new joiner following this runbook succeed without asking questions?\n3. Is any section vague enough to be misinterpreted by someone outside the team?\n4. What must be verified against RAiD systems or Datadog data before this goes out?\n5. What is the single weakest paragraph in this draft?\n\nOutput the draft and self-audit together. I will address all flagged items before sharing.",
+        "inputs": "Topic, purpose, and intended audience; any source material (incident timeline, sprint data, architecture diagram); relevant standards or templates at RAiD",
+        "metric": "First-draft quality good enough to share in ~40% less writing time (Anthropic internal productivity study); review cycles drop from 3 to 1",
+        "guardrails": "Never share without human review; address all self-audit flags; verify factual claims against RAiD systems or Datadog data before sending",
+        "timeSaved": 73,
+        "priority": "High"
+      },
+      {
+        "id": "UC-030",
+        "role": "Product & Planning",
+        "code": "PPM",
+        "name": "Turn the RAiD \"requirements gathering\" process into a reusable Claude template — never start from scratch again",
+        "pain": "Difficulty eliciting precise requirements from operational users who communicate in domain-specific military terminology, frequent priority shifts driven by evolving operational tempo and exercises, limited influence over deployment timelines governed by CAB and change management committees, balancing short-term operational requests with long-term platform health",
+        "habitId": "SH6",
+        "entry": "Claude.ai Web",
+        "prompt": "Help me create a reusable Claude prompt template for this recurring Product & Planning task at RAiD:\n\nRecurring task: requirements gathering\n\nInterview me to extract the pattern:\n1. What inputs are always needed to start this task at RAiD?\n2. What is the consistent output format — what must every output include?\n3. What RAiD-specific context should always be embedded (e.g., Jira format, GitLab convention, compliance requirements)?\n4. What mistakes are commonly made because of: \"Difficulty eliciting precise requirements from operational users who communicate in domain-specific military terminology, frequent priority shifts driven by evolving operational tempo and exercises, limited influence over deployment timelines governed by CAB and change management committees, balancing short-term operational requests with long-term platform health\"?\n5. What does excellent vs. acceptable output look like?\n\nAfter the interview, generate:\n- A reusable Claude prompt template with clear [FILL IN] markers\n- A one-paragraph usage guide any new Product & Planning can follow in their first sprint\n- Two example completions applied to real RAiD tasks\n\nThis template must work for a new joiner with no prior context.",
+        "inputs": "Description of the recurring task; a high-quality past output example; list of common failure modes; any RAiD-specific standards that apply",
+        "metric": "Recurring task time reduced by ~75% per use once template is established (60% average from task automation research); institutional knowledge survives rotation without handover sessions",
+        "guardrails": "Validate on 3 real tasks with a senior Product & Planning before sharing squad-wide; store in team wiki; review quarterly; update whenever RAiD processes change",
+        "timeSaved": 78,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-031",
+        "role": "Product & Planning",
+        "code": "PPM",
+        "name": "Encode the RAiD \"requirements gathering\" workflow as a SKILL.md Agent Skill — Claude Code runs it on command",
+        "pain": "Difficulty eliciting precise requirements from operational users who communicate in domain-specific military terminology, frequent priority shifts driven by evolving operational tempo and exercises, limited influence over deployment timelines governed by CAB and change management committees, balancing short-term operational requests with long-term platform health",
+        "habitId": "SH6",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this into Claude Code:\nI am a Product & Planning at RAiD. Help me encode a recurring task as a SKILL.md Agent Skill so Claude Code can execute it automatically.\n\nRecurring task: requirements gathering\nPain point this solves: Difficulty eliciting precise requirements from operational users who communicate in domain-specific military terminology, frequent priority shifts driven by evolving operational tempo and exercises, limited influence over deployment timelines governed by CAB and change management committees, balancing short-term operational requests with long-term platform health\n\nInterview me to extract what makes this consistent and automatable:\n1. What inputs does this task always start with?\n2. What is the exact output format that's always expected?\n3. What RAiD-specific context must every run include (e.g., Jira format, GitLab convention, compliance constraints)?\n4. Failure modes — what should the agent stop and flag vs. handle automatically?\n5. Success criteria — how would you verify the output is correct?\n\nGenerate SKILL.md in the project root:\n- name: Short, verb-first skill name\n- description: One sentence — what it does and when to invoke it\n- inputs: The [FILL IN] variables the user provides each run\n- steps: Step-by-step agent execution plan\n- guardrails: What the agent must never do or always verify\n- output: The exact deliverable format\n\nTest it immediately by running the skill and show me the output before finalising.",
+        "inputs": "Description of the recurring task; a high-quality past output as the gold standard; list of failure modes; any RAiD-specific standards the skill must enforce",
+        "metric": "Recurring task goes from manual to one-line invocation — ~75% effort reduction per run; skill compounds in value as the whole team uses it",
+        "guardrails": "Validate on 3 real tasks before sharing team-wide; commit SKILL.md to GitLab so the whole team benefits; review quarterly; update when RAiD processes change",
+        "timeSaved": 99,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-032",
+        "role": "Product & Planning",
+        "code": "PPM",
+        "name": "Queue a Product & Planning task to run autonomously in Claude Code at RAiD — review the GitLab output at morning standup",
+        "pain": "Difficulty eliciting precise requirements from operational users who communicate in domain-specific military terminology, frequent priority shifts driven by evolving operational tempo and exercises, limited influence over deployment timelines governed by CAB and change management committees, balancing short-term operational requests with long-term platform health",
+        "habitId": "SH7",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Queue this task before end of day — Claude runs, you review tomorrow:\nI am a Product & Planning at RAiD. Complete this task fully autonomously. I will not be monitoring — run to completion and leave a reviewable output.\n\nTask:\n[Describe the task in full — e.g., \"Expand your test framework test coverage for [module] to 80% branch coverage\" or \"Refactor [component] to eliminate: Difficulty eliciting precise requirements from operational users who communicate in domain-specific military terminology, frequent priority shifts driven by evolving operational tempo and exercises, limited influence over deployment timelines governed by CAB and change management committees, balancing short-term operational requests with long-term platform health\"]\n\nThis codebase uses GCC, GitLab, SHIP-HATS, Kubernetes on GCC.\n\nBefore starting:\n1. Explore the relevant files and confirm you have everything needed — list what you found\n2. If you hit a hard blocker requiring a decision, stop cleanly and document it; do not guess\n3. Confirm the task is self-contained before beginning\n\nExecute completely. When finished, create REVIEW.md containing:\n- What was completed and what changed\n- Files modified (list with one-line reason each)\n- Key decisions made and why\n- Items needing my review before the GitLab MR is raised\n- Any risks or assumptions I should validate before merging\n\nContext — why this matters at RAiD: The Product and Planning function at RAiD bridges the gap between RSAF operational users and engineering teams, translating complex operational requirements — often articulated by non-technical military users — into clear product roadmaps and well-scoped user stories. Product Managers work with RSAF unit commanders and operations staff to prioritise features by operational impact, manage stakeholder expectations, and ensure that what gets built genuinely solves real mission problems rather than creating technical solutions in search of a problem.",
+        "inputs": "Full task description with acceptance criteria; branch name to work on; files in scope; any standards to follow",
+        "metric": "~75% of active engineering time converted to passive review (Salesforce/Cursor: 85% effort reduction on test coverage; Anthropic 100k conversations: 80% average time reduction on autonomous tasks); REVIEW.md ready at morning standup",
+        "guardrails": "Review REVIEW.md and all diffs before raising the GitLab MR; run the full GitLab pipeline; validate key assumptions; never deploy to RAiD production without human sign-off",
+        "timeSaved": 209,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-033",
+        "role": "DevOps & Platform",
+        "code": "DPE",
+        "name": "Write the implementation intent before opening the codebase — feature brief in Jira for RAiD",
+        "pain": "Responding to urgent infrastructure incidents while maintaining planned platform improvement work, managing multiple environment configurations across development, staging, and production on GCC, keeping pace with MINDEF security policy changes that require platform updates, long lead times for cloud resource provisioning through government procurement processes",
+        "habitId": "SH1",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a DevOps & Platform at RAiD about to implement:\n\n\"CI/CD pipeline management\"\n\nChallenge: Responding to urgent infrastructure incidents while maintaining planned platform improvement work, managing multiple environment configurations across development, staging, and production on GCC, keeping pace with MINDEF security policy changes that require platform updates, long lead times for cloud resource provisioning through government procurement processes\n\nBefore I touch the codebase or create a Jira ticket, help me write a tight implementation intent brief:\n\n1. Outcome — what exactly must be true when this is done, in one sentence?\n2. Technical acceptance criteria — 3–5 conditions that automated tests can verify\n3. Scope boundary — what files, services, or APIs are IN scope vs. OUT?\n4. Likely failure point — where does this type of change typically break at RAiD?\n5. Pre-conditions — what must exist (API contracts, migrations, feature flags) before I start?\n\nOutput: a paste-ready Jira story description. Do not start implementation.",
+        "inputs": "Jira story template; stakeholder request or existing ticket; any relevant API contracts or designs; compliance constraints at RAiD",
+        "metric": "Rework from scope misalignment reduced by ~30%; implementation starts with clear acceptance criteria (BCG/Harvard \"Jagged Frontier\": 25–40% speed gain on well-specified tasks)",
+        "guardrails": "Review with product owner or Tech Lead before coding; flag any acceptance criterion that depends on a third-party decision not yet made",
+        "timeSaved": 64,
+        "priority": "High"
+      },
+      {
+        "id": "UC-034",
+        "role": "DevOps & Platform",
+        "code": "DPE",
+        "name": "Implement a RAiD feature end-to-end with Claude Code — code, tests, and GitLab MR in one agent run",
+        "pain": "Responding to urgent infrastructure incidents while maintaining planned platform improvement work, managing multiple environment configurations across development, staging, and production on GCC, keeping pace with MINDEF security policy changes that require platform updates, long lead times for cloud resource provisioning through government procurement processes",
+        "habitId": "SH2",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this task into Claude Code:\nI am a DevOps & Platform at RAiD. Implement the following feature end-to-end.\n\nFeature: [Paste your Jira story title and acceptance criteria here]\n\nThis codebase uses GCC, GitLab, SHIP-HATS, Kubernetes on GCC. Act as my engineering agent:\n\nStep 1 — Explore the codebase: find the relevant modules, existing patterns for this type of change, and related tests. Report what you find before touching anything.\n\nStep 2 — Propose your approach: file-by-file plan, any new dependencies, and how you will test it. Wait for my go-ahead.\n\nStep 3 — Implement completely: feature code + unit tests + any config or migration changes. Follow the patterns from Step 1.\n\nStep 4 — Write the GitLab MR description: what changed, why, how to test it locally, and review notes for the Tech Lead.\n\nConstraints:\n- Current blocker to address: Responding to urgent infrastructure incidents while maintaining planned platform improvement work, managing multiple environment configurations across development, staging, and production on GCC, keeping pace with MINDEF security policy changes that require platform updates, long lead times for cloud resource provisioning through government procurement processes\n- Do not modify files outside the scope of this feature\n- All new logic must have unit test coverage\n\nDo not write any code until I confirm the approach in Step 2.",
+        "inputs": "Jira story with acceptance criteria; any related existing code or API contracts; branch name",
+        "metric": "Feature implementation ~55% faster than solo (GitHub Copilot controlled study, N=95, P=.0017 — task time cut from 2h41m to 1h11m on comparable coding task); consistent GitLab MR quality",
+        "guardrails": "Review all diffs before raising the MR; confirm the approach at Step 2 before Claude writes any code; run the full GitLab pipeline before merging",
+        "timeSaved": 159,
+        "priority": "High"
+      },
+      {
+        "id": "UC-035",
+        "role": "DevOps & Platform",
+        "code": "DPE",
+        "name": "Run parallel Claude Code worktrees at RAiD — deliver two DevOps & Platform tasks simultaneously in separate GitLab branches",
+        "pain": "Responding to urgent infrastructure incidents while maintaining planned platform improvement work, managing multiple environment configurations across development, staging, and production on GCC, keeping pace with MINDEF security policy changes that require platform updates, long lead times for cloud resource provisioning through government procurement processes",
+        "habitId": "SH3",
+        "entry": "Claude Code CLI",
+        "prompt": "# Set up two separate git worktrees — one per task:\ngit worktree add ../raid-task-A <branch-name-A>\ngit worktree add ../raid-task-B <branch-name-B>\n\n# Open a separate terminal and start Claude Code in each worktree:\ncd ../raid-task-A && claude\n\n# Give each Claude Code session ONE scoped task:\nI am a DevOps & Platform at RAiD. This session owns ONE task only — do not touch files outside its scope.\n\nTask for this worktree: [One scoped task from your Jira board — one feature or fix]\n\nI am running a parallel Claude Code session in a separate worktree for a different task.\n\nThis codebase uses GCC, GitLab, SHIP-HATS, Kubernetes on GCC. For this task:\n1. Explore the relevant files and confirm scope — report before changing anything\n2. Implement completely\n3. Write the GitLab MR description and flag any cross-branch risks\n\nContext — why this matters at RAiD: The DevOps and Platform Engineering team at RAiD maintains the foundational developer infrastructure that all product squads depend on — including CI/CD pipelines on GitLab, GCC cloud environments (AWS and Azure), Kubernetes clusters, monitoring and observability stacks, and the internal developer portal. They own the deployment pipeline from commit to production and are responsible for ensuring the platform meets MINDEF's stringent availability, security, and audit requirements. They also drive adoption of Infrastructure-as-Code and GitOps practices across the organisation.",
+        "inputs": "Two scoped task briefs (one per worktree); Jira story per branch; files in scope; branch names",
+        "metric": "Two tasks delivered in the time of one; ~23 min context-switching overhead removed per task pair (UC Irvine / Gloria Mark research); sprint throughput doubles for independent work items",
+        "guardrails": "Keep each Claude Code session strictly scoped to its worktree; review and merge each branch independently via GitLab; resolve any merge conflicts before both MRs land on main",
+        "timeSaved": 125,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-036",
+        "role": "DevOps & Platform",
+        "code": "DPE",
+        "name": "Review your own RAiD PR before raising it to GitLab — catch author blind spots before review",
+        "pain": "Responding to urgent infrastructure incidents while maintaining planned platform improvement work, managing multiple environment configurations across development, staging, and production on GCC, keeping pace with MINDEF security policy changes that require platform updates, long lead times for cloud resource provisioning through government procurement processes",
+        "habitId": "SH4",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a DevOps & Platform at RAiD. Before I raise this PR, review my own changes for issues I've missed as the author.\n\n[Paste the PR diff or describe the changes]\n\nContext: New Engineer Onboarding at RAiD. Review as a critical peer:\n\n1. Missing tests — which execution paths, edge cases, or error conditions have no test coverage?\n2. Scope creep — are there any changes here beyond the original Jira story?\n3. Code quality — what patterns here could cause problems at scale or make future changes harder?\n4. RAiD-specific risks — what could break existing functionality given: Responding to urgent infrastructure incidents while maintaining planned platform improvement work, managing multiple environment configurations across development, staging, and production on GCC, keeping pace with MINDEF security policy changes that require platform updates, long lead times for cloud resource provisioning through government procurement processes?\n5. MR description gaps — what would a reviewer need to understand that isn't clear from the diff?\n\nDo not fix — identify and rank issues by review impact. Output a numbered list I can action before raising.",
+        "inputs": "PR diff or description; Jira story the PR addresses; any known constraints or standards at RAiD",
+        "metric": "Review round-trips reduced from 3–4 to 1–2 per feature; author blind spots caught before reviewer time is spent (~50% rework reduction per BCG/Harvard)",
+        "guardrails": "Address all High-impact findings before raising the MR; loop in product owner if scope changes are needed; run GitLab before raising",
+        "timeSaved": 80,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-037",
+        "role": "DevOps & Platform",
+        "code": "DPE",
+        "name": "Draft the RAiD post-mortem, ADR, or technical runbook — self-audit before it reaches the team",
+        "pain": "Responding to urgent infrastructure incidents while maintaining planned platform improvement work, managing multiple environment configurations across development, staging, and production on GCC, keeping pace with MINDEF security policy changes that require platform updates, long lead times for cloud resource provisioning through government procurement processes",
+        "habitId": "SH5",
+        "entry": "Claude.ai Web",
+        "prompt": "Draft the following engineering content for RAiD:\n\n[Describe what to draft — e.g., incident post-mortem, architecture decision record, onboarding runbook for the Feature Development & Delivery workflow, or GitLab MR description template]\n\nContext:\n- Purpose: [why this document is needed]\n- Audience: [Tech Lead, new joiner, product owner, on-call engineer]\n- Key message: [the single most important point this must communicate]\n- Engineering context: The DevOps and Platform Engineering team at RAiD maintains the foundational developer infrastructure that all product squads depend on — including CI/CD pipelines on GitLab, GCC cloud environments (AWS and Azure), Kubernetes clusters, monitoring and observability stacks, and the internal developer portal. They own the deployment pipeline from commit to production and are responsible for ensuring the platform meets MINDEF's stringent availability, security, and audit requirements. They also drive adoption of Infrastructure-as-Code and GitOps practices across the organisation.\n- Known challenge to address: Responding to urgent infrastructure incidents while maintaining planned platform improvement work, managing multiple environment configurations across development, staging, and production on GCC, keeping pace with MINDEF security policy changes that require platform updates, long lead times for cloud resource provisioning through government procurement processes\n\nAfter drafting, self-audit:\n1. What assumptions did you make that a senior RAiD engineer would immediately challenge?\n2. Would a new joiner following this runbook succeed without asking questions?\n3. Is any section vague enough to be misinterpreted by someone outside the team?\n4. What must be verified against RAiD systems or Datadog data before this goes out?\n5. What is the single weakest paragraph in this draft?\n\nOutput the draft and self-audit together. I will address all flagged items before sharing.",
+        "inputs": "Topic, purpose, and intended audience; any source material (incident timeline, sprint data, architecture diagram); relevant standards or templates at RAiD",
+        "metric": "First-draft quality good enough to share in ~40% less writing time (Anthropic internal productivity study); review cycles drop from 3 to 1",
+        "guardrails": "Never share without human review; address all self-audit flags; verify factual claims against RAiD systems or Datadog data before sending",
+        "timeSaved": 79,
+        "priority": "High"
+      },
+      {
+        "id": "UC-038",
+        "role": "DevOps & Platform",
+        "code": "DPE",
+        "name": "Turn the RAiD \"cloud infrastructure provisioning\" process into a reusable Claude template — never start from scratch again",
+        "pain": "Responding to urgent infrastructure incidents while maintaining planned platform improvement work, managing multiple environment configurations across development, staging, and production on GCC, keeping pace with MINDEF security policy changes that require platform updates, long lead times for cloud resource provisioning through government procurement processes",
+        "habitId": "SH6",
+        "entry": "Claude.ai Web",
+        "prompt": "Help me create a reusable Claude prompt template for this recurring DevOps & Platform task at RAiD:\n\nRecurring task: cloud infrastructure provisioning\n\nInterview me to extract the pattern:\n1. What inputs are always needed to start this task at RAiD?\n2. What is the consistent output format — what must every output include?\n3. What RAiD-specific context should always be embedded (e.g., Jira format, GitLab convention, compliance requirements)?\n4. What mistakes are commonly made because of: \"Responding to urgent infrastructure incidents while maintaining planned platform improvement work, managing multiple environment configurations across development, staging, and production on GCC, keeping pace with MINDEF security policy changes that require platform updates, long lead times for cloud resource provisioning through government procurement processes\"?\n5. What does excellent vs. acceptable output look like?\n\nAfter the interview, generate:\n- A reusable Claude prompt template with clear [FILL IN] markers\n- A one-paragraph usage guide any new DevOps & Platform can follow in their first sprint\n- Two example completions applied to real RAiD tasks\n\nThis template must work for a new joiner with no prior context.",
+        "inputs": "Description of the recurring task; a high-quality past output example; list of common failure modes; any RAiD-specific standards that apply",
+        "metric": "Recurring task time reduced by ~75% per use once template is established (60% average from task automation research); institutional knowledge survives rotation without handover sessions",
+        "guardrails": "Validate on 3 real tasks with a senior DevOps & Platform before sharing squad-wide; store in team wiki; review quarterly; update whenever RAiD processes change",
+        "timeSaved": 84,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-039",
+        "role": "DevOps & Platform",
+        "code": "DPE",
+        "name": "Encode the RAiD \"cloud infrastructure provisioning\" workflow as a SKILL.md Agent Skill — Claude Code runs it on command",
+        "pain": "Responding to urgent infrastructure incidents while maintaining planned platform improvement work, managing multiple environment configurations across development, staging, and production on GCC, keeping pace with MINDEF security policy changes that require platform updates, long lead times for cloud resource provisioning through government procurement processes",
+        "habitId": "SH6",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this into Claude Code:\nI am a DevOps & Platform at RAiD. Help me encode a recurring task as a SKILL.md Agent Skill so Claude Code can execute it automatically.\n\nRecurring task: cloud infrastructure provisioning\nPain point this solves: Responding to urgent infrastructure incidents while maintaining planned platform improvement work, managing multiple environment configurations across development, staging, and production on GCC, keeping pace with MINDEF security policy changes that require platform updates, long lead times for cloud resource provisioning through government procurement processes\n\nInterview me to extract what makes this consistent and automatable:\n1. What inputs does this task always start with?\n2. What is the exact output format that's always expected?\n3. What RAiD-specific context must every run include (e.g., Jira format, GitLab convention, compliance constraints)?\n4. Failure modes — what should the agent stop and flag vs. handle automatically?\n5. Success criteria — how would you verify the output is correct?\n\nGenerate SKILL.md in the project root:\n- name: Short, verb-first skill name\n- description: One sentence — what it does and when to invoke it\n- inputs: The [FILL IN] variables the user provides each run\n- steps: Step-by-step agent execution plan\n- guardrails: What the agent must never do or always verify\n- output: The exact deliverable format\n\nTest it immediately by running the skill and show me the output before finalising.",
+        "inputs": "Description of the recurring task; a high-quality past output as the gold standard; list of failure modes; any RAiD-specific standards the skill must enforce",
+        "metric": "Recurring task goes from manual to one-line invocation — ~75% effort reduction per run; skill compounds in value as the whole team uses it",
+        "guardrails": "Validate on 3 real tasks before sharing team-wide; commit SKILL.md to GitLab so the whole team benefits; review quarterly; update when RAiD processes change",
+        "timeSaved": 105,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-040",
+        "role": "DevOps & Platform",
+        "code": "DPE",
+        "name": "Queue a DevOps & Platform task to run autonomously in Claude Code at RAiD — review the GitLab output at morning standup",
+        "pain": "Responding to urgent infrastructure incidents while maintaining planned platform improvement work, managing multiple environment configurations across development, staging, and production on GCC, keeping pace with MINDEF security policy changes that require platform updates, long lead times for cloud resource provisioning through government procurement processes",
+        "habitId": "SH7",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Queue this task before end of day — Claude runs, you review tomorrow:\nI am a DevOps & Platform at RAiD. Complete this task fully autonomously. I will not be monitoring — run to completion and leave a reviewable output.\n\nTask:\n[Describe the task in full — e.g., \"Expand your test framework test coverage for [module] to 80% branch coverage\" or \"Refactor [component] to eliminate: Responding to urgent infrastructure incidents while maintaining planned platform improvement work, managing multiple environment configurations across development, staging, and production on GCC, keeping pace with MINDEF security policy changes that require platform updates, long lead times for cloud resource provisioning through government procurement processes\"]\n\nThis codebase uses GCC, GitLab, SHIP-HATS, Kubernetes on GCC.\n\nBefore starting:\n1. Explore the relevant files and confirm you have everything needed — list what you found\n2. If you hit a hard blocker requiring a decision, stop cleanly and document it; do not guess\n3. Confirm the task is self-contained before beginning\n\nExecute completely. When finished, create REVIEW.md containing:\n- What was completed and what changed\n- Files modified (list with one-line reason each)\n- Key decisions made and why\n- Items needing my review before the GitLab MR is raised\n- Any risks or assumptions I should validate before merging\n\nContext — why this matters at RAiD: The DevOps and Platform Engineering team at RAiD maintains the foundational developer infrastructure that all product squads depend on — including CI/CD pipelines on GitLab, GCC cloud environments (AWS and Azure), Kubernetes clusters, monitoring and observability stacks, and the internal developer portal. They own the deployment pipeline from commit to production and are responsible for ensuring the platform meets MINDEF's stringent availability, security, and audit requirements. They also drive adoption of Infrastructure-as-Code and GitOps practices across the organisation.",
+        "inputs": "Full task description with acceptance criteria; branch name to work on; files in scope; any standards to follow",
+        "metric": "~75% of active engineering time converted to passive review (Salesforce/Cursor: 85% effort reduction on test coverage; Anthropic 100k conversations: 80% average time reduction on autonomous tasks); REVIEW.md ready at morning standup",
+        "guardrails": "Review REVIEW.md and all diffs before raising the GitLab MR; run the full GitLab pipeline; validate key assumptions; never deploy to RAiD production without human sign-off",
+        "timeSaved": 215,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-041",
+        "role": "Security Engineers",
+        "code": "SEC",
+        "name": "Write the RAiD threat model before the security assessment begins — scope brief for Threat modelling",
+        "pain": "High volume of security findings generated by automated scanners requiring manual triage and disposition, coordinating remediation across multiple autonomous product squads with competing sprint priorities, assembling accreditation documentation packages for new system deployments, keeping application dependencies patched in GCC environments with restricted external internet access",
+        "habitId": "SH1",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a Security Engineers at RAiD. Before conducting a security assessment, help me write a threat model brief.\n\nTarget: \"Threat modelling\"\n\nChallenge: High volume of security findings generated by automated scanners requiring manual triage and disposition, coordinating remediation across multiple autonomous product squads with competing sprint priorities, assembling accreditation documentation packages for new system deployments, keeping application dependencies patched in GCC environments with restricted external internet access\n\n1. Attack surface — what are the entry points, trust boundaries, and data flows to assess?\n2. Threat actors — who are the realistic adversaries and what are their likely capabilities against RAiD?\n3. Assets at risk — what data or functionality must be protected?\n4. Relevant threat vectors — which vulnerability classes are most likely given the stack: GCC, GitLab, SHIP-HATS, Kubernetes on GCC?\n5. Assessment scope — what is explicitly in scope vs. out of scope for this engagement?\n\nOutput: a threat model brief I can share with the team before the assessment begins.",
+        "inputs": "System description; data classification requirements; known threat history; compliance framework; tech stack details",
+        "metric": "Security assessment coverage gaps caught before the engagement starts; time wasted on out-of-scope findings eliminated; findings are actionable because scope is agreed upfront",
+        "guardrails": "Threat model requires review by a senior security engineer before assessment begins; data classification must be confirmed with the system owner; never start without agreed scope",
+        "timeSaved": 76,
+        "priority": "High"
+      },
+      {
+        "id": "UC-042",
+        "role": "Security Engineers",
+        "code": "SEC",
+        "name": "Run an automated security code review of RAiD services — identify vulnerabilities and generate remediation code with Claude Code",
+        "pain": "High volume of security findings generated by automated scanners requiring manual triage and disposition, coordinating remediation across multiple autonomous product squads with competing sprint priorities, assembling accreditation documentation packages for new system deployments, keeping application dependencies patched in GCC environments with restricted external internet access",
+        "habitId": "SH2",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this task into Claude Code:\nI am a Security Engineers at RAiD. Conduct a security code review of this service.\n\nTarget: [Service or module name]\nScope: [Authentication / input validation / secret handling / external API calls]\n\nThis codebase uses GCC, GitLab, SHIP-HATS, Kubernetes on GCC. Act as my security review agent:\n\nStep 1 — Explore: Map the attack surface — auth, authorisation, data handling, external calls, secret storage. Report before proposing changes.\n\nStep 2 — Findings: List all vulnerabilities by severity (Critical / High / Medium / Low). For each: issue description, exploitability in RAiD's context, and remediation. Wait for my go-ahead.\n\nStep 3 — Remediation code: Implement approved High and Critical fixes, following existing patterns.\n\nStep 4 — Write the GitLab MR: vulnerability summary, fixes applied, deferred items and why.\n\nConstraints:\n- Current blocker: High volume of security findings generated by automated scanners requiring manual triage and disposition, coordinating remediation across multiple autonomous product squads with competing sprint priorities, assembling accreditation documentation packages for new system deployments, keeping application dependencies patched in GCC environments with restricted external internet access\n- Do not modify business logic outside the security fix scope",
+        "inputs": "Service code; any known CVEs or prior findings; compliance requirements; threat model if available",
+        "metric": "Security review ~55% faster than manual (GitHub Copilot study); Critical and High findings remediated before production; audit trail maintained in GitLab",
+        "guardrails": "All findings require security lead sign-off before MR is raised; Critical findings block deployment; Medium/Low deferred items tracked in Jira",
+        "timeSaved": 171,
+        "priority": "High"
+      },
+      {
+        "id": "UC-043",
+        "role": "Security Engineers",
+        "code": "SEC",
+        "name": "Run parallel Claude Code worktrees at RAiD — deliver two Security Engineers tasks simultaneously in separate GitLab branches",
+        "pain": "High volume of security findings generated by automated scanners requiring manual triage and disposition, coordinating remediation across multiple autonomous product squads with competing sprint priorities, assembling accreditation documentation packages for new system deployments, keeping application dependencies patched in GCC environments with restricted external internet access",
+        "habitId": "SH3",
+        "entry": "Claude Code CLI",
+        "prompt": "# Set up two separate git worktrees — one per task:\ngit worktree add ../raid-task-A <branch-name-A>\ngit worktree add ../raid-task-B <branch-name-B>\n\n# Open a separate terminal and start Claude Code in each worktree:\ncd ../raid-task-A && claude\n\n# Give each Claude Code session ONE scoped task:\nI am a Security Engineers at RAiD. This session owns ONE task only — do not touch files outside its scope.\n\nTask for this worktree: [One scoped task from your Jira board — one service security audit]\n\nI am running a parallel Claude Code session in a separate worktree for a different task.\n\nThis codebase uses GCC, GitLab, SHIP-HATS, Kubernetes on GCC. For this task:\n1. Explore the relevant files and confirm scope — report before changing anything\n2. Implement completely\n3. Write the GitLab MR description and flag any cross-branch risks\n\nContext — why this matters at RAiD: Security Engineers at RAiD operate in a uniquely high-stakes environment where defence systems must meet both Singapore Government IM8 cybersecurity standards and MINDEF-specific classified system requirements for Certification & Accreditation. They conduct threat modelling, manage vulnerability programmes, implement SAST/DAST tooling in CI pipelines, and respond to security incidents across the RAiD application portfolio. Security Engineers also advise product squads on secure architecture decisions and prepare documentation for government security audits and C&A submissions.",
+        "inputs": "Two scoped task briefs (one per worktree); Jira story per branch; files in scope; branch names",
+        "metric": "Two tasks delivered in the time of one; ~23 min context-switching overhead removed per task pair (UC Irvine / Gloria Mark research); sprint throughput doubles for independent work items",
+        "guardrails": "Keep each Claude Code session strictly scoped to its worktree; review and merge each branch independently via GitLab; resolve any merge conflicts before both MRs land on main",
+        "timeSaved": 137,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-044",
+        "role": "Security Engineers",
+        "code": "SEC",
+        "name": "Review the RAiD feature spec for security vulnerabilities before development starts",
+        "pain": "High volume of security findings generated by automated scanners requiring manual triage and disposition, coordinating remediation across multiple autonomous product squads with competing sprint priorities, assembling accreditation documentation packages for new system deployments, keeping application dependencies patched in GCC environments with restricted external internet access",
+        "habitId": "SH4",
+        "entry": "Claude.ai Web",
+        "prompt": "I am a Security Engineers at RAiD. Before development starts on this feature, review the spec for security vulnerabilities and missing controls.\n\n[Paste the feature spec, user story, or design doc]\n\nContext: New Engineer Onboarding at RAiD. Review for:\n\n1. Authentication and authorisation gaps — are there operations that should require elevated privilege but are not specified?\n2. Data exposure risks — what sensitive data is handled? Are data classification requirements addressed?\n3. Input validation — what user-supplied or external inputs are processed? Are they all validated and sanitised?\n4. Audit trail gaps — what security-relevant events should be logged but are not specified?\n5. RAiD-specific security constraints related to: High volume of security findings generated by automated scanners requiring manual triage and disposition, coordinating remediation across multiple autonomous product squads with competing sprint priorities, assembling accreditation documentation packages for new system deployments, keeping application dependencies patched in GCC environments with restricted external internet access\n\nDo not fix — identify and rank by severity (Critical / High / Medium / Low). Output a security gap list.",
+        "inputs": "Feature spec or user story; data classification of assets involved; relevant compliance requirements; known vulnerability history for this area",
+        "metric": "Security vulnerabilities caught at design time (10× cheaper to fix) vs. after implementation; VAPT findings for in-flight features reduced",
+        "guardrails": "Critical and High gaps must be addressed before any development starts; loop in product owner if spec changes are required; track deferred items in Jira",
+        "timeSaved": 92,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-045",
+        "role": "Security Engineers",
+        "code": "SEC",
+        "name": "Draft the RAiD security assessment or compliance report — self-audit before sign-off",
+        "pain": "High volume of security findings generated by automated scanners requiring manual triage and disposition, coordinating remediation across multiple autonomous product squads with competing sprint priorities, assembling accreditation documentation packages for new system deployments, keeping application dependencies patched in GCC environments with restricted external internet access",
+        "habitId": "SH5",
+        "entry": "Claude.ai Web",
+        "prompt": "Draft the following security content for RAiD:\n\n[Describe what to draft — e.g., VAPT findings summary, security assessment report, compliance evidence document, or risk register update]\n\nContext:\n- Purpose: [compliance submission, management review, or engineering action]\n- Audience: [CISO, engineering team, compliance officer]\n- Key message: [the single most important security finding or status this must communicate]\n- Security context: Security Engineers at RAiD operate in a uniquely high-stakes environment where defence systems must meet both Singapore Government IM8 cybersecurity standards and MINDEF-specific classified system requirements for Certification & Accreditation. They conduct threat modelling, manage vulnerability programmes, implement SAST/DAST tooling in CI pipelines, and respond to security incidents across the RAiD application portfolio. Security Engineers also advise product squads on secure architecture decisions and prepare documentation for government security audits and C&A submissions.\n- Challenge to address: High volume of security findings generated by automated scanners requiring manual triage and disposition, coordinating remediation across multiple autonomous product squads with competing sprint priorities, assembling accreditation documentation packages for new system deployments, keeping application dependencies patched in GCC environments with restricted external internet access\n\nAfter drafting, self-audit:\n1. Would a non-technical stakeholder understand the business risk behind each finding?\n2. Are severity ratings defensible — is any finding over- or under-stated?\n3. What assumptions about remediation timelines did you make that the team might challenge?\n4. What must be verified against actual scan results or VAPT evidence before this goes out?\n5. What finding, if omitted or downplayed, would cause the most reputational damage if discovered?\n\nOutput the draft and self-audit together.",
+        "inputs": "Security scan results or VAPT findings; compliance framework requirements; system architecture; prior security reports for trend comparison",
+        "metric": "Security report drafting time reduced by ~40%; self-audit catches severity mis-ratings and missing evidence before sign-off review",
+        "guardrails": "Never publish AI-drafted security reports without human review of all findings; verify all severity ratings against actual evidence; address all self-audit flags before submitting externally",
+        "timeSaved": 91,
+        "priority": "High"
+      },
+      {
+        "id": "UC-046",
+        "role": "Security Engineers",
+        "code": "SEC",
+        "name": "Turn the RAiD \"SAST/DAST tooling management\" process into a reusable Claude template — never start from scratch again",
+        "pain": "High volume of security findings generated by automated scanners requiring manual triage and disposition, coordinating remediation across multiple autonomous product squads with competing sprint priorities, assembling accreditation documentation packages for new system deployments, keeping application dependencies patched in GCC environments with restricted external internet access",
+        "habitId": "SH6",
+        "entry": "Claude.ai Web",
+        "prompt": "Help me create a reusable Claude prompt template for this recurring Security Engineers task at RAiD:\n\nRecurring task: SAST/DAST tooling management\n\nInterview me to extract the pattern:\n1. What inputs are always needed to start this task at RAiD?\n2. What is the consistent output format — what must every output include?\n3. What RAiD-specific context should always be embedded (e.g., Jira format, GitLab convention, compliance requirements)?\n4. What mistakes are commonly made because of: \"High volume of security findings generated by automated scanners requiring manual triage and disposition, coordinating remediation across multiple autonomous product squads with competing sprint priorities, assembling accreditation documentation packages for new system deployments, keeping application dependencies patched in GCC environments with restricted external internet access\"?\n5. What does excellent vs. acceptable output look like?\n\nAfter the interview, generate:\n- A reusable Claude prompt template with clear [FILL IN] markers\n- A one-paragraph usage guide any new Security Engineers can follow in their first sprint\n- Two example completions applied to real RAiD tasks\n\nThis template must work for a new joiner with no prior context.",
+        "inputs": "Description of the recurring task; a high-quality past output example; list of common failure modes; any RAiD-specific standards that apply",
+        "metric": "Recurring task time reduced by ~75% per use once template is established (60% average from task automation research); institutional knowledge survives rotation without handover sessions",
+        "guardrails": "Validate on 3 real tasks with a senior Security Engineers before sharing squad-wide; store in team wiki; review quarterly; update whenever RAiD processes change",
+        "timeSaved": 96,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-047",
+        "role": "Security Engineers",
+        "code": "SEC",
+        "name": "Encode the RAiD \"SAST/DAST tooling management\" workflow as a SKILL.md Agent Skill — Claude Code runs it on command",
+        "pain": "High volume of security findings generated by automated scanners requiring manual triage and disposition, coordinating remediation across multiple autonomous product squads with competing sprint priorities, assembling accreditation documentation packages for new system deployments, keeping application dependencies patched in GCC environments with restricted external internet access",
+        "habitId": "SH6",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Paste this into Claude Code:\nI am a Security Engineers at RAiD. Help me encode a recurring task as a SKILL.md Agent Skill so Claude Code can execute it automatically.\n\nRecurring task: SAST/DAST tooling management\nPain point this solves: High volume of security findings generated by automated scanners requiring manual triage and disposition, coordinating remediation across multiple autonomous product squads with competing sprint priorities, assembling accreditation documentation packages for new system deployments, keeping application dependencies patched in GCC environments with restricted external internet access\n\nInterview me to extract what makes this consistent and automatable:\n1. What inputs does this task always start with?\n2. What is the exact output format that's always expected?\n3. What RAiD-specific context must every run include (e.g., Jira format, GitLab convention, compliance constraints)?\n4. Failure modes — what should the agent stop and flag vs. handle automatically?\n5. Success criteria — how would you verify the output is correct?\n\nGenerate SKILL.md in the project root:\n- name: Short, verb-first skill name\n- description: One sentence — what it does and when to invoke it\n- inputs: The [FILL IN] variables the user provides each run\n- steps: Step-by-step agent execution plan\n- guardrails: What the agent must never do or always verify\n- output: The exact deliverable format\n\nTest it immediately by running the skill and show me the output before finalising.",
+        "inputs": "Description of the recurring task; a high-quality past output as the gold standard; list of failure modes; any RAiD-specific standards the skill must enforce",
+        "metric": "Recurring task goes from manual to one-line invocation — ~75% effort reduction per run; skill compounds in value as the whole team uses it",
+        "guardrails": "Validate on 3 real tasks before sharing team-wide; commit SKILL.md to GitLab so the whole team benefits; review quarterly; update when RAiD processes change",
+        "timeSaved": 117,
+        "priority": "Medium"
+      },
+      {
+        "id": "UC-048",
+        "role": "Security Engineers",
+        "code": "SEC",
+        "name": "Queue a Security Engineers task to run autonomously in Claude Code at RAiD — review the GitLab output at morning standup",
+        "pain": "High volume of security findings generated by automated scanners requiring manual triage and disposition, coordinating remediation across multiple autonomous product squads with competing sprint priorities, assembling accreditation documentation packages for new system deployments, keeping application dependencies patched in GCC environments with restricted external internet access",
+        "habitId": "SH7",
+        "entry": "Claude Code CLI",
+        "prompt": "# In your project directory:\nclaude\n\n# Queue this task before end of day — Claude runs, you review tomorrow:\nI am a Security Engineers at RAiD. Complete this task fully autonomously. I will not be monitoring — run to completion and leave a reviewable output.\n\nTask:\n[Describe the task in full — e.g., \"Scan our stack for new CVEs published this week and exposed secrets in recent commits\"]\n\nThis codebase uses GCC, GitLab, SHIP-HATS, Kubernetes on GCC.\n\nBefore starting:\n1. Explore the relevant files and confirm you have everything needed — list what you found\n2. If you hit a hard blocker requiring a decision, stop cleanly and document it; do not guess\n3. Confirm the task is self-contained before beginning\n\nExecute completely. When finished, create REVIEW.md containing:\n- What was completed and what changed\n- Files modified (list with one-line reason each)\n- Key decisions made and why\n- Items needing my review before the GitLab MR is raised\n- Any risks or assumptions I should validate before merging\n\nContext — why this matters at RAiD: Security Engineers at RAiD operate in a uniquely high-stakes environment where defence systems must meet both Singapore Government IM8 cybersecurity standards and MINDEF-specific classified system requirements for Certification & Accreditation. They conduct threat modelling, manage vulnerability programmes, implement SAST/DAST tooling in CI pipelines, and respond to security incidents across the RAiD application portfolio. Security Engineers also advise product squads on secure architecture decisions and prepare documentation for government security audits and C&A submissions.",
+        "inputs": "Full task description with acceptance criteria; branch name to work on; files in scope; any standards to follow",
+        "metric": "~75% of active engineering time converted to passive review (Salesforce/Cursor: 85% effort reduction on test coverage; Anthropic 100k conversations: 80% average time reduction on autonomous tasks); REVIEW.md ready at morning standup",
+        "guardrails": "Review REVIEW.md and all diffs before raising the GitLab MR; run the full GitLab pipeline; validate key assumptions; never deploy to RAiD production without human sign-off",
+        "timeSaved": 227,
+        "priority": "Medium"
+      }
+    ]
+  }
+}
